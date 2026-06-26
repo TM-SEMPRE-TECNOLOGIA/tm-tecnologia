@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Thiago Nascimento Barbosa - Resume</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;600;700&display=swap');
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Inter', sans-serif; background: #f5f6f8;
+      color: #1a1a1a; line-height: 1.6; -webkit-font-smoothing: antialiased;
+    }
+
+    .a4-container {
+      width: 210mm; min-height: 297mm; padding: 20mm; margin: 10mm auto;
+      background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.1); position: relative;
+    }
+
+    header { border-bottom: 2px solid #1A1A1A; padding-bottom: 15px; margin-bottom: 20px; }
+    
+    .name { font-family: 'Roboto Slab', serif; font-size: 32px; font-weight: 700; color: #1a1a1a; letter-spacing: -0.5px; }
+    .role { font-size: 16px; font-weight: 500; color: #5A8FBE; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px; }
+    
+    .contact-info { margin-top: 10px; font-size: 13px; color: #5C5A55; display: flex; gap: 15px; flex-wrap: wrap; }
+    .contact-info span { display: inline-flex; align-items: center; gap: 5px; }
+    .contact-info strong { color: #1a1a1a; }
+
+    .section-title {
+      font-family: 'Roboto Slab', serif; font-size: 18px; font-weight: 700;
+      color: #1a1a1a; margin-top: 25px; margin-bottom: 12px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-title::after { content: ""; flex: 1; height: 1px; background: #E8E5DE; }
+
+    .summary { font-size: 14px; color: #333; text-align: justify; }
+
+    .exp-item { margin-bottom: 18px; }
+    .exp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
+    .exp-company { font-weight: 600; font-size: 15px; color: #1a1a1a; }
+    .exp-date { font-size: 13px; color: #8C8A85; font-weight: 500; }
+    .exp-role { font-weight: 500; font-size: 14px; color: #5A8FBE; margin-bottom: 5px; }
+    .exp-desc { font-size: 13px; color: #444; margin-left: 15px; }
+    .exp-desc li { margin-bottom: 4px; }
+
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 10px; }
+    .skill-category { font-weight: 600; font-size: 14px; color: #1a1a1a; margin-bottom: 8px; }
+    .skill-list { list-style: none; font-size: 13px; color: #444; }
+    .skill-list li { margin-bottom: 5px; display: flex; align-items: start; gap: 6px; }
+    .skill-list li::before { content: "•"; color: #5A8FBE; font-weight: bold; }
+
+    @media print {
+      body { background: #fff; }
+      .a4-container { width: 100%; height: auto; margin: 0; padding: 0; box-shadow: none; }
+      @page { size: A4; margin: 15mm; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="a4-container">
+    <header>
+      <div class="name">THIAGO NASCIMENTO BARBOSA</div>
+      <div class="role">Technical Estimator & Process Automation Specialist</div>
+      <div class="contact-info">
+        <span><strong>Phone/WhatsApp:</strong> +55 62 99199-4956</span>
+        <span><strong>Email:</strong> thiagonascimento.barbosapro@gmail.com</span>
+        <span><strong>Location:</strong> Goiania, Brazil (Available for Remote Global Roles)</span>
+      </div>
+    </header>
+
+    <div class="summary">
+      Highly adaptable professional bridging the gap between Civil Engineering fieldwork and Software Automation. Extensive experience in drafting complex maintenance budgets, interpreting blueprints, and producing highly detailed technical reports for major institutional clients. A fast, self-directed learner with a strong background in using AI tools and creating custom software pipelines to eliminate manual bottlenecks. I successfully developed and deployed an automated reporting system that reduced technical documentation time by 85%.
+    </div>
+
+    <h2 class="section-title">Professional Experience</h2>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-company">Maffeng - Engenharia e Manutenção</div>
+        <div class="exp-date">2024 - Present</div>
+      </div>
+      <div class="exp-role">Technical Estimator & Automation Architect</div>
+      <ul class="exp-desc">
+        <li>Drafted and managed technical budgets and detailed photographic inspection reports for civil engineering and facility maintenance contracts nationwide.</li>
+        <li>Oversaw documentation workflows and SLA compliance for major institutional accounts, including the Bank of Brazil, Correios, and SEAD.</li>
+        <li>Designed and developed "AutoRelatório V5," an automated Python/Next.js reporting system, reducing the time spent compiling technical reports by 85%.</li>
+        <li>Coordinated closely with field engineering teams to translate raw on-site data into highly structured, compliant estimates and actionable technical documents.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-company">Moto Brasil Pecas e Acessórios</div>
+        <div class="exp-date">2023 - 2023</div>
+      </div>
+      <div class="exp-role">Inventory & Logistics Controller</div>
+      <ul class="exp-desc">
+        <li>Managed inventory control, effectively organizing parts and components to streamline dispatch operations.</li>
+        <li>Implemented agile separation routines, focusing on precision, strict deadline adherence, and operational efficiency.</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-company">Brasil Telecom Call Center S/A</div>
+        <div class="exp-date">2022 - 2022</div>
+      </div>
+      <div class="exp-role">Customer Service & Telemarketing Agent</div>
+      <ul class="exp-desc">
+        <li>Developed strong resilience and negotiation skills in a fast-paced, high-pressure environment.</li>
+        <li>Provided rapid problem resolution for clients while meeting aggressive daily operational metrics.</li>
+      </ul>
+    </div>
+
+    <h2 class="section-title">Core Skills & Competencies</h2>
+    <div class="skills-grid">
+      <div>
+        <div class="skill-category">Estimation & Engineering Operations</div>
+        <ul class="skill-list">
+          <li>Civil Engineering & Facility Maintenance Estimation</li>
+          <li>Technical Report Writing (Inspection & Diagnostics)</li>
+          <li>Blueprint Reading & Specification Interpretation</li>
+          <li>Cost Analysis & Quantitative Surveying</li>
+          <li>Field Team Communication & Data Translation</li>
+        </ul>
+      </div>
+      <div>
+        <div class="skill-category">Technology & Process Automation</div>
+        <ul class="skill-list">
+          <li>Process Automation (Python, python-docx, Next.js)</li>
+          <li>Advanced Data Management (Excel, openpyxl, Spreadsheets)</li>
+          <li>Asynchronous Communication & AI Translation Tools proficiency</li>
+          <li>SLA Management & Operational Resilience</li>
+          <li>Self-Taught Fast Learner (Highly adaptable to new stacks)</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

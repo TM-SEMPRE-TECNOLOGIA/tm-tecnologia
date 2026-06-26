@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wireframe — Variant 3: Quick-Scan Strip</title>
+<style>
+  :root {
+    --bg: #111110;
+    --card: #1a1a18;
+    --border: #2a2a26;
+    --text: #e8e6e1;
+    --muted: #8b8984;
+    --orange: #C8541C;
+    --orange-bg: rgba(200,84,28,0.08);
+    --green: #3fb950;
+    --red: #f85149;
+    --radius: 8px;
+    --sans: 'Inter', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .topbar {
+    height: 48px; background: var(--card); border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; padding: 0 16px; gap: 12px; flex-shrink: 0;
+  }
+  .topbar-logo { font-weight: 700; font-size: 14px; color: var(--orange); }
+  .topbar-sep { color: var(--muted); }
+  .topbar-contract { font-size: 13px; }
+  .topbar-mode { margin-left: auto; font-size: 11px; padding: 2px 10px; border-radius: 12px;
+    background: var(--orange-bg); color: var(--orange); font-weight: 600; }
+
+  .main { display: flex; flex: 1; overflow: hidden; flex-direction: column; }
+
+  .content { flex: 1; display: flex; overflow: hidden; }
+
+  /* ── Steps ──────────────────────────── */
+  .steps {
+    display: flex; gap: 0; padding: 0 24px; border-bottom: 1px solid var(--border);
+    background: var(--card); flex-shrink: 0;
+  }
+  .step { padding: 12px 20px; font-size: 13px; color: var(--muted); cursor: pointer;
+    border-bottom: 2px solid transparent; transition: 0.15s; display: flex; align-items: center; gap: 6px; }
+  .step-num { width: 20px; height: 20px; border-radius: 50%; background: rgba(255,255,255,0.06);
+    display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; }
+  .step.active { color: var(--orange); border-bottom-color: var(--orange); }
+  .step.active .step-num { background: var(--orange); color: #000; }
+  .step.done { color: var(--green); }
+  .step.done .step-num { background: var(--green); color: #000; }
+
+  /* ── Split layout ───────────────────── */
+  .editor-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-width: 0;
+  }
+
+  /* ── Filmstrip ──────────────────────── */
+  .filmstrip-bar {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 16px; background: var(--card);
+    border-bottom: 1px solid var(--border); flex-shrink: 0;
+    overflow-x: hidden;
+  }
+  .filmstrip-label {
+    font-size: 10px; color: var(--muted); text-transform: uppercase;
+    letter-spacing: 0.5px; white-space: nowrap; flex-shrink: 0;
+  }
+  .filmstrip-scroll {
+    display: flex; gap: 6px; overflow-x: auto; flex: 1;
+    scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+    padding-bottom: 4px;
+  }
+  .filmstrip-scroll::-webkit-scrollbar { height: 4px; }
+  .filmstrip-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  .film-thumb {
+    width: 80px; height: 56px; border-radius: 6px; flex-shrink: 0;
+    cursor: pointer; position: relative; overflow: hidden;
+    border: 2px solid var(--border); transition: 0.15s;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; color: rgba(255,255,255,0.4);
+  }
+  .film-thumb:hover { border-color: var(--muted); transform: translateY(-2px); }
+  .film-thumb.included { border-color: var(--green); }
+  .film-thumb.excluded { border-color: transparent; opacity: 0.4; filter: grayscale(0.6); }
+  .film-thumb.active { border-color: var(--orange); box-shadow: 0 0 0 2px rgba(200,84,28,0.25); }
+  
+  .film-check {
+    position: absolute; top: 3px; right: 3px;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--green); display: flex; align-items: center;
+    justify-content: center; font-size: 10px; color: white;
+    font-weight: 700;
+  }
+  .film-thumb.excluded .film-check {
+    background: #444;
+  }
+  .film-name {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 2px 4px; font-size: 7px; font-family: var(--mono);
+    color: white; background: rgba(0,0,0,0.7); white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis;
+  }
+
+  .filmstrip-actions {
+    display: flex; gap: 4px; flex-shrink: 0;
+  }
+  .btn {
+    padding: 5px 12px; border-radius: 6px; border: 1px solid var(--border);
+    background: var(--card); color: var(--text); font-size: 11px; cursor: pointer;
+    transition: 0.15s; font-family: var(--sans);
+  }
+  .btn:hover { border-color: var(--muted); }
+  .btn-primary { background: var(--orange); border-color: var(--orange); color: #fff; font-weight: 600; }
+  .btn-primary:hover { opacity: 0.9; }
+  .btn-ghost { border: none; background: none; color: var(--muted); }
+  .btn-ghost:hover { color: var(--text); }
+  .btn-sm { padding: 3px 8px; font-size: 10px; }
+  .btn-icon { width: 28px; height: 28px; padding: 0; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+
+  /* ── Detail area ────────────────────── */
+  .detail-area {
+    flex: 1; overflow-y: auto; padding: 16px 20px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .detail-empty {
+    flex: 1; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; color: var(--muted); gap: 8px;
+  }
+  .detail-empty-icon { font-size: 48px; opacity: 0.3; }
+
+  .detail-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 16px; transition: 0.2s;
+  }
+  .detail-card.excluded { opacity: 0.4; border-color: transparent; }
+  
+  .detail-top {
+    display: flex; gap: 14px; margin-bottom: 14px;
+  }
+  .detail-img {
+    width: 180px; height: 135px; border-radius: 6px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 42px; color: rgba(255,255,255,0.4);
+  }
+  .detail-meta { flex: 1; min-width: 0; }
+  .detail-name { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+  .detail-folder { font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+  .detail-status-bar {
+    display: flex; align-items: center; gap: 8px; margin-bottom: 12px;
+  }
+
+  .toggle-btn {
+    padding: 6px 16px; border-radius: 20px; border: none; cursor: pointer;
+    font-size: 12px; font-weight: 600; transition: 0.15s; font-family: var(--sans);
+  }
+  .toggle-btn.include { background: rgba(63,185,80,0.15); color: var(--green); }
+  .toggle-btn.include:hover { background: rgba(63,185,80,0.25); }
+  .toggle-btn.exclude { background: rgba(255,255,255,0.05); color: var(--muted); }
+  .toggle-btn.exclude:hover { background: rgba(248,81,73,0.1); color: var(--red); }
+
+  .detail-measures {
+    display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px;
+  }
+  .measure-group {
+    display: flex; flex-direction: column; gap: 3px;
+  }
+  .measure-label { font-size: 10px; color: var(--muted); text-transform: uppercase; }
+  .measure-input {
+    padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border);
+    background: var(--bg); color: var(--text); font-size: 13px;
+    font-family: var(--mono);
+  }
+  .measure-input:focus { outline: none; border-color: var(--orange); }
+  .measure-total {
+    display: flex; flex-direction: column; justify-content: flex-end;
+    align-items: flex-end;
+  }
+  .measure-total-label { font-size: 10px; color: var(--muted); }
+  .measure-total-val { font-size: 18px; font-weight: 700; color: var(--orange);
+    font-family: var(--mono); }
+
+  .detail-nav {
+    display: flex; align-items: center; gap: 10px; justify-content: center;
+    padding: 8px;
+  }
+
+  /* ── Preview ────────────────────────── */
+  .preview {
+    width: 360px; background: #f8f7f4; border-left: 1px solid var(--border);
+    display: flex; flex-direction: column; flex-shrink: 0; color: #1a1a1a;
+  }
+  .preview-header {
+    padding: 10px 14px; font-size: 11px; color: #666;
+    border-bottom: 1px solid #e0ddd5; font-weight: 600;
+    display: flex; justify-content: space-between;
+  }
+  .preview-body { flex: 1; overflow-y: auto; padding: 14px; font-size: 12px; }
+  .preview-doc {
+    background: white; border: 1px solid #e0ddd5; border-radius: 4px;
+    padding: 16px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .preview-section { font-size: 14px; font-weight: 700; margin: 14px 0 6px; color: #C8541C; }
+  .preview-img-placeholder {
+    height: 80px; background: #e8e6e1; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    color: #999; font-size: 11px; margin: 4px 0;
+  }
+  .preview-measure {
+    font-size: 10px; color: #666; text-align: center;
+    margin: 2px 0 8px; font-family: var(--mono);
+  }
+
+  .footer-bar {
+    display: flex; gap: 8px; padding: 12px 16px;
+    border-top: 1px solid var(--border); background: var(--card); flex-shrink: 0;
+    align-items: center;
+  }
+  .footer-hint { margin-left: auto; font-size: 11px; color: var(--muted); }
+
+  .keyboard-hint {
+    font-size: 10px; color: var(--muted);
+    padding: 4px 10px; border-radius: 4px; background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+  }
+  .key { font-family: var(--mono); padding: 1px 5px; border-radius: 3px;
+    background: rgba(255,255,255,0.08); border: 1px solid var(--border); font-size: 10px; }
+
+  .toast {
+    position: fixed; bottom: 20px; right: 20px;
+    padding: 10px 18px; border-radius: 8px; font-size: 13px;
+    background: var(--card); border: 1px solid var(--border);
+    opacity: 0; transform: translateY(12px); transition: 0.3s; pointer-events: none;
+    z-index: 100;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-logo">TM</span>
+  <span class="topbar-sep">/</span>
+  <span class="topbar-contract">2626 — Salinas, MG</span>
+  <span class="topbar-mode">TRADICIONAL</span>
+</div>
+
+<div class="main">
+  <div class="steps">
+    <div class="step done"><span class="step-num">✓</span> Cabeçalho</div>
+    <div class="step active">
+      <span class="step-num">2</span> Revisão Rápida
+    </div>
+    <div class="step"><span class="step-num">3</span> Gerar</div>
+  </div>
+
+  <div class="content">
+    <!-- Editor Panel -->
+    <div class="editor-panel">
+      <!-- Filmstrip Bar -->
+      <div class="filmstrip-bar">
+        <span class="filmstrip-label">📷 Fotos</span>
+        <div class="filmstrip-scroll" id="filmstrip"></div>
+        <div class="filmstrip-actions">
+          <span class="keyboard-hint"><span class="key">←</span><span class="key">→</span> navegar &nbsp; <span class="key">Space</span> incluir/excluir</span>
+        </div>
+      </div>
+
+      <!-- Detail Area -->
+      <div class="detail-area" id="detail-area">
+        <div class="detail-empty">
+          <div class="detail-empty-icon">👆</div>
+          <div>Clique em uma foto na tira acima para ver detalhes</div>
+          <div style="font-size:11px;color:var(--muted)">Use ← → para navegar, Space para incluir/excluir</div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer-bar">
+        <button class="btn" onclick="history.back()">← Voltar</button>
+        <span class="footer-hint" id="footer-hint">
+          Incluídas: <strong style="color:var(--green)" id="fh-in">9</strong> de 12 · Excluídas: <strong style="color:var(--muted)" id="fh-ex">3</strong>
+        </span>
+        <button class="btn btn-primary" onclick="generate()">
+          Gerar .docx
+        </button>
+      </div>
+    </div>
+
+    <!-- Preview Panel -->
+    <div class="preview">
+      <div class="preview-header">
+        <span>📄 Preview do Relatório</span>
+        <span style="font-weight:400;font-size:10px" id="pv-count">9 fotos</span>
+      </div>
+      <div class="preview-body">
+        <div class="preview-doc" id="preview-doc"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const ITEMS = [
+  { cod:'17.6', desc:'Pintura acrílica', un:'m²' },
+  { cod:'05.2', desc:'Alvenaria', un:'m²' },
+  { cod:'11.3', desc:'Piso cerâmico', un:'m²' },
+];
+
+let blocks = [
+  { id:'b1',  name:'01 - 3,50 × 2,80.jpg',  folder:'Área externa',    included:true,  item:ITEMS[0], larg:3.50, alt:2.80, faces:2, color:'#4a6fa5' },
+  { id:'b2',  name:'02 - 4,20 × 3,10.jpg',  folder:'Área externa',    included:true,  item:ITEMS[0], larg:4.20, alt:3.10, faces:1, color:'#5a7fb5' },
+  { id:'b3',  name:'03 - 1,90 × 2,40.jpg',  folder:'Área externa',    included:true,  item:ITEMS[1], larg:1.90, alt:2.40, faces:1, color:'#6a8fc5' },
+  { id:'b4',  name:'04 - detalhe porta.jpg', folder:'Área externa',    included:false, item:null,    larg:0,    alt:0,    faces:1, color:'#3a5f95' },
+  { id:'b5',  name:'05 - 2,10 × 1,80.jpg',  folder:'Área interna',    included:true,  item:ITEMS[1], larg:2.10, alt:1.80, faces:1, color:'#7a9f55' },
+  { id:'b6',  name:'06 - 3,00 × 2,70.jpg',  folder:'Área interna',    included:true,  item:ITEMS[2], larg:3.00, alt:2.70, faces:1, color:'#8aaf65' },
+  { id:'b7',  name:'07 - 2,50 × 2,90.jpg',  folder:'Área interna',    included:true,  item:ITEMS[0], larg:2.50, alt:2.90, faces:2, color:'#9abf75' },
+  { id:'b8',  name:'08 - vista ampla.jpg',   folder:'Área interna',    included:false, item:null,    larg:0,    alt:0,    faces:1, color:'#6a8f45' },
+  { id:'b9',  name:'09 - 1,40 × 1,10.jpg',  folder:'- Segundo piso',  included:true,  item:ITEMS[2], larg:1.40, alt:1.10, faces:1, color:'#a56a4a' },
+  { id:'b10',name:'10 - 2,80 × 2,20.jpg',  folder:'- Segundo piso',  included:true,  item:ITEMS[0], larg:2.80, alt:2.20, faces:1, color:'#b57a5a' },
+  { id:'b11',name:'11 - 1,20 × 0,90.jpg',  folder:'- Segundo piso',  included:false, item:null,    larg:1.20, alt:0.90, faces:1, color:'#c58a6a' },
+  { id:'b12',name:'12 - 1,60 × 1,30.jpg',  folder:'- Segundo piso',  included:true,  item:ITEMS[2], larg:1.60, alt:1.30, faces:1, color:'#957a4a' },
+];
+
+let activeIdx = 0;
+
+function calcArea(b) { return parseFloat((b.larg * b.alt * b.faces).toFixed(2)) || 0; }
+
+// ── Filmstrip ───────────────────────────────────────────────────
+function renderFilmstrip() {
+  const strip = document.getElementById('filmstrip');
+  strip.innerHTML = blocks.map((b, i) => `
+    <div class="film-thumb ${b.included ? 'included' : 'excluded'} ${i === activeIdx ? 'active' : ''}"
+         style="background:${b.color}"
+         onclick="selectPhoto(${i})" title="${b.name} (${b.folder})">
+      🖼️
+      ${b.included ? '<div class="film-check">✓</div>' : ''}
+      <div class="film-name">${b.name.replace('.jpg','')}</div>
+    </div>
+  `).join('');
+}
+
+// ── Detail ──────────────────────────────────────────────────────
+function renderDetail() {
+  const area = document.getElementById('detail-area');
+  if (activeIdx < 0 || activeIdx >= blocks.length) {
+    area.innerHTML = `<div class="detail-empty"><div class="detail-empty-icon">👆</div><div>Clique em uma foto na tira acima</div></div>`;
+    return;
+  }
+
+  const b = blocks[activeIdx];
+  const areaVal = calcArea(b);
+  const isFirst = activeIdx === 0;
+  const isLast  = activeIdx === blocks.length - 1;
+
+  area.innerHTML = `
+    <div class="detail-card ${b.included ? '' : 'excluded'}">
+      <div class="detail-top">
+        <div class="detail-img" style="background:${b.color}">🖼️</div>
+        <div class="detail-meta">
+          <div class="detail-name">${b.name}</div>
+          <div class="detail-folder">📁 ${b.folder}</div>
+          <div class="detail-status-bar">
+            ${b.included ? `
+              <button class="toggle-btn exclude" onclick="toggleCurrent()" title="Excluir do relatório">
+                ✕ Excluir do relatório
+              </button>
+              <span style="font-size:11px;color:var(--green)">✓ Será incluída no .docx</span>
+            ` : `
+              <button class="toggle-btn include" onclick="toggleCurrent()" title="Incluir no relatório">
+                ✓ Incluir no relatório
+              </button>
+              <span style="font-size:11px;color:var(--muted)">Não entrará no .docx</span>
+            `}
+          </div>
+          ${b.included ? `
+          <div class="detail-measures">
+            <div class="measure-group">
+              <span class="measure-label">Item do contrato</span>
+              <select style="padding:6px 10px;border-radius:6px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:12px;font-family:var(--sans)" onchange="setItem('${b.id}', this.value)">
+                <option value="">— selecionar —</option>
+                ${ITEMS.map(it => `<option value="${it.cod}" ${b.item && b.item.cod === it.cod ? 'selected' : ''}>${it.cod} — ${it.desc}</option>`).join('')}
+              </select>
+            </div>
+            <div class="measure-group">
+              <span class="measure-label">Largura (m)</span>
+              <input class="measure-input" type="number" step="0.01" value="${b.larg || ''}" onchange="setMeasure('${b.id}','larg',this.value)" ${b.item ? '' : 'disabled'}>
+            </div>
+            <div class="measure-group">
+              <span class="measure-label">Altura (m)</span>
+              <input class="measure-input" type="number" step="0.01" value="${b.alt || ''}" onchange="setMeasure('${b.id}','alt',this.value)" ${b.item ? '' : 'disabled'}>
+            </div>
+            <div class="measure-group">
+              <span class="measure-label">Faces</span>
+              <select style="padding:6px 10px;border-radius:6px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:12px" onchange="setMeasure('${b.id}','faces',this.value)">
+                <option value="1" ${b.faces===1?'selected':''}>1×</option>
+                <option value="2" ${b.faces===2?'selected':''}>2×</option>
+              </select>
+            </div>
+            <div class="measure-total">
+              <span class="measure-total-label">TOTAL</span>
+              <span class="measure-total-val">${b.included && b.item ? areaVal.toFixed(2)+' m²' : '—'}</span>
+            </div>
+          </div>
+          ` : `
+          <div style="padding:20px 0;color:var(--muted);font-style:italic;text-align:center">
+            Esta foto não será incluída no relatório final.<br>
+            Clique em "Incluir no relatório" para adicionar medidas.
+          </div>
+          `}
+        </div>
+      </div>
+    </div>
+    <div class="detail-nav">
+      <button class="btn" onclick="selectPhoto(${activeIdx - 1})" ${isFirst ? 'disabled style="opacity:0.3"' : ''}>← Anterior</button>
+      <span style="font-size:11px;color:var(--muted)">${activeIdx + 1} de ${blocks.length}</span>
+      <button class="btn" onclick="selectPhoto(${activeIdx + 1})" ${isLast ? 'disabled style="opacity:0.3"' : ''}>Próxima →</button>
+    </div>
+  `;
+}
+
+function selectPhoto(idx) {
+  if (idx < 0 || idx >= blocks.length) return;
+  activeIdx = idx;
+  renderAll();
+}
+
+function toggleCurrent() {
+  const b = blocks[activeIdx];
+  b.included = !b.included;
+  toast(b.included ? `📥 "${b.name}" incluída` : `📤 "${b.name}" excluída`);
+  renderAll();
+}
+
+function setItem(id, cod) {
+  blocks.find(b => b.id === id).item = ITEMS.find(it => it.cod === cod) || null;
+  renderAll();
+}
+
+function setMeasure(id, field, val) {
+  const b = blocks.find(b => b.id === id);
+  b[field] = field === 'faces' ? parseInt(val) : parseFloat(val) || 0;
+  renderAll();
+}
+
+// ── Keyboard ────────────────────────────────────────────────────
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft')  { e.preventDefault(); selectPhoto(activeIdx - 1); }
+  if (e.key === 'ArrowRight') { e.preventDefault(); selectPhoto(activeIdx + 1); }
+  if (e.key === ' ')          { e.preventDefault(); toggleCurrent(); }
+});
+
+// ── Stats + Preview ─────────────────────────────────────────────
+function updateStats() {
+  const inc = blocks.filter(b => b.included);
+  const exc = blocks.filter(b => !b.included);
+  const total = inc.reduce((s, b) => s + calcArea(b), 0);
+  document.getElementById('fh-in').textContent = inc.length;
+  document.getElementById('fh-ex').textContent = exc.length;
+  document.getElementById('pv-count').textContent = inc.length + ' fotos';
+}
+
+function updatePreview() {
+  const preview = document.getElementById('preview-doc');
+  const byFolder = {};
+  blocks.forEach(b => {
+    if (!b.included) return;
+    if (!byFolder[b.folder]) byFolder[b.folder] = [];
+    byFolder[b.folder].push(b);
+  });
+
+  let html = `
+    <div style="text-align:center;font-size:10px;color:#999;margin-bottom:8px">
+      BB — Banco do Brasil<br>MAFFENG — Engenharia
+    </div>
+    <div style="font-size:11px;margin-bottom:6px">
+      <strong>OS:</strong> 1753 &nbsp; <strong>Ag:</strong> 1234-5 Centro
+    </div>`;
+
+  for (const [folder, photos] of Object.entries(byFolder)) {
+    html += `<div class="preview-section">${folder}</div>`;
+    photos.forEach(b => {
+      const area = calcArea(b);
+      html += `
+        <div class="preview-img-placeholder">🖼️ ${b.name}</div>
+        <div class="preview-measure">
+          ${b.item ? b.larg.toFixed(2)+' × '+b.alt.toFixed(2)+' m | Faces: '+b.faces+' | Total: '+area.toFixed(2)+' m²' : '📏 Medidas pendentes'}
+        </div>`;
+    });
+  }
+  html += `<div style="text-align:center;font-size:9px;color:#999;margin-top:14px">— Página 1 de 1 —</div>`;
+  preview.innerHTML = html;
+}
+
+function renderAll() {
+  renderFilmstrip();
+  renderDetail();
+  updateStats();
+  updatePreview();
+}
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+function generate() {
+  const inc = blocks.filter(b => b.included);
+  if (inc.length === 0) { toast('⚠️ Nenhuma foto incluída'); return; }
+  toast(`✅ Gerando .docx com ${inc.length} fotos...`);
+}
+
+// Init
+selectPhoto(0);
+</script>
+
+</body>
+</html>

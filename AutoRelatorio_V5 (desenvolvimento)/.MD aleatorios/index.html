@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AutoRelatório V5 — Overleaf Layout · TM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header class="topbar">
+  <a class="brand" href="#">
+    <div class="brand-logo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+    <span class="brand-name">AutoRelatório</span>
+    <span class="brand-ver">V5</span>
+  </a>
+  <div class="topbar-div"></div>
+  <div class="topbar-contract">
+    <span class="contract-pill" id="top-cid" onclick="toggleContractList()">1565</span>
+    <span class="contract-name" id="top-cname">São José do Rio Preto / RP</span>
+    <span class="mode-pill mode-sp2" id="top-mode">SP2</span>
+  </div>
+  <div class="topbar-spacer"></div>
+  <div class="topbar-actions">
+    <div class="status-badge"><span class="dot-live"></span>PREVIEW LIVE</div>
+    <button class="btn btn-primary btn-sm" onclick="iniciarApp()" title="Inicia servidor local e abre no navegador">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+      </svg>
+      START
+    </button>
+    <button class="btn btn-ghost btn-sm" onclick="setStep(1)">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Novo
+    </button>
+    <button class="btn btn-primary btn-sm" onclick="generateReport()">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      Gerar .docx
+    </button>
+  </div>
+</header>
+
+<div class="app">
+
+  <!-- LEFT NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-section">
+      <div class="nav-label">Menu</div>
+      <button class="nav-item active">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Gerar Relatório
+      </button>
+      <button class="nav-item">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Histórico
+      </button>
+    </div>
+    <div class="nav-toggle-row">
+      <div class="nav-label">Contratos</div>
+      <button class="nav-toggle-btn" id="nav-toggle" onclick="toggleNavCollapse()" title="Encolher/Expandir">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+    </div>
+    <div class="contract-list" id="contract-list">
+      <!-- filled by JS -->
+    </div>
+
+    <!-- NAV FOOTER -->
+    <div class="nav-footer">
+      <button class="nav-footer-btn" id="dark-mode-toggle" onclick="toggleDarkMode()" title="Alternar modo escuro/claro">
+        <svg id="dark-mode-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="nav-footer-btn" id="settings-btn" onclick="openSettings()" title="Abrir configurações">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6M4.22 4.22l4.24 4.24m6.08 0l4.24-4.24M1 12h6m6 0h6m-1.78 7.78l-4.24-4.24m-6.08 0l-4.24 4.24"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- EDITOR PANEL -->
+  <section class="editor">
+    <div class="editor-topbar">
+      <span class="editor-title" id="editor-title">Dados da OS</span>
+      <span id="editor-mode-badge" class="mode-pill mode-sp2">SP2</span>
+    </div>
+    <!-- Steps bar -->
+    <div class="steps-bar">
+      <button class="step-btn done" id="sb1" onclick="setStep(1)">
+        <span class="step-circle">✓</span> Cabeçalho
+      </button>
+      <button class="step-btn active" id="sb2" onclick="setStep(2)">
+        <span class="step-circle">2</span> Estrutura
+      </button>
+      <button class="step-btn" id="sb3" onclick="setStep(3)">
+        <span class="step-circle">3</span> Gerar
+      </button>
+    </div>
+
+    <div class="editor-body">
+
+      <!-- STEP 1: CABEÇALHO -->
+      <div id="step-1" style="display:none">
+        <div class="field-group">
+          <div class="field-group-title">Ordem de Serviço</div>
+          <div class="field-row half">
+            <div>
+              <div class="f-label">Nº da OS <span class="req">*</span> <span class="ph">{{nr_os}}</span></div>
+              <input class="f-input" id="f-nr-os" type="text" placeholder="ex: 1753" oninput="liveUpdate()">
+            </div>
+            <div>
+              <div class="f-label">Data Atendimento <span class="req">*</span> <span class="ph">{{dt_atend}}</span></div>
+              <input class="f-input" id="f-dt-atend" type="date" value="2026-05-21" oninput="liveUpdate()">
+            </div>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <div class="field-group-title">Agência</div>
+          <div class="field-row half">
+            <div>
+              <div class="f-label">Código <span class="req">*</span> <span class="ph">{{ag_cod}}</span></div>
+              <input class="f-input" id="f-ag-cod" type="text" placeholder="ex: 1234-5" oninput="liveUpdate()">
+            </div>
+            <div>
+              <div class="f-label">Nome <span class="req">*</span> <span class="ph">{{ag_nome}}</span></div>
+              <input class="f-input" id="f-ag-nome" type="text" placeholder="ex: Ag. Centro" oninput="liveUpdate()">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="f-label">Endereço <span class="ph">{{endereco}}</span></div>
+            <input class="f-input" id="f-endereco" type="text" placeholder="Rua das Flores, 100 — São José do Rio Preto/SP" oninput="liveUpdate()">
+          </div>
+          <div class="field-row">
+            <div class="f-label">Responsável <span class="ph">{{responsavel_dependencia}}</span></div>
+            <input class="f-input" id="f-resp" type="text" placeholder="Mat. 12345 — João Silva" oninput="liveUpdate()">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <div class="field-group-title">Datas e Descrição</div>
+          <div class="field-row">
+            <div class="f-label">Data Elaboração <span class="tag-auto">AUTO</span> <span class="ph">{{dt_elab}}</span></div>
+            <input class="f-input auto" type="text" value="21/05/2026" readonly>
+          </div>
+          <div class="field-row">
+            <div class="f-label">Descrição do Serviço <span class="ph">{Desc_here}</span></div>
+            <select class="f-select" id="f-desc" onchange="liveUpdate()">
+              <option value="1">Desc 1 — Informamos que foi realizada visita técnica...</option>
+              <option value="2">Desc 2 — No cumprimento das atividades programadas...</option>
+              <option value="3">Desc 3 — Informamos que nosso técnico realizou...</option>
+              <option value="4">Desc 4 — Nosso técnico realizou uma visita...</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field-group" id="fixed-fields-group">
+          <div class="field-group-title" style="color:var(--shell-subtle)">Fixos no template</div>
+          <div class="field-row half">
+            <div>
+              <div class="f-label" style="color:var(--shell-subtle)">Contrato</div>
+              <input class="f-fixed" value="2025.7421.1565" readonly>
+            </div>
+            <div>
+              <div class="f-label" style="color:var(--shell-subtle)">UF</div>
+              <input class="f-fixed" value="SP" readonly>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="f-label" style="color:var(--shell-subtle)">Resp. Técnico/Empresa</div>
+            <input class="f-fixed" value="Ygor Augusto Fernandes Ferrugem — CREA: 1017279403/D-GO" readonly>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: ESTRUTURA -->
+      <div id="step-2">
+        <div class="mode-tabs">
+          <button class="mode-tab active">Modo Disco</button>
+          <button class="mode-tab">Modo App</button>
+        </div>
+        <div class="scan-zone" onclick="showToast('Pasta escaneada com sucesso.')">
+          <div class="scan-zone-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="scan-zone-title">Selecionar Pasta de Fotos</div>
+          <div class="scan-zone-sub">Clique para abrir — ou use "Simular" abaixo</div>
+        </div>
+
+        <!-- Blocos detectados compactos -->
+        <div style="font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--shell-subtle);margin-bottom:8px;display:flex;align-items:center;gap:8px;">
+          Blocos detectados
+          <span style="background:var(--orange-dim);color:var(--orange);border:1px solid var(--orange-border);border-radius:3px;padding:1px 7px;font-size:9px;">23</span>
+        </div>
+
+        <div class="block-compact indent-0"><span class="bc-badge bt-fachada">FACHADA</span><span class="bc-name">Fachada.jpg</span><span class="bc-meta">capa</span></div>
+        <div class="block-compact indent-0"><span class="bc-badge bt-titulo">TÍTULO</span><span class="bc-name">1 — 1º Andar – Espaço Desativado</span></div>
+        <div class="block-compact indent-1"><span class="bc-badge bt-subtit">SUBTÍTULO</span><span class="bc-name">1.1 — Emassamento e pintura de teto</span></div>
+        <div class="block-compact indent-2"><span class="bc-badge bt-imagem">IMAGEM</span><span class="bc-name">01 — 16,20 × 4,63.jpg</span><span class="bc-meta">medidas</span></div>
+        <div class="block-compact indent-2"><span class="bc-badge bt-imagem">IMAGEM</span><span class="bc-name">02 — vista.jpg</span></div>
+        <div class="block-compact indent-2"><span class="bc-badge bt-croqui">CROQUI</span><span class="bc-name">CROQUI 01 — Laje.jpg</span></div>
+        <div class="block-compact indent-2"><span class="bc-badge bt-desc">DESCRIÇÃO</span><span class="bc-name">Item 17.2 — Emassamento PVA (m²)</span></div>
+        <div class="block-compact indent-2"><span class="bc-badge bt-tabela">MEM.CALC</span><span class="bc-name">Memória de Cálculo</span><span class="bc-meta">100,21 m²</span></div>
+        <div class="block-compact indent-2"><span class="bc-badge bt-itens">TB.ITENS</span><span class="bc-name">17.2 | Emassamento PVA | m²</span></div>
+        <div class="block-compact indent-2"><span class="bc-badge bt-quebra">QUEBRA</span><span class="bc-name">— quebra de página —</span></div>
+        <div class="block-compact indent-1"><span class="bc-badge bt-subtit">SUBTÍTULO</span><span class="bc-name">1.2 — Pintura acrílica premium</span></div>
+        <div class="block-compact indent-2"><span class="bc-badge bt-imagem">IMAGEM</span><span class="bc-name">01 — 8,40 × 3,00.jpg</span><span class="bc-meta">medidas</span></div>
+        <div class="block-compact indent-2"><span class="bc-badge bt-desc">DESCRIÇÃO</span><span class="bc-name">Item 17.11 — Pintura acrílica premium</span></div>
+        <div class="block-compact indent-2"><span class="bc-badge bt-tabela">MEM.CALC</span><span class="bc-name">Memória de Cálculo</span><span class="bc-meta">40,80 m²</span></div>
+        <div class="block-compact indent-2"><span class="bc-badge bt-itens">TB.ITENS</span><span class="bc-name">17.11 | Pintura premium | m²</span></div>
+        <div class="block-compact indent-2"><span class="bc-badge bt-quebra">QUEBRA</span><span class="bc-name">— quebra de página —</span></div>
+
+        <!-- SP2: items assoc -->
+        <div style="font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#6BA3C8;margin:14px 0 8px;display:flex;align-items:center;gap:8px;">
+          Associação de itens SP2
+          <span style="background:var(--blue-light);color:#6BA3C8;border:1px solid rgba(52,88,120,.3);border-radius:3px;padding:1px 7px;font-size:9px;">4 pastas</span>
+        </div>
+        <div class="ia-row">
+          <div class="ia-pasta-label">1.1 — Emassamento e pintura de teto</div>
+          <select class="ia-sel"><option>17.2 — Emassamento PVA (m²)</option></select>
+          <div class="ia-total-row"><span class="ia-total-label">Total</span><span class="ia-total-val">100,21 m²</span></div>
+        </div>
+        <div class="ia-row">
+          <div class="ia-pasta-label">1.2 — Pintura acrílica premium</div>
+          <select class="ia-sel"><option>17.11 — Pintura acrílica premium (m²)</option></select>
+          <div class="ia-total-row"><span class="ia-total-label">Total</span><span class="ia-total-val">40,80 m²</span></div>
+        </div>
+        <div class="ia-row">
+          <div class="ia-pasta-label">2.1 — Vedação de janela</div>
+          <select class="ia-sel"><option>29.43 — Vedações em geral (un)</option></select>
+          <div class="ia-total-row"><span class="ia-total-label">Total</span><span class="ia-total-val">1 un</span></div>
+        </div>
+      </div>
+
+      <!-- STEP 3: GERAR -->
+      <div id="step-3" style="display:none">
+        <div style="font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--shell-subtle);margin-bottom:14px;">Resumo da Geração</div>
+        <div class="gen-row"><span class="gen-key">Contrato</span><span class="gen-val" id="g-contrato">1565</span></div>
+        <div class="gen-row"><span class="gen-key">Agência</span><span class="gen-val" id="g-agencia" style="font-family:var(--sans)">—</span></div>
+        <div class="gen-row"><span class="gen-key">OS</span><span class="gen-val" id="g-os">—</span></div>
+        <div class="gen-row"><span class="gen-key">Serviços</span><span class="gen-val">4 pastas</span></div>
+        <div class="gen-row"><span class="gen-key">Fotos</span><span class="gen-val">27</span></div>
+        <div class="gen-row"><span class="gen-key">Croquis</span><span class="gen-val sp2">2</span></div>
+        <div class="gen-row"><span class="gen-key">Tabelas de cálculo</span><span class="gen-val sp2">4</span></div>
+        <div class="gen-row"><span class="gen-key">Motor</span><span class="gen-val sp2">SP2</span></div>
+        <div class="gen-row"><span class="gen-key">Template</span><span class="gen-val">MODELO-1565.docx</span></div>
+        <div style="margin-top:16px;padding:12px;background:rgba(40,160,130,.06);border:1px solid rgba(40,160,130,.2);border-radius:var(--r-md);font-family:var(--mono);">
+          <div style="font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#60D4B8;margin-bottom:10px;">Total Geral de Itens</div>
+          <table style="width:100%;border-collapse:collapse;font-size:9px;">
+            <tr style="background:rgba(40,160,130,.1)"><th style="text-align:left;padding:3px 6px;border:1px solid rgba(40,160,130,.2)">Código</th><th style="text-align:left;padding:3px 6px;border:1px solid rgba(40,160,130,.2)">Descrição</th><th style="padding:3px 6px;border:1px solid rgba(40,160,130,.2)">Total</th></tr>
+            <tr><td style="padding:3px 6px;border:1px solid rgba(40,160,130,.15);color:var(--shell-muted)">17.2</td><td style="padding:3px 6px;border:1px solid rgba(40,160,130,.15);color:var(--shell-muted)">Emassamento PVA</td><td style="padding:3px 6px;border:1px solid rgba(40,160,130,.15);color:var(--shell-text);text-align:center">100,21 m²</td></tr>
+            <tr><td style="padding:3px 6px;border:1px solid rgba(40,160,130,.15);color:var(--shell-muted)">17.11</td><td style="padding:3px 6px;border:1px solid rgba(40,160,130,.15);color:var(--shell-muted)">Pintura premium</td><td style="padding:3px 6px;border:1px solid rgba(40,160,130,.15);color:var(--shell-text);text-align:center">40,80 m²</td></tr>
+            <tr><td style="padding:3px 6px;border:1px solid rgba(40,160,130,.15);color:var(--shell-muted)">29.43</td><td style="padding:3px 6px;border:1px solid rgba(40,160,130,.15);color:var(--shell-muted)">Vedações</td><td style="padding:3px 6px;border:1px solid rgba(40,160,130,.15);color:var(--shell-text);text-align:center">1 un</td></tr>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /editor-body -->
+
+    <!-- EDITOR FOOTER -->
+    <div class="editor-footer">
+      <button class="btn btn-ghost btn-sm" id="btn-prev" onclick="prevStep()" style="display:none">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+        Voltar
+      </button>
+      <div class="footer-spacer"></div>
+      <span class="footer-hint" id="footer-hint">Passo 2 de 3</span>
+      <button class="btn btn-primary btn-sm" id="btn-next" onclick="nextStep()">
+        Próximo
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <button class="btn btn-primary btn-sm" id="btn-gen" style="display:none" onclick="generateReport()">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Gerar .docx
+      </button>
+    </div>
+  </section>
+
+  <!-- RESIZABLE DIVIDER -->
+  <div class="resizable-divider" id="resizable-divider"></div>
+
+  <!-- PREVIEW PANEL -->
+  <section class="preview">
+    <div class="preview-topbar">
+      <span class="preview-label">Preview</span>
+      <div class="preview-topbar" style="border:none;background:transparent;padding:0;height:auto;gap:6px;">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--shell-muted)" stroke-width="1.75" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+        <span class="preview-filename" id="preview-filename">RELATÓRIO-1565-SJRP.docx</span>
+      </div>
+      <div class="preview-spacer"></div>
+      <div class="preview-badge">DOCX LIVE</div>
+      <div class="preview-zoom">
+        <button class="zoom-btn" onclick="zoom(-0.1)">−</button>
+        <span id="zoom-level">90%</span>
+        <button class="zoom-btn" onclick="zoom(0.1)">+</button>
+      </div>
+    </div>
+
+    <div class="preview-viewport" id="preview-viewport">
+      <!-- WORD PAGE 1 -->
+      <div class="doc-page" id="doc-page-1">
+
+        <!-- Header table -->
+        <table class="doc-header-table">
+          <tr>
+            <td rowspan="4" style="width:70px;text-align:center;padding:6px;">
+              <div class="doc-logo-bb">BB</div>
+            </td>
+            <td rowspan="4" style="text-align:center;width:140px;">
+              <div class="doc-rel-title">RELATÓRIO TÉCNICO<br>FOTOGRÁFICO</div>
+            </td>
+            <td style="width:90px;background:#F5F4F1;"><span class="doc-field-label">Contrato:</span></td>
+            <td><span class="doc-field-val">2025.7421.1565</span></td>
+            <td rowspan="4" style="width:74px;text-align:center;padding:6px;">
+              <div class="doc-logo-maffeng">MAFF<br>ENG</div>
+            </td>
+          </tr>
+          <tr>
+            <td style="background:#F5F4F1;"><span class="doc-field-label">Nr. Ordem de Serviço:</span></td>
+            <td><span class="doc-field-val" id="prev-nr-os" class="placeholder">{{nr_os}}</span></td>
+          </tr>
+          <tr>
+            <td style="background:#F5F4F1;"><span class="doc-field-label">Elaboração: Ygor A. Fernandes<br>Data de Elaboração:</span></td>
+            <td><span class="doc-field-val">21/05/2026</span></td>
+          </tr>
+          <tr>
+            <td colspan="2" style="text-align:center;background:#F5F4F1;">
+              <span class="doc-field-label">Tipo: Preventivo</span>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="5" style="padding:0">
+              <table style="width:100%;border-collapse:collapse;">
+                <tr>
+                  <td style="width:80px;border-right:1px solid var(--doc-table-border);padding:4px 6px;"><span class="doc-field-label">Agência:</span><br><span class="doc-field-val" id="prev-ag-cod">{{ag_cod}}</span></td>
+                  <td style="padding:4px 6px;"><span class="doc-field-label">Nome:</span><br><span class="doc-field-val" id="prev-ag-nome">{{ag_nome}}</span></td>
+                  <td style="width:80px;border-left:1px solid var(--doc-table-border);padding:4px 6px;text-align:center;"><span class="doc-field-label">UF:</span><br><span class="doc-field-val">SP</span></td>
+                  <td style="width:120px;border-left:1px solid var(--doc-table-border);padding:4px 6px;"><span class="doc-field-label">Data Atendimento:</span><br><span class="doc-field-val" id="prev-dt-atend">{{dt_atend}}</span></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+
+        <!-- Dados da Dependência -->
+        <div class="doc-dep-title">Dados da Dependência</div>
+        <table class="doc-dep-table">
+          <tr><td><b>Endereço:</b> <span id="prev-endereco">{{endereco}}</span></td></tr>
+          <tr><td><b>Responsável da Dependência:</b> <span id="prev-resp">{{responsavel_dependencia}}</span></td></tr>
+          <tr><td><b>Responsável Técnico:</b> Laura Mota</td></tr>
+          <tr><td><b>Responsável Técnico/Empresa:</b> Ygor Augusto Fernandes Ferrugem – CREA: 1017279403/D-GO</td></tr>
+        </table>
+
+        <!-- Descrição -->
+        <div class="doc-desc-block" id="prev-desc">
+          Informamos que foi realizada visita técnica à agência para fins de levantamento preventivo. A atividade contou com o acompanhamento do gerente [Nome do Gerente] – Matrícula [Número da Matrícula], que esteve presente durante todo o procedimento. Durante a vistoria, foram identificadas necessidades de intervenção nos seguintes itens.
+        </div>
+
+        <!-- Content blocks -->
+        <div class="doc-heading1">1 — 1º Andar – Espaço Desativado</div>
+        <div class="doc-heading2">1.1 — Emassamento e pintura de teto</div>
+
+        <div class="doc-photo-row">
+          <div class="doc-photo landscape">📷 01 — 16,20×4,63</div>
+          <div class="doc-photo landscape">📷 02 — vista</div>
+        </div>
+        <div class="doc-photo-row">
+          <div class="doc-photo landscape" style="background:#EEE;">📐 CROQUI 01 — Laje</div>
+        </div>
+
+        <div class="doc-enunciado">Item 17.2 – Emassamento de parede interna ou teto com massa corrida a base de PVA com duas demãos</div>
+        <table class="doc-mem-table">
+          <thead><tr><th>FOTO</th><th>COMP (m)</th><th>ALT (m)</th><th>DESCONTO (m²)</th><th>TOTAL (m²)</th></tr></thead>
+          <tbody>
+            <tr><td>01</td><td>16,20</td><td>4,63</td><td>—</td><td>75,01</td></tr>
+            <tr><td>02</td><td>8,40</td><td>3,00</td><td>—</td><td>25,20</td></tr>
+            <tr class="total"><td colspan="4" style="text-align:right">TOTAL</td><td>100,21</td></tr>
+          </tbody>
+        </table>
+        <table class="doc-itens-table">
+          <thead><tr><th>CÓDIGO</th><th>DESCRIÇÃO</th><th>QTD</th><th>UN</th></tr></thead>
+          <tbody><tr><td>17.2</td><td>Emassamento PVA</td><td>100,21</td><td>m²</td></tr></tbody>
+        </table>
+
+        <div class="doc-page-break">— quebra de página —</div>
+
+        <div class="doc-heading2">1.2 — Pintura acrílica premium acetinada</div>
+        <div class="doc-photo-row">
+          <div class="doc-photo landscape">📷 01 — 8,40×3,00</div>
+          <div class="doc-photo landscape">📷 02 — 5,20×3,00</div>
+        </div>
+        <div class="doc-enunciado">Item 17.11 – Pintura em látex acrílica premium acetinada em paredes internas</div>
+        <table class="doc-mem-table">
+          <thead><tr><th>FOTO</th><th>COMP (m)</th><th>ALT (m)</th><th>DESCONTO</th><th>TOTAL (m²)</th></tr></thead>
+          <tbody>
+            <tr><td>01</td><td>8,40</td><td>3,00</td><td>—</td><td>25,20</td></tr>
+            <tr><td>02</td><td>5,20</td><td>3,00</td><td>—</td><td>15,60</td></tr>
+            <tr class="total"><td colspan="4" style="text-align:right">TOTAL</td><td>40,80</td></tr>
+          </tbody>
+        </table>
+
+        <div class="doc-footer">
+          <span>AutoRelatório V5 · TM Sempre Tecnologia</span>
+          <span>Pág. 1</span>
+        </div>
+      </div>
+    </div><!-- /preview-viewport -->
+  </section>
+
+</div><!-- /app -->
+
+<!-- Progress overlay -->
+<div class="progress-overlay" id="progress-overlay">
+  <div class="progress-card">
+    <div class="prog-spinner"></div>
+    <div class="prog-title">Gerando Relatório</div>
+    <div class="prog-sub" id="prog-sub">Processando blocos...</div>
+    <div class="prog-bar-track"><div class="prog-bar-fill" id="prog-bar"></div></div>
+  </div>
+</div>
+
+<div class="toast-area" id="toast-area"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

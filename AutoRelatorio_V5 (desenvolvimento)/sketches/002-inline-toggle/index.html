@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wireframe — Variant 2: Inline Toggle nos Blocos</title>
+<style>
+  :root {
+    --bg: #111110;
+    --card: #1a1a18;
+    --border: #2a2a26;
+    --text: #e8e6e1;
+    --muted: #8b8984;
+    --orange: #C8541C;
+    --orange-bg: rgba(200,84,28,0.08);
+    --green: #3fb950;
+    --red: #f85149;
+    --blue: #58a6ff;
+    --radius: 8px;
+    --sans: 'Inter', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .topbar {
+    height: 48px; background: var(--card); border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; padding: 0 16px; gap: 12px; flex-shrink: 0;
+  }
+  .topbar-logo { font-weight: 700; font-size: 14px; color: var(--orange); }
+  .topbar-sep { color: var(--muted); }
+  .topbar-contract { font-size: 13px; }
+  .topbar-mode { margin-left: auto; font-size: 11px; padding: 2px 10px; border-radius: 12px;
+    background: var(--orange-bg); color: var(--orange); font-weight: 600; }
+
+  .main { display: flex; flex: 1; overflow: hidden; }
+
+  .sidebar {
+    width: 220px; background: var(--card); border-right: 1px solid var(--border);
+    display: flex; flex-direction: column; flex-shrink: 0;
+  }
+  .sidebar-header { padding: 12px 16px; font-size: 10px; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--muted); border-bottom: 1px solid var(--border); }
+  .sidebar-item { padding: 10px 16px; font-size: 13px; cursor: pointer;
+    border-left: 3px solid transparent; transition: 0.15s;
+    display: flex; justify-content: space-between; align-items: center; }
+  .sidebar-item:hover { background: rgba(255,255,255,0.02); }
+  .sidebar-item.active { background: var(--orange-bg); border-left-color: var(--orange); color: var(--orange); }
+  .sidebar-badge { font-size: 10px; padding: 1px 6px; border-radius: 8px; background: rgba(255,255,255,0.06); }
+
+  .sidebar-resumo {
+    margin-top: auto; padding: 14px 16px; border-top: 1px solid var(--border);
+    font-size: 11px;
+  }
+  .resumo-row { display: flex; justify-content: space-between; margin-bottom: 4px; }
+  .resumo-val { font-weight: 600; font-family: var(--mono); }
+  .resumo-val.in { color: var(--green); }
+  .resumo-val.out { color: var(--muted); }
+
+  .content { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+
+  .steps {
+    display: flex; gap: 0; padding: 0 24px; border-bottom: 1px solid var(--border);
+    background: var(--card); flex-shrink: 0;
+  }
+  .step { padding: 12px 20px; font-size: 13px; color: var(--muted); cursor: pointer;
+    border-bottom: 2px solid transparent; transition: 0.15s; display: flex; align-items: center; gap: 6px; }
+  .step-num { width: 20px; height: 20px; border-radius: 50%; background: rgba(255,255,255,0.06);
+    display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; }
+  .step.active { color: var(--orange); border-bottom-color: var(--orange); }
+  .step.active .step-num { background: var(--orange); color: #000; }
+  .step.done { color: var(--green); }
+  .step.done .step-num { background: var(--green); color: #000; }
+
+  .editor-area { flex: 1; overflow-y: auto; padding: 20px 24px; }
+
+  .section-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 0; border-bottom: 1px solid var(--border); margin-bottom: 10px;
+  }
+  .section-title { font-size: 14px; font-weight: 600; }
+  .section-actions { display: flex; gap: 6px; }
+  .btn {
+    padding: 5px 12px; border-radius: 6px; border: 1px solid var(--border);
+    background: var(--card); color: var(--text); font-size: 11px; cursor: pointer;
+    transition: 0.15s; font-family: var(--sans);
+  }
+  .btn:hover { border-color: var(--muted); }
+  .btn-primary { background: var(--orange); border-color: var(--orange); color: #fff; font-weight: 600; }
+  .btn-primary:hover { opacity: 0.9; }
+  .btn-ghost { border: none; background: none; color: var(--muted); }
+  .btn-ghost:hover { color: var(--text); }
+
+  /* ── Block card ─────────────────────── */
+  .block-card {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 12px; margin-bottom: 6px;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: var(--radius); transition: 0.15s;
+  }
+  .block-card.excluded {
+    opacity: 0.4;
+    border-color: transparent;
+    background: rgba(255,255,255,0.015);
+  }
+
+  /* Toggle switch */
+  .toggle-wrap { flex-shrink: 0; }
+  .toggle {
+    width: 36px; height: 20px; border-radius: 20px;
+    background: var(--green); cursor: pointer; position: relative;
+    transition: 0.2s; border: none;
+  }
+  .toggle.off { background: #333; }
+  .toggle::after {
+    content: ''; position: absolute; top: 2px; left: 2px;
+    width: 16px; height: 16px; border-radius: 50%;
+    background: white; transition: 0.2s;
+  }
+  .toggle.off::after { left: 18px; background: #666; }
+
+  .block-thumb {
+    width: 56px; height: 42px; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0; color: rgba(255,255,255,0.5);
+  }
+  .block-info { flex: 1; min-width: 0; }
+  .block-name { font-size: 13px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .block-folder { font-size: 10px; color: var(--muted); }
+  .block-status {
+    font-size: 10px; padding: 2px 8px; border-radius: 10px; margin-left: 8px;
+    display: inline-block;
+  }
+  .block-status.in { background: rgba(63,185,80,0.12); color: var(--green); }
+  .block-status.out { background: rgba(255,255,255,0.04); color: var(--muted); }
+
+  .block-right {
+    display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+  }
+  .block-measures-inline {
+    display: flex; gap: 8px; font-size: 11px;
+  }
+  .measure-field {
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .measure-label { font-size: 9px; color: var(--muted); }
+  .measure-input {
+    width: 50px; padding: 4px 6px; border-radius: 4px;
+    border: 1px solid var(--border); background: var(--bg);
+    color: var(--text); font-size: 11px; font-family: var(--mono);
+    text-align: center;
+  }
+  .measure-input:focus { outline: none; border-color: var(--orange); }
+  .block-total {
+    font-family: var(--mono); font-size: 12px; font-weight: 600;
+    color: var(--orange); min-width: 70px; text-align: right;
+  }
+
+  .select-wrap { flex-shrink: 0; }
+  .item-select {
+    padding: 4px 8px; border-radius: 4px; border: 1px solid var(--border);
+    background: var(--bg); color: var(--text); font-size: 11px;
+    max-width: 160px;
+  }
+
+  /* ── Preview ────────────────────────── */
+  .preview {
+    width: 380px; background: #f8f7f4; border-left: 1px solid var(--border);
+    display: flex; flex-direction: column; flex-shrink: 0; color: #1a1a1a;
+  }
+  .preview-header {
+    padding: 10px 14px; font-size: 11px; color: #666;
+    border-bottom: 1px solid #e0ddd5; font-weight: 600;
+    display: flex; justify-content: space-between;
+  }
+  .preview-body { flex: 1; overflow-y: auto; padding: 14px; font-size: 12px; }
+  .preview-doc {
+    background: white; border: 1px solid #e0ddd5; border-radius: 4px;
+    padding: 16px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .preview-section { font-size: 14px; font-weight: 700; margin: 14px 0 6px; color: #C8541C; }
+  .preview-img-placeholder {
+    height: 80px; background: #e8e6e1; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    color: #999; font-size: 11px; margin: 4px 0;
+  }
+  .preview-measure {
+    font-size: 10px; color: #666; text-align: center;
+    margin: 2px 0 8px; font-family: var(--mono);
+  }
+  .preview-excluded {
+    font-size: 10px; color: #ccc; text-align: center; margin: 4px 0;
+    font-style: italic;
+  }
+
+  .footer-bar {
+    display: flex; gap: 8px; padding: 12px 24px;
+    border-top: 1px solid var(--border); background: var(--card); flex-shrink: 0;
+  }
+  .footer-hint { margin-left: auto; font-size: 11px; color: var(--muted); align-self: center; }
+
+  .toast {
+    position: fixed; bottom: 20px; right: 20px;
+    padding: 10px 18px; border-radius: 8px; font-size: 13px;
+    background: var(--card); border: 1px solid var(--border);
+    opacity: 0; transform: translateY(12px); transition: 0.3s; pointer-events: none;
+    z-index: 100;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-logo">TM</span>
+  <span class="topbar-sep">/</span>
+  <span class="topbar-contract">2626 — Salinas, MG</span>
+  <span class="topbar-mode">TRADICIONAL</span>
+</div>
+
+<div class="main">
+  <div class="sidebar">
+    <div class="sidebar-header">Contratos</div>
+    <div class="sidebar-item"><span>0908 — SJC</span><span class="sidebar-badge">SP</span></div>
+    <div class="sidebar-item"><span>1565 — SJRP</span><span class="sidebar-badge">SP2</span></div>
+    <div class="sidebar-item active"><span>2626 — Salinas</span><span class="sidebar-badge">TRAD</span></div>
+    <div class="sidebar-item"><span>6122 — MS</span><span class="sidebar-badge">TRAD</span></div>
+
+    <div class="sidebar-resumo">
+      <div style="font-size:10px;color:var(--muted);text-transform:uppercase;margin-bottom:8px">Resumo</div>
+      <div class="resumo-row"><span>Total fotos</span><span class="resumo-val">12</span></div>
+      <div class="resumo-row"><span>Incluídas</span><span class="resumo-val in" id="sb-in">10</span></div>
+      <div class="resumo-row"><span>Excluídas</span><span class="resumo-val out" id="sb-out">2</span></div>
+      <div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border)">
+        <div class="resumo-row"><span>Total geral</span><span class="resumo-val" style="color:var(--orange)" id="sb-total">83,42 m²</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="steps">
+      <div class="step done"><span class="step-num">✓</span> Cabeçalho</div>
+      <div class="step active">
+        <span class="step-num">2</span> Blocos e Medidas
+      </div>
+      <div class="step"><span class="step-num">3</span> Gerar</div>
+    </div>
+
+    <div class="editor-area" id="editor"></div>
+
+    <div class="footer-bar">
+      <button class="btn" onclick="history.back()">← Voltar</button>
+      <span class="footer-hint" id="footer-hint">
+        Incluídas: <strong id="fh-count">10</strong> fotos · Total: <strong id="fh-total" style="color:var(--orange)">83,42 m²</strong>
+      </span>
+      <button class="btn btn-primary" onclick="generate()">
+        Gerar .docx
+      </button>
+    </div>
+  </div>
+
+  <div class="preview">
+    <div class="preview-header">
+      <span>📄 Preview</span>
+      <span style="font-weight:400;font-size:10px" id="pv-count">10 fotos incluídas</span>
+    </div>
+    <div class="preview-body">
+      <div class="preview-doc" id="preview-doc"></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ── Data ────────────────────────────────────────────────────────
+const ITEMS = [
+  { cod:'17.6', desc:'Pintura acrílica', un:'m²' },
+  { cod:'05.2', desc:'Alvenaria', un:'m²' },
+  { cod:'11.3', desc:'Piso cerâmico', un:'m²' },
+];
+
+let blocks = [
+  { id:'b1',  name:'01 - 3,50 × 2,80.jpg',  folder:'Área externa',    included:true,  item:ITEMS[0], larg:3.50, alt:2.80, faces:2, color:'#4a6fa5' },
+  { id:'b2',  name:'02 - 4,20 × 3,10.jpg',  folder:'Área externa',    included:true,  item:ITEMS[0], larg:4.20, alt:3.10, faces:1, color:'#5a7fb5' },
+  { id:'b3',  name:'03 - 1,90 × 2,40.jpg',  folder:'Área externa',    included:true,  item:ITEMS[1], larg:1.90, alt:2.40, faces:1, color:'#6a8fc5' },
+  { id:'b4',  name:'04 - detalhe porta.jpg', folder:'Área externa',    included:false, item:null,    larg:0,    alt:0,    faces:1, color:'#3a5f95' },
+  { id:'b5',  name:'05 - 2,10 × 1,80.jpg',  folder:'Área interna',    included:true,  item:ITEMS[1], larg:2.10, alt:1.80, faces:1, color:'#7a9f55' },
+  { id:'b6',  name:'06 - 3,00 × 2,70.jpg',  folder:'Área interna',    included:true,  item:ITEMS[2], larg:3.00, alt:2.70, faces:1, color:'#8aaf65' },
+  { id:'b7',  name:'07 - 2,50 × 2,90.jpg',  folder:'Área interna',    included:true,  item:ITEMS[0], larg:2.50, alt:2.90, faces:2, color:'#9abf75' },
+  { id:'b8',  name:'08 - vista ampla.jpg',   folder:'Área interna',    included:false, item:null,    larg:0,    alt:0,    faces:1, color:'#6a8f45' },
+  { id:'b9',  name:'09 - 1,40 × 1,10.jpg',  folder:'- Segundo piso',  included:true,  item:ITEMS[2], larg:1.40, alt:1.10, faces:1, color:'#a56a4a' },
+  { id:'b10',name:'10 - 2,80 × 2,20.jpg',  folder:'- Segundo piso',  included:true,  item:ITEMS[0], larg:2.80, alt:2.20, faces:1, color:'#b57a5a' },
+  { id:'b11',name:'11 - detalhe.jpg',       folder:'- Segundo piso',  included:true,  item:ITEMS[1], larg:0.90, alt:1.30, faces:1, color:'#c58a6a' },
+  { id:'b12',name:'12 - 1,60 × 1,30.jpg',  folder:'- Segundo piso',  included:true,  item:ITEMS[2], larg:1.60, alt:1.30, faces:1, color:'#957a4a' },
+];
+
+function calcArea(b) { return parseFloat((b.larg * b.alt * b.faces).toFixed(2)) || 0; }
+
+// ── Render ──────────────────────────────────────────────────────
+function render() {
+  const editor = document.getElementById('editor');
+  let currentFolder = '';
+  let html = '';
+
+  const folderActions = {
+    'Área externa':    true,
+    'Área interna':    true,
+    '- Segundo piso':  true,
+  };
+
+  blocks.forEach((b, i) => {
+    if (b.folder !== currentFolder) {
+      if (currentFolder) html += '</div>';
+      currentFolder = b.folder;
+      const folderBlocks = blocks.filter(x => x.folder === b.folder);
+      const folderIncluded = folderBlocks.filter(x => x.included).length;
+      html += `
+        <div class="section-header">
+          <div class="section-title">📁 ${b.folder}
+            <span style="font-size:11px;color:var(--muted);font-weight:400">
+              (${folderIncluded}/${folderBlocks.length})
+            </span>
+          </div>
+          <div class="section-actions">
+            <button class="btn btn-ghost" onclick="toggleFolder('${b.folder}', true)">Incluir todas</button>
+            <button class="btn btn-ghost" onclick="toggleFolder('${b.folder}', false)">Excluir todas</button>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:4px">`;
+    }
+
+    const area = calcArea(b);
+    const statusClass = b.included ? 'in' : 'out';
+    const statusText  = b.included ? '✓ Incluída' : '✕ Excluída';
+    const toggleClass = b.included ? '' : 'off';
+
+    html += `
+      <div class="block-card ${b.included ? '' : 'excluded'}">
+        <div class="toggle-wrap">
+          <button class="toggle ${toggleClass}" onclick="toggleBlock('${b.id}')" title="${b.included ? 'Excluir do relatório' : 'Incluir no relatório'}"></button>
+        </div>
+        <div class="block-thumb" style="background:${b.color}">🖼️</div>
+        <div class="block-info">
+          <div class="block-name">
+            ${b.name}
+            <span class="block-status ${statusClass}">${statusText}</span>
+          </div>
+          <div class="block-folder">${b.folder}</div>
+        </div>
+        ${b.included ? `
+        <div class="select-wrap">
+          <select class="item-select" onchange="setItem('${b.id}', this.value)">
+            <option value="">— item —</option>
+            ${ITEMS.map(it => `<option value="${it.cod}" ${b.item && b.item.cod === it.cod ? 'selected' : ''}>${it.cod} — ${it.desc}</option>`).join('')}
+          </select>
+        </div>
+        <div class="block-measures-inline">
+          <div class="measure-field">
+            <span class="measure-label">Larg (m)</span>
+            <input class="measure-input" type="number" step="0.01" value="${b.larg || ''}" onchange="setMeasure('${b.id}','larg',this.value)" ${b.item ? '' : 'disabled'}>
+          </div>
+          <div class="measure-field">
+            <span class="measure-label">Alt (m)</span>
+            <input class="measure-input" type="number" step="0.01" value="${b.alt || ''}" onchange="setMeasure('${b.id}','alt',this.value)" ${b.item ? '' : 'disabled'}>
+          </div>
+          <div class="measure-field">
+            <span class="measure-label">Faces</span>
+            <select style="padding:4px 6px;border-radius:4px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:11px" onchange="setMeasure('${b.id}','faces',this.value)">
+              <option value="1" ${b.faces===1?'selected':''}>1×</option>
+              <option value="2" ${b.faces===2?'selected':''}>2×</option>
+            </select>
+          </div>
+        </div>
+        <div class="block-total">
+          ${b.included && b.item ? area.toFixed(2)+' m²' : '<span style="color:var(--muted)">—</span>'}
+        </div>
+        ` : `
+        <div style="flex:1"></div>
+        <div style="font-size:10px;color:var(--muted);padding-right:8px">Excluída do relatório</div>
+        `}
+      </div>`;
+  });
+
+  if (currentFolder) html += '</div>';
+  editor.innerHTML = html;
+  updateStats();
+  updatePreview();
+}
+
+function toggleBlock(id) {
+  const b = blocks.find(x => x.id === id);
+  b.included = !b.included;
+  if (!b.included) toast(`📤 "${b.name}" excluída do relatório`);
+  else toast(`📥 "${b.name}" incluída no relatório`);
+  render();
+}
+
+function toggleFolder(folder, include) {
+  blocks.filter(b => b.folder === folder).forEach(b => b.included = include);
+  toast(`${include ? 'Todas' : 'Nenhuma'} foto de "${folder}" ${include ? 'incluída' : 'excluída'}`);
+  render();
+}
+
+function setItem(id, cod) {
+  const b = blocks.find(x => x.id === id);
+  b.item = ITEMS.find(it => it.cod === cod) || null;
+  render();
+}
+
+function setMeasure(id, field, val) {
+  const b = blocks.find(x => x.id === id);
+  b[field] = field === 'faces' ? parseInt(val) : parseFloat(val) || 0;
+  render();
+}
+
+function updateStats() {
+  const included = blocks.filter(b => b.included);
+  const excluded = blocks.filter(b => !b.included);
+  const total = included.reduce((s, b) => s + calcArea(b), 0);
+
+  document.getElementById('sb-in').textContent = included.length;
+  document.getElementById('sb-out').textContent = excluded.length;
+  document.getElementById('sb-total').textContent = total.toFixed(2) + ' m²';
+  document.getElementById('fh-count').textContent = included.length;
+  document.getElementById('fh-total').textContent = total.toFixed(2) + ' m²';
+  document.getElementById('pv-count').textContent = included.length + ' fotos incluídas';
+}
+
+function updatePreview() {
+  const preview = document.getElementById('preview-doc');
+  const byFolder = {};
+  blocks.forEach(b => {
+    if (!b.included) return;
+    if (!byFolder[b.folder]) byFolder[b.folder] = [];
+    byFolder[b.folder].push(b);
+  });
+
+  let html = `
+    <div style="text-align:center;font-size:10px;color:#999;margin-bottom:8px">
+      BB — Banco do Brasil<br>MAFFENG — Engenharia
+    </div>
+    <div style="font-size:11px;margin-bottom:6px">
+      <strong>OS:</strong> 1753 &nbsp; <strong>Ag:</strong> 1234-5 Centro<br>
+      <strong>Data:</strong> 26/06/2026
+    </div>`;
+
+  for (const [folder, photos] of Object.entries(byFolder)) {
+    html += `<div class="preview-section">${folder}</div>`;
+    photos.forEach(b => {
+      const area = calcArea(b);
+      html += `
+        <div class="preview-img-placeholder">🖼️ ${b.name}</div>
+        <div class="preview-measure">
+          ${b.item ? b.larg.toFixed(2)+' × '+b.alt.toFixed(2)+' m | Faces: '+b.faces+' | Total: '+area.toFixed(2)+' m²' : '📏 Medidas pendentes'}
+        </div>`;
+    });
+  }
+  html += `<div style="text-align:center;font-size:9px;color:#999;margin-top:14px">— Página 1 de 1 —</div>`;
+  preview.innerHTML = html;
+}
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+function generate() {
+  const included = blocks.filter(b => b.included);
+  if (included.length === 0) { toast('⚠️ Nenhuma foto incluída'); return; }
+  toast(`✅ Gerando .docx com ${included.length} fotos...`);
+}
+
+render();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>TM·Zap Inspeção - Chat de Levantamento</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700&amp;family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;family=Roboto+Slab:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Custom scrollbar for chat area */
+        .chat-area::-webkit-scrollbar {
+            width: 4px;
+        }
+        .chat-area::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .chat-area::-webkit-scrollbar-thumb {
+            background: #DAD7D0;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#e3e2df",
+                      "inverse-on-surface": "#f2f1ee",
+                      "on-tertiary-fixed": "#062100",
+                      "background": "#faf9f6",
+                      "on-primary-fixed": "#370e00",
+                      "tertiary-fixed": "#bff0a3",
+                      "on-secondary-fixed": "#1c1c18",
+                      "surface": "#faf9f6",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-bright": "#faf9f6",
+                      "surface-container": "#efeeeb",
+                      "tertiary-fixed-dim": "#a4d489",
+                      "on-secondary-container": "#66645f",
+                      "on-error": "#ffffff",
+                      "inverse-surface": "#2f312f",
+                      "on-tertiary": "#ffffff",
+                      "surface-container-low": "#f4f3f0",
+                      "surface-container-highest": "#e3e2df",
+                      "on-primary-fixed-variant": "#7e2c00",
+                      "on-surface-variant": "#584239",
+                      "on-secondary": "#ffffff",
+                      "secondary-fixed": "#e6e2db",
+                      "surface-tint": "#a53c00",
+                      "surface-container-high": "#e9e8e5",
+                      "on-primary": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "ink-subtle": "#8C8A85",
+                      "primary": "#a13a00",
+                      "secondary-container": "#e6e2db",
+                      "primary-container": "#c45119",
+                      "ink-primary": "#1A1A1A",
+                      "on-tertiary-fixed-variant": "#285015",
+                      "on-surface": "#1b1c1a",
+                      "primary-fixed": "#ffdbce",
+                      "error": "#ba1a1a",
+                      "outline-variant": "#dfc0b5",
+                      "primary-fixed-dim": "#ffb598",
+                      "error-container": "#ffdad6",
+                      "on-tertiary-container": "#f8ffee",
+                      "on-background": "#1b1c1a",
+                      "tertiary-container": "#54803f",
+                      "outline": "#8b7168",
+                      "surface-card": "#FFFFFF",
+                      "on-primary-container": "#fffbff",
+                      "surface-dim": "#dbdad7",
+                      "secondary-fixed-dim": "#cac6c0",
+                      "bubble-sent": "#FBEDE3",
+                      "on-secondary-fixed-variant": "#484742",
+                      "secondary": "#605e59",
+                      "border-base": "#DAD7D0",
+                      "tertiary": "#3c6629",
+                      "inverse-primary": "#ffb598"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "card-padding": "16px",
+                      "baseline": "4px",
+                      "gutter": "12px",
+                      "stack-gap": "8px",
+                      "container-margin": "16px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Roboto Slab"],
+                      "label-mono": ["JetBrains Mono"],
+                      "button": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-sm": ["Roboto Slab"],
+                      "body-sm": ["Inter"],
+                      "headline-lg": ["Roboto Slab"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-md": ["22px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "label-mono": ["12px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "button": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                      "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed overflow-hidden flex flex-col h-screen">
+<!-- Header / TopAppBar (Derived from JSON Hierarchy) -->
+<header class="fixed top-0 w-full z-50 flex items-center px-container-margin h-16 bg-surface-container-lowest border-b border-border-base">
+<div class="flex items-center w-full gap-stack-gap">
+<button class="p-2 cursor-pointer active:opacity-80 transition-colors hover:bg-surface-container-high rounded-full">
+<span class="material-symbols-outlined text-on-surface-variant">arrow_back</span>
+</button>
+<div class="flex -space-x-2 mr-1">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-primary-container flex items-center justify-center text-[10px] text-on-primary-container font-bold">TC</div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-tertiary-container flex items-center justify-center text-[10px] text-on-tertiary-container font-bold">JM</div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-secondary-container flex items-center justify-center text-[10px] text-on-secondary-container font-bold">AL</div>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-primary flex items-center justify-center text-[10px] text-white font-bold">+1</div>
+</div>
+<div class="flex-grow min-w-0">
+<h1 class="font-headline-sm text-headline-sm-mobile text-on-surface truncate leading-tight" style="font-size: 15px;">1️⃣ LEV - LAMBARI 2245</h1>
+<p class="font-label-mono text-label-mono text-ink-subtle uppercase truncate" style="font-size: 10px;">THIAGO · 1️⃣ LEV</p>
+</div>
+<button class="p-2 cursor-pointer active:opacity-80 transition-colors hover:bg-surface-container-high rounded-full">
+<span class="material-symbols-outlined text-on-surface-variant">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Chat Canvas -->
+<main class="flex-grow pt-16 pb-20 overflow-y-auto chat-area bg-surface-container-low px-container-margin">
+<!-- Date Separator -->
+<div class="flex justify-center my-6">
+<span class="px-4 py-1.5 bg-surface-container-high text-on-surface-variant font-label-mono text-label-mono rounded-full uppercase tracking-wider">
+                QUI · 15 ABR
+            </span>
+</div>
+<!-- Location Context Separator -->
+<div class="flex justify-center sticky top-2 z-10 my-4">
+<div class="px-3 py-1 bg-white/70 backdrop-blur-md border border-border-base/40 text-ink-subtle font-label-mono text-[10px] rounded-lg flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[14px]">location_on</span>
+                📍 FACHADA EXTERNA
+            </div>
+</div>
+<!-- Message List (Mixed Bubbles) -->
+<div class="space-y-4 flex flex-col">
+<!-- Received Bubble -->
+<div class="max-w-[85%] self-start flex flex-col gap-1">
+<div class="bg-white border border-border-base p-card-padding rounded-tr-xl rounded-br-xl rounded-bl-xl shadow-[0_2px_4px_rgba(0,0,0,0.05)]">
+<p class="text-body-md text-ink-primary">Olá Thiago, as medições da fachada lateral já foram validadas pela equipe de engenharia?</p>
+</div>
+<span class="text-[10px] font-label-mono text-ink-subtle ml-2">14:20</span>
+</div>
+<!-- Sent Bubble with Image (The focal point) -->
+<div class="max-w-[85%] self-end flex flex-col gap-1 items-end">
+<div class="bg-bubble-sent border border-outline-variant/30 p-2 rounded-tl-xl rounded-bl-xl rounded-br-xl shadow-[0_2px_4px_rgba(0,0,0,0.05)]">
+<!-- Photo Container -->
+<div class="relative aspect-[4/3] w-full min-w-[240px] rounded-lg overflow-hidden mb-2 bg-surface-dim">
+<img alt="Site Inspection Photo" class="w-full h-full object-cover" data-alt="A professional wide-angle architectural photograph of a modern construction site's exterior concrete facade during a bright afternoon. The lighting is crisp and natural, highlighting the textures of raw materials. The style is industrial and technical, following a warm-toned color palette of creams and oranges. In the corner, there are structural scaffolding details visible against a clear blue sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN9AD_3t6nOwNNk6NKd-WO46lzQLSezd5Sw8SM11EjCQ8Jwx702q88dHQCaZVslKv5QSYffHoqp1dIej1-f6fun9v5B9pow_Js-ug811tg0x60M7UIt9lz-f4GLuWX9B2eZxQ1kx-NShyE6EfkDRZ-g_c57Kpb3Eb9GYR1U7gzrY_muRXht8li_0WVuePuz23i-PbxhMa353CQLx6Xi7TMBbIoqI4sivVtDztm3w6m3lfpCcaXoZ1E7eSOn_f3LwEAeos15l6UhoQ"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 bg-ink-primary/80 backdrop-blur-sm rounded-sm">
+<span class="text-white font-label-mono text-[10px]">IMG·2401</span>
+</div>
+</div>
+<!-- Measurement Details -->
+<div class="px-2 pb-1">
+<p class="text-body-md text-on-surface font-semibold">16,00 x 7,00 - Desconto 16,00 x 2,50</p>
+<div class="flex justify-end items-center gap-1 mt-1">
+<span class="text-[10px] font-label-mono text-on-surface-variant">14:32</span>
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">done_all</span>
+</div>
+</div>
+</div>
+</div>
+<!-- More Context -->
+<div class="max-w-[85%] self-start flex flex-col gap-1">
+<div class="bg-white border border-border-base p-card-padding rounded-tr-xl rounded-br-xl rounded-bl-xl shadow-[0_2px_4px_rgba(0,0,0,0.05)] border-l-4 border-l-primary">
+<p class="text-body-md text-ink-primary">Recebido. Verificando as áreas de desconto agora. Precisamos confirmar se a viga de balanço entra no cálculo de revestimento.</p>
+</div>
+<span class="text-[10px] font-label-mono text-ink-subtle ml-2">14:35</span>
+</div>
+<!-- Sent Bubble (Text Only) -->
+<div class="max-w-[85%] self-end flex flex-col gap-1 items-end">
+<div class="bg-bubble-sent border border-outline-variant/30 px-card-padding py-2 rounded-tl-xl rounded-bl-xl rounded-br-xl shadow-[0_2px_4px_rgba(0,0,0,0.05)]">
+<p class="text-body-md text-on-surface">Confirmado. A viga deve ser excluída conforme o detalhamento da página 12 do projeto executivo.</p>
+<div class="flex justify-end items-center gap-1 mt-1">
+<span class="text-[10px] font-label-mono text-on-surface-variant">14:40</span>
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">done_all</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Chat Composer -->
+<footer class="fixed bottom-0 w-full bg-surface-container-lowest border-t border-border-base p-3 pb-safe z-50">
+<div class="flex items-center gap-2 max-w-4xl mx-auto">
+<button class="p-2 text-ink-subtle active:scale-90 transition-transform">
+<span class="material-symbols-outlined">photo_camera</span>
+</button>
+<div class="flex-grow relative">
+<input class="w-full bg-surface-container-low border-none rounded-full py-2.5 px-5 text-body-md focus:ring-2 focus:ring-primary-container outline-none placeholder:text-ink-subtle transition-all" placeholder="Escreva sua mensagem..." type="text"/>
+</div>
+<button class="bg-primary w-10 h-10 rounded-full flex items-center justify-center text-white shadow-md active:scale-95 transition-all">
+<span class="material-symbols-outlined fill-icon" style="transform: rotate(-30deg) translate(2px, -1px);">send</span>
+</button>
+</div>
+</footer>
+<!-- Simple Atmospheric Effects Script -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chatArea = document.querySelector('.chat-area');
+            // Scroll to bottom initially
+            chatArea.scrollTop = chatArea.scrollHeight;
+
+            // Simple focus animation for the composer
+            const input = document.querySelector('input');
+            const composer = document.querySelector('footer');
+            
+            input.addEventListener('focus', () => {
+                composer.classList.add('shadow-lg');
+            });
+            
+            input.addEventListener('blur', () => {
+                composer.classList.remove('shadow-lg');
+            });
+        });
+    </script>
+</body></html>

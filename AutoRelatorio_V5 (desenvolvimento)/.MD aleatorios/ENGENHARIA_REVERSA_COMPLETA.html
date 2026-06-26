@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🔬 Engenharia Reversa — AutoRelatório V5</title>
+<style>
+  :root {
+    --bg: #0d1117; --surface: #161b22; --surface2: #1c2128; --surface3: #21262d;
+    --border: #30363d; --text: #e6edf3; --text2: #8b949e; --text3: #6e7681;
+    --blue: #58a6ff; --green: #3fb950; --yellow: #d29922; --red: #f85149;
+    --orange: #fb8500; --purple: #bc8cff; --teal: #39d353; --pink: #ff7b72;
+    --accent: #1f6feb; --accent2: #0d419d;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; line-height: 1.6; }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(13,17,23,.95); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem; display: flex; align-items: center; gap: 0; height: 48px;
+  }
+  nav .logo { font-weight: 700; font-size: 1rem; color: var(--blue); margin-right: 2rem; white-space: nowrap; }
+  nav .tabs { display: flex; gap: 0; overflow-x: auto; }
+  nav .tab {
+    padding: .4rem 1rem; font-size: .8rem; color: var(--text2); cursor: pointer;
+    border: none; background: none; white-space: nowrap; border-bottom: 2px solid transparent;
+    transition: all .15s;
+  }
+  nav .tab:hover { color: var(--text); }
+  nav .tab.active { color: var(--blue); border-bottom-color: var(--blue); }
+
+  /* ── LAYOUT ── */
+  .page { display: none; padding: 2rem; max-width: 1400px; margin: 0 auto; animation: fadein .2s; }
+  .page.active { display: block; }
+  @keyframes fadein { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+  h1 { font-size: 1.6rem; font-weight: 700; color: var(--text); margin-bottom: .5rem; }
+  h2 { font-size: 1.15rem; font-weight: 600; color: var(--text); margin: 2rem 0 .75rem; border-bottom: 1px solid var(--border); padding-bottom: .4rem; }
+  h3 { font-size: 1rem; font-weight: 600; color: var(--text2); margin: 1.2rem 0 .4rem; }
+  p { color: var(--text2); margin-bottom: .5rem; font-size: .9rem; }
+
+  /* ── CARDS ── */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 1.1rem 1.2rem; transition: border-color .15s, box-shadow .15s;
+  }
+  .card:hover { border-color: var(--blue); box-shadow: 0 0 0 1px var(--blue)20; }
+  .card-head { display: flex; align-items: center; gap: .6rem; margin-bottom: .6rem; }
+  .card-icon { font-size: 1.4rem; }
+  .card-title { font-weight: 600; font-size: .95rem; }
+  .card-body { font-size: .82rem; color: var(--text2); }
+  .card-tags { display: flex; flex-wrap: wrap; gap: .3rem; margin-top: .6rem; }
+  .tag {
+    font-size: .7rem; padding: .15rem .5rem; border-radius: 20px; font-weight: 600;
+    background: var(--surface3); color: var(--text2);
+  }
+  .tag.green  { background: #1a3a2a; color: var(--green); }
+  .tag.blue   { background: #1a2f4a; color: var(--blue); }
+  .tag.yellow { background: #3a2a0a; color: var(--yellow); }
+  .tag.red    { background: #3a1a1a; color: var(--red); }
+  .tag.purple { background: #2a1a3a; color: var(--purple); }
+  .tag.teal   { background: #0a2a2a; color: var(--teal); }
+  .tag.orange { background: #3a2010; color: var(--orange); }
+
+  /* ── BADGES PROGRESS ── */
+  .progress-bar { height: 6px; border-radius: 3px; background: var(--surface3); overflow: hidden; margin: .4rem 0; }
+  .progress-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--green), var(--teal)); transition: width .4s; }
+  .progress-fill.yellow { background: linear-gradient(90deg, var(--yellow), var(--orange)); }
+  .progress-fill.red    { background: linear-gradient(90deg, var(--red), var(--pink)); }
+
+  /* ── TABLE ── */
+  .tbl-wrap { overflow-x: auto; border-radius: 8px; border: 1px solid var(--border); margin: 1rem 0; }
+  table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+  th { background: var(--surface2); color: var(--text2); text-transform: uppercase; font-size: .7rem; letter-spacing: .05em; padding: .6rem 1rem; text-align: left; }
+  td { padding: .55rem 1rem; border-top: 1px solid var(--border); vertical-align: top; }
+  tr:hover td { background: var(--surface2); }
+  .check-yes  { color: var(--green); }
+  .check-no   { color: var(--red); }
+  .check-warn { color: var(--yellow); }
+
+  /* ── ARCH DIAGRAM ── */
+  .arch { display: flex; flex-direction: column; gap: .5rem; }
+  .arch-layer {
+    border: 1px solid var(--border); border-radius: 8px; padding: .8rem 1.2rem;
+    background: var(--surface); position: relative;
+  }
+  .arch-label { font-size: .7rem; color: var(--text3); text-transform: uppercase; letter-spacing: .1em; margin-bottom: .4rem; }
+  .arch-items { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .arch-item {
+    background: var(--surface3); border: 1px solid var(--border); border-radius: 6px;
+    padding: .25rem .7rem; font-size: .78rem; font-family: 'Cascadia Code', 'Fira Code', monospace;
+    color: var(--text);
+  }
+  .arch-item.blue   { border-color: var(--blue)40;   color: var(--blue); }
+  .arch-item.green  { border-color: var(--green)40;  color: var(--green); }
+  .arch-item.purple { border-color: var(--purple)40; color: var(--purple); }
+  .arch-item.yellow { border-color: var(--yellow)40; color: var(--yellow); }
+  .arch-item.orange { border-color: var(--orange)40; color: var(--orange); }
+  .arch-arrow { text-align: center; color: var(--text3); font-size: 1.2rem; }
+
+  /* ── TIMELINE ── */
+  .timeline { position: relative; padding-left: 1.5rem; }
+  .timeline::before { content: ''; position: absolute; left: .5rem; top: 0; bottom: 0; width: 2px; background: var(--border); }
+  .tl-item { position: relative; margin-bottom: 1.2rem; }
+  .tl-item::before {
+    content: ''; position: absolute; left: -1.5rem; top: .4rem;
+    width: 10px; height: 10px; border-radius: 50%; background: var(--blue); border: 2px solid var(--bg);
+  }
+  .tl-item.done::before  { background: var(--green); }
+  .tl-item.warn::before  { background: var(--yellow); }
+  .tl-item.alert::before { background: var(--red); }
+  .tl-date { font-size: .72rem; color: var(--text3); margin-bottom: .1rem; }
+  .tl-title { font-weight: 600; font-size: .9rem; }
+  .tl-body  { font-size: .82rem; color: var(--text2); margin-top: .2rem; }
+
+  /* ── CODE ── */
+  pre {
+    background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;
+    padding: 1rem 1.2rem; font-size: .8rem; font-family: 'Cascadia Code','Fira Code','Consolas', monospace;
+    overflow-x: auto; color: var(--text); margin: .8rem 0;
+  }
+  code { font-family: 'Cascadia Code','Fira Code','Consolas', monospace; background: var(--surface3); padding: .1em .3em; border-radius: 3px; font-size: .85em; }
+
+  /* ── ALERT ── */
+  .alert {
+    border-left: 3px solid var(--yellow); background: rgba(210,153,34,.08);
+    padding: .8rem 1rem; border-radius: 0 6px 6px 0; margin: .8rem 0; font-size: .85rem;
+  }
+  .alert.red    { border-color: var(--red);    background: rgba(248,81,73,.08); }
+  .alert.green  { border-color: var(--green);  background: rgba(63,185,80,.08); }
+  .alert.blue   { border-color: var(--blue);   background: rgba(88,166,255,.08); }
+  .alert-title  { font-weight: 700; margin-bottom: .3rem; }
+
+  /* ── SPRINT STATUS ── */
+  .sprint-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: .75rem; }
+  .sprint-item { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: .75rem 1rem; }
+  .sprint-pct  { font-size: 1.5rem; font-weight: 700; }
+  .sprint-pct.g { color: var(--green); }
+  .sprint-pct.y { color: var(--yellow); }
+  .sprint-pct.r { color: var(--red); }
+  .sprint-label { font-size: .78rem; color: var(--text2); }
+
+  /* ── RULES ── */
+  .rule-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1rem; }
+  .rule { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+  .rule-id { font-size: .7rem; font-weight: 700; color: var(--purple); font-family: monospace; }
+  .rule-title { font-weight: 600; margin: .2rem 0 .4rem; }
+  .rule-body  { font-size: .82rem; color: var(--text2); }
+
+  /* ── HERO ── */
+  .hero { text-align: center; padding: 2rem 0 1.5rem; }
+  .hero h1 { font-size: 2.2rem; background: linear-gradient(135deg, var(--blue), var(--purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero p { font-size: 1rem; color: var(--text2); max-width: 600px; margin: .5rem auto 1.5rem; }
+  .hero-stats { display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+  .stat { text-align: center; }
+  .stat-n { font-size: 2rem; font-weight: 800; color: var(--text); }
+  .stat-l { font-size: .75rem; color: var(--text3); text-transform: uppercase; letter-spacing: .1em; }
+
+  /* ── PILL STATUS ── */
+  .pill { display: inline-flex; align-items: center; gap: .3rem; font-size: .73rem; font-weight: 600; padding: .2rem .6rem; border-radius: 20px; }
+  .pill.ok     { background: #1a3a2a; color: var(--green); }
+  .pill.warn   { background: #3a2a0a; color: var(--yellow); }
+  .pill.todo   { background: #3a1a1a; color: var(--red); }
+  .pill.info   { background: #1a2f4a; color: var(--blue); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .card-grid, .sprint-grid, .rule-grid { grid-template-columns: 1fr; }
+    nav .logo { display: none; }
+    .hero-stats { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="logo">🔬 AutoRelatório V5</span>
+  <div class="tabs">
+    <button class="tab active" onclick="showPage('overview')">Visão Geral</button>
+    <button class="tab" onclick="showPage('architecture')">Arquitetura</button>
+    <button class="tab" onclick="showPage('modules')">Módulos</button>
+    <button class="tab" onclick="showPage('timeline')">Linha do Tempo</button>
+    <button class="tab" onclick="showPage('contracts')">9 Contratos</button>
+    <button class="tab" onclick="showPage('rules')">Regras de Negócio</button>
+    <button class="tab" onclick="showPage('sprints')">Sprints</button>
+    <button class="tab" onclick="showPage('reuse')">Reaproveitamento</button>
+    <button class="tab" onclick="showPage('alerts')">⚠️ Alertas</button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     PAGE: VISÃO GERAL
+══════════════════════════════════════════════════════════════════ -->
+<div id="page-overview" class="page active">
+  <div class="hero">
+    <h1>Engenharia Reversa Completa</h1>
+    <p>Mapeamento forense de todo o ecossistema AutoRelatório — da proto-V1 ao V5 em produção. <br>Gerado em 2026-05-26.</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-n">6</div><div class="stat-l">Versões analisadas</div></div>
+      <div class="stat"><div class="stat-n">9</div><div class="stat-l">Contratos ativos</div></div>
+      <div class="stat"><div class="stat-n">3</div><div class="stat-l">Modos de geração</div></div>
+      <div class="stat"><div class="stat-n">40+</div><div class="stat-l">Módulos Python</div></div>
+      <div class="stat"><div class="stat-n">15+</div><div class="stat-l">Componentes React</div></div>
+      <div class="stat"><div class="stat-n">7</div><div class="stat-l">Placeholders dinâmicos</div></div>
+    </div>
+  </div>
+
+  <h2>Status Atual do V5</h2>
+  <div class="sprint-grid">
+    <div class="sprint-item"><div class="sprint-pct g">100%</div><div class="sprint-label">UI / Layout</div><div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div></div>
+    <div class="sprint-item"><div class="sprint-pct g">100%</div><div class="sprint-label">Step 1 — Formulário</div><div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div></div>
+    <div class="sprint-item"><div class="sprint-pct g">90%</div><div class="sprint-label">Step 2 — Blocos Dinâmicos</div><div class="progress-bar"><div class="progress-fill" style="width:90%"></div></div></div>
+    <div class="sprint-item"><div class="sprint-pct g">100%</div><div class="sprint-label">Step 3 — Resumo</div><div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div></div>
+    <div class="sprint-item"><div class="sprint-pct g">100%</div><div class="sprint-label">Preview (cabeçalho)</div><div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div></div>
+    <div class="sprint-item"><div class="sprint-pct g">100%</div><div class="sprint-label">Preview (tabelas + thumbs)</div><div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div></div>
+    <div class="sprint-item"><div class="sprint-pct g">100%</div><div class="sprint-label">Backend (estrutura)</div><div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div></div>
+    <div class="sprint-item"><div class="sprint-pct g">100%</div><div class="sprint-label">Scanner SP2 (c1565)</div><div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div></div>
+    <div class="sprint-item"><div class="sprint-pct g">100%</div><div class="sprint-label">Word Builder + Download</div><div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div></div>
+    <div class="sprint-item"><div class="sprint-pct y">80%</div><div class="sprint-label">9 Contratos (SP2 ok, trad/sp pendentes)</div><div class="progress-bar"><div class="progress-fill yellow" style="width:80%"></div></div></div>
+    <div class="sprint-item"><div class="sprint-pct g">100%</div><div class="sprint-label">Bridge API /health + /generate</div><div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div></div>
+    <div class="sprint-item"><div class="sprint-pct r">0%</div><div class="sprint-label">Upload multipart fotos → backend</div><div class="progress-bar"><div class="progress-fill red" style="width:0%"></div></div></div>
+  </div>
+
+  <h2>O que o sistema faz (fluxo principal)</h2>
+  <div class="arch">
+    <div class="arch-layer">
+      <div class="arch-label">Usuário</div>
+      <div class="arch-items">
+        <span class="arch-item blue">Seleciona contrato</span>
+        <span class="arch-item blue">Preenche OS + agência</span>
+        <span class="arch-item blue">Seleciona pasta de fotos</span>
+        <span class="arch-item blue">Associa itens + medidas</span>
+        <span class="arch-item blue">Clica Gerar</span>
+      </div>
+    </div>
+    <div class="arch-arrow">↓ POST /generate</div>
+    <div class="arch-layer">
+      <div class="arch-label">Backend Python (FastAPI · porta 5000)</div>
+      <div class="arch-items">
+        <span class="arch-item green">get_engine(contrato_id)</span>
+        <span class="arch-item green">validate_folder(root_path)</span>
+        <span class="arch-item green">engine.scan(root_path) → conteudo[]</span>
+        <span class="arch-item green">engine.build_word(template, conteudo, meta)</span>
+        <span class="arch-item green">FileResponse → blob</span>
+      </div>
+    </div>
+    <div class="arch-arrow">↓ .docx binário</div>
+    <div class="arch-layer">
+      <div class="arch-label">Browser (download automático)</div>
+      <div class="arch-items">
+        <span class="arch-item purple">URL.createObjectURL(blob)</span>
+        <span class="arch-item purple">&lt;a download&gt; temporário</span>
+        <span class="arch-item purple">Relatório-OS1234-1234-5.docx</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>Inventário de Arquivos-Chave</h2>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🐍</span><span class="card-title">core/server.py</span></div>
+      <div class="card-body">FastAPI app principal. 6 endpoints: /health, /generate (flat), /api/contracts, /scan, /generate (completo), /validate, /items.</div>
+      <div class="card-tags"><span class="tag green">ativo</span><span class="tag blue">FastAPI</span></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🐍</span><span class="card-title">core/contract_engine.py</span></div>
+      <div class="card-body">ABC base com scan(), build_word(), get_items(), get_meta_fields(), validate_folder(). Contrato entre todos os 9 engines.</div>
+      <div class="card-tags"><span class="tag green">ativo</span><span class="tag purple">interface</span></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🐍</span><span class="card-title">core/registry.py</span></div>
+      <div class="card-body">Mapa de todos os 9 engines. get_engine(id) e list_contracts(). Adicionar contrato = criar módulo + registrar aqui.</div>
+      <div class="card-tags"><span class="tag green">ativo</span></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🐍</span><span class="card-title">core/word_utils.py</span></div>
+      <div class="card-body">Placeholder system: extract_placeholders, substitute_placeholders, validate_substitutions, inserir_conteudo (legacy compat).</div>
+      <div class="card-tags"><span class="tag green">ativo</span></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🐍</span><span class="card-title">core/word_utils_sp.py</span></div>
+      <div class="card-body">Word builder para modo SP: tabelas de memória de cálculo, set_cell_background, inserir_conteudo_sp.</div>
+      <div class="card-tags"><span class="tag green">ativo</span><span class="tag blue">SP</span></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🐍</span><span class="card-title">core/word_utils_sp2.py</span></div>
+      <div class="card-body">Word builder SP2 (mais complexo): croquis, múltiplas paredes, fator faces, tabela de itens. ~21KB.</div>
+      <div class="card-tags"><span class="tag green">ativo</span><span class="tag orange">SP2</span></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🐍</span><span class="card-title">core/utils_sp.py</span></div>
+      <div class="card-body">parse_medidas_arquivo: extrai L×H, desconto, m² do nome do arquivo. formatar_moeda_texto. formatar_descricao_tecnica.</div>
+      <div class="card-tags"><span class="tag green">ativo</span><span class="tag blue">parser</span></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🐍</span><span class="card-title">core/utils_sp2.py</span></div>
+      <div class="card-body">parse_medidas_sp2 (+ faces, tipo metálico), detectar_item_por_pasta, e_croqui, extrair_legenda_croqui. ~14KB.</div>
+      <div class="card-tags"><span class="tag green">ativo</span><span class="tag orange">SP2</span><span class="tag blue">parser</span></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="card-icon">⚛️</span><span class="card-title">frontend/lib/api.ts</span></div>
+      <div class="card-body">Cliente HTTP: checkHealth(), generateReport(). requestFile() trata FileResponse → blob URL para download automático.</div>
+      <div class="card-tags"><span class="tag green">ativo</span><span class="tag blue">TypeScript</span></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="card-icon">⚛️</span><span class="card-title">frontend/hooks/useBlocks.ts</span></div>
+      <div class="card-body">Estado dos blocos de fotos. carregarArquivos (webkitdirectory), setItem, setMedida, consolidado, totais por unidade.</div>
+      <div class="card-tags"><span class="tag green">ativo</span><span class="tag blue">hook</span></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="card-icon">⚛️</span><span class="card-title">hooks/useItems.ts</span></div>
+      <div class="card-body">GET /api/contracts/{id}/items. Ordena por código numericamente (17.2 antes de 17.10). Atualiza ao trocar contrato.</div>
+      <div class="card-tags"><span class="tag green">ativo</span><span class="tag blue">hook</span></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="card-icon">⚛️</span><span class="card-title">components/blocks/</span></div>
+      <div class="card-body">MeasureForm (formulário adaptativo m²/m³/m/un), BlockCard (foto + dropdown + medidas), BlockList (orquestrador).</div>
+      <div class="card-tags"><span class="tag green">ativo</span><span class="tag blue">Sprint 1</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     PAGE: ARQUITETURA
+══════════════════════════════════════════════════════════════════ -->
+<div id="page-architecture" class="page">
+  <h1>Arquitetura do Sistema</h1>
+  <p>Visão completa das camadas, padrões recorrentes e fluxo de dados.</p>
+
+  <h2>Mapa de Camadas (V5)</h2>
+  <div class="arch">
+    <div class="arch-layer" style="border-color:#58a6ff40">
+      <div class="arch-label" style="color:var(--blue)">Frontend — Next.js 15 · Porto 3000</div>
+      <div class="arch-items">
+        <span class="arch-item blue">page.tsx (entry)</span>
+        <span class="arch-item blue">TopBar</span>
+        <span class="arch-item blue">Sidebar</span>
+        <span class="arch-item blue">EditorPanel</span>
+        <span class="arch-item blue">PreviewPanel</span>
+        <span class="arch-item blue">ResizableDivider</span>
+        <span class="arch-item blue">Toast</span>
+        <span class="arch-item blue">LoadingSpinner</span>
+      </div>
+    </div>
+    <div class="arch-layer" style="border-color:#58a6ff20; margin-left: 2rem">
+      <div class="arch-label">Hooks (estado)</div>
+      <div class="arch-items">
+        <span class="arch-item">useTheme</span>
+        <span class="arch-item">useContracts</span>
+        <span class="arch-item">useSteps</span>
+        <span class="arch-item">useFormData</span>
+        <span class="arch-item">useApiState</span>
+        <span class="arch-item green">useBlocks ★</span>
+        <span class="arch-item green">useItems ★</span>
+      </div>
+    </div>
+    <div class="arch-layer" style="border-color:#58a6ff20; margin-left: 2rem">
+      <div class="arch-label">Componentes de Blocos (Sprint 1)</div>
+      <div class="arch-items">
+        <span class="arch-item green">BlockList</span>
+        <span class="arch-item green">BlockCard</span>
+        <span class="arch-item green">MeasureForm</span>
+      </div>
+    </div>
+    <div class="arch-layer" style="border-color:#58a6ff20; margin-left: 2rem">
+      <div class="arch-label">Store / Zustand (herdado V4)</div>
+      <div class="arch-items">
+        <span class="arch-item yellow">contractStore.ts</span>
+      </div>
+    </div>
+    <div class="arch-layer" style="border-color:#58a6ff20; margin-left: 2rem">
+      <div class="arch-label">API Client</div>
+      <div class="arch-items">
+        <span class="arch-item purple">lib/api.ts: checkHealth() | generateReport() | requestFile()</span>
+      </div>
+    </div>
+    <div class="arch-arrow">↕ HTTP JSON + FileResponse (porta 5000)</div>
+    <div class="arch-layer" style="border-color:#3fb95040">
+      <div class="arch-label" style="color:var(--green)">Backend — FastAPI + Uvicorn · Porto 5000</div>
+      <div class="arch-items">
+        <span class="arch-item green">server.py (6 endpoints)</span>
+        <span class="arch-item green">registry.py</span>
+        <span class="arch-item green">contract_engine.py (ABC)</span>
+      </div>
+    </div>
+    <div class="arch-layer" style="border-color:#3fb95020; margin-left: 2rem">
+      <div class="arch-label">Engines (1 por contrato)</div>
+      <div class="arch-items">
+        <span class="arch-item">contracts/c0908/engine/</span>
+        <span class="arch-item">contracts/c1507/engine/</span>
+        <span class="arch-item orange">contracts/c1565/engine/ (SP2)</span>
+        <span class="arch-item">contracts/c2056/engine/</span>
+        <span class="arch-item">contracts/c2057/engine/</span>
+        <span class="arch-item">contracts/c2626/engine/</span>
+        <span class="arch-item">contracts/c2627/engine/</span>
+        <span class="arch-item">contracts/c3575/engine/</span>
+        <span class="arch-item">contracts/c6122/engine/</span>
+      </div>
+    </div>
+    <div class="arch-layer" style="border-color:#3fb95020; margin-left: 2rem">
+      <div class="arch-label">Core Shared (utils/builders)</div>
+      <div class="arch-items">
+        <span class="arch-item">word_utils.py</span>
+        <span class="arch-item blue">word_utils_sp.py</span>
+        <span class="arch-item orange">word_utils_sp2.py</span>
+        <span class="arch-item blue">utils_sp.py</span>
+        <span class="arch-item orange">utils_sp2.py</span>
+      </div>
+    </div>
+    <div class="arch-layer" style="border-color:#3fb95020; margin-left: 2rem">
+      <div class="arch-label">Artefatos</div>
+      <div class="arch-items">
+        <span class="arch-item purple">contracts/cXXXX/template/MODELO-XXXX.docx</span>
+        <span class="arch-item purple">contracts/cXXXX/items/items.json</span>
+        <span class="arch-item green">backend/output/*.docx (gerados)</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>Padrão 1 — Pipeline Scanner → Builder (NUNCA quebrado desde V1)</h2>
+  <pre>pasta_raiz
+  → engine.scan(root_path)           # generator_*.py
+  → conteudo: List[Any]              # formato intermediário universal
+  → engine.build_word(tpl, conteudo) # word_utils_*.py
+  → output.docx</pre>
+
+  <h2>Padrão 2 — Tipos de item em <code>conteudo[]</code></h2>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Tipo</th><th>Exemplo</th><th>Quem usa</th></tr>
+      <tr><td><code>"» Título Nível 1"</code></td><td>String com prefixo »</td><td>Todos</td></tr>
+      <tr><td><code>{"imagem": path}</code></td><td>Foto normal</td><td>Todos</td></tr>
+      <tr><td><code>{"quebra_pagina": True}</code></td><td>Quebra de página</td><td>Todos</td></tr>
+      <tr><td><code>{"memoria_calculo": {...}}</code></td><td>Tabela SP</td><td>SP (c0908)</td></tr>
+      <tr><td><code>{"tabela_itens_sp2": {...}}</code></td><td>Tabela SP2</td><td>SP2 (c1565)</td></tr>
+      <tr><td><code>{"croqui": path, "legenda": str}</code></td><td>Croqui técnico</td><td>SP2 (c1565)</td></tr>
+      <tr><td><code>{"enunciado_item": {...}}</code></td><td>Texto do item</td><td>SP2 (c1565)</td></tr>
+    </table>
+  </div>
+
+  <h2>Padrão 3 — Sort em 3 camadas (presente desde V3)</h2>
+  <pre>def folder_sort_key(name):
+    if "vista ampla" in name.lower(): return (0, name)   # sempre primeiro
+    if re.match(r'^(\d+)', name):     return (1, num, rest)  # numérico
+    if "detalhes" in name.lower():    return (3, name)   # sempre último
+    return (2, name)                                     # alfabético</pre>
+
+  <h2>Padrão 4 — Dual-server (NUNCA mudou desde V2)</h2>
+  <pre>FastAPI  → uvicorn  → porta 5000
+Next.js  → npm run dev → porta 3000
+INICIAR.bat → sobe ambos simultaneamente</pre>
+
+  <h2>Padrão 5 — Modo de Relatório extensível</h2>
+  <pre>generation_mode = "tradicional" | "sp" | "sp2"
+# Para SP3 futuro: adicionar mode, engine, scanner, word_builder
+# O registry.py aceita qualquer novo ContractEngine</pre>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     PAGE: MÓDULOS
+══════════════════════════════════════════════════════════════════ -->
+<div id="page-modules" class="page">
+  <h1>Inventário de Módulos</h1>
+
+  <h2>Backend — Core Shared</h2>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Arquivo</th><th>Tamanho</th><th>Funções principais</th><th>Status</th></tr>
+      <tr><td><code>core/server.py</code></td><td>5.4KB</td><td>FastAPI app, 6 endpoints, GenerateFlatRequest, ScanRequest</td><td><span class="pill ok">✅ ativo</span></td></tr>
+      <tr><td><code>core/contract_engine.py</code></td><td>1.7KB</td><td>ABC ContractEngine, MetaField, ValidationResult</td><td><span class="pill ok">✅ ativo</span></td></tr>
+      <tr><td><code>core/registry.py</code></td><td>2.0KB</td><td>_ENGINES dict, get_engine(), list_contracts()</td><td><span class="pill ok">✅ ativo</span></td></tr>
+      <tr><td><code>core/word_utils.py</code></td><td>20KB</td><td>extract_placeholders, substitute_placeholders, validate_substitutions, inserir_conteudo (legacy), analisar_imagem</td><td><span class="pill ok">✅ ativo</span></td></tr>
+      <tr><td><code>core/word_utils_sp.py</code></td><td>15KB</td><td>inserir_conteudo_sp, set_cell_background, tabelas de memória de cálculo</td><td><span class="pill ok">✅ ativo</span></td></tr>
+      <tr><td><code>core/word_utils_sp2.py</code></td><td>22KB</td><td>inserir_conteudo_sp2, tabelas complexas SP2, croquis, enunciados</td><td><span class="pill ok">✅ ativo</span></td></tr>
+      <tr><td><code>core/utils_sp.py</code></td><td>2.6KB</td><td>parse_medidas_arquivo, formatar_moeda_texto, formatar_descricao_tecnica, formatar_descricao_cofre</td><td><span class="pill ok">✅ ativo</span></td></tr>
+      <tr><td><code>core/utils_sp2.py</code></td><td>14.6KB</td><td>parse_medidas_sp2, detectar_item_por_pasta, e_croqui, extrair_legenda_croqui, formatar_referencia_foto</td><td><span class="pill ok">✅ ativo</span></td></tr>
+    </table>
+  </div>
+
+  <h2>Backend — Por Contrato</h2>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Contrato</th><th>Engine</th><th>Scanner</th><th>Word Builder</th><th>Items</th><th>Modo</th></tr>
+      <tr><td><code>c0908</code></td><td>engine.py</td><td>scanner_sp.py</td><td>word_builder_sp.py</td><td>items.json ✅</td><td><span class="tag blue">SP</span></td></tr>
+      <tr><td><code>c1507</code></td><td>engine.py</td><td>scanner.py</td><td>word_builder.py</td><td>items.json ✅</td><td><span class="tag">Trad</span></td></tr>
+      <tr><td><code>c1565</code></td><td>engine.py</td><td>scanner_sp2.py</td><td>word_builder_sp2.py</td><td>items.json ✅</td><td><span class="tag orange">SP2</span></td></tr>
+      <tr><td><code>c2056</code></td><td>engine.py</td><td>scanner.py</td><td>word_builder.py</td><td>items.json ⚠️ vazio</td><td><span class="tag">Trad</span></td></tr>
+      <tr><td><code>c2057</code></td><td>engine.py</td><td>scanner.py</td><td>word_builder.py</td><td>items.json ⚠️ vazio</td><td><span class="tag">Trad</span></td></tr>
+      <tr><td><code>c2626</code></td><td>engine.py</td><td>scanner.py</td><td>word_builder.py</td><td>items.json ✅</td><td><span class="tag">Trad</span></td></tr>
+      <tr><td><code>c2627</code></td><td>engine.py</td><td>scanner.py</td><td>word_builder.py</td><td>items.json ✅</td><td><span class="tag">Trad</span></td></tr>
+      <tr><td><code>c3575</code></td><td>engine.py</td><td>scanner.py</td><td>word_builder.py</td><td>items.json ✅</td><td><span class="tag">Trad</span></td></tr>
+      <tr><td><code>c6122</code></td><td>engine.py</td><td>scanner.py</td><td>word_builder.py</td><td>items.json ⚠️ vazio</td><td><span class="tag">Trad</span></td></tr>
+    </table>
+  </div>
+
+  <h2>Frontend — Componentes e Hooks</h2>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Arquivo</th><th>Responsabilidade</th><th>Sprint</th></tr>
+      <tr><td><code>app/page.tsx</code></td><td>Entry point. Orquestra todos os hooks. handleGenerate, handleStart, handleNew.</td><td>V5 base</td></tr>
+      <tr><td><code>components/TopBar.tsx</code></td><td>Barra superior com botões Start / New / Gerar.</td><td>V5 base</td></tr>
+      <tr><td><code>components/Sidebar.tsx</code></td><td>Sidebar com contratos e navegação.</td><td>V5 base</td></tr>
+      <tr><td><code>components/EditorPanel.tsx</code></td><td>Painel esquerdo: Steps 1/2/3. Integra BlockList no Step 2.</td><td>Sprint 1</td></tr>
+      <tr><td><code>components/PreviewPanel.tsx</code></td><td>Pré-visualização HTML do relatório com tabelas dinâmicas e thumbnails reais.</td><td>Sprint 2</td></tr>
+      <tr><td><code>components/ResizableDivider.tsx</code></td><td>Divisor redimensionável entre editor e preview.</td><td>V5 base</td></tr>
+      <tr><td><code>hooks/useBlocks.ts</code></td><td>Estado dos blocos de fotos. Blobs, medidas, consolidado, totais.</td><td>Sprint 1 ★</td></tr>
+      <tr><td><code>hooks/useItems.ts</code></td><td>GET /api/contracts/{id}/items. Sort numérico de códigos.</td><td>Sprint 1 ★</td></tr>
+      <tr><td><code>hooks/useFormData.ts</code></td><td>Estado do formulário (Step 1): nr_os, ag_cod, ag_nome, dt_atend, etc.</td><td>V5 base</td></tr>
+      <tr><td><code>hooks/useContracts.ts</code></td><td>Contrato atual selecionado e lista.</td><td>V5 base</td></tr>
+      <tr><td><code>components/blocks/BlockList.tsx</code></td><td>Orquestrador Step 2: input[webkitdirectory], progress bar, lista de cards.</td><td>Sprint 1 ★</td></tr>
+      <tr><td><code>components/blocks/BlockCard.tsx</code></td><td>Card de uma foto: thumbnail, dropdown item, MeasureForm, badge total.</td><td>Sprint 1 ★</td></tr>
+      <tr><td><code>components/blocks/MeasureForm.tsx</code></td><td>Formulário adaptativo: m²/m³/m/km/un. Total em tempo real.</td><td>Sprint 1 ★</td></tr>
+      <tr><td><code>store/contractStore.ts</code></td><td>Zustand store (herdado V4). Estado global de contratos.</td><td>V4 herdado</td></tr>
+      <tr><td><code>lib/api.ts</code></td><td>checkHealth(), generateReport(), requestFile() → blob URL.</td><td>Sprint 0</td></tr>
+    </table>
+  </div>
+
+  <h2>Scripts Scratch (TM-MEUS-APPS/scratch/) — Lógica de Negócio Valiosa</h2>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Script</th><th>Data</th><th>O que faz</th><th>Aproveitável?</th></tr>
+      <tr><td><code>process_report.py</code></td><td>24/05</td><td>Parser DOCX completo: classify_table, parse_data_row_*, consolidate, export_excel, export_docx</td><td><span class="tag green">SIM — porta para skill</span></td></tr>
+      <tr><td><code>audit_deep.py</code></td><td>24/05</td><td>Auditoria profunda de tabelas do relatório Barretos</td><td><span class="tag blue">debug</span></td></tr>
+      <tr><td><code>compare_unit_items.py</code></td><td>24/05</td><td>Compara itens por unidade entre corpo e memorial</td><td><span class="tag yellow">validação</span></td></tr>
+      <tr><td><code>inspect_report.py</code></td><td>22/05</td><td>Inspeciona tabelas brutas do DOCX</td><td><span class="tag blue">debug</span></td></tr>
+      <tr><td><code>process_ipiranga.py</code></td><td>22/05</td><td>Processamento específico agência Ipiranga</td><td><span class="tag yellow">one-off</span></td></tr>
+      <tr><td><code>process_usp.py</code></td><td>25/05</td><td>Processamento agência USP (mais recente)</td><td><span class="tag yellow">one-off</span></td></tr>
+      <tr><td><code>validate_barretos.py</code></td><td>24/05</td><td>Validação cruzada memorial vs corpo (Barretos)</td><td><span class="tag green">lógica reutilizável</span></td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     PAGE: LINHA DO TEMPO
+══════════════════════════════════════════════════════════════════ -->
+<div id="page-timeline" class="page">
+  <h1>Linha do Tempo Técnica</h1>
+  <p>Evolução completa do sistema, da proto-V1 ao V5 atual.</p>
+
+  <div class="timeline" style="max-width: 800px">
+    <div class="tl-item">
+      <div class="tl-date">2024 (estimado)</div>
+      <div class="tl-title">PRÉ-HISTÓRICO — TM Extrator</div>
+      <div class="tl-body">Vite + React puro, sem backend Python. Extração manual de itens de DOCX. <code>extrair_itens_docx.py</code> — script standalone que nunca foi portado.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2025 Q1</div>
+      <div class="tl-title">PROTO-V1 — Legacy TM Relatorio</div>
+      <div class="tl-body">Vite SPA com App.tsx. Python simples sem FastAPI. Sem modos SP. Histórico de prompts GPT preservado em <code>migrated_prompt_history/</code>.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2025 Q1</div>
+      <div class="tl-title">PROTO-V2 — TM Studio Relatorio</div>
+      <div class="tl-body">PRIMEIRA FastAPI. generator.py sem sort natural. llm_generator v1. Apenas modo Tradicional. Base arquitetural do que viraria V3.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2025 Q2</div>
+      <div class="tl-title">V0.9 — TM Relatorio (legado)</div>
+      <div class="tl-body">Sort natural básico (numérico). word_utils simples. Sem SP.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2025 Q2</div>
+      <div class="tl-title">V0.95 — NX Relatorios</div>
+      <div class="tl-body">UI Sóbria Next.js. SidebarWizard, PreviewGrid, ConsoleWatcher surgem aqui. Sem SP ainda.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2025 Q2</div>
+      <div class="tl-title">V0.97 — TM Relatorio SP</div>
+      <div class="tl-body">Modo SP completo (dark mode). page.tsx monolítico 606 linhas. generator_sp.py hierárquico. parse_medidas_arquivo nasce.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2025 Q2</div>
+      <div class="tl-title">PONTO DE FUSÃO — NX Relatorios SP Mais Atualizado</div>
+      <div class="tl-body">UI do NX + Lógica do TM SP. utils_sp.py: parse_medidas_arquivo + formatar_descricao_tecnica. dump.json de debugging. Plano de criar AutoRelatorioV1.</div>
+    </div>
+    <div class="tl-item done">
+      <div class="tl-date">2026 Março — 19/04/2026</div>
+      <div class="tl-title">V2 — AutoRelatorio_V2</div>
+      <div class="tl-body">Scaffold criado. Next.js modular. Backend básico sem generator real. AmbienteSelector, Editor Fabric.js planejados. Status: frontend ok, backend incompleto.</div>
+    </div>
+    <div class="tl-item done">
+      <div class="tl-date">2026 Abril–Maio</div>
+      <div class="tl-title">✅ V3 — PRIMEIRA VERSÃO COMPLETA</div>
+      <div class="tl-body">FastAPI 20+ endpoints. Dois modos: Tradicional + SP. Editor Fabric.js integrado. AmbienteSelector 4 níveis. Multi-seleção fotos. ConsoleWatcher.</div>
+    </div>
+    <div class="tl-item done">
+      <div class="tl-date">03/05/2026</div>
+      <div class="tl-title">✅ V3.2 — PLACEHOLDERS (PRODUCTION READY)</div>
+      <div class="tl-body">Sistema {{campo}} dinâmico. 7 placeholders definidos. routes.py. 70+ testes pytest. extract_placeholders, validate_substitutions.</div>
+    </div>
+    <div class="tl-item done">
+      <div class="tl-date">12/05/2026</div>
+      <div class="tl-title">✅ V4 — SP2 + Modo App + Zustand</div>
+      <div class="tl-body">Contrato 1565 SP2: croquis, múltiplas paredes, fator faces. generator_app.py (pasta plana). Zustand store global. Views separadas.</div>
+    </div>
+    <div class="tl-item done">
+      <div class="tl-date">21–25/05/2026</div>
+      <div class="tl-title">✅ V5 Sprint 0 — Migração V4→V5</div>
+      <div class="tl-body">9 contratos com engine individual. ContractEngine ABC. Registry centralizado. Migração de todos os generators e word_builders. Testes end-to-end c1565.</div>
+    </div>
+    <div class="tl-item done">
+      <div class="tl-date">25/05/2026</div>
+      <div class="tl-title">✅ V5 Sprint 1+2 — Blocos + Integração Browser</div>
+      <div class="tl-body">Step 2 completo: BlockList, BlockCard, MeasureForm. webkitdirectory. useBlocks, useItems. Preview com tabelas dinâmicas e thumbnails reais. /generate → FileResponse → blob download.</div>
+    </div>
+    <div class="tl-item warn">
+      <div class="tl-date">Sprint 3 — PLANEJADO</div>
+      <div class="tl-title">⚠️ Upload multipart fotos → backend</div>
+      <div class="tl-body">Implementar POST /api/contracts/{id}/generate-with-files. Envia imagens via FormData. Backend recompõe blocos e gera .docx com fotos reais.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     PAGE: 9 CONTRATOS
+══════════════════════════════════════════════════════════════════ -->
+<div id="page-contracts" class="page">
+  <h1>9 Contratos Ativos</h1>
+  <p>Cada contrato tem seu engine independente para permitir ajustes sem afetar os outros.</p>
+
+  <div class="card-grid">
+    <div class="card" style="border-color:#58a6ff40">
+      <div class="card-head"><span class="card-icon">🏢</span><span class="card-title">0908 — São Paulo</span></div>
+      <div class="card-body">Template: MODELO-0908.docx<br>Scanner: scanner_sp.py (Modo SP)<br>Builder: word_builder_sp.py<br>items.json: ✅ preenchido</div>
+      <div class="card-tags"><span class="tag blue">SP</span><span class="tag green">items OK</span></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🏢</span><span class="card-title">1507 — Cuiabá</span></div>
+      <div class="card-body">Template: MODELO-1507.docx<br>Scanner: scanner.py (Tradicional)<br>Builder: word_builder.py<br>items.json: ✅ preenchido</div>
+      <div class="card-tags"><span class="tag">Tradicional</span><span class="tag green">items OK</span></div>
+    </div>
+    <div class="card" style="border-color:#fb850040">
+      <div class="card-head"><span class="card-icon">⭐</span><span class="card-title">1565 — São José do Rio Preto</span></div>
+      <div class="card-body">Template: MODELO-1565.docx<br>Scanner: scanner_sp2.py (SP2)<br>Builder: word_builder_sp2.py<br>items.json: ✅ preenchido<br><br><strong>ÚNICO contrato SP2!</strong> Croquis + SINAPI + múltiplas paredes + fator faces.</div>
+      <div class="card-tags"><span class="tag orange">SP2</span><span class="tag green">items OK</span><span class="tag green">testado e2e</span></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🏢</span><span class="card-title">2056 — Divinópolis</span></div>
+      <div class="card-body">Template: MODELO-2056.docx<br>Scanner: scanner.py (Tradicional)<br>Builder: word_builder.py<br>items.json: ⚠️ VAZIO — aguarda planilha</div>
+      <div class="card-tags"><span class="tag">Tradicional</span><span class="tag yellow">items pendentes</span></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🏢</span><span class="card-title">2057 — Varginha</span></div>
+      <div class="card-body">Template: MODELO-2057.docx<br>Scanner: scanner.py (Tradicional)<br>Builder: word_builder.py<br>items.json: ⚠️ VAZIO — aguarda planilha</div>
+      <div class="card-tags"><span class="tag">Tradicional</span><span class="tag yellow">items pendentes</span></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🏢</span><span class="card-title">2626 — Salinas</span></div>
+      <div class="card-body">Template: MODELO-2626.docx<br>Scanner: scanner.py (Tradicional)<br>Builder: word_builder.py<br>items.json: ✅ preenchido</div>
+      <div class="card-tags"><span class="tag">Tradicional</span><span class="tag green">items OK</span></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🏢</span><span class="card-title">2627 — Gov. Valadares</span></div>
+      <div class="card-body">Template: MODELO-2627.docx<br>Scanner: scanner.py (Tradicional)<br>Builder: word_builder.py<br>items.json: ✅ preenchido</div>
+      <div class="card-tags"><span class="tag">Tradicional</span><span class="tag green">items OK</span></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🏢</span><span class="card-title">3575 — Tangará da Serra</span></div>
+      <div class="card-body">Template: MODELO-3575.docx<br>Scanner: scanner.py (Tradicional)<br>Builder: word_builder.py<br>items.json: ✅ preenchido</div>
+      <div class="card-tags"><span class="tag">Tradicional</span><span class="tag green">items OK</span></div>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="card-icon">🏢</span><span class="card-title">6122 — Mato Grosso do Sul</span></div>
+      <div class="card-body">Template: MODELO-6122.docx<br>Scanner: scanner.py (Tradicional)<br>Builder: word_builder.py<br>items.json: ⚠️ VAZIO — aguarda planilha</div>
+      <div class="card-tags"><span class="tag">Tradicional</span><span class="tag yellow">items pendentes</span></div>
+    </div>
+  </div>
+
+  <h2>Estrutura de Pasta por Modo</h2>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-head"><span class="card-title">📁 Modo Tradicional</span></div>
+      <pre>AGENCIA/
+├── - Área externa/
+│   ├── Vista ampla/   ← SEMPRE 1º
+│   ├── 01 - Fachada/
+│   └── 02 - Calha/
+├── - Área interna/
+│   ├── 01.01 - SAA/
+│   └── 01.02 - Banheiro/
+└── - Segundo piso/    ← opcional</pre>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="card-title">📁 Modo SP (c0908)</span></div>
+      <pre>AGENCIA/
+├── 1 - Área - Ambiente/
+│   ├── 1.1 - Serviço/
+│   │   ├── 01 - 3,10 x 2,95.jpg
+│   │   └── 02 - 2,50 x 1,80 Faces 2.jpg
+│   └── 1.2 - Outro Serviço/</pre>
+    </div>
+    <div class="card">
+      <div class="card-head"><span class="card-title">📁 Modo SP2 (c1565)</span></div>
+      <pre>AGENCIA/
+├── [Ambiente]/
+│   ├── [Serviço]/
+│   │   ├── 01 - L x H.jpg
+│   │   ├── CROQUI 01 - desc.jpg
+│   │   └── 02 - Faces 2.jpg
+│   └── ...</pre>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     PAGE: REGRAS DE NEGÓCIO
+══════════════════════════════════════════════════════════════════ -->
+<div id="page-rules" class="page">
+  <h1>Regras de Negócio Implícitas</h1>
+  <p>Extraídas por engenharia reversa do código — nunca foram documentadas formalmente.</p>
+
+  <div class="rule-grid">
+    <div class="rule">
+      <div class="rule-id">RN-01</div>
+      <div class="rule-title">9 Contratos fixos com templates específicos</div>
+      <div class="rule-body">Os contratos são fixos (0908, 1507, 1565, 2056, 2057, 2626, 2627, 3575, 6122). Cada um tem um .docx template exclusivo em <code>contracts/cXXXX/template/</code>. Para adicionar: criar módulo + registrar em registry.py.</div>
+    </div>
+    <div class="rule">
+      <div class="rule-id">RN-02</div>
+      <div class="rule-title">Sort de pastas em 3 camadas (Tradicional)</div>
+      <div class="rule-body"><strong>1º</strong> pastas com "vista ampla" no nome. <strong>2º</strong> pastas com número no início (sort numérico, não alfanumérico). <strong>3º</strong> pastas com "detalhes". Demais: alfabético. NUNCA usar sort() padrão do OS.</div>
+    </div>
+    <div class="rule">
+      <div class="rule-id">RN-03</div>
+      <div class="rule-title">Formato de medidas no nome do arquivo (SP)</div>
+      <div class="rule-body"><code>"01 - 3,10 x 2,95 - Desconto 1,89m².jpg"</code> → Largura: 3.10m, Altura: 2.95m, Desconto: 1.89m², Subtotal: 9.15m², Total: 7.26m². Vírgula como separador decimal (padrão BR).</div>
+    </div>
+    <div class="rule">
+      <div class="rule-id">RN-04</div>
+      <div class="rule-title">Altura padrão de imagem = 7cm</div>
+      <div class="rule-body">Todas as imagens são inseridas com altura máxima de 7cm. Ajustado de 6cm (V3) para 7cm (V4+). Layout inteligente: portrait = 2 colunas, landscape = 1 coluna (largura total ~10cm).</div>
+    </div>
+    <div class="rule">
+      <div class="rule-id">RN-05</div>
+      <div class="rule-title">7 Placeholders dinâmicos no template</div>
+      <div class="rule-body"><code>{{nr_os}}</code>, <code>{{data_elaboracao}}</code> (auto hoje), <code>{{data_atendimento}}</code>, <code>{{agencia_codigo}}</code>, <code>{{agencia_nome}}</code>, <code>{{endereco}}</code>, <code>{{responsavel_dependencia}}</code>. <strong>Importante:</strong> o marcador <code>{{start_here}}</code> define onde inserir as fotos.</div>
+    </div>
+    <div class="rule">
+      <div class="rule-id">RN-06</div>
+      <div class="rule-title">4 Descrições padrão de serviço</div>
+      <div class="rule-body">Desc 1–4 são variações do texto "levantamento preventivo". Campos <code>[Nome do Gerente]</code> e <code>[Número da Matrícula]</code> eram substituídos manualmente no passado. No V3.2+ entram como placeholders dinâmicos.</div>
+    </div>
+    <div class="rule">
+      <div class="rule-id">RN-07</div>
+      <div class="rule-title">Contrato 1565 = exclusivamente SP2</div>
+      <div class="rule-body">São José do Rio Preto usa template diferente com SINAPI (referência de preços). Tem croquis técnicos, tabelas de cálculo complexas, múltiplas paredes por serviço, fator faces (×2 área).</div>
+    </div>
+    <div class="rule">
+      <div class="rule-id">RN-08</div>
+      <div class="rule-title">Fator Faces no SP2</div>
+      <div class="rule-body">Arquivo com "Faces 2" no nome tem área multiplicada por 2. "Faces 1" = normal. Default = 1 quando não especificado. Exemplo: <code>"01 - 3,10 x 2,95 - Faces 2.jpg"</code> → área × 2.</div>
+    </div>
+    <div class="rule">
+      <div class="rule-id">RN-09</div>
+      <div class="rule-title">Croquis técnicos SP2</div>
+      <div class="rule-body">Arquivos com "CROQUI" no nome são tratados diferente: inseridos antes das fotos do serviço, com legenda extraída do próprio nome. <code>e_croqui()</code> detecta, <code>extrair_legenda_croqui()</code> extrai.</div>
+    </div>
+    <div class="rule">
+      <div class="rule-id">RN-10</div>
+      <div class="rule-title">Output sempre no backend/output/</div>
+      <div class="rule-body">Relatório gerado vai para <code>backend/output/Relatorio-OS{nr_os}-{ag_cod}.docx</code>. Nunca sobrescreve: se o arquivo existe, o novo é gerado e o antigo perdido. TODO: versionamento.</div>
+    </div>
+    <div class="rule">
+      <div class="rule-id">RN-11</div>
+      <div class="rule-title">Formato BR em toda a UI</div>
+      <div class="rule-body">Vírgula como separador decimal (3,10 não 3.10). Ponto como separador de milhar quando necessário. Datas em dd/mm/yyyy. Todas as formatações de float usam <code>f"{v:.2f}".replace('.', ',')</code>.</div>
+    </div>
+    <div class="rule">
+      <div class="rule-id">RN-12</div>
+      <div class="rule-title">conteudo[] como contrato de dados</div>
+      <div class="rule-body">Qualquer scanner que produza um array <code>conteudo[]</code> no formato documentado pode ser consumido por qualquer builder. É o único "contrato" entre as duas camadas. Nunca quebrar esse contrato.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     PAGE: SPRINTS
+══════════════════════════════════════════════════════════════════ -->
+<div id="page-sprints" class="page">
+  <h1>Histórico de Sprints</h1>
+
+  <h2>Sprint 0 — Migração V4 → V5 (21–24/05/2026)</h2>
+  <div class="alert green"><div class="alert-title">✅ 100% Concluído</div>Migração completa de todos os módulos. Arquitetura de contratos independentes estabelecida. Teste end-to-end c1565 aprovado.</div>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Entrega</th><th>Status</th></tr>
+      <tr><td>9 templates .docx copiados (V4 → contracts/cXXXX/template/)</td><td><span class="check-yes">✅</span></td></tr>
+      <tr><td>ContractEngine ABC criado</td><td><span class="check-yes">✅</span></td></tr>
+      <tr><td>Registry centralizado (9 engines)</td><td><span class="check-yes">✅</span></td></tr>
+      <tr><td>scanner_sp2.py + word_builder_sp2.py para c1565</td><td><span class="check-yes">✅</span></td></tr>
+      <tr><td>scanner_sp.py + word_builder_sp.py para c0908</td><td><span class="check-yes">✅</span></td></tr>
+      <tr><td>scanner.py + word_builder.py para 7 contratos Trad</td><td><span class="check-yes">✅</span></td></tr>
+      <tr><td>Core shared (word_utils*.py, utils_sp*.py)</td><td><span class="check-yes">✅</span></td></tr>
+      <tr><td>items.json para 6 contratos</td><td><span class="check-yes">✅</span></td></tr>
+      <tr><td>Endpoints /health e /generate (payload flat)</td><td><span class="check-yes">✅</span></td></tr>
+      <tr><td>lib/api.ts: FileResponse → blob download</td><td><span class="check-yes">✅</span></td></tr>
+      <tr><td>Teste e2e c1565: scan + build_word → .docx 70KB</td><td><span class="check-yes">✅</span></td></tr>
+    </table>
+  </div>
+
+  <h2>Sprint 1 — Step 2 Blocos Dinâmicos (25/05/2026)</h2>
+  <div class="alert green"><div class="alert-title">✅ 100% Concluído</div>Seleção de pasta no browser, thumbnails, dropdown de item, formulários adaptativos, progress bar, preview com tabelas.</div>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Arquivo criado/modificado</th><th>Status</th></tr>
+      <tr><td>hooks/useBlocks.ts (novo)</td><td><span class="check-yes">✅</span></td></tr>
+      <tr><td>hooks/useItems.ts (novo)</td><td><span class="check-yes">✅</span></td></tr>
+      <tr><td>components/blocks/MeasureForm.tsx (novo)</td><td><span class="check-yes">✅</span></td></tr>
+      <tr><td>components/blocks/BlockCard.tsx (novo)</td><td><span class="check-yes">✅</span></td></tr>
+      <tr><td>components/blocks/BlockList.tsx (novo)</td><td><span class="check-yes">✅</span></td></tr>
+      <tr><td>components/EditorPanel.tsx (modificado)</td><td><span class="check-yes">✅</span></td></tr>
+      <tr><td>app/page.tsx (modificado — + useBlocks)</td><td><span class="check-yes">✅</span></td></tr>
+      <tr><td>app/globals.css (novos estilos)</td><td><span class="check-yes">✅</span></td></tr>
+    </table>
+  </div>
+
+  <h2>Sprint 2 — Integração Browser↔Backend (25/05/2026)</h2>
+  <div class="alert green"><div class="alert-title">✅ 100% Concluído</div>PreviewPanel reescrito com tabelas dinâmicas reais. POST /generate → FileResponse → blob download funcional.</div>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Entrega</th><th>Status</th></tr>
+      <tr><td>PreviewPanel.tsx reescrito — tabelas reais m²/m³/m/un</td><td><span class="check-yes">✅</span></td></tr>
+      <tr><td>Preview com thumbnails reais das fotos</td><td><span class="check-yes">✅</span></td></tr>
+      <tr><td>POST /generate → .docx download automático</td><td><span class="check-yes">✅</span></td></tr>
+      <tr><td>TypeScript zero erros após integração</td><td><span class="check-yes">✅</span></td></tr>
+    </table>
+  </div>
+
+  <h2>Sprint 3 — PLANEJADO (próximo)</h2>
+  <div class="alert"><div class="alert-title">⚠️ Pendente — Prioridade Alta</div></div>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Tarefa</th><th>Prioridade</th><th>Complexidade</th></tr>
+      <tr><td>Upload fotos via multipart/form-data → /generate-with-files</td><td><span class="tag red">ALTA</span></td><td>Média — requer FormData no frontend + endpoint novo</td></tr>
+      <tr><td>Testar contratos Trad (1507, 2056, 2057, 2626, 2627, 3575, 6122)</td><td><span class="tag yellow">MÉDIA</span></td><td>Baixa — engine migrado, só falta testar</td></tr>
+      <tr><td>items.json para c2056, c2057 e c6122</td><td><span class="tag yellow">MÉDIA</span></td><td>Baixa — aguarda planilhas do Thiago</td></tr>
+      <tr><td>Detecção automática de medidas no nome do arquivo (useBlocks)</td><td><span class="tag yellow">MÉDIA</span></td><td>Baixa — parse de "01 - 3,50 x 2,80.jpg" já existe em utils_sp.py</td></tr>
+      <tr><td>Dashboard histórico de relatórios gerados</td><td><span class="tag">BAIXA</span></td><td>Média</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     PAGE: REAPROVEITAMENTO
+══════════════════════════════════════════════════════════════════ -->
+<div id="page-reuse" class="page">
+  <h1>Mapa de Reaproveitamento</h1>
+  <p>O que reusar sem tocar, o que refatorar, o que ainda precisa ser portado.</p>
+
+  <h2>✅ Usar Sem Modificação (código maduro e estável)</h2>
+  <div class="card-grid">
+    <div class="card" style="border-color:#3fb95040">
+      <div class="card-head"><span class="card-icon">🟢</span><span class="card-title">core/utils_sp.py</span></div>
+      <div class="card-body">Idêntico ao V4. parse_medidas_arquivo, formatar_moeda_texto, formatar_descricao_tecnica. Testado em produção.</div>
+      <div class="card-tags"><span class="tag green">produção</span></div>
+    </div>
+    <div class="card" style="border-color:#3fb95040">
+      <div class="card-head"><span class="card-icon">🟢</span><span class="card-title">core/utils_sp2.py</span></div>
+      <div class="card-body">parse_medidas_sp2, detectar_item_por_pasta, e_croqui, extrair_legenda_croqui. Único SP2.</div>
+      <div class="card-tags"><span class="tag green">produção</span></div>
+    </div>
+    <div class="card" style="border-color:#3fb95040">
+      <div class="card-head"><span class="card-icon">🟢</span><span class="card-title">c1565/scanner_sp2.py</span></div>
+      <div class="card-body">Scanner SP2 completo: croquis, faces, múltiplas paredes. Testado end-to-end, gerou .docx real de 70KB.</div>
+      <div class="card-tags"><span class="tag green">testado e2e</span></div>
+    </div>
+    <div class="card" style="border-color:#3fb95040">
+      <div class="card-head"><span class="card-icon">🟢</span><span class="card-title">c1565/word_builder_sp2.py</span></div>
+      <div class="card-body">Builder SP2. Tabelas complexas, croquis inseridos, enunciados. Testado com imagens reais.</div>
+      <div class="card-tags"><span class="tag green">testado e2e</span></div>
+    </div>
+    <div class="card" style="border-color:#3fb95040">
+      <div class="card-head"><span class="card-icon">🟢</span><span class="card-title">core/word_utils.py</span></div>
+      <div class="card-body">Placeholder system completo. extract_placeholders, substitute_placeholders, validate_substitutions, inserir_conteudo legacy.</div>
+      <div class="card-tags"><span class="tag green">70+ testes (V3.2)</span></div>
+    </div>
+  </div>
+
+  <h2>⚙️ Reusar com Atenção (validar antes)</h2>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Módulo</th><th>Onde Está</th><th>O que validar</th></tr>
+      <tr><td>scanner.py (trad)</td><td>contracts/c1507-c6122/engine/</td><td>generator_trad.py migrado mas não testado end-to-end</td></tr>
+      <tr><td>word_builder.py (trad)</td><td>contracts/c1507-c6122/engine/</td><td>idem — word_utils.py base, mas path de template pode variar</td></tr>
+      <tr><td>scanner_sp.py (c0908)</td><td>contracts/c0908/engine/</td><td>generator_sp.py migrado — não testado pós-migração</td></tr>
+      <tr><td>formatar_descricao_tecnica</td><td>core/utils_sp.py</td><td>Usa marcador &lt;RED&gt; — verificar se word_utils_sp.py processa &lt;RED&gt;</td></tr>
+    </table>
+  </div>
+
+  <h2>🆕 Construir do Zero (não existe em nenhuma versão)</h2>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Funcionalidade</th><th>Sprint</th><th>Complexidade</th></tr>
+      <tr><td>Upload fotos via multipart → backend (Sprint 3)</td><td>Sprint 3</td><td>Média</td></tr>
+      <tr><td>App desktop Tauri/Electron (root_path real)</td><td>Futuro</td><td>Alta</td></tr>
+      <tr><td>Dashboard histórico de relatórios</td><td>Futuro</td><td>Média</td></tr>
+      <tr><td>Exportação PDF</td><td>Futuro</td><td>Média</td></tr>
+      <tr><td>Versionamento de templates</td><td>Futuro</td><td>Baixa</td></tr>
+    </table>
+  </div>
+
+  <h2>🔍 Lógica Escondida que Pode Ser Portada</h2>
+  <div class="alert blue">
+    <div class="alert-title">TM-MEUS-APPS/scratch/process_report.py (24/05/2026)</div>
+    Parser DOCX completo com classify_table, consolidate, export_excel, export_docx. Funcionalidade do skill "relatorio-preventivo". Pode virar endpoint <code>/api/contracts/{id}/processar-docx</code> no V5.
+  </div>
+  <div class="alert blue">
+    <div class="alert-title">Legacy/extrair_itens_docx.py (nunca portado)</div>
+    Script standalone que lê um .docx de relatório antigo e extrai lista de itens. Útil para: importar relatórios legados, criar fixtures de teste, validação retroativa. Portar como endpoint <code>/api/extrair-itens</code>.
+  </div>
+  <div class="alert">
+    <div class="alert-title">V4/FormularioDinamico_integration.tsx (verificar)</div>
+    Pode ser diferente do FormularioDinamico principal. Verificar antes de descartar — pode ter lógica extra.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     PAGE: ALERTAS
+══════════════════════════════════════════════════════════════════ -->
+<div id="page-alerts" class="page">
+  <h1>⚠️ Alertas e Riscos</h1>
+  <p>Itens que precisam atenção antes de avançar.</p>
+
+  <div class="alert red">
+    <div class="alert-title">🔴 ALERTA 1 — Contratos Trad/SP não testados pós-migração</div>
+    Os 8 contratos (c0908 SP e c1507/2056/2057/2626/2627/3575/6122 Trad) tiveram seus engines migrados do V4, mas <strong>nenhum foi testado end-to-end no V5</strong>. O c1565 (SP2) é o único com teste real.<br><br>
+    <strong>Risco:</strong> Erros de import, paths errados, diferença de interface.<br>
+    <strong>Ação:</strong> Rodar um teste de geração para cada contrato com pasta de fotos real.
+  </div>
+
+  <div class="alert red">
+    <div class="alert-title">🔴 ALERTA 2 — items.json vazio em c2056, c2057, c6122</div>
+    Três contratos têm <code>items.json</code> vazio. O dropdown de itens no Step 2 aparece vazio para Divinópolis, Varginha e Mato Grosso do Sul.<br><br>
+    <strong>Ação:</strong> Solicitar planilhas ao Thiago e extrair via script.
+  </div>
+
+  <div class="alert">
+    <div class="alert-title">⚠️ ALERTA 3 — Texto em vermelho (&lt;RED&gt;) pode não funcionar</div>
+    <code>formatar_descricao_tecnica()</code> em utils_sp.py usa marcador <code>&lt;RED&gt;...&lt;/RED&gt;</code>.<br>
+    Não verificado se <code>inserir_conteudo_sp()</code> no word_utils_sp.py atual processa esse marcador.<br><br>
+    <strong>Risco:</strong> Texto que deveria aparecer vermelho no .docx aparece sem formatação.<br>
+    <strong>Ação:</strong> Buscar por <code>&lt;RED&gt;</code> em word_utils_sp.py e confirmar o handler.
+  </div>
+
+  <div class="alert">
+    <div class="alert-title">⚠️ ALERTA 4 — generator_app.py (modo app) sem testes</div>
+    <code>build_content_app</code> existe no V4 mas nunca teve testes. O "modo app" (pasta plana) está presente no código mas não foi exercitado.<br><br>
+    <strong>Ação:</strong> Verificar se está no V5. Se não, avaliar se deve ser migrado.
+  </div>
+
+  <div class="alert">
+    <div class="alert-title">⚠️ ALERTA 5 — Browser não fornece root_path ao backend</div>
+    Com root_path vazio (modo browser), o backend gera .docx <strong>só com cabeçalho — sem fotos</strong>. As fotos precisam ser enviadas via multipart (Sprint 3) ou via Tauri/Electron.<br><br>
+    <strong>Situação atual:</strong> Funcional para testes com root_path real no servidor. Para uso real no browser = Sprint 3.
+  </div>
+
+  <div class="alert">
+    <div class="alert-title">⚠️ ALERTA 6 — Blob URLs vazam memória se não revogados</div>
+    <code>URL.createObjectURL(blob)</code> em lib/api.ts cria URL que é revogada após 10s. Mas em useBlocks.ts, os blob URLs das thumbnails podem acumular se o componente não chamar cleanup.<br><br>
+    <strong>Ação:</strong> Verificar se useBlocks.ts tem <code>useEffect</code> de cleanup com <code>URL.revokeObjectURL()</code>.
+  </div>
+
+  <div class="alert">
+    <div class="alert-title">⚠️ ALERTA 7 — FormularioDinamico_integration.tsx (V4, não verificado)</div>
+    Dois arquivos com nomes similares existem no V4. O "_integration" pode ter lógica extra não integrada.<br><br>
+    <strong>Ação:</strong> Comparar os dois arquivos antes de descartar.
+  </div>
+
+  <h2>Alertas Já Resolvidos</h2>
+  <div class="tbl-wrap">
+    <table>
+      <tr><th>Alerta</th><th>Resolução</th></tr>
+      <tr><td>Step 2 sem implementação (Sprint 0)</td><td><span class="check-yes">✅ Resolvido no Sprint 1</span></td></tr>
+      <tr><td>Preview sem dados dinâmicos</td><td><span class="check-yes">✅ Resolvido no Sprint 2</span></td></tr>
+      <tr><td>Download .docx não funcionava no browser</td><td><span class="check-yes">✅ Resolvido — requestFile() + blob URL</span></td></tr>
+      <tr><td>Port conflict backend/frontend</td><td><span class="check-yes">✅ .env.local alinhado (5000)</span></td></tr>
+    </table>
+  </div>
+</div>
+
+<script>
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-variant": "#e3e2df",
+                    "inverse-on-surface": "#f2f1ee",
+                    "on-tertiary-fixed": "#062100",
+                    "background": "#faf9f6",
+                    "on-primary-fixed": "#370e00",
+                    "tertiary-fixed": "#bff0a3",
+                    "on-secondary-fixed": "#1c1c18",
+                    "surface": "#faf9f6",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-bright": "#faf9f6",
+                    "surface-container": "#efeeeb",
+                    "tertiary-fixed-dim": "#a4d489",
+                    "on-secondary-container": "#66645f",
+                    "on-error": "#ffffff",
+                    "inverse-surface": "#2f312f",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-low": "#f4f3f0",
+                    "surface-container-highest": "#e3e2df",
+                    "on-primary-fixed-variant": "#7e2c00",
+                    "on-surface-variant": "#584239",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#e6e2db",
+                    "surface-tint": "#a53c00",
+                    "surface-container-high": "#e9e8e5",
+                    "on-primary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "ink-subtle": "#8C8A85",
+                    "primary": "#a13a00",
+                    "secondary-container": "#e6e2db",
+                    "primary-container": "#c45119",
+                    "ink-primary": "#1A1A1A",
+                    "on-tertiary-fixed-variant": "#285015",
+                    "on-surface": "#1b1c1a",
+                    "primary-fixed": "#ffdbce",
+                    "error": "#ba1a1a",
+                    "outline-variant": "#dfc0b5",
+                    "primary-fixed-dim": "#ffb598",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#f8ffee",
+                    "on-background": "#1b1c1a",
+                    "tertiary-container": "#54803f",
+                    "outline": "#8b7168",
+                    "surface-card": "#FFFFFF",
+                    "on-primary-container": "#fffbff",
+                    "surface-dim": "#dbdad7",
+                    "secondary-fixed-dim": "#cac6c0",
+                    "bubble-sent": "#FBEDE3",
+                    "on-secondary-fixed-variant": "#484742",
+                    "secondary": "#605e59",
+                    "border-base": "#DAD7D0",
+                    "tertiary": "#3c6629",
+                    "inverse-primary": "#ffb598"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "card-padding": "16px",
+                    "baseline": "4px",
+                    "gutter": "12px",
+                    "stack-gap": "8px",
+                    "container-margin": "16px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Roboto Slab"],
+                    "label-mono": ["JetBrains Mono"],
+                    "button": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-sm": ["Roboto Slab"],
+                    "body-sm": ["Inter"],
+                    "headline-lg": ["Roboto Slab"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["22px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-mono": ["12px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "button": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-sm": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "body-sm": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "headline-lg": ["28px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #DAD7D0;
+            border-radius: 2px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md overflow-hidden">
+<!-- BACKGROUND: Chat de Levantamento -->
+<main class="relative h-screen flex flex-col pt-16 pb-16">
+<!-- Top App Bar Mock -->
+<header class="fixed top-0 w-full z-10 flex items-center px-container-margin h-16 bg-surface border-b border-border-base">
+<span class="material-symbols-outlined text-primary mr-4">grid_view</span>
+<h1 class="font-headline-sm text-headline-sm text-primary font-bold">TM·Zap Inspeção</h1>
+</header>
+<!-- Chat Canvas (The background content) -->
+<div class="flex-1 overflow-y-auto px-container-margin py-stack-gap flex flex-col gap-gutter">
+<!-- System Tag -->
+<div class="flex justify-center my-4">
+<span class="font-label-mono text-label-mono bg-surface-container-high px-3 py-1 rounded-lg text-on-surface-variant">INSPEÇÃO: OBRA 29485-BZ</span>
+</div>
+<!-- Received Bubble -->
+<div class="max-w-[85%] self-start bg-surface-card border border-border-base p-card-padding rounded-xl rounded-tl-none shadow-sm">
+<p class="font-body-md text-ink-primary mb-2">Por favor, inicie o registro fotográfico da fachada externa. Lembre-se de capturar as dimensões totais.</p>
+<span class="text-[10px] text-ink-subtle">09:12</span>
+</div>
+<!-- Sent Bubble with Image -->
+<div class="max-w-[85%] self-end bg-bubble-sent p-card-padding rounded-xl rounded-tr-none shadow-sm">
+<div class="rounded-lg overflow-hidden mb-2 border border-border-base">
+<img alt="Fachada Externa" class="w-full aspect-video object-cover" data-alt="A detailed architectural photograph of a modern construction site facade during broad daylight. The scene features a mix of glass, steel, and concrete structural elements with visible scaffolding. The lighting is bright and crisp, emphasizing the technical precision of the build. The overall color palette is dominated by neutral tones like cream, grey, and ochre, maintaining a professional and realistic engineering aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGmDG-qY23vnvR_GeMYwXVg1t4UXq9jtDtdp1lKUb5b5lrmFEklQ_SipSGiVn_JweBGadbHnadGUj3uoV48P-x-NuxkpayK9w1Lk7O99uSI2d0qXlY_5S3LLqA5h1ZfUrACviL0QmeFJ7LiZvFOnco1y6y81gi35OrRjFYRL5QMLAtTaprbt83lzDNpRZmCM5zKNnhwrJ5l5v0s8_EobWcYEC5hjIeWEBmlr6yunV5-HFD6h8cWjfU31cfBd51uE4rOzIcaZS_-UE"/>
+</div>
+<p class="font-body-md text-ink-primary">Fachada Externa - 16,00 x 7,00m concluída.</p>
+<span class="text-[10px] text-on-primary-fixed-variant self-end block text-right">09:15</span>
+</div>
+<!-- Received Bubble -->
+<div class="max-w-[85%] self-start bg-surface-card border border-border-base p-card-padding rounded-xl rounded-tl-none shadow-sm">
+<p class="font-body-md text-ink-primary">Excelente. Agora prossiga para os detalhes de acabamento no pavimento térreo.</p>
+<span class="text-[10px] text-ink-subtle">09:16</span>
+</div>
+</div>
+<!-- Bottom Nav Mock -->
+<nav class="fixed bottom-0 left-0 w-full z-10 flex justify-around items-center h-16 bg-surface border-t border-border-base px-4">
+<div class="flex flex-col items-center text-primary bg-bubble-sent rounded-full px-4 py-1">
+<span class="material-symbols-outlined">assignment</span>
+<span class="font-label-mono text-[10px]">Inspeções</span>
+</div>
+<div class="flex flex-col items-center text-on-secondary-container">
+<span class="material-symbols-outlined">photo_camera</span>
+<span class="font-label-mono text-[10px]">Câmera</span>
+</div>
+<div class="flex flex-col items-center text-on-secondary-container">
+<span class="material-symbols-outlined">description</span>
+<span class="font-label-mono text-[10px]">Relatórios</span>
+</div>
+<div class="flex flex-col items-center text-on-secondary-container">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-mono text-[10px]">Perfil</span>
+</div>
+</nav>
+</main>
+<!-- OVERLAY -->
+<div class="fixed inset-0 bg-black/40 z-[60] backdrop-blur-[1px] transition-opacity duration-300" id="modalOverlay"></div>
+<!-- BOTTOM SHEET -->
+<div class="fixed bottom-0 left-0 right-0 z-[70] bg-surface-card rounded-t-full shadow-2xl transition-transform duration-300 transform translate-y-0" id="bottomSheet" style="border-radius: 16px 16px 0 0;">
+<!-- Handle Bar -->
+<div class="w-full flex justify-center pt-3 pb-2">
+<div class="w-12 h-1.5 bg-border-base rounded-full"></div>
+</div>
+<!-- Header -->
+<div class="px-container-margin py-4 flex items-center justify-between border-b border-border-base">
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold">Exportar para AutoRelatório</h2>
+<button class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-surface-container transition-colors" onclick="closeModal()">
+<span class="material-symbols-outlined text-on-surface-variant">close</span>
+</button>
+</div>
+<!-- Content -->
+<div class="p-container-margin flex flex-col gap-4">
+<!-- Structure Preview -->
+<div class="bg-surface-container-low border border-border-base rounded-lg p-3 font-label-mono text-body-sm custom-scrollbar max-h-48 overflow-y-auto">
+<div class="flex items-center gap-2 text-ink-primary mb-2">
+<span class="material-symbols-outlined text-primary text-[18px]">folder</span>
+<span>Fachada Externa/</span>
+</div>
+<div class="ml-6 flex items-center gap-2 text-on-surface-variant mb-3">
+<span class="material-symbols-outlined text-[18px]">image</span>
+<span class="truncate">16,00 x 7,00 - Desconto 16,00 x 2,50.jpg</span>
+</div>
+<div class="flex items-center gap-2 text-ink-primary mb-2">
+<span class="material-symbols-outlined text-primary text-[18px]">folder</span>
+<span>Detalhes/</span>
+</div>
+<div class="ml-6 flex items-center gap-2 text-on-surface-variant italic">
+<span>(Vazio)</span>
+</div>
+</div>
+<!-- Stats Info -->
+<div class="flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-ink-subtle text-[16px]">info</span>
+<p class="font-label-mono text-label-mono text-ink-subtle">12 FOTOS · 3 AMBIENTES</p>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-3 mt-2 mb-6">
+<!-- Primary Action -->
+<button class="w-full bg-primary text-on-primary font-button py-4 rounded-xl flex items-center justify-center gap-2 active:scale-[0.98] transition-all shadow-md">
+<span class="material-symbols-outlined">download</span>
+                    BAIXAR ZIP
+                </button>
+<!-- Secondary Action -->
+<button class="w-full border-2 border-primary text-primary font-button py-4 rounded-xl flex items-center justify-center gap-2 active:bg-primary/5 transition-all">
+<span class="material-symbols-outlined">sensors</span>
+                    ABRIR NO AUTORELATÓRIO
+                </button>
+</div>
+</div>
+</div>
+<script>
+        function closeModal() {
+            const sheet = document.getElementById('bottomSheet');
+            const overlay = document.getElementById('modalOverlay');
+            
+            sheet.style.transform = 'translateY(100%)';
+            overlay.style.opacity = '0';
+            
+            setTimeout(() => {
+                overlay.style.display = 'none';
+                sheet.style.display = 'none';
+            }, 300);
+        }
+
+        // Close on overlay click
+        document.getElementById('modalOverlay').addEventListener('click', closeModal);
+
+        // Simple entry animation
+        window.addEventListener('load', () => {
+            const sheet = document.getElementById('bottomSheet');
+            sheet.style.transform = 'translateY(100%)';
+            setTimeout(() => {
+                sheet.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body></html>

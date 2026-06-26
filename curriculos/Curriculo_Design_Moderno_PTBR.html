@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Thiago Nascimento Barbosa - CV Moderno</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Roboto+Slab:wght@700&display=swap');
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #161513; color: #EFEDE8; line-height: 1.6;
+    }
+
+    .a4-container {
+      width: 210mm; min-height: 297mm; margin: 10mm auto;
+      background: #1F1E1B; box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+      display: grid; grid-template-columns: 75mm 1fr;
+    }
+
+    .sidebar { background: #161513; padding: 30mm 10mm 10mm 10mm; border-right: 1px solid #2E2C28; }
+    .main-content { padding: 30mm 15mm 10mm 15mm; }
+
+    .name { font-family: 'Roboto Slab', serif; font-size: 36px; font-weight: 800; color: #E47A4A; line-height: 1.1; margin-bottom: 10px; }
+    .role { font-size: 15px; font-weight: 600; color: #9E9A91; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 30px; }
+
+    .contact-block { margin-bottom: 40px; }
+    .contact-item { font-size: 12px; color: #9E9A91; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .contact-item svg { width: 14px; height: 14px; stroke: #E47A4A; fill: none; stroke-width: 2; }
+
+    .side-title { font-size: 14px; font-weight: 800; color: #EFEDE8; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; margin-top: 40px; }
+    
+    .skills-list { list-style: none; }
+    .skills-list li { font-size: 12px; color: #9E9A91; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+    .skills-list li::before { content: ""; width: 4px; height: 4px; background: #E47A4A; border-radius: 50%; }
+
+    .main-title { font-family: 'Roboto Slab', serif; font-size: 20px; font-weight: 700; color: #EFEDE8; border-bottom: 2px solid #2E2C28; padding-bottom: 8px; margin-bottom: 20px; }
+    
+    .summary { font-size: 13px; color: #9E9A91; text-align: justify; margin-bottom: 30px; }
+    .summary strong { color: #EFEDE8; }
+
+    .exp-item { margin-bottom: 25px; position: relative; }
+    .exp-item::before { content: ""; position: absolute; left: -15px; top: 6px; width: 6px; height: 6px; border-radius: 50%; background: #E47A4A; }
+    .exp-header { display: flex; justify-content: space-between; align-items: baseline; }
+    .exp-role { font-weight: 800; font-size: 15px; color: #EFEDE8; }
+    .exp-date { font-size: 11px; color: #E47A4A; font-weight: 600; letter-spacing: 1px; }
+    .exp-company { font-size: 13px; color: #9E9A91; margin-bottom: 8px; font-weight: 600; }
+    .exp-desc { font-size: 12px; color: #9E9A91; }
+    .exp-desc li { margin-bottom: 5px; margin-left: 15px; }
+
+    @media print {
+      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; background: #1F1E1B; }
+      .a4-container { width: 100%; height: auto; margin: 0; box-shadow: none; grid-template-columns: 65mm 1fr; }
+      .sidebar { padding: 20mm 10mm; }
+      .main-content { padding: 20mm 15mm; }
+      @page { size: A4; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="a4-container">
+    
+    <div class="sidebar">
+      <div class="contact-block">
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          (97) 99199-4956
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          thiagonascimento.barbosapro@gmail.com
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Goiânia, GO
+        </div>
+      </div>
+
+      <div class="side-title">Core Skills</div>
+      <ul class="skills-list">
+        <li>Redação Técnica</li>
+        <li>Orçamentos de Engenharia</li>
+        <li>Automação de Relatórios</li>
+        <li>Python & Next.js</li>
+        <li>Gestão de SLAs</li>
+        <li>Engenharia de Prompt (IA)</li>
+        <li>Logística & Backoffice</li>
+      </ul>
+
+      <div class="side-title">Formação</div>
+      <ul class="skills-list">
+        <li>Ensino Médio Completo</li>
+        <li>Informática Avançada</li>
+        <li>Desenvolvimento Web Web</li>
+        <li>Marketing Digital</li>
+        <li>Organização Efetiva</li>
+      </ul>
+    </div>
+
+    <div class="main-content">
+      <div class="name">THIAGO<br>BARBOSA</div>
+      <div class="role">Redator Técnico & Arquiteto de Automação</div>
+
+      <div class="summary">
+        Profissional versátil focado na entrega de valor real. Minha especialidade é unir a complexidade técnica dos relatórios e orçamentos de engenharia civil com o poder das automações tecnológicas. Não faço as coisas apenas para constar; construo sistemas e processos que <strong>aceleram entregas, garantem SLAs institucionais e zeram retrabalhos</strong>. Adaptável, autodidata rápido e acostumado a operar sob pressão para clientes como Banco do Brasil e Correios.
+      </div>
+
+      <h2 class="main-title">Trajetória Profissional</h2>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-role">Redator de Orçamentos e Relatórios Técnicos</div>
+          <div class="exp-date">2024 - Atual</div>
+        </div>
+        <div class="exp-company">Maffeng - Engenharia e Manutenção</div>
+        <ul class="exp-desc">
+          <li>Elaboração de relatórios fotográficos de vistoria técnica predial para o BB, Correios e SEAD.</li>
+          <li>Criação do ecossistema "AutoRelatório V5", desenvolvendo scripts (Python/FastAPI) para automatizar 85% do fluxo de escrita técnica.</li>
+          <li>Tradução de dados capturados em campo por engenheiros para laudos técnicos blindados contra glosas e devoluções.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-role">Estoquista</div>
+          <div class="exp-date">2023 - 2023</div>
+        </div>
+        <div class="exp-company">Moto Brasil Peças e Acessórios</div>
+        <ul class="exp-desc">
+          <li>Atuação na ponta da cadeia logística, garantindo organização extrema de inventário.</li>
+          <li>Implementação de lógicas ágeis para separação rápida de peças e redução de erros de envio.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-role">Operador de Telemarketing</div>
+          <div class="exp-date">2022 - 2022</div>
+        </div>
+        <div class="exp-company">Brasil Telecom Call Center S/A</div>
+        <ul class="exp-desc">
+          <li>Treinamento intenso em inteligência emocional e resiliência lidando com clientes difíceis no SAC/Vendas.</li>
+          <li>Cumprimento contínuo de metas agressivas e KPIs de atendimento.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-role">Auxiliar Administrativo</div>
+          <div class="exp-date">2019 - 2021</div>
+        </div>
+        <div class="exp-company">Promed</div>
+        <ul class="exp-desc">
+          <li>Apoio integral em rotinas administrativas, controle de planilhas e arquivamento de documentação vital de backoffice.</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+</html>

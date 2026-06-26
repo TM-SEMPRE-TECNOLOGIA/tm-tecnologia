@@ -1,0 +1,940 @@
+﻿- 2026-05-27 23:36:11  CRIADO   C:\Users\thiag\Desktop\000 - Minha Demanda\1 - PREVENTIVAS 2026\01 - Apoio operacional\Autolegendas\apresentacao-autolegendas\index.html
+- 2026-05-27 23:42:21  CRIADO   C:\Users\thiag\.claude\skills\tm-criativo\SKILL.md
+- 2026-05-27 23:43:51  CRIADO   C:\Users\thiag\.claude\skills\tm-criativo\references\prompt_anatomy.md
+- 2026-05-27 23:48:44  CRIADO   C:\Users\thiag\.claude\skills\tm-criativo\references\copy_frameworks.md
+- 2026-05-27 23:49:31  CRIADO   C:\Users\thiag\.claude\skills\tm-criativo\references\tm_brand_core.md
+- 2026-05-27 23:50:05  CRIADO   C:\Users\thiag\.claude\skills\tm-criativo\templates\prompt_imagem.txt
+- 2026-05-27 23:51:29  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-27 23:52:55  CRIADO   C:\Users\thiag\.claude\skills\tm-criativo\templates\prompt_copy.txt
+- 2026-05-27 23:53:15  EDITADO  C:\Users\thiag\.claude\SKILLS_CATALOG.md
+- 2026-05-27 23:56:41  CRIADO   C:\Users\thiag\Desktop\000 - Minha Demanda\1 - PREVENTIVAS 2026\01 - Apoio operacional\Autolegendas\apresentacao-autolegendas\index.html
+- 2026-05-28 12:16:44  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 12:18:47  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 12:20:04  CRIADO   C:\Users\thiag\.claude\skills\tm-criativo\references\thiago_photo_description.md
+- 2026-05-28 12:21:33  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 12:21:43  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 12:21:53  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 12:22:00  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 12:22:10  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 12:22:15  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 12:22:22  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 12:22:34  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 12:22:39  EDITADO  C:\Users\thiag\.claude\skills\tm-criativo\SKILL.md
+- 2026-05-28 12:22:40  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 12:22:44  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 12:22:49  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 12:22:56  EDITADO  C:\Users\thiag\.claude\skills\tm-criativo\SKILL.md
+- 2026-05-28 12:23:35  EDITADO  C:\Users\thiag\.claude\skills\tm-criativo\SKILL.md
+- 2026-05-28 12:24:17  CRIADO   C:\Users\thiag\.claude\skills\tm-criativo\templates\prompt_copy_whatsapp.txt
+- 2026-05-28 12:24:55  CRIADO   C:\Users\thiag\.claude\skills\tm-criativo\data\estilos_visuais.csv
+- 2026-05-28 12:36:19  CRIADO   C:\Users\thiag\.claude\skills\tm-criativo\data\prompts_aprovados.csv
+- 2026-05-28 12:36:48  CRIADO   C:\Users\thiag\.claude\skills\tm-criativo\references\mcp_replicate_setup.md
+- 2026-05-28 12:39:40  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 12:39:48  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 12:39:54  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 13:35:00  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 13:35:15  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 13:35:23  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 13:35:29  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 13:35:57  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 13:45:47  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 13:46:03  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 13:46:11  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 13:46:22  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 13:47:13  EDITADO  C:\Users\thiag\.claude\SKILLS_CATALOG.md
+- 2026-05-28 13:49:03  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 13:49:08  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 13:49:20  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 13:49:27  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 13:50:44  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 13:50:52  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 13:51:00  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 13:51:05  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 13:51:22  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 14:25:27  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 14:25:35  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 14:25:43  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 14:30:30  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 14:55:59  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 14:56:07  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 14:56:15  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 14:59:46  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 15:07:43  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 15:07:48  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 15:15:16  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 15:15:35  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 16:18:20  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 16:19:18  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 16:20:37  EDITADO  C:\Users\thiag\Desktop\000 - Minha Demanda\1 - Preventivas 2026\03 - Documentos Preventivas\gerar_memoriais.py
+- 2026-05-28 17:16:55  CRIADO   C:\Users\thiag\AppData\Local\Temp\extrair_contratos.py
+- 2026-05-28 17:26:48  CRIADO   C:\Users\thiag\AppData\Local\Temp\extrair_dados_chave.py
+- 2026-05-28 17:30:28  CRIADO   C:\Users\thiag\AppData\Local\Temp\extrair_focado.py
+- 2026-05-28 19:51:45  CRIADO   C:\Users\thiag\AppData\Local\Temp\busca_municipios_fiscal.py
+- 2026-05-28 19:55:22  CRIADO   C:\Users\thiag\.claude\plans\quero-criar-uma-frase-compressed-clover.md
+- 2026-05-28 20:23:43  CRIADO   C:\tmp\gerar_relatorio.py
+- 2026-05-29 13:50:42  CRIADO   C:\Users\thiag\Desktop\maffeng\CLAUDE.md
+- 2026-05-29 13:52:18  CRIADO   C:\Users\thiag\Desktop\maffeng\CLAUDE.md
+- 2026-05-29 14:07:27  EDITADO  C:\Users\thiag\Desktop\maffeng\maffeng-home-site.html
+- 2026-05-29 14:07:50  EDITADO  C:\Users\thiag\Desktop\maffeng\maffeng-home-site.html
+- 2026-05-29 14:08:36  EDITADO  C:\Users\thiag\Desktop\maffeng\maffeng-home-site.html
+- 2026-05-29 14:08:47  CRIADO   C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-maffeng\memory\feedback_idioma.md
+- 2026-05-29 14:08:55  CRIADO   C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-maffeng\memory\MEMORY.md
+- 2026-05-29 14:09:11  EDITADO  C:\Users\thiag\Desktop\maffeng\maffeng-home-site.html
+- 2026-05-29 14:09:24  EDITADO  C:\Users\thiag\Desktop\maffeng\maffeng-home-site.html
+- 2026-05-29 14:09:29  EDITADO  C:\Users\thiag\Desktop\maffeng\maffeng-home-site.html
+- 2026-05-29 14:09:34  EDITADO  C:\Users\thiag\Desktop\maffeng\maffeng-home-site.html
+- 2026-05-29 14:09:43  EDITADO  C:\Users\thiag\Desktop\maffeng\maffeng-home-site.html
+- 2026-05-29 14:09:53  EDITADO  C:\Users\thiag\Desktop\maffeng\maffeng-home-site.html
+- 2026-05-29 14:40:43  EDITADO  C:\Users\thiag\Desktop\maffeng\maffeng-home-site.html
+- 2026-05-29 15:10:08  CRIADO   C:\Users\thiag\.claude\plans\maffeng-site-refactoring.md
+- 2026-05-29 15:11:44  CRIADO   C:\Users\thiag\.claude\plans\maffeng-site-refactoring.md
+- 2026-05-29 15:30:50  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\AutoRelatorio_V5\PROJECT_MEMORY.md
+- 2026-05-29 15:43:16  CRIADO   c:\Users\thiag\Desktop\tm-tecnologia\_workspace\CONTEXTO_GERAL_SESSOES.md
+- 2026-05-29 16:34:15  EDITADO  C:\Users\thiag\Desktop\maffeng\maffeng-home-site.html
+- 2026-05-29 16:39:33  EDITADO  C:\Users\thiag\Desktop\maffeng\maffeng-home-site.html
+- 2026-05-29 16:40:33  EDITADO  C:\Users\thiag\Desktop\maffeng\maffeng-home-site.html
+- 2026-05-29 19:41:35  CRIADO   C:\Users\thiag\.claude\plans\noble-leaping-crane.md
+- 2026-05-29 19:42:26  CRIADO   C:\Users\thiag\Desktop\maffeng\.context\planning.md
+- 2026-05-29 19:43:40  CRIADO   C:\Users\thiag\Desktop\maffeng\maffeng-site-v2-tm.html
+- 2026-05-29 19:44:45  EDITADO  C:\Users\thiag\.claude\plans\noble-leaping-crane.md
+- 2026-05-29 19:45:02  CRIADO   C:\Users\thiag\Desktop\maffeng\.context\review.md
+- 2026-05-29 19:45:22  CRIADO   C:\Users\thiag\Desktop\maffeng\.context\diario_de_dev.md
+- 2026-05-29 19:46:13  EDITADO  C:\Users\thiag\.claude\plans\noble-leaping-crane.md
+- 2026-05-29 20:12:57  CRIADO   C:\Users\thiag\Desktop\maffeng\maffeng-site-v3.html
+- 2026-05-29 20:18:10  CRIADO   C:\Users\thiag\Desktop\maffeng\maffeng-site-v4.html
+- 2026-05-29 20:22:59  CRIADO   C:\Users\thiag\Desktop\maffeng\maffeng-site-v5.html
+- 2026-05-29 20:32:11  CRIADO   C:\Users\thiag\Desktop\maffeng\maffeng-site-v5.html
+- 2026-05-29 20:32:31  CRIADO   C:\Users\thiag\Desktop\maffeng\.claude\launch.json
+- 2026-06-01 01:00:17  CRIADO   C:\Users\thiag\Desktop\APPS\Meus Plugins e Skills\0 - Preventivas 2026 - Operacional SKILL\index.html
+- 2026-06-01 01:04:06  CRIADO   C:\Users\thiag\Desktop\APPS\Meus Plugins e Skills\0 - Preventivas 2026 - Operacional SKILL\index.html
+- 2026-06-01 01:09:05  CRIADO   C:\Users\thiag\Desktop\APPS\Meus Plugins e Skills\0 - Preventivas 2026 - Operacional SKILL\indexv2.html
+- 2026-06-01 01:17:48  CRIADO   C:\Users\thiag\Desktop\APPS\Meus Plugins e Skills\0 - Preventivas 2026 - Operacional SKILL\indexv3.html
+- 2026-06-01 01:29:11  CRIADO   C:\Users\thiag\Desktop\APPS\Meus Plugins e Skills\0 - Preventivas 2026 - Operacional SKILL\translate_skills.py
+- 2026-06-01 01:29:19  EDITADO  C:\Users\thiag\Desktop\APPS\Meus Plugins e Skills\0 - Preventivas 2026 - Operacional SKILL\translate_skills.py
+- 2026-06-01 01:30:00  EDITADO  C:\Users\thiag\Desktop\maffeng\Design Maffeng\Vai entrar no projeto\maffeng-site-v16.html
+- 2026-06-01 01:30:31  EDITADO  C:\Users\thiag\Desktop\maffeng\Design Maffeng\Vai entrar no projeto\maffeng-site-v16.html
+- 2026-06-01 01:30:37  EDITADO  C:\Users\thiag\Desktop\maffeng\Design Maffeng\Vai entrar no projeto\maffeng-site-v16.html
+- 2026-06-01 01:40:44  CRIADO   C:\Users\thiag\Desktop\maffeng\playwright.config.ts
+- 2026-06-01 01:41:20  CRIADO   C:\Users\thiag\Desktop\maffeng\tests\design-v16.spec.ts
+- 2026-06-01 01:58:04  CRIADO   C:\Users\thiag\.claude\plans\mellow-exploring-dongarra.md
+- 2026-06-01 02:04:33  EDITADO  C:\Users\thiag\.claude\plans\mellow-exploring-dongarra.md
+- 2026-06-01 02:04:38  EDITADO  C:\Users\thiag\.claude\plans\mellow-exploring-dongarra.md
+- 2026-06-01 02:09:12  EDITADO  C:\Users\thiag\.claude\plans\mellow-exploring-dongarra.md
+- 2026-06-01 02:09:20  EDITADO  C:\Users\thiag\.claude\plans\mellow-exploring-dongarra.md
+- 2026-06-01 02:18:47  CRIADO   C:\Users\thiag\.claude\plans\mellow-exploring-dongarra.md
+- 2026-06-01 02:24:11  EDITADO  C:\Users\thiag\Desktop\maffeng\Design Maffeng\Vai entrar no projeto\maffeng-site-v17.html
+- 2026-06-01 02:24:18  EDITADO  C:\Users\thiag\Desktop\maffeng\Design Maffeng\Vai entrar no projeto\maffeng-site-v17.html
+- 2026-06-01 02:24:41  EDITADO  C:\Users\thiag\Desktop\maffeng\Design Maffeng\Vai entrar no projeto\maffeng-site-v17.html
+- 2026-06-01 02:24:53  EDITADO  C:\Users\thiag\Desktop\maffeng\Design Maffeng\Vai entrar no projeto\maffeng-site-v17.html
+- 2026-06-01 02:44:57  EDITADO  C:\Users\thiag\Desktop\maffeng\Design Maffeng\Vai entrar no projeto\maffeng-site-v18.html
+- 2026-06-01 02:45:04  EDITADO  C:\Users\thiag\Desktop\maffeng\Design Maffeng\Vai entrar no projeto\maffeng-site-v18.html
+- 2026-06-01 02:45:08  EDITADO  C:\Users\thiag\Desktop\maffeng\Design Maffeng\Vai entrar no projeto\maffeng-site-v18.html
+- 2026-06-01 02:46:54  EDITADO  C:\Users\thiag\Desktop\maffeng\Design Maffeng\Vai entrar no projeto\maffeng-site-v19.html
+- 2026-06-01 02:48:59  EDITADO  C:\Users\thiag\Desktop\maffeng\Design Maffeng\Vai entrar no projeto\maffeng-site-v20.html
+- 2026-06-01 02:49:33  EDITADO  C:\Users\thiag\Desktop\maffeng\Design Maffeng\Vai entrar no projeto\maffeng-site-v20.html
+- 2026-06-01 02:51:06  EDITADO  C:\Users\thiag\Desktop\maffeng\Design Maffeng\Vai entrar no projeto\maffeng-site-v21.html
+- 2026-06-01 02:51:34  EDITADO  C:\Users\thiag\Desktop\maffeng\Design Maffeng\Vai entrar no projeto\maffeng-site-v21.html
+- 2026-06-01 02:52:34  EDITADO  C:\Users\thiag\Desktop\maffeng\Design Maffeng\Vai entrar no projeto\maffeng-site-v22.html
+- 2026-06-01 03:07:14  EDITADO  C:\Users\thiag\Desktop\maffeng\Design Maffeng\Vai entrar no projeto\maffeng-site-v23.html
+- 2026-06-01 03:14:13  CRIADO   C:\Users\thiag\Desktop\maffeng\Design Maffeng\Vai entrar no projeto\skills-session-log.html
+- 2026-06-01 11:15:41  CRIADO   C:\Users\thiag\.claude\plans\mellow-exploring-dongarra.md
+- 2026-06-01 11:18:49  CRIADO   C:\Users\thiag\Desktop\maffeng\Design Maffeng\Vai entrar no projeto\tm-apresentacao-profissional.html
+- 2026-06-01 12:10:58  CRIADO   C:\Users\thiag\Desktop\maffeng\Design Maffeng\Vai entrar no projeto\tm-apresentacao-v2.html
+- 2026-06-01 12:49:47  CRIADO   C:\Users\thiag\.claude\plans\c-users-thiag-desktop-maffeng-design-ma-zesty-robin.md
+- 2026-06-01 12:51:14  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE\index.html
+- 2026-06-01 12:51:17  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE\index.html
+- 2026-06-01 12:51:20  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE\index.html
+- 2026-06-01 12:51:23  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE\index.html
+- 2026-06-01 12:51:26  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE\index.html
+- 2026-06-01 12:51:56  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE\index.html
+- 2026-06-01 12:52:12  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE\index.html
+- 2026-06-01 12:52:28  CRIADO   C:\Users\thiag\Desktop\maffeng\SITE\apps-script-email.gs
+- 2026-06-01 12:57:14  CRIADO   C:\Users\thiag\Desktop\APPS\tm-coming-soon.html
+- 2026-06-01 13:40:07  CRIADO   C:\Users\thiag\Desktop\APPS\SITE TM\build_html.py
+- 2026-06-01 13:53:15  CRIADO   C:\Users\thiag\Desktop\APPS\SITE TM\test_coming_soon.py
+- 2026-06-01 14:03:07  CRIADO   C:\Users\thiag\Desktop\APPS\SITE TM\build_html.py
+- 2026-06-01 14:03:57  EDITADO  C:\Users\thiag\Desktop\APPS\SITE TM\test_coming_soon.py
+- 2026-06-01 14:14:47  CRIADO   C:\Users\thiag\Desktop\APPS\SITE TM\build_html.py
+- 2026-06-01 14:44:44  CRIADO   C:\Users\thiag\Desktop\APPS\SITE TM\build_html_v2.py
+- 2026-06-01 14:50:43  CRIADO   C:\Users\thiag\Desktop\APPS\SITE TM\test_v2.py
+- 2026-06-01 15:59:01  CRIADO   C:\Users\thiag\Desktop\APPS\SITE TM\build_html_v2.py
+- 2026-06-01 17:51:30  CRIADO   C:\Users\thiag\Desktop\APPS\SITE TM\build_html_v3.py
+- 2026-06-01 21:31:15  CRIADO   C:\Users\thiag\Desktop\APPS\SITE TM\test_v3.py
+- 2026-06-01 22:39:11  CRIADO   C:\Users\thiag\Desktop\APPS\SITE TM\build_html_v4.py
+- 2026-06-01 22:39:12  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-01 22:39:18  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-01 23:05:08  CRIADO   C:\Users\thiag\.claude\plans\c-users-thiag-desktop-maffeng-design-ma-zesty-robin.md
+- 2026-06-01 23:14:24  EDITADO  C:\Users\thiag\.claude\plans\c-users-thiag-desktop-maffeng-design-ma-zesty-robin.md
+- 2026-06-01 23:14:29  EDITADO  C:\Users\thiag\.claude\plans\c-users-thiag-desktop-maffeng-design-ma-zesty-robin.md
+- 2026-06-01 23:16:16  EDITADO  C:\Users\thiag\.claude\plans\c-users-thiag-desktop-maffeng-design-ma-zesty-robin.md
+- 2026-06-01 23:20:18  EDITADO  C:\Users\thiag\.claude\plans\c-users-thiag-desktop-maffeng-design-ma-zesty-robin.md
+- 2026-06-01 23:20:26  EDITADO  C:\Users\thiag\.claude\plans\c-users-thiag-desktop-maffeng-design-ma-zesty-robin.md
+- 2026-06-01 23:21:58  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-01 23:22:15  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-01 23:22:41  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-01 23:23:07  CRIADO   C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\apps-script-webapp.gs
+- 2026-06-01 23:39:42  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-01 23:51:57  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-02 00:05:33  CRIADO   C:\Users\thiag\.claude\plans\1-os-cards-deixaram-modular-volcano.md
+- 2026-06-02 00:15:47  CRIADO   C:\Users\thiag\Desktop\APPS\SITE TM\build_html_v5.py
+- 2026-06-02 00:16:40  CRIADO   C:\Users\thiag\Desktop\maffeng\APRESENTACAO-MAFFENG.html
+- 2026-06-02 00:17:36  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index-v2.html
+- 2026-06-02 00:17:48  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index-v2.html
+- 2026-06-02 00:22:27  CRIADO   C:\Users\thiag\Desktop\APPS\SITE TM\test_v5_mobile.py
+- 2026-06-02 00:23:52  EDITADO  C:\Users\thiag\Desktop\APPS\SITE TM\test_v5_mobile.py
+- 2026-06-02 00:24:00  EDITADO  C:\Users\thiag\Desktop\APPS\SITE TM\test_v5_mobile.py
+- 2026-06-02 00:25:37  CRIADO   C:\Users\thiag\Desktop\APPS\SITE TM\apps-script-tm.gs
+- 2026-06-02 00:37:03  CRIADO   C:\Users\thiag\Desktop\APPS\SITE TM\build_html_v6.py
+- 2026-06-02 00:48:43  CRIADO   C:\Users\thiag\Desktop\APPS\SITE TM\apps-script-tm.gs
+- 2026-06-02 00:51:18  CRIADO   C:\Users\thiag\Desktop\APPS\SITE TM\build_html_v7.py
+- 2026-06-02 00:51:18  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index-v2.html
+- 2026-06-02 00:51:18  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index-v2.html
+- 2026-06-02 00:53:13  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index-v2.html
+- 2026-06-02 01:03:05  CRIADO   C:\Users\thiag\Desktop\APPS\SITE TM\apps-script-tm.gs
+- 2026-06-02 01:06:03  CRIADO   C:\Users\thiag\Desktop\APPS\SITE TM\build_html_v7.py
+- 2026-06-02 01:08:06  EDITADO  C:\Users\thiag\Desktop\APPS\SITE TM\tm-coming-soon-v7.html
+- 2026-06-02 01:08:13  EDITADO  C:\Users\thiag\Desktop\APPS\SITE TM\tm-coming-soon-v7.html
+- 2026-06-02 01:08:19  EDITADO  C:\Users\thiag\Desktop\APPS\SITE TM\tm-coming-soon-v7.html
+- 2026-06-02 01:08:24  EDITADO  C:\Users\thiag\Desktop\APPS\SITE TM\tm-coming-soon-v7.html
+- 2026-06-02 01:09:14  EDITADO  C:\Users\thiag\Desktop\APPS\SITE TM\tm-coming-soon-v7.html
+- 2026-06-02 01:10:33  CRIADO   C:\Users\thiag\.claude\plans\1-os-cards-deixaram-modular-volcano.md
+- 2026-06-02 01:11:59  EDITADO  C:\Users\thiag\Desktop\APPS\SITE TM\tm-coming-soon-v7.html
+- 2026-06-02 01:13:51  EDITADO  C:\Users\thiag\Desktop\APPS\SITE TM\tm-coming-soon-v7.html
+- 2026-06-02 01:16:30  EDITADO  C:\Users\thiag\Desktop\APPS\SITE TM\tm-coming-soon-v7.html
+- 2026-06-02 01:21:53  EDITADO  C:\Users\thiag\Desktop\APPS\SITE TM\tm-coming-soon-v7.html
+- 2026-06-02 01:22:29  CRIADO   C:\Users\thiag\.claude\plans\1-os-cards-deixaram-modular-volcano.md
+- 2026-06-02 01:24:09  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index-v2.html
+- 2026-06-02 01:24:13  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index-v2.html
+- 2026-06-02 01:24:20  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index-v2.html
+- 2026-06-02 01:30:12  EDITADO  C:\Users\thiag\Desktop\APPS\SITE TM\tm-coming-soon-v7.html
+- 2026-06-02 01:33:43  EDITADO  C:\Users\thiag\Desktop\maffeng\APRESENTACAO-MAFFENG.html
+- 2026-06-02 01:33:48  EDITADO  C:\Users\thiag\Desktop\maffeng\APRESENTACAO-MAFFENG.html
+- 2026-06-02 01:33:56  EDITADO  C:\Users\thiag\Desktop\maffeng\APRESENTACAO-MAFFENG.html
+- 2026-06-02 01:34:16  EDITADO  C:\Users\thiag\Desktop\maffeng\APRESENTACAO-MAFFENG.html
+- 2026-06-02 01:34:21  EDITADO  C:\Users\thiag\Desktop\maffeng\APRESENTACAO-MAFFENG.html
+- 2026-06-02 01:34:24  EDITADO  C:\Users\thiag\Desktop\maffeng\APRESENTACAO-MAFFENG.html
+- 2026-06-02 01:34:32  EDITADO  C:\Users\thiag\Desktop\maffeng\APRESENTACAO-MAFFENG.html
+- 2026-06-02 01:44:58  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index-v2.html
+- 2026-06-02 01:50:07  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index-v2.html
+- 2026-06-02 01:51:56  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index-v2.html
+- 2026-06-02 01:52:02  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index-v2.html
+- 2026-06-02 01:52:12  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index-v2.html
+- 2026-06-02 01:53:46  EDITADO  C:\Users\thiag\Desktop\maffeng\APRESENTACAO-MAFFENG.html
+- 2026-06-02 01:53:55  EDITADO  C:\Users\thiag\Desktop\maffeng\APRESENTACAO-MAFFENG.html
+- 2026-06-02 01:54:00  EDITADO  C:\Users\thiag\Desktop\maffeng\APRESENTACAO-MAFFENG.html
+- 2026-06-02 01:54:04  EDITADO  C:\Users\thiag\Desktop\maffeng\APRESENTACAO-MAFFENG.html
+- 2026-06-02 01:55:02  EDITADO  C:\Users\thiag\Desktop\maffeng\APRESENTACAO-MAFFENG.html
+- 2026-06-02 01:56:15  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index-v2.html
+- 2026-06-02 02:23:54  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-02 02:25:49  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-02 02:25:55  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-02 02:33:39  CRIADO   C:\Users\thiag\.claude\plans\1-os-cards-deixaram-modular-volcano.md
+- 2026-06-02 02:34:33  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-02 02:34:38  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-02 02:34:42  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-02 02:34:46  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-02 02:34:52  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-02 02:35:48  EDITADO  C:\Users\thiag\Desktop\maffeng\APRESENTACAO-MAFFENG-v2.html
+- 2026-06-02 02:39:38  EDITADO  C:\Users\thiag\Desktop\maffeng\APRESENTACAO-MAFFENG-v2.html
+- 2026-06-02 02:41:06  CRIADO   C:\Users\thiag\.claude\plans\1-os-cards-deixaram-modular-volcano.md
+- 2026-06-02 02:41:20  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-02 02:41:24  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-02 02:41:32  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-02 02:41:37  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-02 02:46:15  EDITADO  C:\Users\thiag\Desktop\maffeng\APRESENTACAO-MAFFENG-v2.html
+- 2026-06-02 02:46:44  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-02 02:49:30  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-02 02:51:20  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-02 02:52:56  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-02 02:54:10  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-02 02:56:08  EDITADO  C:\Users\thiag\Desktop\maffeng\SITE MAFFENG\index.html
+- 2026-06-02 22:08:30  CRIADO   C:\Users\thiag\.claude\plans\bubbly-frolicking-micali.md
+- 2026-06-02 22:53:30  CRIADO   C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Atualizando Skills\PLANO_SESSAO_2026-06-02.md
+- 2026-06-02 22:53:36  EDITADO  C:\Users\thiag\.claude\plans\bubbly-frolicking-micali.md
+- 2026-06-02 22:53:39  EDITADO  C:\Users\thiag\.claude\plans\bubbly-frolicking-micali.md
+- 2026-06-02 22:55:53  CRIADO   C:\Users\thiag\.claude\plans\aqui-dentro-vamos-desenvolver-splendid-wind.md
+- 2026-06-02 23:45:47  CRIADO   C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Atualizando Skills\SYSTEM_GUIDE_AutoRelatorioV1.md
+- 2026-06-03 00:20:03  CRIADO   C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Atualizando Skills\INVENTARIO_SKILLS_2026.md
+- 2026-06-03 00:25:41  CRIADO   C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\CLAUDE.md
+- 2026-06-03 00:25:44  CRIADO   C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Atualizando Skills\SYSTEM_GUIDE_AutoRelatorioV4_V5.md
+- 2026-06-03 00:25:56  CRIADO   C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Minha-Demanda-0---Sala-de-controle-Descri--es--apoio-skill-\memory\project_descricoes_skill.md
+- 2026-06-03 00:40:35  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\_workspace\memoria\MEMORIA_SPRINTS.md
+- 2026-06-03 00:44:06  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\_workspace\memoria\MEMORIA_SPRINTS.md
+- 2026-06-03 01:05:12  CRIADO   C:\Users\thiag\.claude\plans\ok-vamos-la-na-shimmering-hedgehog.md
+- 2026-06-03 01:25:39  EDITADO  C:\Users\thiag\.claude\plans\ok-vamos-la-na-shimmering-hedgehog.md
+- 2026-06-03 01:26:02  CRIADO   C:\Users\thiag\.claude\plans\ok-vamos-la-na-shimmering-hedgehog.md
+- 2026-06-03 01:26:43  EDITADO  C:\Users\thiag\.claude\plans\ok-vamos-la-na-shimmering-hedgehog.md
+- 2026-06-03 01:26:46  EDITADO  C:\Users\thiag\.claude\plans\ok-vamos-la-na-shimmering-hedgehog.md
+- 2026-06-03 01:26:53  EDITADO  C:\Users\thiag\.claude\plans\ok-vamos-la-na-shimmering-hedgehog.md
+- 2026-06-03 02:04:44  CRIADO   C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\CONTRATO_1565_DESCRICOES.md
+- 2026-06-03 02:04:56  EDITADO  C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\CLAUDE.md
+- 2026-06-03 02:05:07  EDITADO  C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\CLAUDE.md
+- 2026-06-03 02:05:20  EDITADO  C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\CLAUDE.md
+- 2026-06-03 02:05:29  EDITADO  C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\CLAUDE.md
+- 2026-06-03 02:10:56  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\_workspace\memoria\MEMORIA_SPRINTS.md
+- 2026-06-03 03:21:47  CRIADO   C:\tmp\insert_lambari.py
+- 2026-06-03 10:13:31  CRIADO   C:\tmp\gerar_html_lambari.py
+- 2026-06-03 14:21:17  CRIADO   C:\tmp\insert_lambari_v2.py
+- 2026-06-03 14:23:44  CRIADO   C:\tmp\insert_v3.py
+- 2026-06-03 14:42:18  CRIADO   C:\Users\thiag\.claude\jobs\0f6b925a\tmp\analisa_backup.py
+- 2026-06-03 14:42:42  CRIADO   C:\Users\thiag\.claude\jobs\0f6b925a\tmp\analisa_backup2.py
+- 2026-06-03 14:53:49  CRIADO   C:\Users\thiag\.claude\jobs\0f6b925a\tmp\verificar_textos.py
+- 2026-06-03 14:54:21  CRIADO   C:\Users\thiag\.claude\jobs\0f6b925a\tmp\verificar_textos2.py
+- 2026-06-03 14:55:40  CRIADO   C:\Users\thiag\.claude\jobs\0f6b925a\tmp\mapear_placeholders.py
+- 2026-06-03 14:59:00  CRIADO   C:\Users\thiag\.claude\jobs\0f6b925a\tmp\inserir_descricoes.py
+- 2026-06-03 15:00:12  EDITADO  C:\Users\thiag\.claude\jobs\0f6b925a\tmp\inserir_descricoes.py
+- 2026-06-03 15:09:29  CRIADO   C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Minha-Demanda-0---Sala-de-controle-Descri--es--apoio-skill-\memory\MEMORY.md
+- 2026-06-03 15:09:44  CRIADO   C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Minha-Demanda-0---Sala-de-controle-Descri--es--apoio-skill-\memory\lambari_jun2026.md
+- 2026-06-03 15:09:52  CRIADO   C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Minha-Demanda-0---Sala-de-controle-Descri--es--apoio-skill-\memory\workflow_insercao.md
+- 2026-06-03 15:10:02  CRIADO   C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Minha-Demanda-0---Sala-de-controle-Descri--es--apoio-skill-\memory\contratos_pintura.md
+- 2026-06-03 15:18:29  CRIADO   C:\Users\thiag\.claude\jobs\0f6b925a\tmp\analisar_resultado.py
+- 2026-06-03 15:25:42  CRIADO   C:\Users\thiag\.claude\jobs\0f6b925a\tmp\realocar_descricoes.py
+- 2026-06-03 15:28:06  CRIADO   C:\Users\thiag\.claude\jobs\0f6b925a\tmp\ver_secao53.py
+- 2026-06-03 15:35:57  CRIADO   C:\Users\thiag\.claude\jobs\0f6b925a\tmp\analisar_final.py
+- 2026-06-03 15:38:46  CRIADO   C:\Users\thiag\.claude\jobs\0f6b925a\tmp\fix_gap.py
+- 2026-06-03 15:53:26  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\_workspace\memoria\MEMORIA_SPRINTS.md
+- 2026-06-03 16:04:55  CRIADO   C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\REPOSITORIO.html
+- 2026-06-03 16:17:29  CRIADO   C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\ANALISE-LAMBARI.html
+- 2026-06-03 16:45:46  CRIADO   C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\.superpowers\brainstorm\968-1780515854\content\design-direction.html
+- 2026-06-03 17:33:10  CRIADO   C:\Users\thiag\.claude\plans\serialized-discovering-spark.md
+- 2026-06-03 17:48:13  CRIADO   C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\scanner_xml.py
+- 2026-06-03 17:48:39  CRIADO   C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\REPOSITORIO.html
+- 2026-06-03 17:48:59  CRIADO   C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\corrigir_lambari.py
+- 2026-06-03 17:51:19  CRIADO   C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\ANALISE-LAMBARI.html
+- 2026-06-03 17:52:11  CRIADO   C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\.agents\skills\skill-creator\assets\eval_review.html
+- 2026-06-03 17:52:23  CRIADO   C:\tmp\scan_run.py
+- 2026-06-03 17:52:49  CRIADO   C:\tmp\corrigir_run.py
+- 2026-06-03 17:55:07  CRIADO   C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\LAMBARI - Descri├º├Áes para Validar.html
+- 2026-06-03 17:55:40  EDITADO  C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\.agents\skills\skill-creator\eval-viewer\viewer.html
+- 2026-06-03 17:55:45  EDITADO  C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\.agents\skills\skill-creator\eval-viewer\viewer.html
+- 2026-06-03 17:55:56  EDITADO  C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\.agents\skills\skill-creator\eval-viewer\viewer.html
+- 2026-06-03 17:57:20  EDITADO  C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\.agents\skills\skill-creator\eval-viewer\viewer.html
+- 2026-06-03 17:58:34  EDITADO  C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\Diferen├ºa de uso\MAFFENG - Pinturas por contrato - interativo.html
+- 2026-06-03 17:58:38  EDITADO  C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\Diferen├ºa de uso\MAFFENG - Pinturas por contrato - interativo.html
+- 2026-06-03 17:59:12  EDITADO  C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\Diferen├ºa de uso\MAFFENG - Pinturas por contrato - interativo.html
+- 2026-06-03 17:59:22  EDITADO  C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\Diferen├ºa de uso\MAFFENG - Pinturas por contrato - interativo.html
+- 2026-06-03 17:59:29  EDITADO  C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\Diferen├ºa de uso\MAFFENG - Pinturas por contrato - interativo.html
+- 2026-06-03 18:00:22  CRIADO   C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\.superpowers\brainstorm\968-1780515854\content\design-direction.html
+- 2026-06-03 18:09:10  EDITADO  C:\tmp\scan_run.py
+- 2026-06-03 18:09:14  EDITADO  C:\tmp\corrigir_run.py
+- 2026-06-03 18:10:00  EDITADO  C:\tmp\corrigir_run.py
+- 2026-06-03 18:11:21  EDITADO  C:\tmp\corrigir_run.py
+- 2026-06-03 18:11:25  EDITADO  C:\tmp\corrigir_run.py
+- 2026-06-03 18:12:06  CRIADO   C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\REPOSITORIO.html
+- 2026-06-03 18:16:21  CRIADO   C:\Users\thiag\.claude\plans\ok-agora-supondo-que-splendid-church.md
+- 2026-06-03 18:23:17  CRIADO   C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\ANALISE-LAMBARI.html
+- 2026-06-03 18:26:11  CRIADO   C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\LAMBARI - Descri├º├Áes para Validar.html
+- 2026-06-03 18:31:38  CRIADO   C:\Users\thiag\Desktop\Minha Demanda\0 - Sala de controle\Descri├º├Áes (apoio skill)\Diferen├ºa de uso\MAFFENG - Pinturas por contrato - interativo.html
+- 2026-06-03 22:19:35  CRIADO   C:\Users\thiag\Desktop\APPS\TM WEB SCRAPPING\CLAUDE.md
+- 2026-06-03 22:34:35  CRIADO   C:\Users\thiag\.claude\skills\typescript-advanced\SKILL.md
+- 2026-06-03 22:35:36  CRIADO   C:\Users\thiag\.claude\skills\typescript-advanced\references\conditional-types.md
+- 2026-06-03 22:35:55  CRIADO   C:\Users\thiag\.claude\skills\typescript-advanced\references\mapped-types.md
+- 2026-06-03 22:36:15  CRIADO   C:\Users\thiag\.claude\skills\typescript-advanced\references\template-literal.md
+- 2026-06-03 22:36:34  CRIADO   C:\Users\thiag\.claude\skills\typescript-advanced\references\tuple-variadic.md
+- 2026-06-03 22:36:57  CRIADO   C:\Users\thiag\.claude\skills\typescript-advanced\references\recursive-types.md
+- 2026-06-03 22:37:27  CRIADO   C:\Users\thiag\.claude\skills\typescript-advanced\references\union-intersection.md
+- 2026-06-03 22:38:06  CRIADO   C:\Users\thiag\.claude\skills\typescript-advanced\references\utility-patterns.md
+- 2026-06-03 22:41:44  CRIADO   C:\Users\thiag\.claude\skills\react-hook-form\SKILL.md
+- 2026-06-03 22:43:26  CRIADO   C:\Users\thiag\.claude\skills\zod\SKILL.md
+- 2026-06-05 00:57:32  CRIADO   C:\Users\thiag\Desktop\APPS\03_Arquivo_Morto_Legado\.NEXT APPS\TM Gerenciador\test_e2e.py
+- 2026-06-05 01:04:12  CRIADO   C:\Users\thiag\Desktop\APPS\03_Arquivo_Morto_Legado\.NEXT APPS\TM Gerenciador\test_design.py
+- 2026-06-05 01:17:40  CRIADO   C:\Users\thiag\.claude\plans\eu-verifiquei-ele-abrindo-joyful-lake.md
+- 2026-06-05 01:36:21  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\globals.css
+- 2026-06-05 01:36:38  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\layout.tsx
+- 2026-06-05 01:40:23  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\components\layout\sidebar.tsx
+- 2026-06-05 01:40:35  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\components\layout\header.tsx
+- 2026-06-05 01:40:40  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\(dashboard)\layout.tsx
+- 2026-06-05 01:40:55  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\(dashboard)\page.tsx
+- 2026-06-05 01:41:16  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\(auth)\login\page.tsx
+- 2026-06-05 01:41:24  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\(dashboard)\ordens\page.tsx
+- 2026-06-05 01:41:34  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\(dashboard)\importar\page.tsx
+- 2026-06-05 01:48:53  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\globals.css
+- 2026-06-05 01:54:12  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\globals.css
+- 2026-06-05 02:04:20  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\models\schemas.py
+- 2026-06-05 02:04:24  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\db\supabase.py
+- 2026-06-05 02:04:37  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\routers\contratos.py
+- 2026-06-05 02:05:20  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\routers\ordens.py
+- 2026-06-05 02:05:29  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\routers\notificacoes.py
+- 2026-06-05 02:05:36  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\routers\usuarios.py
+- 2026-06-05 02:05:44  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\main.py
+- 2026-06-05 02:05:48  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\routers\__init__.py
+- 2026-06-05 02:05:48  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\db\__init__.py
+- 2026-06-05 02:05:51  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\requirements.txt
+- 2026-06-05 02:05:55  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\.env.example
+- 2026-06-05 02:09:42  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\start.bat
+- 2026-06-05 02:09:54  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\supabase_schema.sql
+- 2026-06-05 02:10:20  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\lib\types.ts
+- 2026-06-05 02:10:38  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\lib\api.ts
+- 2026-06-05 02:10:48  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\.env.local
+- 2026-06-05 02:11:37  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\run.bat
+- 2026-06-05 02:30:21  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\.env
+- 2026-06-05 02:39:47  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\routers\ordens.py
+- 2026-06-05 02:40:28  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\routers\ordens.py
+- 2026-06-05 02:41:47  CRIADO   C:\Users\thiag\AppData\Local\Temp\test_import.py
+- 2026-06-05 02:43:13  CRIADO   C:\Users\thiag\AppData\Local\Temp\test_import2.py
+- 2026-06-05 02:45:03  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\routers\ordens.py
+- 2026-06-05 02:47:00  CRIADO   C:\Users\thiag\AppData\Local\Temp\test_import_real.py
+- 2026-06-05 02:48:43  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\(dashboard)\importar\page.tsx
+- 2026-06-05 03:06:23  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\(dashboard)\page.tsx
+- 2026-06-05 03:07:04  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\(dashboard)\ordens\page.tsx
+- 2026-06-05 03:27:01  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\page.tsx
+- 2026-06-05 03:29:22  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\_workspace\memoria\MEMORIA_SPRINTS.md
+- 2026-06-05 03:45:32  EDITADO  C:\Users\thiag\.claude\plans\eu-verifiquei-ele-abrindo-joyful-lake.md
+- 2026-06-05 03:46:18  CRIADO   C:\Users\thiag\.claude\plans\eu-verifiquei-ele-abrindo-joyful-lake.md
+- 2026-06-05 03:49:07  EDITADO  C:\Users\thiag\.claude\plans\eu-verifiquei-ele-abrindo-joyful-lake.md
+- 2026-06-05 03:50:41  EDITADO  C:\Users\thiag\.claude\plans\eu-verifiquei-ele-abrindo-joyful-lake.md
+- 2026-06-05 03:52:32  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\components\layout\sidebar.tsx
+- 2026-06-05 03:53:02  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\routers\ordens.py
+- 2026-06-05 03:53:07  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\models\schemas.py
+- 2026-06-05 03:54:01  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\components\charts\EvolucaoMensal.tsx
+- 2026-06-05 03:54:07  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\components\charts\OsPorContrato.tsx
+- 2026-06-05 03:54:16  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\components\charts\OsPorTipo.tsx
+- 2026-06-05 03:57:21  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\components\charts\TopResponsaveis.tsx
+- 2026-06-05 03:57:36  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\lib\api.ts
+- 2026-06-05 03:57:42  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\lib\api.ts
+- 2026-06-05 03:58:25  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\(dashboard)\page.tsx
+- 2026-06-05 03:59:56  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\(dashboard)\notificacoes\page.tsx
+- 2026-06-05 04:00:16  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\(dashboard)\relatorios\page.tsx
+- 2026-06-05 04:00:36  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\(dashboard)\balanco\page.tsx
+- 2026-06-05 04:01:14  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\(dashboard)\equipe\page.tsx
+- 2026-06-05 04:01:39  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\(dashboard)\agenda\page.tsx
+- 2026-06-05 04:02:41  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\components\layout\header.tsx
+- 2026-06-05 04:02:48  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\components\layout\header.tsx
+- 2026-06-05 04:03:13  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\components\layout\header.tsx
+- 2026-06-05 04:03:21  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\components\layout\header.tsx
+- 2026-06-05 04:04:37  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\test_e2e.py
+- 2026-06-05 04:08:07  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\test_e2e.py
+- 2026-06-05 04:15:42  EDITADO  C:\Users\thiag\.claude\plans\eu-verifiquei-ele-abrindo-joyful-lake.md
+- 2026-06-05 04:16:18  CRIADO   C:\Users\thiag\.claude\plans\eu-verifiquei-ele-abrindo-joyful-lake.md
+- 2026-06-05 04:17:32  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\components\layout\header.tsx
+- 2026-06-05 04:17:45  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\components\layout\header.tsx
+- 2026-06-05 04:17:49  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\components\layout\header.tsx
+- 2026-06-05 04:21:49  EDITADO  C:\Users\thiag\Desktop\APPS\TM WEB SCRAPPING\package.json
+- 2026-06-05 04:21:53  CRIADO   C:\Users\thiag\Desktop\APPS\TM WEB SCRAPPING\tsconfig.json
+- 2026-06-05 04:22:07  CRIADO   C:\Users\thiag\Desktop\APPS\TM WEB SCRAPPING\next.config.js
+- 2026-06-05 04:22:10  CRIADO   C:\Users\thiag\Desktop\APPS\TM WEB SCRAPPING\.gitignore
+- 2026-06-05 04:22:12  CRIADO   C:\Users\thiag\Desktop\APPS\TM WEB SCRAPPING\app\layout.tsx
+- 2026-06-05 04:22:21  CRIADO   C:\Users\thiag\Desktop\APPS\TM WEB SCRAPPING\app\globals.css
+- 2026-06-05 04:22:28  CRIADO   C:\Users\thiag\Desktop\APPS\TM WEB SCRAPPING\lib\scraper.ts
+- 2026-06-05 04:22:34  CRIADO   C:\Users\thiag\Desktop\APPS\TM WEB SCRAPPING\lib\exporter.ts
+- 2026-06-05 04:22:38  CRIADO   C:\Users\thiag\Desktop\APPS\TM WEB SCRAPPING\app\api\scrape\route.ts
+- 2026-06-05 04:22:48  CRIADO   C:\Users\thiag\Desktop\APPS\TM WEB SCRAPPING\app\page.tsx
+- 2026-06-05 04:23:05  CRIADO   C:\Users\thiag\Desktop\APPS\TM WEB SCRAPPING\README.md
+- 2026-06-05 04:23:05  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\models\schemas.py
+- 2026-06-05 04:23:13  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\models\schemas.py
+- 2026-06-05 04:23:19  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\routers\ordens.py
+- 2026-06-05 04:23:24  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\lib\api.ts
+- 2026-06-05 04:23:30  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\migrations\003_add_elaborador_tecnico.sql
+- 2026-06-05 04:39:12  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\components\layout\sidebar.tsx
+- 2026-06-05 04:40:58  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\components\layout\header.tsx
+- 2026-06-05 04:41:02  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\components\layout\header.tsx
+- 2026-06-05 04:56:50  EDITADO  C:\Users\thiag\Desktop\APPS\TM WEB SCRAPPING\next.config.js
+- 2026-06-05 04:56:53  CRIADO   C:\Users\thiag\Desktop\APPS\TM WEB SCRAPPING\run.bat
+- 2026-06-05 04:57:13  CRIADO   C:\Users\thiag\Desktop\APPS\TM WEB SCRAPPING\GUIA_TESTES.md
+- 2026-06-05 05:07:26  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\components\layout\sidebar.tsx
+- 2026-06-05 05:11:54  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\components\layout\sidebar.tsx
+- 2026-06-05 05:12:00  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\components\layout\sidebar.tsx
+- 2026-06-05 05:29:46  CRIADO   C:\Users\thiag\Desktop\APPS\TM WEB SCRAPPING\PROJETO_CRIADO.md
+- 2026-06-05 05:31:54  CRIADO   C:\Users\thiag\Desktop\Minha Demanda\1 - Preventivas 2026\01 - Apoio operacional\Autolegendas\legendar_cli.py
+- 2026-06-05 05:31:58  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\_workspace\memoria\MEMORIA_SPRINTS.md
+- 2026-06-05 05:33:42  EDITADO  C:\Users\thiag\Desktop\Minha Demanda\1 - Preventivas 2026\01 - Apoio operacional\Autolegendas\legendar_cli.py
+- 2026-06-05 05:39:01  CRIADO   C:\Users\thiag\Desktop\APPS\TM WEB SCRAPPING\scripts\capture_page.py
+- 2026-06-05 05:40:43  EDITADO  C:\Users\thiag\Desktop\APPS\TM WEB SCRAPPING\scripts\capture_page.py
+- 2026-06-05 14:06:02  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\routers\ordens.py
+- 2026-06-05 14:06:15  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\routers\ordens.py
+- 2026-06-05 14:08:51  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\routers\ordens.py
+- 2026-06-05 14:10:19  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\(dashboard)\importar\page.tsx
+- 2026-06-05 14:43:34  CRIADO   C:\Users\thiag\.claude\plans\melodic-pondering-hare.md
+- 2026-06-06 01:32:35  EDITADO  C:\Users\thiag\.claude\plans\melodic-pondering-hare.md
+- 2026-06-06 01:48:17  CRIADO   C:\Users\thiag\.claude\plans\melodic-pondering-hare.md
+- 2026-06-06 01:48:55  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\components\ordens\ModalOS.tsx
+- 2026-06-06 01:49:35  CRIADO   C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\(dashboard)\ordens\[id]\page.tsx
+- 2026-06-06 01:49:40  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\(dashboard)\ordens\page.tsx
+- 2026-06-06 01:49:45  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\(dashboard)\ordens\page.tsx
+- 2026-06-06 01:49:48  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\(dashboard)\ordens\page.tsx
+- 2026-06-06 01:49:54  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\(dashboard)\ordens\page.tsx
+- 2026-06-06 01:49:58  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\(dashboard)\ordens\page.tsx
+- 2026-06-06 01:50:02  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\frontend\app\(dashboard)\ordens\page.tsx
+- 2026-06-06 01:52:08  CRIADO   C:\Users\thiag\Desktop\APPS\TM Marketing\O PLANO DE MARKETING TM.MD
+- 2026-06-06 14:21:36  CRIADO   C:\Users\thiag\.claude\plans\synthetic-beaming-mist.md
+- 2026-06-06 14:24:07  CRIADO   C:\Users\thiag\.claude\skills\versionamento\SKILL.md
+- 2026-06-06 14:24:23  CRIADO   C:\Users\thiag\.claude\skills\versionamento\scripts\detect_project.ps1
+- 2026-06-06 14:24:40  CRIADO   C:\Users\thiag\.claude\skills\versionamento\scripts\changelog.ps1
+- 2026-06-06 14:24:52  CRIADO   C:\Users\thiag\.claude\skills\versionamento\scripts\backup_snapshot.ps1
+- 2026-06-06 17:25:05  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\_workspace\memoria\MEMORIA_SPRINTS.md
+- 2026-06-07 09:38:21  CRIADO   C:\tmp\verificar_legendas_lambari.py
+- 2026-06-07 09:48:21  CRIADO   C:\Users\thiag\.claude\plans\na-verdade-no-relatorio-eager-ember.md
+- 2026-06-07 09:49:46  EDITADO  C:\Users\thiag\Desktop\Minha Demanda\1 - Preventivas 2026\01 - Apoio operacional\Autolegendas\legendar_fotos_auto.py
+- 2026-06-07 09:49:54  EDITADO  C:\Users\thiag\Desktop\Minha Demanda\1 - Preventivas 2026\01 - Apoio operacional\Autolegendas\legendar_fotos_auto.py
+- 2026-06-07 09:51:31  EDITADO  C:\Users\thiag\Desktop\Minha Demanda\1 - Preventivas 2026\01 - Apoio operacional\Autolegendas\legendar_fotos_auto.py
+- 2026-06-07 09:56:04  CRIADO   C:\tmp\debug_foto182.py
+- 2026-06-07 09:57:24  CRIADO   C:\tmp\debug_foto182_v2.py
+- 2026-06-07 09:59:04  CRIADO   C:\tmp\renumerar_183_em_diante.py
+- 2026-06-07 09:59:29  CRIADO   C:\tmp\renumerar_183_em_diante.py
+- 2026-06-07 10:00:02  CRIADO   C:\tmp\renumerar_183_em_diante.py
+- 2026-06-07 10:14:17  EDITADO  C:\Users\thiag\.claude\plans\na-verdade-no-relatorio-eager-ember.md
+- 2026-06-07 10:14:41  CRIADO   C:\Users\thiag\.claude\plans\na-verdade-no-relatorio-eager-ember.md
+- 2026-06-07 10:23:44  CRIADO   C:\Users\thiag\.claude\skills\autolegendas\SKILL.md
+- 2026-06-07 10:24:12  CRIADO   C:\Users\thiag\.claude\skills\autolegendas\scripts\auditar_legendas.py
+- 2026-06-07 10:25:02  CRIADO   C:\Users\thiag\.claude\skills\autolegendas\scripts\legendar_fotos_auto.py
+- 2026-06-07 10:25:25  CRIADO   C:\Users\thiag\.claude\skills\autolegendas\scripts\renumerar_a_partir_de.py
+- 2026-06-07 10:25:47  CRIADO   C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Minha-Demanda-1---Preventivas-2026-01---Apoio-operacional-Autolegendas\memory\MEMORY.md
+- 2026-06-07 10:25:59  CRIADO   C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Minha-Demanda-1---Preventivas-2026-01---Apoio-operacional-Autolegendas\memory\autolegendas_skill.md
+- 2026-06-07 12:30:29  CRIADO   C:\tmp\corrigir_182.py
+- 2026-06-07 12:39:40  EDITADO  C:\tmp\corrigir_182.py
+- 2026-06-07 12:39:56  EDITADO  C:\tmp\corrigir_182.py
+- 2026-06-07 12:42:09  CRIADO   C:\Users\thiag\.claude\plans\fluttering-pondering-leaf.md
+- 2026-06-07 13:06:43  CRIADO   C:\tmp\sequencia_legendas.py
+- 2026-06-07 13:11:08  CRIADO   C:\tmp\fix_lambari_4.py
+- 2026-06-07 13:11:35  EDITADO  C:\Users\thiag\.claude\skills\autolegendas\scripts\renumerar_a_partir_de.py
+- 2026-06-07 13:11:49  EDITADO  C:\Users\thiag\.claude\skills\autolegendas\scripts\renumerar_a_partir_de.py
+- 2026-06-07 13:12:05  EDITADO  C:\Users\thiag\.claude\skills\autolegendas\scripts\renumerar_a_partir_de.py
+- 2026-06-07 13:41:32  CRIADO   C:\tmp\debug_179_180.py
+- 2026-06-07 13:42:53  CRIADO   C:\tmp\debug_179_180.py
+- 2026-06-07 13:43:31  CRIADO   C:\tmp\debug_leg179.py
+- 2026-06-07 13:46:05  CRIADO   C:\tmp\debug_celulas_179.py
+- 2026-06-07 13:46:53  CRIADO   C:\tmp\busca_179.py
+- 2026-06-07 13:52:57  CRIADO   C:\tmp\debug_cel379.py
+- 2026-06-07 13:53:22  CRIADO   C:\tmp\debug_cel379.py
+- 2026-06-07 13:53:42  CRIADO   C:\tmp\debug_cel379.py
+- 2026-06-07 13:54:19  CRIADO   C:\tmp\fix_379.py
+- 2026-06-07 13:54:51  CRIADO   C:\tmp\verifica_final.py
+- 2026-06-07 13:58:01  CRIADO   C:\tmp\fix_duplicata_379.py
+- 2026-06-07 16:28:13  CRIADO   C:\tmp\busca_leg_antes_foto.py
+- 2026-06-07 17:11:31  CRIADO   C:\Users\thiag\.claude\plans\l-o-arquivo-do-snug-breeze.md
+- 2026-06-07 17:15:55  CRIADO   C:\Users\thiag\.claude\plans\l-o-arquivo-do-snug-breeze.md
+- 2026-06-07 17:17:47  CRIADO   C:\Users\thiag\.claude\skills\autolegendas\scripts\remover_legendas_acima.py
+- 2026-06-07 17:17:59  EDITADO  C:\Users\thiag\.claude\skills\autolegendas\scripts\auditar_legendas.py
+- 2026-06-07 17:18:09  EDITADO  C:\Users\thiag\.claude\skills\autolegendas\scripts\auditar_legendas.py
+- 2026-06-07 17:18:26  EDITADO  C:\Users\thiag\.claude\skills\autolegendas\scripts\auditar_legendas.py
+- 2026-06-07 17:18:34  EDITADO  C:\Users\thiag\.claude\skills\autolegendas\SKILL.md
+- 2026-06-07 17:18:50  EDITADO  C:\Users\thiag\.claude\skills\autolegendas\SKILL.md
+- 2026-06-07 17:19:04  EDITADO  C:\Users\thiag\.claude\skills\autolegendas\scripts\remover_legendas_acima.py
+- 2026-06-07 17:19:52  EDITADO  C:\Users\thiag\.claude\skills\autolegendas\scripts\remover_legendas_acima.py
+- 2026-06-07 17:20:00  EDITADO  C:\Users\thiag\.claude\skills\autolegendas\scripts\remover_legendas_acima.py
+- 2026-06-07 17:22:01  EDITADO  C:\Users\thiag\.claude\skills\autolegendas\scripts\remover_legendas_acima.py
+- 2026-06-07 17:22:15  EDITADO  C:\Users\thiag\.claude\skills\autolegendas\scripts\remover_legendas_acima.py
+- 2026-06-07 17:32:49  CRIADO   C:\Users\thiag\.claude\skills\autolegendas\scripts\remover_legendas_acima.py
+- 2026-06-07 17:48:12  CRIADO   C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Minha-Demanda-1---Preventivas-2026-01---Apoio-operacional-Autolegendas\memory\sessao_2026-06-07_lambari.md
+- 2026-06-07 17:48:17  EDITADO  C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Minha-Demanda-1---Preventivas-2026-01---Apoio-operacional-Autolegendas\memory\MEMORY.md
+- 2026-06-07 17:49:33  EDITADO  C:\Users\thiag\.claude\skills\sprint-memory\SKILL.md
+- 2026-06-07 17:49:44  EDITADO  C:\Users\thiag\.claude\skills\sprint-memory\SKILL.md
+- 2026-06-07 18:04:15  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\_workspace\memoria\MEMORIA_SPRINTS.md
+- 2026-06-07 18:04:28  CRIADO   C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Minha-Demanda-1---Preventivas-2026-01---Apoio-operacional-Autolegendas\memory\sprint_2026-06-07.md
+- 2026-06-07 18:04:34  EDITADO  C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Minha-Demanda-1---Preventivas-2026-01---Apoio-operacional-Autolegendas\memory\MEMORY.md
+- 2026-06-07 19:30:23  CRIADO   C:\tmp\inspect_tables.py
+- 2026-06-07 19:31:12  CRIADO   C:\tmp\inspect_tables2.py
+- 2026-06-07 19:32:08  CRIADO   C:\tmp\inspect_memorial.py
+- 2026-06-07 19:34:23  CRIADO   C:\tmp\skill-dashboard.html
+- 2026-06-07 19:34:48  CRIADO   C:\tmp\parse_docx.py
+- 2026-06-07 19:38:17  CRIADO   C:\tmp\skill-command-center.html
+- 2026-06-07 20:30:01  CRIADO   C:\tmp\verificar_divergencias_docx.py
+- 2026-06-07 21:17:22  CRIADO   C:\tmp\skill-command-center.html
+- 2026-06-07 21:34:29  EDITADO  C:\tmp\skill-command-center.html
+- 2026-06-07 21:34:46  EDITADO  C:\tmp\skill-command-center.html
+- 2026-06-07 21:36:48  EDITADO  C:\tmp\parse_docx.py
+- 2026-06-07 21:37:08  CRIADO   C:\tmp\debug_raw.py
+- 2026-06-07 21:37:38  EDITADO  C:\tmp\parse_docx.py
+- 2026-06-07 21:39:51  CRIADO   C:\tmp\gerar_memorial_docx.py
+- 2026-06-07 21:41:24  CRIADO   C:\tmp\skill-command-center.html
+- 2026-06-07 21:47:51  CRIADO   C:\tmp\design-skills-compare.html
+- 2026-06-07 22:23:43  EDITADO  C:\tmp\gerar_memorial_docx.py
+- 2026-06-07 22:30:35  EDITADO  C:\tmp\gerar_memorial_docx.py
+- 2026-06-07 22:32:01  CRIADO   C:\tmp\section_frontend.html
+- 2026-06-07 22:32:11  CRIADO   C:\tmp\section_design.html
+- 2026-06-07 22:32:20  CRIADO   C:\tmp\section_brand.html
+- 2026-06-07 22:33:28  CRIADO   C:\tmp\section_banners.html
+- 2026-06-07 22:34:12  CRIADO   C:\tmp\section_components.html
+- 2026-06-07 23:36:19  CRIADO   C:\tmp\extrair_itens_docx.py
+- 2026-06-08 10:14:35  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\_workspace\memoria\MEMORIA_SPRINTS.md
+- 2026-06-08 10:14:44  CRIADO   C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-tm-tecnologia\memory\sprint_2026-06-08.md
+- 2026-06-08 10:14:48  EDITADO  C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-tm-tecnologia\memory\MEMORY.md
+- 2026-06-08 10:17:31  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\TM_Gerenciador\backend\routers\ordens.py
+- 2026-06-08 12:10:08  CRIADO   C:\Users\thiag\Desktop\Explan\O projeto\Apresentacao_Institucional_Explan.md
+- 2026-06-08 12:22:22  CRIADO   C:\Users\thiag\Desktop\Explan\O projeto\Apresentacao_Papeis_Equipe_Explan.md
+- 2026-06-08 13:11:02  CRIADO   C:\Users\thiag\Desktop\Explan\O projeto\SITE EXPLAN\01_ANALISE_UI_UX.md
+- 2026-06-08 13:11:47  CRIADO   C:\Users\thiag\Desktop\Explan\O projeto\SITE EXPLAN\02_SEO_ESTRATEGIA.md
+- 2026-06-08 13:12:07  CRIADO   C:\Users\thiag\Desktop\Explan\O projeto\SITE EXPLAN\03_ESTRATEGIA_MARKETING.md
+- 2026-06-08 13:12:49  CRIADO   C:\Users\thiag\Desktop\Explan\O projeto\SITE EXPLAN\04_INSTAGRAM_CONTEUDO.md
+- 2026-06-08 13:13:26  CRIADO   C:\Users\thiag\Desktop\Explan\O projeto\SITE EXPLAN\05_META_ADS.md
+- 2026-06-08 13:14:13  CRIADO   C:\Users\thiag\Desktop\Explan\O projeto\SITE EXPLAN\06_GOOGLE_ADS.md
+- 2026-06-08 13:14:32  CRIADO   C:\Users\thiag\Desktop\Explan\O projeto\SITE EXPLAN\00_INDICE.md
+- 2026-06-08 13:23:24  CRIADO   C:\Users\thiag\Desktop\Explan\O projeto\SITE EXPLAN\07_UIUX_DESIGN_SYSTEM.md
+- 2026-06-08 13:23:35  EDITADO  C:\Users\thiag\Desktop\Explan\O projeto\SITE EXPLAN\00_INDICE.md
+- 2026-06-08 13:30:20  CRIADO   C:\Users\thiag\Desktop\Explan\O projeto\SITE EXPLAN\apresentacao.html
+- 2026-06-08 18:21:48  EDITADO  C:\Users\thiag\Desktop\maffeng\CLAUDE.md
+- 2026-06-08 18:21:55  EDITADO  C:\Users\thiag\Desktop\maffeng\CLAUDE.md
+- 2026-06-08 18:22:00  EDITADO  C:\Users\thiag\Desktop\maffeng\CLAUDE.md
+- 2026-06-08 18:22:11  EDITADO  C:\Users\thiag\Desktop\maffeng\CLAUDE.md
+- 2026-06-08 18:22:20  EDITADO  C:\Users\thiag\Desktop\maffeng\CLAUDE.md
+- 2026-06-08 23:14:37  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\.superpowers\brainstorm\1119-1780971194\content\estrutura-pagina.html
+- 2026-06-08 23:18:48  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\.superpowers\brainstorm\1119-1780971194\content\fluxo-vendedor.html
+- 2026-06-08 23:32:41  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\.superpowers\brainstorm\1119-1780971194\content\waiting-plano.html
+- 2026-06-08 23:51:51  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-08 23:54:59  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-08 23:55:29  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-08 23:55:37  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-08 23:55:45  CRIADO   C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Explan\memory\user_thiago_tm.md
+- 2026-06-08 23:55:47  CRIADO   C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Explan\memory\MEMORY.md
+- 2026-06-09 00:14:02  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 00:14:15  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 00:14:43  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 00:14:47  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 00:14:51  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 00:14:59  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 00:15:02  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 00:15:06  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 00:15:13  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 00:15:18  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 00:15:22  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 00:15:27  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 00:15:30  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 00:15:34  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 00:15:41  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 00:15:54  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 00:15:59  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 00:16:07  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 00:16:12  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 00:16:16  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 00:16:25  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 00:16:28  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 00:16:35  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 00:16:40  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 00:16:45  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 00:16:50  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 00:16:54  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 00:17:00  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 00:31:40  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\test_prototipos.py
+- 2026-06-09 00:39:27  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 00:39:34  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 00:39:44  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 00:39:51  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 00:40:33  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 00:40:38  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 00:40:44  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 00:40:48  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 00:44:24  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\pdf-preview.html
+- 2026-06-09 00:46:20  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\contrato-template.html
+- 2026-06-09 00:46:45  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\pdf-preview.html
+- 2026-06-09 00:47:25  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\SPRINT-01-INICIO.md
+- 2026-06-09 00:52:47  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\_workspace\memoria\MEMORIA_SPRINTS.md
+- 2026-06-09 00:52:59  CRIADO   C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Explan\memory\sprint_2026-06-08.md
+- 2026-06-09 00:53:05  EDITADO  C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Explan\memory\MEMORY.md
+- 2026-06-09 00:59:52  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\Contrato-de-Producao-template.html
+- 2026-06-09 01:00:08  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\Contrato-de-Producao-template.html
+- 2026-06-09 01:00:12  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\Contrato-de-Producao-template.html
+- 2026-06-09 01:00:17  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\Contrato-de-Producao-template.html
+- 2026-06-09 01:00:25  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\Contrato-de-Producao-template.html
+- 2026-06-09 01:00:32  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\Contrato-de-Producao-template.html
+- 2026-06-09 01:00:36  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\Contrato-de-Producao-template.html
+- 2026-06-09 01:01:01  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\Contrato-de-Producao-template.html
+- 2026-06-09 01:01:06  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\Contrato-de-Producao-template.html
+- 2026-06-09 01:21:50  CRIADO   C:\Users\thiag\.claude\plans\siga-sleepy-mitten.md
+- 2026-06-09 01:26:38  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\catalogo-itens.json
+- 2026-06-09 01:27:14  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\PROMPT-BANNERS-PDF.md
+- 2026-06-09 01:27:43  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 01:27:48  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 01:27:54  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 01:28:00  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 01:28:05  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 01:28:09  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 01:28:17  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 01:28:33  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 01:28:43  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 01:28:49  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 01:28:56  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 01:29:16  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 01:29:21  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 01:29:26  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 01:29:30  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 01:29:35  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 01:29:42  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 01:29:49  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 01:29:56  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 01:30:07  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 01:32:14  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\pdf-preview.html
+- 2026-06-09 01:39:35  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 01:40:04  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 01:40:11  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 01:40:17  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 01:40:34  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 01:40:52  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 01:46:32  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 01:46:38  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 01:46:49  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 01:47:05  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 01:47:12  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 01:47:30  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 01:49:06  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\PROMPTS-GPT-IMAGE-2.md
+- 2026-06-09 02:09:22  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 02:09:27  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 02:09:34  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 02:10:06  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 02:27:04  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\pdf-preview.html
+- 2026-06-09 02:27:08  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\pdf-preview.html
+- 2026-06-09 02:27:12  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\pdf-preview.html
+- 2026-06-09 02:27:17  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\pdf-preview.html
+- 2026-06-09 02:27:21  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\pdf-preview.html
+- 2026-06-09 02:27:25  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\pdf-preview.html
+- 2026-06-09 02:28:19  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\pdf-preview.html
+- 2026-06-09 02:29:06  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\Contrato-de Servi├ºo - template.html
+- 2026-06-09 02:29:12  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 02:29:33  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 02:29:56  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 02:45:01  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\pdf-preview.html
+- 2026-06-09 02:45:05  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\pdf-preview.html
+- 2026-06-09 02:45:09  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\pdf-preview.html
+- 2026-06-09 02:45:14  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\pdf-preview.html
+- 2026-06-09 02:45:28  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\pdf-preview.html
+- 2026-06-09 02:45:29  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 02:45:35  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-09 02:45:39  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-09 02:46:31  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\Contrato-de-Producao-template.html
+- 2026-06-09 02:46:56  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\imagens-ambientes\README-IMAGENS.md
+- 2026-06-09 04:41:53  EDITADO  C:\Users\thiag\Desktop\tm-tecnologia\_workspace\memoria\MEMORIA_SPRINTS.md
+- 2026-06-09 04:42:13  CRIADO   C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Explan\memory\sprint_2026-06-09.md
+- 2026-06-09 04:42:21  EDITADO  C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Explan\memory\MEMORY.md
+- 2026-06-10 15:37:54  CRIADO   C:\Users\thiag\.claude\plans\synchronous-exploring-globe.md
+- 2026-06-11 09:48:41  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\tm_test_e2e.py
+- 2026-06-11 09:50:09  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\relatorio-bugs.html
+- 2026-06-11 09:50:18  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\tm_test_e2e.py
+- 2026-06-11 09:51:01  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\comparativo-versoes.html
+- 2026-06-11 09:52:00  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\INDICE-SESSAO.html
+- 2026-06-11 10:08:50  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-11 10:08:53  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-11 10:09:02  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-11 10:09:12  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-11 10:09:20  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-11 10:09:29  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-11 10:09:40  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-11 10:10:09  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\RELATORIO-CORRECOES.md
+- 2026-06-11 10:21:21  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\MAPEAMENTO-PLACEHOLDERS.html
+- 2026-06-11 10:21:42  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-11 10:22:10  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-11 10:22:28  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-11 10:22:35  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-11 10:22:39  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-11 10:22:56  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-11 10:23:03  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-11 10:23:16  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-11 10:23:28  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-11 10:23:40  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-11 10:23:52  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-11 10:23:58  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-11 10:25:00  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-11 10:25:31  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-pagina-unica.html
+- 2026-06-11 10:25:59  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\FORMATACAO-CAMPOS.html
+- 2026-06-11 10:51:50  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-11 10:51:56  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-11 10:52:03  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-11 10:52:10  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-11 10:52:19  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-11 10:52:23  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\prototipo-wizard.html
+- 2026-06-11 15:27:54  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\prototipo-pagina-unica.html
+- 2026-06-11 15:31:08  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\pdf-preview.html
+- 2026-06-11 15:31:12  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\pdf-preview.html
+- 2026-06-11 15:31:16  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\pdf-preview.html
+- 2026-06-11 15:31:20  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\pdf-preview.html
+- 2026-06-11 15:31:25  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\pdf-preview.html
+- 2026-06-11 15:40:38  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-04.html
+- 2026-06-11 15:43:08  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\README.md
+- 2026-06-11 15:43:40  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\01-PALETA-CORES.md
+- 2026-06-11 15:44:27  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\02-TIPOGRAFIA.md
+- 2026-06-11 15:44:52  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\03-COMPONENTES.md
+- 2026-06-11 15:45:11  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\04-ESPACAMENTO-SOMBRAS.md
+- 2026-06-11 15:45:30  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\05-ESTADOS-INTERACAO.md
+- 2026-06-11 15:45:52  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\06-ACESSIBILIDADE.md
+- 2026-06-11 15:46:14  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\07-GRID-RESPONSIVIDADE.md
+- 2026-06-11 15:46:36  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\design-system.css
+- 2026-06-11 15:46:54  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-05.html
+- 2026-06-11 15:46:57  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-05.html
+- 2026-06-11 15:47:01  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-05.html
+- 2026-06-11 15:47:08  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-05.html
+- 2026-06-11 15:47:13  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-05.html
+- 2026-06-11 15:47:19  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-05.html
+- 2026-06-11 15:47:24  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-05.html
+- 2026-06-11 15:48:14  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-06.html
+- 2026-06-11 15:48:16  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-06.html
+- 2026-06-11 15:48:25  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-06.html
+- 2026-06-11 15:48:32  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-06.html
+- 2026-06-11 15:48:48  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-06.html
+- 2026-06-11 15:48:52  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-06.html
+- 2026-06-11 15:53:58  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-07.html
+- 2026-06-11 15:57:01  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-06.html
+- 2026-06-11 15:57:07  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-06.html
+- 2026-06-11 15:57:11  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-06.html
+- 2026-06-11 15:57:14  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-06.html
+- 2026-06-11 15:57:18  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-06.html
+- 2026-06-11 16:19:47  CRIADO   C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Explan\memory\sprint_2026-06-11.md
+- 2026-06-11 16:20:01  EDITADO  C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Explan\memory\MEMORY.md
+- 2026-06-11 16:20:20  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\01-PALETA-CORES.md
+- 2026-06-11 16:20:44  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\01-PALETA-CORES.md
+- 2026-06-11 16:20:44  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\01-PALETA-CORES.md
+- 2026-06-11 16:20:53  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\01-PALETA-CORES.md
+- 2026-06-11 16:20:55  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\01-PALETA-CORES.md
+- 2026-06-11 16:21:07  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\02-TIPOGRAFIA.md
+- 2026-06-11 16:21:20  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\02-TIPOGRAFIA.md
+- 2026-06-11 16:21:21  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\02-TIPOGRAFIA.md
+- 2026-06-11 16:21:22  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\02-TIPOGRAFIA.md
+- 2026-06-11 16:21:35  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\02-TIPOGRAFIA.md
+- 2026-06-11 16:21:36  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\02-TIPOGRAFIA.md
+- 2026-06-11 16:21:46  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\README.md
+- 2026-06-11 16:21:50  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\README.md
+- 2026-06-11 16:21:51  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\README.md
+- 2026-06-11 16:22:31  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\design-system.css
+- 2026-06-11 16:22:33  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\design-system.css
+- 2026-06-11 16:22:34  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\design-system.css
+- 2026-06-11 16:22:35  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\design-system.css
+- 2026-06-11 16:23:11  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\design-system.css
+- 2026-06-11 16:23:13  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\design-system.css
+- 2026-06-11 16:23:13  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\design-system.css
+- 2026-06-11 16:23:44  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\design-system.css
+- 2026-06-11 16:23:46  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\design-system.css
+- 2026-06-11 16:23:46  EDITADO  C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\DOCUMENTOS OFICIAIS\Design System\design-system.css
+- 2026-06-11 16:28:01  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-08.html
+- 2026-06-11 16:28:16  EDITADO  C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Explan\memory\sprint_2026-06-11.md
+- 2026-06-11 16:38:48  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-08.html
+- 2026-06-11 16:39:46  CRIADO   C:\Users\thiag\Desktop\Explan\LP-OR├çAMENTO\EM DESENVOLVIMENTO\Exemplo Visual.html
+- 2026-06-11 16:39:59  EDITADO  C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Explan\memory\sprint_2026-06-11.md
+- 2026-06-11 16:40:00  EDITADO  C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Explan\memory\sprint_2026-06-11.md
+- 2026-06-11 16:40:04  EDITADO  C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Explan\memory\sprint_2026-06-11.md
+- 2026-06-11 20:47:00  CRIADO   C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\plan\PLANO.md
+- 2026-06-11 21:57:23  CRIADO   C:\Users\thiag\.claude\plans\woolly-plotting-clover.md
+- 2026-06-11 22:13:25  EDITADO  C:\Users\thiag\.claude\plans\woolly-plotting-clover.md
+- 2026-06-11 22:13:40  EDITADO  C:\Users\thiag\.claude\plans\woolly-plotting-clover.md
+- 2026-06-11 22:14:38  CRIADO   C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\plan\Proje├º├úo do Futuro.md
+- 2026-06-11 22:15:04  CRIADO   C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\plan\ARQUITETURA.md
+- 2026-06-11 22:15:23  CRIADO   C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\plan\ROADMAP.md
+- 2026-06-11 22:23:09  CRIADO   C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-09.html
+- 2026-06-11 22:24:27  CRIADO   C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-11 22:24:50  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\login.html
+- 2026-06-11 22:25:13  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\plan\ROADMAP.md
+- 2026-06-12 00:07:34  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\login.html
+- 2026-06-12 00:07:37  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\login.html
+- 2026-06-12 00:07:42  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\login.html
+- 2026-06-12 00:07:58  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-09.html
+- 2026-06-12 00:08:37  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-09.html
+- 2026-06-12 00:08:50  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-09.html
+- 2026-06-12 00:08:54  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-09.html
+- 2026-06-12 00:08:57  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-09.html
+- 2026-06-12 00:09:00  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-09.html
+- 2026-06-12 00:09:04  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-09.html
+- 2026-06-12 00:09:23  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-09.html
+- 2026-06-12 00:09:33  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-09.html
+- 2026-06-12 00:10:17  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-09.html
+- 2026-06-12 00:13:15  CRIADO   C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\README_TO_SAVE.md
+- 2026-06-12 00:14:03  CRIADO   C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\PLAN\1 - PLANO.md
+- 2026-06-12 00:14:27  CRIADO   C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\PLAN\3 - ROADMAP.md
+- 2026-06-12 00:16:31  CRIADO   C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Explan\memory\sprint_2026-06-12.md
+- 2026-06-12 00:16:38  EDITADO  C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Explan\memory\MEMORY.md
+- 2026-06-12 00:35:22  CRIADO   C:\Users\thiag\.claude\plans\woolly-plotting-clover.md
+- 2026-06-12 00:55:03  CRIADO   C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\pdf-preview.html
+- 2026-06-12 00:55:18  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 00:55:22  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 00:55:27  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 00:55:31  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 00:55:36  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 00:55:40  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 00:55:50  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 00:55:57  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 00:56:02  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 01:34:40  CRIADO   C:\Users\thiag\.claude\plans\woolly-plotting-clover.md
+- 2026-06-12 01:37:59  EDITADO  C:\Users\thiag\.claude\plans\woolly-plotting-clover.md
+- 2026-06-12 01:39:42  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 01:39:52  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 01:40:11  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 01:40:14  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 01:40:18  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 01:40:25  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 01:41:57  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 01:42:05  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-09.html
+- 2026-06-12 01:42:14  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-09.html
+- 2026-06-12 01:42:25  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-09.html
+- 2026-06-12 01:42:53  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 01:43:19  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 01:55:59  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\login.html
+- 2026-06-12 01:59:59  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\login.html
+- 2026-06-12 02:00:06  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\login.html
+- 2026-06-12 02:00:43  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 02:00:49  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 02:00:51  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 02:00:57  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 02:01:08  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 02:01:22  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-09.html
+- 2026-06-12 02:04:03  CRIADO   C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\entrada_karla_luiz.py
+- 2026-06-12 02:05:37  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\entrada_karla_luiz.py
+- 2026-06-12 02:05:48  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\entrada_karla_luiz.py
+- 2026-06-12 02:06:13  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\entrada_karla_luiz.py
+- 2026-06-12 02:06:17  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\entrada_karla_luiz.py
+- 2026-06-12 02:06:47  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\entrada_karla_luiz.py
+- 2026-06-12 02:09:14  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\entrada_karla_luiz.py
+- 2026-06-12 02:10:19  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\login.html
+- 2026-06-12 02:29:02  CRIADO   C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\PLAN\5 - AGENDA EXPLAN.md
+- 2026-06-12 02:29:42  CRIADO   C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\entrada_karla_luiz.py
+- 2026-06-12 02:31:33  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\entrada_karla_luiz.py
+- 2026-06-12 02:33:00  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\entrada_karla_luiz.py
+- 2026-06-12 02:33:10  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\entrada_karla_luiz.py
+- 2026-06-12 02:42:09  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\entrada_karla_luiz.py
+- 2026-06-12 02:42:13  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\entrada_karla_luiz.py
+- 2026-06-12 02:52:48  CRIADO   C:\Users\thiag\.claude\plans\woolly-plotting-clover.md
+- 2026-06-12 03:33:35  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 03:33:43  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 03:33:49  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 03:34:07  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\entrada_karla_luiz.py
+- 2026-06-12 03:57:05  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 03:57:11  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 03:57:17  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 03:57:21  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 03:57:26  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 03:57:36  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 03:57:43  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\entrada_karla_luiz.py
+- 2026-06-12 04:04:49  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 04:04:55  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 04:05:15  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\catalogo-itens.json
+- 2026-06-12 04:05:24  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\catalogo-itens.json
+- 2026-06-12 04:05:30  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\catalogo-itens.json
+- 2026-06-12 04:05:36  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\catalogo-itens.json
+- 2026-06-12 04:14:12  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\entrada_karla_luiz.py
+- 2026-06-12 12:13:24  CRIADO   C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Explan\memory\sprint_2026-06-12b.md
+- 2026-06-12 12:13:28  EDITADO  C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Explan\memory\MEMORY.md
+- 2026-06-12 12:58:52  CRIADO   C:\Users\thiag\.claude\plans\woolly-plotting-clover.md
+- 2026-06-12 13:27:15  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 13:27:20  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 13:28:09  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 13:49:53  CRIADO   C:\Users\thiag\Desktop\Explan\.claude\CLAUDE.md
+- 2026-06-12 13:50:02  CRIADO   C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Explan\memory\feedback_versionamento.md
+- 2026-06-12 13:50:07  EDITADO  C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Explan\memory\MEMORY.md
+- 2026-06-12 14:04:59  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 14:05:01  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 14:05:15  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 14:12:40  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-09.html
+- 2026-06-12 14:12:42  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\login.html
+- 2026-06-12 14:12:43  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\Contrato-de Servi├ºo - template.html
+- 2026-06-12 14:12:43  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\Contrato-de-Producao-template.html
+- 2026-06-12 14:19:55  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-09.html
+- 2026-06-12 14:20:00  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-09.html
+- 2026-06-12 14:29:56  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-09.html
+- 2026-06-12 14:30:01  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-09.html
+- 2026-06-12 14:33:06  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\sprint-09.html
+- 2026-06-12 15:01:13  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 15:01:15  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 15:17:47  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 15:24:37  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 15:29:27  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 15:31:38  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\apresentacao-editor.html
+- 2026-06-12 15:33:51  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 15:33:55  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 15:34:01  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 15:36:21  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 15:40:27  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 15:40:32  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 15:42:52  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 15:42:57  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 15:43:06  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 15:43:16  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 15:43:21  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 15:43:32  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 15:43:37  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 15:43:46  EDITADO  C:\Users\thiag\Desktop\Explan\.LP-OR├çAMENTO\EM DESENVOLVIMENTO\or├ºamento-editor.html
+- 2026-06-12 16:10:15  CRIADO   C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Explan\memory\sprint_2026-06-12c.md
+- 2026-06-12 16:10:23  EDITADO  C:\Users\thiag\.claude\projects\C--Users-thiag-Desktop-Explan\memory\MEMORY.md

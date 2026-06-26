@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(brainstorming)",
+      "Skill(brainstorming:*)",
+      "Skill(anthropic-skills:find-skills)",
+      "Skill(anthropic-skills:find-skills:*)",
+      "Skill(turbo-skills)",
+      "Skill(turbo-skills:*)",
+      "Skill(turbo-prevc)",
+      "Skill(turbo-prevc:*)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\thiag\\\\Desktop\\\\tm-tecnologia\\\\Documentos Preventivas\" -Recurse -Depth 3)",
+      "Bash(Select-Object FullName, PSIsContainer)",
+      "Bash(Format-Table -AutoSize)",
+      "Read(//c/Users/thiag/Desktop/000 - Minha Demanda/1 - Preventivas 2026/01 - Apoio operacional/**)",
+      "Bash(python -c ' *)",
+      "mcp__Windows-MCP__FileSystem",
+      "mcp__Windows-MCP__PowerShell",
+      "Bash(Copy-Item *)",
+      "PowerShell(Remove-Item *)"
+    ]
+  }
+}

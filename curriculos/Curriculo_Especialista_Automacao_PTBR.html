@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Thiago Nascimento Barbosa - Desenvolvedor & Automação</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;600;700&display=swap');
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f6f8; color: #1a1a1a; line-height: 1.6;
+    }
+
+    .a4-container {
+      width: 210mm; min-height: 297mm; padding: 20mm; margin: 10mm auto;
+      background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-top: 6px solid #C8541C;
+    }
+
+    header { margin-bottom: 25px; }
+    .name { font-size: 30px; font-weight: 700; color: #1a1a1a; letter-spacing: -0.5px; }
+    .role { font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; color: #C8541C; margin-top: 5px; }
+    
+    .contact-info { margin-top: 12px; font-size: 13px; color: #5C5A55; display: flex; gap: 20px; }
+    .contact-info strong { color: #1a1a1a; }
+
+    .section-title {
+      font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+      color: #1a1a1a; margin-top: 25px; margin-bottom: 12px; border-bottom: 1px solid #E8E5DE; padding-bottom: 5px;
+    }
+
+    .summary { font-size: 14px; color: #333; text-align: justify; }
+
+    .exp-item { margin-bottom: 18px; }
+    .exp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 5px; }
+    .exp-company { font-weight: 700; font-size: 15px; color: #1a1a1a; }
+    .exp-date { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8C8A85; }
+    .exp-role { font-weight: 600; font-size: 14px; color: #C8541C; margin-bottom: 5px; }
+    .exp-desc { font-size: 13px; color: #444; margin-left: 15px; }
+    .exp-desc li { margin-bottom: 4px; }
+
+    .tech-stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .badge {
+      font-family: 'JetBrains Mono', monospace; font-size: 11px;
+      background: #f0f0f0; border: 1px solid #ccc; padding: 4px 10px; border-radius: 4px; color: #333;
+    }
+
+    @media print {
+      body { background: #fff; }
+      .a4-container { width: 100%; height: auto; margin: 0; padding: 0; box-shadow: none; border-top: 4px solid #C8541C; }
+      @page { size: A4; margin: 15mm; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="a4-container">
+    <header>
+      <div class="name">THIAGO NASCIMENTO BARBOSA</div>
+      <div class="role">Arquiteto de Soluções & Especialista em Automação (Construtech)</div>
+      <div class="contact-info">
+        <span><strong>WhatsApp:</strong> (97) 99199-4956</span>
+        <span><strong>E-mail:</strong> thiagonascimento.barbosapro@gmail.com</span>
+        <span><strong>Local:</strong> Goiânia, GO</span>
+      </div>
+    </header>
+
+    <div class="summary">
+      Profissional de tecnologia focado em resolver problemas reais do setor de engenharia e operações. Especialista em construir sistemas e automações que substituem trabalho braçal repetitivo por fluxos ágeis. Criador do "AutoRelatório V5", um sistema em operação que automatiza 85% do tempo de documentação para contratos milionários de manutenção (Banco do Brasil, Correios). Autodidata com alta facilidade de aprendizado em novas stacks e uso intensivo de Inteligência Artificial para acelerar entregas.
+    </div>
+
+    <h2 class="section-title">Experiência Profissional</h2>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-company">Maffeng - Engenharia e Manutenção</div>
+        <div class="exp-date">2024 - Atual</div>
+      </div>
+      <div class="exp-role">Engenheiro de Automação de Processos & Tech Lead</div>
+      <ul class="exp-desc">
+        <li>Desenvolvimento completo do sistema AutoRelatório V5, rodando em ambiente de produção para automatizar laudos de vistoria e orçamentos técnicos de engenharia.</li>
+        <li>Eliminação de gargalos operacionais no backoffice, integrando dados de campo (vistoria) em pipelines de geração automática de documentos (PDF/DOCX).</li>
+        <li>Criação de scripts, robôs e prompts de IA avançados para leitura de dados brutos e padronização de orçamentos técnicos de acordo com as normas dos clientes.</li>
+        <li>Atuação como Arquiteto de Soluções resolvendo demandas técnicas críticas sob forte pressão de prazos (SLA institucional).</li>
+      </ul>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-header">
+        <div class="exp-company">Moto Brasil Peças / Brasil Telecom / Promed</div>
+        <div class="exp-date">2019 - 2023</div>
+      </div>
+      <div class="exp-role">Operações, Logística e Backoffice (Resumo)</div>
+      <ul class="exp-desc">
+        <li>Desenvolvimento da base operacional: gestão logística, atendimento sob alta pressão e rotinas de backoffice. Essa bagagem de "chão de fábrica" é o diferencial que me permite criar automações que realmente funcionam para o usuário final.</li>
+      </ul>
+    </div>
+
+    <h2 class="section-title">Stack Tecnológico & Ferramentas</h2>
+    <div class="tech-stack">
+      <span class="badge">Python 3.11</span>
+      <span class="badge">FastAPI</span>
+      <span class="badge">Next.js</span>
+      <span class="badge">TypeScript</span>
+      <span class="badge">Tailwind CSS</span>
+      <span class="badge">Supabase</span>
+      <span class="badge">Playwright (E2E)</span>
+      <span class="badge">python-docx / openpyxl</span>
+      <span class="badge">Docker</span>
+      <span class="badge">Claude AI / ChatGPT</span>
+      <span class="badge">Git / GitHub</span>
+      <span class="badge">Desenvolvimento Web Web</span>
+    </div>
+
+    <h2 class="section-title">Metodologia e Diferenciais</h2>
+    <div class="exp-item">
+      <ul class="exp-desc">
+        <li><strong>Foco em Resultados:</strong> Não desenvolvo por hobby. O código deve estar a serviço do negócio, reduzindo custos e acelerando a entrega (ex: redução de 85% do SLA nos laudos fotográficos).</li>
+        <li><strong>Testes Antes da Entrega:</strong> Uso de Playwright para automação de testes End-to-End, garantindo que versões em produção rodem sem interrupções.</li>
+        <li><strong>Autodidatismo Extremo:</strong> Capacidade comprovada de dominar rapidamente novas tecnologias ou ferramentas complexas de acordo com a necessidade da empresa.</li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>

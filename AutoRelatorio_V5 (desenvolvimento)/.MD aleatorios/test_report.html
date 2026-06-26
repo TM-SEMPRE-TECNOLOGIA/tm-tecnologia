@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>AutoRelatório V5 - E2E Report</title>
+<style>
+  body { font-family: Inter, system-ui, sans-serif; background: #111110; color: #EFEDE8; padding: 32px; }
+  h1 { color: #C8541C; } h2 { color: #EFEDE8; margin-top: 32px; }
+  .summary { display: flex; gap: 24px; margin: 24px 0; flex-wrap: wrap; }
+  .card { background: #1A1917; border: 1px solid #2A2825; border-radius: 8px; padding: 20px 28px; }
+  .card .num { font-size: 2.4rem; font-weight: 700; }
+  .card.ok .num { color: #4CAF50; } .card.bad .num { color: #ef5350; } .card.pct .num { color: #C8541C; }
+  table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+  th { text-align: left; padding: 10px 12px; background: #1A1917; color: #8C8A85; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; }
+  td { padding: 10px 12px; border-bottom: 1px solid #2A2825; font-size: 14px; vertical-align: top; }
+  tr.pass td:first-child { color: #4CAF50; } tr.fail td:first-child { color: #ef5350; }
+  tr.fail { background: rgba(239,83,80,.05); }
+  .console-block { background: #1A1917; border: 1px solid #2A2825; border-radius: 6px; padding: 16px; font-family: monospace; font-size: 12px; color: #ef5350; max-height: 400px; overflow-y: auto; margin-top: 8px; }
+  ul { color: #4CAF50; }
+  .ts { color: #4A4845; font-size: 12px; margin-top: 4px; }
+</style>
+</head>
+<body>
+<h1>[DOC] AutoRelatório V5 - Relatório E2E</h1>
+<div class="ts">Gerado em: 26/05/2026 17:37:12</div>
+
+<div class="summary">
+  <div class="card ok"><div class="num">31</div>Testes passaram</div>
+  <div class="card bad"><div class="num">1</div>Testes falharam</div>
+  <div class="card pct"><div class="num">96%</div>Taxa de sucesso</div>
+  <div class="card"><div class="num">32</div>Total de testes</div>
+</div>
+
+
+<h2>[CONSOLE] Console (6 eventos)</h2><div class="console-block"><div>[ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED</div><div>[ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED</div><div>[ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED</div><div>[ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED</div><div>[ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED</div><div>[ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED</div></div>
+
+<h2>[LIST] Resultados Detalhados</h2>
+<table>
+<tr><th>Status</th><th>Teste</th><th>Detalhe</th></tr>
+<tr class="pass"><td>[PASS]</td><td>Página carrega sem crash</td><td><small style="color:#888">title='AutoRelatório V4 — TM Sempre Tecnologia'</small></td></tr>
+<tr class="pass"><td>[PASS]</td><td>TopBar presente</td><td></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Sidebar / nav presente</td><td></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Editor panel presente</td><td></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Preview panel presente</td><td></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Botão START</td><td></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Botão Gerar .docx</td><td></td></tr>
+<tr class="pass"><td>[PASS]</td><td>9 contratos na sidebar (encontrados: 9)</td><td></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Selecionar contrato 0908</td><td><small style="color:#888">pill='0908'</small></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Selecionar contrato 1507</td><td><small style="color:#888">pill='1507'</small></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Selecionar contrato 1565</td><td><small style="color:#888">pill='1565'</small></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Step 1 - Cabeçalho ativo</td><td></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Campo Nº OS</td><td></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Campo Data Atend.</td><td></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Campo Ag. Código</td><td></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Campo Ag. Nome</td><td></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Select Descrição</td><td></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Preenchimento formulário Step 1</td><td></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Step 2 - Estrutura carrega</td><td></td></tr>
+<tr class="fail"><td>[FAIL]</td><td>Tabs modo presentes (encontradas: 0)</td><td></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Step 3 - Resumo geração (5 rows)</td><td></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Resumo mostra contrato selecionado</td><td></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Botão 'Gerar .docx' visível no Step 3</td><td></td></tr>
+<tr class="pass"><td>[PASS]</td><td>GET /api/contracts responde 200</td><td><small style="color:#888">status=200</small></td></tr>
+<tr class="pass"><td>[PASS]</td><td>API retorna contratos (encontrados: 9)</td><td></td></tr>
+<tr class="pass"><td>[PASS]</td><td>GET /api/contracts/1507</td><td><small style="color:#888">status=200</small></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Toggle tema executa sem crash</td><td><small style="color:#888">antes='' depois='light-mode'</small></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Sidebar colapsa</td><td></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Sidebar expande</td><td></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Step bar navegação direta</td><td></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Botão Voltar funciona</td><td></td></tr>
+<tr class="pass"><td>[PASS]</td><td>Sem erros críticos no console</td><td></td></tr>
+
+</table>
+</body>
+</html>

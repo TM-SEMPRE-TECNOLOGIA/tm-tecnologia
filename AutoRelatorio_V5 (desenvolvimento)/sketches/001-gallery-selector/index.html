@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wireframe — Variant 1: Gallery + Checkboxes</title>
+<style>
+  :root {
+    --bg: #111110;
+    --card: #1a1a18;
+    --border: #2a2a26;
+    --text: #e8e6e1;
+    --muted: #8b8984;
+    --orange: #C8541C;
+    --orange-bg: rgba(200,84,28,0.08);
+    --green: #3fb950;
+    --red: #f85149;
+    --blue: #58a6ff;
+    --radius: 8px;
+    --sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  /* ── TopBar ─────────────────────────── */
+  .topbar {
+    height: 48px;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+  .topbar-logo { font-weight: 700; font-size: 14px; color: var(--orange); }
+  .topbar-sep { color: var(--muted); }
+  .topbar-contract { font-size: 13px; }
+  .topbar-mode {
+    margin-left: auto;
+    font-size: 11px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    background: var(--orange-bg);
+    color: var(--orange);
+    font-weight: 600;
+  }
+  
+  /* ── Layout principal ───────────────── */
+  .main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  /* ── Sidebar ────────────────────────── */
+  .sidebar {
+    width: 220px;
+    background: var(--card);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+  }
+  .sidebar-header {
+    padding: 12px 16px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+  }
+  .sidebar-item {
+    padding: 10px 16px;
+    font-size: 13px;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    transition: 0.15s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .sidebar-item:hover { background: rgba(255,255,255,0.02); }
+  .sidebar-item.active {
+    background: var(--orange-bg);
+    border-left-color: var(--orange);
+    color: var(--orange);
+  }
+  .sidebar-badge {
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.06);
+  }
+  
+  /* ── Content ────────────────────────── */
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  /* ── Steps ──────────────────────────── */
+  .steps {
+    display: flex;
+    gap: 0;
+    padding: 0 24px;
+    border-bottom: 1px solid var(--border);
+    background: var(--card);
+    flex-shrink: 0;
+  }
+  .step {
+    padding: 12px 20px;
+    font-size: 13px;
+    color: var(--muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .step-num {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .step.active { color: var(--orange); border-bottom-color: var(--orange); }
+  .step.active .step-num { background: var(--orange); color: #000; }
+  .step.done { color: var(--green); }
+  .step.done .step-num { background: var(--green); color: #000; }
+  
+  /* ── Editor area ────────────────────── */
+  .editor-area {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px 24px;
+  }
+  
+  /* ── Gallery Grid ───────────────────── */
+  .gallery-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+  .gallery-title {
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .gallery-stats {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .gallery-actions {
+    display: flex;
+    gap: 8px;
+  }
+  .btn {
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.15s;
+    font-family: var(--sans);
+  }
+  .btn:hover { border-color: var(--muted); }
+  .btn-primary {
+    background: var(--orange);
+    border-color: var(--orange);
+    color: #fff;
+    font-weight: 600;
+  }
+  .btn-primary:hover { opacity: 0.9; }
+  .btn-ghost { border: none; background: none; color: var(--muted); }
+  .btn-ghost:hover { color: var(--text); }
+  
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+  }
+  .gallery-item {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 2px solid var(--border);
+    cursor: pointer;
+    transition: 0.15s;
+    aspect-ratio: 4/3;
+    background: #0a0a0a;
+  }
+  .gallery-item:hover { border-color: var(--muted); transform: translateY(-1px); }
+  .gallery-item.selected {
+    border-color: var(--orange);
+    box-shadow: 0 0 0 2px rgba(200,84,28,0.25);
+  }
+  .gallery-item.deselected {
+    opacity: 0.35;
+    border-color: transparent;
+    filter: grayscale(0.7);
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Overlay on hover/select */
+  .gallery-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 6px;
+    opacity: 0;
+    transition: 0.15s;
+  }
+  .gallery-item:hover .gallery-overlay,
+  .gallery-item.selected .gallery-overlay { opacity: 1; }
+  
+  .gallery-check {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: white;
+    transition: 0.15s;
+  }
+  .gallery-item.selected .gallery-check {
+    background: var(--orange);
+    border-color: var(--orange);
+  }
+  
+  .gallery-name {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 5px 8px;
+    font-size: 10px;
+    font-family: var(--mono);
+    color: white;
+    background: linear-gradient(transparent, rgba(0,0,0,0.85));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .gallery-folder-tag {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    font-size: 9px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(200,84,28,0.8);
+    color: white;
+    font-weight: 600;
+    opacity: 0;
+    transition: 0.15s;
+  }
+  .gallery-item:hover .gallery-folder-tag { opacity: 1; }
+  
+  /* ── Bulk select bar ────────────────── */
+  .bulk-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background: var(--orange-bg);
+    border: 1px solid rgba(200,84,28,0.2);
+    border-radius: var(--radius);
+    margin-bottom: 12px;
+    font-size: 12px;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: 0.2s;
+    pointer-events: none;
+  }
+  .bulk-bar.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .bulk-bar .btn { font-size: 11px; padding: 4px 10px; }
+  
+  /* ── Preview panel ──────────────────── */
+  .preview {
+    width: 380px;
+    background: #f8f7f4;
+    border-left: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    color: #1a1a1a;
+  }
+  .preview-header {
+    padding: 10px 14px;
+    font-size: 11px;
+    color: #666;
+    border-bottom: 1px solid #e0ddd5;
+    font-weight: 600;
+  }
+  .preview-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 14px;
+    font-size: 12px;
+  }
+  .preview-doc {
+    background: white;
+    border: 1px solid #e0ddd5;
+    border-radius: 4px;
+    padding: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .preview-doc h4 { font-size: 13px; margin: 10px 0 6px; color: #333; }
+  .preview-doc .preview-section { 
+    font-size: 14px; font-weight: 700; margin: 14px 0 6px; color: #C8541C;
+  }
+  .preview-img-placeholder {
+    height: 90px;
+    background: #e8e6e1;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 11px;
+    margin: 4px 0;
+  }
+  .preview-measure {
+    font-size: 10px;
+    color: #666;
+    text-align: center;
+    margin: 2px 0 8px;
+    font-family: var(--mono);
+  }
+  
+  /* ── Footer ─────────────────────────── */
+  .footer-bar {
+    display: flex;
+    gap: 8px;
+    padding: 12px 24px;
+    border-top: 1px solid var(--border);
+    background: var(--card);
+    flex-shrink: 0;
+  }
+  .footer-hint {
+    margin-left: auto;
+    font-size: 11px;
+    color: var(--muted);
+    align-self: center;
+  }
+  
+  /* ── Toast ──────────────────────────── */
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: 0.3s;
+    pointer-events: none;
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- TopBar -->
+<div class="topbar">
+  <span class="topbar-logo">TM</span>
+  <span class="topbar-sep">/</span>
+  <span class="topbar-contract">2626 — Salinas, MG</span>
+  <span class="topbar-mode">TRADICIONAL</span>
+</div>
+
+<div class="main">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-header">Contratos</div>
+    <div class="sidebar-item"><span>0908 — SJC</span><span class="sidebar-badge">SP</span></div>
+    <div class="sidebar-item"><span>1565 — SJRP</span><span class="sidebar-badge">SP2</span></div>
+    <div class="sidebar-item active"><span>2626 — Salinas</span><span class="sidebar-badge">TRAD</span></div>
+    <div class="sidebar-item"><span>6122 — MS</span><span class="sidebar-badge">TRAD</span></div>
+    <div class="sidebar-item"><span>2056 — Divinópolis</span><span class="sidebar-badge">TRAD</span></div>
+    <div style="margin-top:auto;padding:12px 16px;border-top:1px solid var(--border)">
+      <div style="font-size:10px;color:var(--muted);margin-bottom:6px">Fotos detectadas</div>
+      <div style="font-size:24px;font-weight:700;color:var(--orange)" id="sidebar-count">12</div>
+      <div style="font-size:10px;color:var(--muted)" id="sidebar-selected">8 selecionadas</div>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <!-- Steps -->
+    <div class="steps">
+      <div class="step done"><span class="step-num">✓</span> Cabeçalho</div>
+      <div class="step active">
+        <span class="step-num">2a</span> Selecionar Fotos
+      </div>
+      <div class="step"><span class="step-num">2b</span> Medidas</div>
+      <div class="step"><span class="step-num">3</span> Gerar</div>
+    </div>
+
+    <!-- Editor -->
+    <div class="editor-area">
+      <div class="gallery-header">
+        <div>
+          <div class="gallery-title">Selecione as fotos que entram no relatório</div>
+          <div class="gallery-stats" id="gallery-stats">12 fotos encontradas em 3 pastas — 8 selecionadas</div>
+        </div>
+        <div class="gallery-actions">
+          <button class="btn btn-ghost" onclick="selectAll()">Selecionar todas</button>
+          <button class="btn btn-ghost" onclick="deselectAll()">Limpar seleção</button>
+          <button class="btn btn-primary" onclick="goToMeasures()">
+            Continuar com <span id="btn-count">8</span> fotos →
+          </button>
+        </div>
+      </div>
+
+      <!-- Bulk bar -->
+      <div class="bulk-bar" id="bulk-bar">
+        <span id="bulk-text">8 fotos selecionadas</span>
+        <button class="btn" onclick="selectByFolder('Área externa')">Só Área externa</button>
+        <button class="btn" onclick="selectByFolder('Área interna')">Só Área interna</button>
+        <button class="btn btn-ghost" onclick="invertSelection()">Inverter seleção</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="gallery"></div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-bar">
+      <button class="btn" onclick="history.back()">← Voltar</button>
+      <span class="footer-hint">
+        Clique nas fotos para selecionar/desselecionar · Use Ctrl+Click para múltiplas
+      </span>
+      <button class="btn btn-primary" onclick="goToMeasures()" style="margin-left:8px">
+        Continuar com <span id="btn-count2">8</span> fotos →
+      </button>
+    </div>
+  </div>
+
+  <!-- Preview Panel -->
+  <div class="preview">
+    <div class="preview-header">📄 Preview do Relatório</div>
+    <div class="preview-body">
+      <div class="preview-doc" id="preview-doc">
+        <div style="text-align:center;font-size:10px;color:#999;margin-bottom:8px">
+          BB — Banco do Brasil<br>MAFFENG — Engenharia
+        </div>
+        <div style="font-size:11px;margin-bottom:6px">
+          <strong>OS:</strong> 1753 &nbsp; <strong>Ag:</strong> 1234-5 Centro<br>
+          <strong>Data:</strong> 26/06/2026
+        </div>
+        <div class="preview-section">Área externa</div>
+        <div class="preview-img-placeholder">🖼️ 01 - 3,50 × 2,80.jpg</div>
+        <div class="preview-measure">3,50 × 2,80 m | Faces: 2 | Total: 19,60 m²</div>
+        <div class="preview-img-placeholder">🖼️ 02 - 4,20 × 3,10.jpg</div>
+        <div class="preview-measure">4,20 × 3,10 m | Total: 13,02 m²</div>
+        <div class="preview-section">Área interna</div>
+        <div class="preview-img-placeholder">🖼️ 05 - 2,10 × 1,80.jpg</div>
+        <div class="preview-measure">2,10 × 1,80 m | Total: 3,78 m²</div>
+        <div style="text-align:center;font-size:9px;color:#999;margin-top:14px">
+          — Página 1 de 1 —
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ── Photo data ──────────────────────────────────────────────────
+const FOLDERS = ['Área externa', 'Área interna', '- Segundo piso'];
+const PHOTOS = [
+  { id:'p1',  name:'01 - 3,50 × 2,80.jpg',  folder:'Área externa',    color:'#4a6fa5' },
+  { id:'p2',  name:'02 - 4,20 × 3,10.jpg',  folder:'Área externa',    color:'#5a7fb5' },
+  { id:'p3',  name:'03 - 1,90 × 2,40.jpg',  folder:'Área externa',    color:'#6a8fc5' },
+  { id:'p4',  name:'04 - detalhe porta.jpg', folder:'Área externa',    color:'#3a5f95' },
+  { id:'p5',  name:'05 - 2,10 × 1,80.jpg',  folder:'Área interna',    color:'#7a9f55' },
+  { id:'p6',  name:'06 - 3,00 × 2,70.jpg',  folder:'Área interna',    color:'#8aaf65' },
+  { id:'p7',  name:'07 - 2,50 × 2,90.jpg',  folder:'Área interna',    color:'#9abf75' },
+  { id:'p8',  name:'08 - vista ampla.jpg',   folder:'Área interna',    color:'#6a8f45' },
+  { id:'p9',  name:'09 - 1,40 × 1,10.jpg',  folder:'- Segundo piso',  color:'#a56a4a' },
+  { id:'p10', name:'10 - 2,80 × 2,20.jpg',  folder:'- Segundo piso',  color:'#b57a5a' },
+  { id:'p11', name:'11 - detalhe.jpg',       folder:'- Segundo piso',  color:'#c58a6a' },
+  { id:'p12', name:'12 - 1,60 × 1,30.jpg',  folder:'- Segundo piso',  color:'#957a4a' },
+];
+
+let selected = new Set(PHOTOS.map(p => p.id));
+
+// ── Render ──────────────────────────────────────────────────────
+function render() {
+  const grid = document.getElementById('gallery');
+  grid.innerHTML = PHOTOS.map(p => `
+    <div class="gallery-item ${selected.has(p.id) ? 'selected' : 'deselected'}"
+         data-id="${p.id}" onclick="togglePhoto('${p.id}')">
+      <div style="width:100%;height:100%;background:${p.color};display:flex;align-items:center;justify-content:center;font-size:28px;color:rgba(255,255,255,0.6)">
+        🖼️
+      </div>
+      <div class="gallery-folder-tag">${p.folder}</div>
+      <div class="gallery-overlay">
+        <div class="gallery-check">${selected.has(p.id) ? '✓' : ''}</div>
+      </div>
+      <div class="gallery-name">${p.name}</div>
+    </div>
+  `).join('');
+
+  updateStats();
+}
+
+function updateStats() {
+  const count = selected.size;
+  document.getElementById('gallery-stats').textContent =
+    `12 fotos encontradas em 3 pastas — ${count} selecionadas`;
+  document.getElementById('sidebar-count').textContent = '12';
+  document.getElementById('sidebar-selected').textContent = `${count} selecionadas`;
+  document.getElementById('btn-count').textContent = count;
+  document.getElementById('btn-count2').textContent = count;
+
+  const bulk = document.getElementById('bulk-bar');
+  bulk.className = count > 0 && count < 12 ? 'bulk-bar visible' : 'bulk-bar';
+  document.getElementById('bulk-text').textContent = `${count} fotos selecionadas`;
+
+  updatePreview();
+}
+
+function togglePhoto(id) {
+  if (selected.has(id)) selected.delete(id);
+  else selected.add(id);
+  render();
+}
+
+function selectAll() {
+  PHOTOS.forEach(p => selected.add(p.id));
+  render();
+  toast('Todas as 12 fotos selecionadas');
+}
+
+function deselectAll() {
+  selected.clear();
+  render();
+  toast('Seleção limpa');
+}
+
+function selectByFolder(folder) {
+  selected.clear();
+  PHOTOS.filter(p => p.folder === folder).forEach(p => selected.add(p.id));
+  render();
+  toast(`Só fotos de "${folder}"`);
+}
+
+function invertSelection() {
+  const newSel = new Set();
+  PHOTOS.forEach(p => { if (!selected.has(p.id)) newSel.add(p.id); });
+  selected = newSel;
+  render();
+  toast('Seleção invertida');
+}
+
+function goToMeasures() {
+  if (selected.size === 0) {
+    toast('⚠️ Selecione pelo menos 1 foto');
+    return;
+  }
+  toast(`✅ Avançando com ${selected.size} fotos para preenchimento de medidas`);
+}
+
+function updatePreview() {
+  const preview = document.getElementById('preview-doc');
+  const selPhotos = PHOTOS.filter(p => selected.has(p.id));
+  const byFolder = {};
+  selPhotos.forEach(p => {
+    if (!byFolder[p.folder]) byFolder[p.folder] = [];
+    byFolder[p.folder].push(p);
+  });
+
+  let html = `
+    <div style="text-align:center;font-size:10px;color:#999;margin-bottom:8px">
+      BB — Banco do Brasil<br>MAFFENG — Engenharia
+    </div>
+    <div style="font-size:11px;margin-bottom:6px">
+      <strong>OS:</strong> 1753 &nbsp; <strong>Ag:</strong> 1234-5 Centro<br>
+      <strong>Data:</strong> 26/06/2026
+    </div>`;
+
+  for (const [folder, photos] of Object.entries(byFolder)) {
+    html += `<div class="preview-section">${folder}</div>`;
+    photos.forEach(p => {
+      html += `
+        <div class="preview-img-placeholder">🖼️ ${p.name}</div>
+        <div class="preview-measure">📏 Medidas pendentes</div>`;
+    });
+  }
+  html += `<div style="text-align:center;font-size:9px;color:#999;margin-top:14px">— Página 1 de 1 —</div>`;
+  preview.innerHTML = html;
+}
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+// Init
+render();
+</script>
+
+</body>
+</html>

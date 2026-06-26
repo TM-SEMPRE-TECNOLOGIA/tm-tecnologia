@@ -1,0 +1,1570 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🟠 Guia — Relatório Preventivo com Claude</title>
+<style>
+  :root {
+    --laranja: #FF6B00;
+    --laranja-glow: #FF8C00;
+    --laranja-soft: #FF6B0022;
+    --bg: #0D0D0D;
+    --bg2: #141414;
+    --bg3: #1C1C1C;
+    --border: #2A2A2A;
+    --text: #E8E8E8;
+    --text-muted: #888;
+    --azul: #3B82F6;
+    --verde: #22C55E;
+    --vermelho: #EF4444;
+    --amarelo: #F59E0B;
+    --roxo: #A855F7;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg2); }
+  ::-webkit-scrollbar-thumb { background: var(--laranja); border-radius: 3px; }
+
+  /* PARTICLES HEADER */
+  #header {
+    position: relative;
+    background: linear-gradient(135deg, #0D0D0D 0%, #1a0800 50%, #0D0D0D 100%);
+    padding: 60px 40px 50px;
+    text-align: center;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+  }
+
+  #particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--laranja);
+    opacity: 0;
+    animation: float-particle linear infinite;
+  }
+
+  @keyframes float-particle {
+    0%   { transform: translateY(100%) scale(0); opacity: 0; }
+    10%  { opacity: 0.8; }
+    90%  { opacity: 0.3; }
+    100% { transform: translateY(-200px) scale(1.5); opacity: 0; }
+  }
+
+  .header-badge {
+    display: inline-block;
+    background: var(--laranja-soft);
+    border: 1px solid var(--laranja);
+    color: var(--laranja);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    animation: pulse-border 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-border {
+    0%, 100% { box-shadow: 0 0 0 0 #FF6B0044; }
+    50%       { box-shadow: 0 0 0 6px #FF6B0000; }
+  }
+
+  #header h1 {
+    font-size: 36px;
+    font-weight: 900;
+    color: white;
+    margin-bottom: 10px;
+    text-shadow: 0 0 40px #FF6B0055;
+    position: relative;
+    z-index: 1;
+  }
+
+  #header h1 span { color: var(--laranja); }
+
+  #header p {
+    color: var(--text-muted);
+    font-size: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .header-meta {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .meta-chip {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .meta-chip strong { color: var(--text); }
+
+  /* NAV */
+  #nav {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-item {
+    padding: 14px 18px;
+    cursor: pointer;
+    color: var(--text-muted);
+    font-size: 13px;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+
+  .nav-item:hover { color: var(--text); border-bottom-color: var(--border); }
+  .nav-item.active { color: var(--laranja); border-bottom-color: var(--laranja); }
+
+  /* MAIN */
+  #main { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+
+  /* SECTIONS */
+  .section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    margin-bottom: 50px;
+  }
+
+  .section.visible { opacity: 1; transform: translateY(0); }
+
+  .section-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-title .icon {
+    width: 32px;
+    height: 32px;
+    background: var(--laranja-soft);
+    border: 1px solid var(--laranja);
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  /* PROGRESS TRACKER */
+  #progress-tracker {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 40px;
+  }
+
+  #progress-tracker h3 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+
+  .progress-steps {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 100px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .progress-step:hover .step-circle { border-color: var(--laranja); color: var(--laranja); }
+
+  .step-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--bg3);
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: all 0.3s;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-circle.done {
+    background: var(--laranja-soft);
+    border-color: var(--laranja);
+    box-shadow: 0 0 12px #FF6B0033;
+  }
+
+  .step-label {
+    font-size: 11px;
+    text-align: center;
+    color: var(--text-muted);
+    line-height: 1.3;
+    max-width: 80px;
+  }
+
+  .step-connector {
+    height: 2px;
+    flex: 1;
+    background: var(--border);
+    margin-bottom: 28px;
+    transition: background 0.3s;
+    min-width: 20px;
+  }
+
+  .step-connector.done { background: var(--laranja); }
+
+  /* CARDS DO PASSO A PASSO */
+  .steps-grid { display: flex; flex-direction: column; gap: 16px; }
+
+  .step-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .step-card:hover { border-color: #FF6B0066; transform: translateX(4px); }
+  .step-card.expanded { border-color: var(--laranja); }
+
+  .step-header {
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .step-number {
+    width: 36px;
+    height: 36px;
+    background: var(--laranja-soft);
+    border: 1px solid var(--laranja);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--laranja);
+    flex-shrink: 0;
+  }
+
+  .step-info h4 { font-size: 15px; font-weight: 700; color: white; }
+  .step-info p  { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+  .step-chevron {
+    margin-left: auto;
+    color: var(--text-muted);
+    transition: transform 0.3s;
+    font-size: 18px;
+  }
+
+  .step-card.expanded .step-chevron { transform: rotate(90deg); }
+
+  .step-body {
+    display: none;
+    padding: 0 20px 20px;
+    border-top: 1px solid var(--border);
+    animation: slide-down 0.25s ease;
+  }
+
+  .step-card.expanded .step-body { display: block; }
+
+  @keyframes slide-down {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .step-body h5 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--laranja);
+    margin: 16px 0 8px;
+  }
+
+  .step-body ul { padding-left: 16px; }
+  .step-body li { color: var(--text-muted); font-size: 13px; margin-bottom: 5px; line-height: 1.5; }
+  .step-body li strong { color: var(--text); }
+
+  /* CHECKLIST */
+  .checklist { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: var(--bg3);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+  }
+
+  .check-item:hover { border-color: var(--border); }
+  .check-item.checked { background: #22C55E11; border-color: #22C55E33; }
+
+  .check-box {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    transition: all 0.2s;
+  }
+
+  .check-item.checked .check-box {
+    background: var(--verde);
+    border-color: var(--verde);
+    color: white;
+  }
+
+  .check-text {
+    font-size: 13px;
+    color: var(--text-muted);
+    transition: color 0.2s;
+  }
+
+  .check-item.checked .check-text {
+    color: var(--text);
+    text-decoration: line-through;
+    text-decoration-color: #22C55E66;
+  }
+
+  /* CODE BLOCKS */
+  .code-block {
+    background: #0A0A0A;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin: 10px 0;
+    position: relative;
+    font-family: 'Cascadia Code', 'Consolas', monospace;
+    font-size: 12.5px;
+    color: #A8FF78;
+    overflow-x: auto;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+
+  .code-block:hover { border-color: var(--laranja); }
+
+  .copy-hint {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: 10px;
+    color: var(--text-muted);
+    font-family: system-ui;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .code-block:hover .copy-hint { opacity: 1; }
+
+  .copy-toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--verde);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s;
+    z-index: 9999;
+    pointer-events: none;
+  }
+
+  .copy-toast.show { opacity: 1; transform: translateY(0); }
+
+  /* CONTRATOS TABLE */
+  .contracts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+  }
+
+  .contract-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    transition: all 0.2s;
+  }
+
+  .contract-card:hover { border-color: var(--laranja); transform: translateY(-2px); }
+
+  .contract-card .cod {
+    font-family: monospace;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--laranja);
+    margin-bottom: 4px;
+  }
+
+  .contract-card .nome {
+    font-size: 13px;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .contract-card .local {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .mode-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .mode-trad { background: #3B82F611; color: #3B82F6; border: 1px solid #3B82F644; }
+  .mode-sp   { background: #A855F711; color: #A855F7; border: 1px solid #A855F744; }
+  .mode-sp2  { background: #EF444411; color: #EF4444; border: 1px solid #EF444444; }
+  .sp2-alert { background: #EF444411; border: 1px solid #EF444444; border-radius: 8px; padding: 10px 14px; margin-top: 10px; font-size: 12px; color: #EF4444; }
+
+  /* ACCORDION */
+  .accordion { display: flex; flex-direction: column; gap: 8px; }
+
+  .acc-item {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .acc-item.open { border-color: var(--laranja); }
+
+  .acc-header {
+    padding: 14px 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    transition: background 0.2s;
+  }
+
+  .acc-header:hover { background: var(--bg3); }
+
+  .acc-header h4 { font-size: 14px; font-weight: 600; color: white; }
+  .acc-header span { color: var(--text-muted); transition: transform 0.3s; font-size: 18px; }
+  .acc-item.open .acc-header span { transform: rotate(90deg); color: var(--laranja); }
+
+  .acc-body {
+    display: none;
+    padding: 0 18px 18px;
+    border-top: 1px solid var(--border);
+  }
+
+  .acc-item.open .acc-body { display: block; animation: slide-down 0.25s ease; }
+
+  /* TABLES */
+  table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 13px; }
+  th { background: var(--bg3); color: var(--text-muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+  td { padding: 9px 12px; border-bottom: 1px solid var(--border); color: var(--text); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: var(--bg3); }
+
+  /* RULES */
+  .rules-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+
+  .rule-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    transition: all 0.2s;
+    border-left: 3px solid var(--laranja);
+  }
+
+  .rule-card:hover { transform: translateX(3px); border-color: var(--laranja); }
+
+  .rule-id {
+    font-family: monospace;
+    font-size: 11px;
+    color: var(--laranja);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  .rule-text { font-size: 13px; color: var(--text); line-height: 1.5; }
+
+  /* ERROR CARDS */
+  .errors-list { display: flex; flex-direction: column; gap: 12px; }
+
+  .error-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    border-left: 3px solid var(--vermelho);
+  }
+
+  .error-card h4 { font-size: 13px; color: var(--vermelho); font-weight: 700; margin-bottom: 8px; }
+  .error-cause { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+  .error-fix { font-size: 12px; color: var(--verde); }
+  .error-fix strong { color: #4ADE80; }
+
+  /* SCRIPTS TABLE */
+  .script-row td:first-child { font-family: monospace; color: var(--laranja); font-size: 12px; }
+
+  /* FOOTER */
+  #footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 40px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 12px;
+  }
+
+  #footer strong { color: var(--laranja); }
+
+  /* INFOBANNER */
+  .info-banner {
+    background: var(--laranja-soft);
+    border: 1px solid var(--laranja);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #FFB366;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .info-banner .ico { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+  /* FORMATACAO CARD */
+  .format-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; margin-top: 12px; }
+
+  .format-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+  }
+
+  .format-card h5 { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+
+  .color-swatch {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: monospace;
+    font-size: 12px;
+    color: var(--text);
+  }
+
+  .swatch-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    border: 1px solid #ffffff22;
+  }
+
+  /* ANIMATIONS */
+  @keyframes shimmer {
+    0%   { background-position: -400px 0; }
+    100% { background-position: 400px 0; }
+  }
+
+  .loading-bar {
+    height: 2px;
+    background: linear-gradient(90deg, var(--bg2) 0%, var(--laranja) 50%, var(--bg2) 100%);
+    background-size: 400px 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 1px;
+    margin-bottom: 30px;
+  }
+
+  /* update badge */
+  .update-log { display: flex; flex-direction: column; gap: 8px; }
+  .update-entry { display: flex; gap: 12px; align-items: flex-start; padding: 10px 14px; background: var(--bg2); border-radius: 8px; border: 1px solid var(--border); }
+  .update-date { font-size: 11px; color: var(--laranja); font-family: monospace; white-space: nowrap; }
+  .update-text { font-size: 13px; color: var(--text-muted); }
+  .update-text strong { color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div id="header">
+  <canvas id="particles"></canvas>
+  <div class="header-badge">TM Sempre Tecnologia</div>
+  <h1>Relatório <span>Preventivo</span> com Claude</h1>
+  <p>Guia operacional completo — passo a passo, referência técnica e regras de negócio</p>
+  <div class="header-meta">
+    <span class="meta-chip"><strong>9</strong> Contratos</span>
+    <span class="meta-chip"><strong>4</strong> Etapas automatizadas</span>
+    <span class="meta-chip"><strong>6</strong> Scripts Python</span>
+    <span class="meta-chip">Atualizado <strong>Mai 2026</strong></span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-item active" onclick="scrollTo('sec-fluxo')">🚀 Fluxo</div>
+  <div class="nav-item" onclick="scrollTo('sec-passos')">📋 Passo a Passo</div>
+  <div class="nav-item" onclick="scrollTo('sec-contratos')">🏦 Contratos</div>
+  <div class="nav-item" onclick="scrollTo('sec-tecnico')">⚙️ Referência Técnica</div>
+  <div class="nav-item" onclick="scrollTo('sec-regras')">📐 Regras</div>
+  <div class="nav-item" onclick="scrollTo('sec-erros')">🔧 Erros Comuns</div>
+  <div class="nav-item" onclick="scrollTo('sec-historico')">📅 Histórico</div>
+</nav>
+
+<div id="main">
+  <div class="loading-bar"></div>
+
+  <!-- PROGRESS TRACKER -->
+  <div id="progress-tracker">
+    <h3>Progresso da sessão atual</h3>
+    <div class="progress-steps">
+      <div class="progress-step" onclick="toggleStep(0)">
+        <div class="step-circle" id="sc0">📄</div>
+        <div class="step-label">Receber .docx</div>
+      </div>
+      <div class="step-connector" id="conn0"></div>
+      <div class="progress-step" onclick="toggleStep(1)">
+        <div class="step-circle" id="sc1">✅</div>
+        <div class="step-label">Verificar Divergências</div>
+      </div>
+      <div class="step-connector" id="conn1"></div>
+      <div class="progress-step" onclick="toggleStep(2)">
+        <div class="step-circle" id="sc2">🔍</div>
+        <div class="step-label">Verificar Legendas</div>
+      </div>
+      <div class="step-connector" id="conn2"></div>
+      <div class="progress-step" onclick="toggleStep(3)">
+        <div class="step-circle" id="sc3">📊</div>
+        <div class="step-label">Extrair Itens Excel</div>
+      </div>
+      <div class="step-connector" id="conn3"></div>
+      <div class="progress-step" onclick="toggleStep(4)">
+        <div class="step-circle" id="sc4">📝</div>
+        <div class="step-label">Memorial Word</div>
+      </div>
+      <div class="step-connector" id="conn4"></div>
+      <div class="progress-step" onclick="toggleStep(5)">
+        <div class="step-circle" id="sc5">🎉</div>
+        <div class="step-label">Entrega Final</div>
+      </div>
+    </div>
+    <p style="font-size:11px;color:var(--text-muted);margin-top:14px;">Clique nas etapas para marcar como concluída.</p>
+  </div>
+
+  <!-- SEÇÃO 1: FLUXO COMPLETO -->
+  <div class="section" id="sec-fluxo">
+    <div class="section-title">
+      <span class="icon">🚀</span>
+      Fluxo Completo — Visão Geral
+    </div>
+
+    <div class="info-banner">
+      <span class="ico">💡</span>
+      <div>
+        <strong>Como usar este guia:</strong> Abra o Claude, ative o skill com <code style="background:#ffffff11;padding:1px 5px;border-radius:3px;">/relatorio-preventivo</code>, e siga o passo a passo abaixo. Cada seção detalha o que enviar, o que pedir e o que verificar.
+      </div>
+    </div>
+
+    <div style="background:#EF444411;border:1px solid #EF444444;border-radius:10px;padding:14px 18px;margin-bottom:20px;display:flex;align-items:flex-start;gap:10px;">
+      <span style="font-size:18px;flex-shrink:0;margin-top:1px;">🔒</span>
+      <div style="font-size:13px;color:#FCA5A5;">
+        <strong style="color:#EF4444;">Lógica das validações primeiro:</strong> As etapas 1 e 2 auditam o documento <em>original</em> antes de qualquer geração. Se existir divergência ou legenda errada, você corrige na fonte — e o memorial final (etapa 4) nasce já com os dados 100% corretos. <strong style="color:#FCA5A5;">Nunca gere o memorial sem auditar antes.</strong>
+      </div>
+    </div>
+
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:24px;overflow-x:auto;">
+      <div style="display:flex;gap:0;align-items:center;min-width:700px;">
+
+        <div style="text-align:center;flex:1;">
+          <div style="font-size:28px;margin-bottom:6px;">📁</div>
+          <div style="font-size:11px;font-weight:700;color:white;">AutoRelatório V5</div>
+          <div style="font-size:10px;color:var(--text-muted);">Gera o .docx</div>
+        </div>
+
+        <div style="flex:0.5;height:2px;background:linear-gradient(90deg,var(--laranja),var(--laranja-glow));"></div>
+
+        <div style="text-align:center;flex:1;">
+          <div style="font-size:28px;margin-bottom:6px;">📄</div>
+          <div style="font-size:11px;font-weight:700;color:white;">Etapa 0</div>
+          <div style="font-size:10px;color:var(--text-muted);">Preparar (pandoc)</div>
+        </div>
+
+        <div style="flex:0.5;height:2px;background:var(--border);"></div>
+
+        <div style="text-align:center;flex:1;">
+          <div style="font-size:28px;margin-bottom:6px;">✅</div>
+          <div style="font-size:11px;font-weight:700;color:white;">Etapa 1</div>
+          <div style="font-size:10px;color:var(--vermelho);">Verificar Divergências</div>
+        </div>
+
+        <div style="flex:0.5;height:2px;background:var(--border);"></div>
+
+        <div style="text-align:center;flex:1;">
+          <div style="font-size:28px;margin-bottom:6px;">🔍</div>
+          <div style="font-size:11px;font-weight:700;color:white;">Etapa 2</div>
+          <div style="font-size:10px;color:var(--vermelho);">Verificar Legendas</div>
+        </div>
+
+        <div style="flex:0.5;height:2px;background:var(--border);"></div>
+
+        <div style="text-align:center;flex:1;">
+          <div style="font-size:28px;margin-bottom:6px;">📊</div>
+          <div style="font-size:11px;font-weight:700;color:white;">Etapa 3</div>
+          <div style="font-size:10px;color:var(--text-muted);">Extrair → Excel</div>
+        </div>
+
+        <div style="flex:0.5;height:2px;background:var(--border);"></div>
+
+        <div style="text-align:center;flex:1;">
+          <div style="font-size:28px;margin-bottom:6px;">📝</div>
+          <div style="font-size:11px;font-weight:700;color:white;">Etapa 4</div>
+          <div style="font-size:10px;color:var(--text-muted);">Memorial → Word</div>
+        </div>
+
+        <div style="flex:0.5;height:2px;background:linear-gradient(90deg,var(--border),var(--verde));"></div>
+
+        <div style="text-align:center;flex:1;">
+          <div style="font-size:28px;margin-bottom:6px;">📦</div>
+          <div style="font-size:11px;font-weight:700;color:white;">Entrega</div>
+          <div style="font-size:10px;color:var(--verde);">✓ Salvar e enviar</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SEÇÃO 2: PASSO A PASSO -->
+  <div class="section" id="sec-passos">
+    <div class="section-title">
+      <span class="icon">📋</span>
+      Passo a Passo — Como Trabalhar com o Claude
+    </div>
+
+    <div class="steps-grid">
+
+      <!-- PASSO 0 -->
+      <div class="step-card" onclick="toggleCard(this)">
+        <div class="step-header">
+          <div class="step-number">0</div>
+          <div class="step-info">
+            <h4>⚡ Antes de começar — Checklist</h4>
+            <p>Confirme que tudo está pronto antes de enviar o arquivo</p>
+          </div>
+          <div class="step-chevron">›</div>
+        </div>
+        <div class="step-body">
+          <h5>Checklist de início</h5>
+          <div class="checklist">
+            <div class="check-item" onclick="toggleCheck(event, this)"><div class="check-box"></div><span class="check-text">Tenho o <strong>.docx do relatório gerado</strong> pelo AutoRelatório V5 (ou V4)</span></div>
+            <div class="check-item" onclick="toggleCheck(event, this)"><div class="check-box"></div><span class="check-text">Sei qual é o <strong>número do contrato</strong> (0908, 1507, 1565, 2056, 2057, 2626, 2627, 3575 ou 6122)</span></div>
+            <div class="check-item" onclick="toggleCheck(event, this)"><div class="check-box"></div><span class="check-text">Sei o <strong>modo do contrato</strong> (Tradicional, SP ou SP2 — apenas 1565 é SP2)</span></div>
+            <div class="check-item" onclick="toggleCheck(event, this)"><div class="check-box"></div><span class="check-text">Abri o Claude e estou na sessão certa para este relatório</span></div>
+            <div class="check-item" onclick="toggleCheck(event, this)"><div class="check-box"></div><span class="check-text">Sei quais etapas preciso executar (pode ser só o memorial, ou todas as 4)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PASSO 1 -->
+      <div class="step-card" onclick="toggleCard(this)">
+        <div class="step-header">
+          <div class="step-number">1</div>
+          <div class="step-info">
+            <h4>📄 Acionar o Skill no Claude</h4>
+            <p>Como iniciar a conversa corretamente</p>
+          </div>
+          <div class="step-chevron">›</div>
+        </div>
+        <div class="step-body">
+          <h5>O que digitar</h5>
+          <div class="code-block" onclick="copyCode(this)">
+            <span class="copy-hint">clique para copiar</span>
+            /relatorio-preventivo
+          </div>
+          <h5>Contexto que você deve informar logo em seguida</h5>
+          <ul>
+            <li>Número do contrato — ex: <strong>"contrato 0908"</strong></li>
+            <li>Modo — ex: <strong>"modo Tradicional"</strong> ou <strong>"modo SP2"</strong></li>
+            <li>Mês de referência — ex: <strong>"levantamento Maio/2026"</strong></li>
+            <li>Quais etapas quer executar — ex: <strong>"quero o memorial e verificar divergências"</strong></li>
+          </ul>
+          <h5>Exemplo completo de abertura</h5>
+          <div class="code-block" onclick="copyCode(this)">
+            <span class="copy-hint">clique para copiar</span>
+            /relatorio-preventivo
+            Contrato 0908, São Paulo, modo Tradicional.
+            Levantamento de Maio/2026.
+            Quero: memorial final + verificar divergências + verificar legendas.
+          </div>
+        </div>
+      </div>
+
+      <!-- PASSO 2 -->
+      <div class="step-card" onclick="toggleCard(this)">
+        <div class="step-header">
+          <div class="step-number">2</div>
+          <div class="step-info">
+            <h4>📤 Enviar o Arquivo .docx</h4>
+            <p>Como entregar o relatório para o Claude processar</p>
+          </div>
+          <div class="step-chevron">›</div>
+        </div>
+        <div class="step-body">
+          <h5>Como enviar</h5>
+          <ul>
+            <li>Arraste o arquivo <strong>.docx</strong> direto para a janela do Claude</li>
+            <li>Ou clique no ícone de anexo e selecione o arquivo</li>
+          </ul>
+          <h5>Onde fica o arquivo gerado pelo V5</h5>
+          <div class="code-block" onclick="copyCode(this)">
+            <span class="copy-hint">clique para copiar</span>
+            C:\Users\thiag\Desktop\tm-tecnologia\Documentos Preventivas\
+            &lt;número&gt; - CONTRATO - &lt;CIDADE&gt; - &lt;CODIGO&gt; - ATUALIZADO\
+          </div>
+          <h5>Verifique antes de enviar</h5>
+          <ul>
+            <li>É o arquivo do mês correto? (checar data no nome)</li>
+            <li>É o contrato certo? (conferir código no nome do arquivo)</li>
+            <li>O arquivo abre normalmente no Word? (sem erros de XML)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PASSO 3 -->
+      <div class="step-card" onclick="toggleCard(this)">
+        <div class="step-header">
+          <div class="step-number">3</div>
+          <div class="step-info">
+            <h4>🎯 Solicitar as Etapas Desejadas</h4>
+            <p>Frases exatas para pedir cada automação ao Claude</p>
+          </div>
+          <div class="step-chevron">›</div>
+        </div>
+        <div class="step-body">
+          <div class="info-banner" style="margin-top:12px;margin-bottom:4px;">
+            <span class="ico">🔒</span>
+            <div>As <strong>validações vêm primeiro</strong>: divergências e legendas são auditadas no documento original antes de qualquer geração. O memorial final nasce com dados 100% conferidos.</div>
+          </div>
+
+          <h5>Etapa 1 — Verificar Divergências <span style="color:var(--vermelho);font-size:10px;margin-left:4px;">▶ PRIMEIRO</span></h5>
+          <div class="code-block" onclick="copyCode(this)">
+            <span class="copy-hint">clique para copiar</span>
+            Verifique se há divergências entre o corpo do relatório e o memorial.
+          </div>
+
+          <h5>Etapa 2 — Verificar Legendas de Fotos <span style="color:var(--vermelho);font-size:10px;margin-left:4px;">▶ SEGUNDO</span></h5>
+          <div class="code-block" onclick="copyCode(this)">
+            <span class="copy-hint">clique para copiar</span>
+            Verifique se as legendas de fotos estão sequenciais e sem lacunas.
+          </div>
+
+          <h5>Etapa 3 — Extrair Itens (Excel)</h5>
+          <div class="code-block" onclick="copyCode(this)">
+            <span class="copy-hint">clique para copiar</span>
+            Extraia os itens do relatório e gere o Excel com aba completa e consolidada.
+          </div>
+
+          <h5>Etapa 4 — Memorial Final (Word) <span style="color:var(--verde);font-size:10px;margin-left:4px;">▶ RESULTADO FINAL</span></h5>
+          <div class="code-block" onclick="copyCode(this)">
+            <span class="copy-hint">clique para copiar</span>
+            Gere o memorial final em Word com a formatação padrão exata.
+          </div>
+
+          <h5>Tudo de uma vez (ordem correta)</h5>
+          <div class="code-block" onclick="copyCode(this)">
+            <span class="copy-hint">clique para copiar</span>
+            Execute na ordem correta: verificar divergências → verificar legendas → extrair itens → gerar memorial final.
+          </div>
+        </div>
+      </div>
+
+      <!-- PASSO 4 -->
+      <div class="step-card" onclick="toggleCard(this)">
+        <div class="step-header">
+          <div class="step-number">4</div>
+          <div class="step-info">
+            <h4>🔍 Revisar os Resultados</h4>
+            <p>O que verificar quando o Claude entregar os arquivos</p>
+          </div>
+          <div class="step-chevron">›</div>
+        </div>
+        <div class="step-body">
+          <h5>Após Etapa 1 — Resultado das Divergências</h5>
+          <ul>
+            <li><strong>✅</strong> = totais conferidos — pode avançar para etapa 2</li>
+            <li><strong>❌</strong> = divergência encontrada — <em>corrigir agora, antes de prosseguir</em></li>
+            <li>O script cruza 3 camadas: corpo × tabela Itens × memorial (tolerância: 0,01)</li>
+          </ul>
+          <div class="code-block" onclick="copyCode(this)">
+            <span class="copy-hint">clique para copiar</span>
+            O item [CÓDIGO] está com total diferente. No corpo aparece [VALOR A],
+            mas na tabela Itens aparece [VALOR B]. Corrija antes de continuar.
+          </div>
+
+          <h5>Após Etapa 2 — Resultado das Legendas</h5>
+          <ul>
+            <li><strong>✅</strong> = sequência de fotos 1→N sem lacunas — pode avançar</li>
+            <li><strong>❌</strong> = foto faltando, duplicata ou intervalo descoberto — corrigir no .docx original</li>
+          </ul>
+
+          <h5>Após Etapa 3 — Resultado do Excel</h5>
+          <ul>
+            <li>Aba <strong>Lista Completa</strong>: todos os itens na ordem de aparição?</li>
+            <li>Aba <strong>Consolidado</strong>: 1 item por código, quantidades somadas corretamente?</li>
+          </ul>
+
+          <h5>Após Etapa 4 — Resultado do Memorial Word</h5>
+          <ul>
+            <li>Fonte é <strong>Calibri 9pt</strong> nas tabelas de cálculo?</li>
+            <li>Título tem fundo <strong>#808080</strong>? Subtotal/Total tem fundo <strong>#AEAAAA</strong>?</li>
+            <li>Todos os códigos do corpo aparecem no memorial? (deve bater com o Excel)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PASSO 5 -->
+      <div class="step-card" onclick="toggleCard(this)">
+        <div class="step-header">
+          <div class="step-number">5</div>
+          <div class="step-info">
+            <h4>📦 Salvar nos Locais Corretos</h4>
+            <p>Onde guardar cada arquivo gerado</p>
+          </div>
+          <div class="step-chevron">›</div>
+        </div>
+        <div class="step-body">
+          <div class="checklist">
+            <div class="check-item" onclick="toggleCheck(event, this)">
+              <div class="check-box"></div>
+              <span class="check-text"><strong>Excel de itens</strong> → <code style="background:#ffffff11;padding:1px 4px;border-radius:2px;font-size:11px;">Documentos Preventivas/[contrato]/Planilhas de memorial/</code></span>
+            </div>
+            <div class="check-item" onclick="toggleCheck(event, this)">
+              <div class="check-box"></div>
+              <span class="check-text"><strong>Memorial Word</strong> → <code style="background:#ffffff11;padding:1px 4px;border-radius:2px;font-size:11px;">Documentos Preventivas/[contrato]/</code></span>
+            </div>
+            <div class="check-item" onclick="toggleCheck(event, this)">
+              <div class="check-box"></div>
+              <span class="check-text"><strong>Relatório .docx principal</strong> → já está no lugar certo (gerado pelo V5)</span>
+            </div>
+            <div class="check-item" onclick="toggleCheck(event, this)">
+              <div class="check-box"></div>
+              <span class="check-text"><strong>Relatório de divergências</strong> → anotar qualquer correção necessária</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PASSO 6 -->
+      <div class="step-card" onclick="toggleCard(this)">
+        <div class="step-header">
+          <div class="step-number">6</div>
+          <div class="step-info">
+            <h4>🔚 Encerrar a Sessão</h4>
+            <p>Boa prática: salvar o progresso com checkpoint</p>
+          </div>
+          <div class="step-chevron">›</div>
+        </div>
+        <div class="step-body">
+          <h5>Ao final de cada sessão importante</h5>
+          <div class="code-block" onclick="copyCode(this)">
+            <span class="copy-hint">clique para copiar</span>
+            /turbo-checkpoint
+          </div>
+          <h5>O que o checkpoint faz</h5>
+          <ul>
+            <li>Salva o estado da sessão nos logs do _workspace</li>
+            <li>Atualiza a memória persistente do Claude para próximas sessões</li>
+            <li>Registra o que foi feito, erros encontrados e decisões tomadas</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SEÇÃO 3: CONTRATOS -->
+  <div class="section" id="sec-contratos">
+    <div class="section-title">
+      <span class="icon">🏦</span>
+      Os 9 Contratos
+    </div>
+
+    <div class="sp2-alert">
+      ⚠️ <strong>Atenção:</strong> O contrato <strong>1565 (São José do Rio Preto)</strong> é o ÚNICO no modo SP2. Nunca tratá-lo como Tradicional. Altura das imagens = 7cm (não 10cm). Fotos com "Faces 2" no nome = área × 2.
+    </div>
+
+    <br>
+
+    <div class="contracts-grid">
+      <div class="contract-card">
+        <div class="cod">2056</div>
+        <div class="nome">Divinópolis</div>
+        <div class="local">Minas Gerais</div>
+        <span class="mode-badge mode-trad">Tradicional</span>
+      </div>
+      <div class="contract-card">
+        <div class="cod">2057</div>
+        <div class="nome">Varginha</div>
+        <div class="local">Minas Gerais</div>
+        <span class="mode-badge mode-trad">Tradicional</span>
+      </div>
+      <div class="contract-card">
+        <div class="cod">6122</div>
+        <div class="nome">Mato Grosso do Sul</div>
+        <div class="local">Centro-Oeste</div>
+        <span class="mode-badge mode-trad">Tradicional</span>
+      </div>
+      <div class="contract-card">
+        <div class="cod">0908</div>
+        <div class="nome">São Paulo</div>
+        <div class="local">São Paulo</div>
+        <span class="mode-badge mode-sp">SP</span>
+      </div>
+      <div class="contract-card">
+        <div class="cod">1507</div>
+        <div class="nome">Cuiabá</div>
+        <div class="local">Mato Grosso</div>
+        <span class="mode-badge mode-trad">Tradicional</span>
+      </div>
+      <div class="contract-card">
+        <div class="cod">2626</div>
+        <div class="nome">Salinas</div>
+        <div class="local">Minas Gerais</div>
+        <span class="mode-badge mode-trad">Tradicional</span>
+      </div>
+      <div class="contract-card">
+        <div class="cod">2627</div>
+        <div class="nome">Gov. Valadares</div>
+        <div class="local">Minas Gerais</div>
+        <span class="mode-badge mode-trad">Tradicional</span>
+      </div>
+      <div class="contract-card">
+        <div class="cod">3575</div>
+        <div class="nome">Tangará da Serra</div>
+        <div class="local">Mato Grosso</div>
+        <span class="mode-badge mode-trad">Tradicional</span>
+      </div>
+      <div class="contract-card" style="border-color:#EF444444;border-left:3px solid var(--vermelho);">
+        <div class="cod" style="color:var(--vermelho);">1565</div>
+        <div class="nome">S. J. do Rio Preto</div>
+        <div class="local">São Paulo</div>
+        <span class="mode-badge mode-sp2">SP2 — EXCLUSIVO</span>
+        <div style="margin-top:8px;font-size:11px;color:var(--vermelho);">img: 7cm · Faces 2 = ×2 área</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEÇÃO 4: REFERÊNCIA TÉCNICA -->
+  <div class="section" id="sec-tecnico">
+    <div class="section-title">
+      <span class="icon">⚙️</span>
+      Referência Técnica
+    </div>
+
+    <div class="accordion">
+
+      <div class="acc-item">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <h4>📁 Localização dos Scripts (v1 e v2)</h4>
+          <span>›</span>
+        </div>
+        <div class="acc-body">
+          <table>
+            <tr><th>Versão</th><th>Path</th><th>Diferença</th></tr>
+            <tr>
+              <td>v1 (atual)</td>
+              <td style="font-family:monospace;font-size:11px;">TM-MEUS-APPS\Meus Plugins e Skills\relatorio-preventivo.skill\relatorio-preventivo\scripts\</td>
+              <td>Parser via markdown (pandoc)</td>
+            </tr>
+            <tr>
+              <td>v2</td>
+              <td style="font-family:monospace;font-size:11px;">TM-MEUS-APPS\Meus Plugins e Skills\relatorio-preventivo-v2.skill\skills\relatorio-preventivo\scripts\</td>
+              <td>Parser adaptativo direto do .docx</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <h4>🔧 Scripts Disponíveis</h4>
+          <span>›</span>
+        </div>
+        <div class="acc-body">
+          <table class="script-row">
+            <tr><th>Script</th><th>Propósito</th><th>Entrada</th><th>Saída</th></tr>
+            <tr><td>parse_report.py</td><td>Parser base compartilhado</td><td>Markdown ou .docx</td><td>Dict estruturado</td></tr>
+            <tr><td>verificar_divergencias.py</td><td>Etapa 1 — cruzar totais</td><td>Markdown ou .docx</td><td>Relatório de divergências</td></tr>
+            <tr><td>verificar_legendas.py</td><td>Etapa 2 — validar fotos</td><td>Markdown ou .docx</td><td>Relatório de inconsistências</td></tr>
+            <tr><td>extrair_itens.py</td><td>Etapa 3 — exportar itens</td><td>Markdown do relatório</td><td>output.xlsx (2 abas)</td></tr>
+            <tr><td>gerar_memorial.py</td><td>Etapa 4 — gerar memorial</td><td>Markdown ou .docx</td><td>Memorial.docx formatado</td></tr>
+            <tr><td>fix_xml.py</td><td>Pós etapa 4 — corrigir XML</td><td>.docx gerado</td><td>.docx válido</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <h4>💻 Comandos Python (Etapa 0 a 4)</h4>
+          <span>›</span>
+        </div>
+        <div class="acc-body">
+          <p style="font-size:12px;color:var(--text-muted);margin-top:12px;">Etapa 0 — Converter .docx para markdown</p>
+          <div class="code-block" onclick="copyCode(this)">
+            <span class="copy-hint">clique para copiar</span>
+            pandoc "arquivo.docx" -o output_relatorio.md --track-changes=all
+          </div>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:12px;">Etapa 1 — Verificar divergências <span style="color:var(--vermelho);">▶ PRIMEIRO — auditar antes de gerar</span></p>
+          <div class="code-block" onclick="copyCode(this)">
+            <span class="copy-hint">clique para copiar</span>
+            python3 scripts/verificar_divergencias.py output_relatorio.md
+          </div>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:12px;">Etapa 2 — Verificar legendas <span style="color:var(--vermelho);">▶ SEGUNDO — validar fotos antes de gerar</span></p>
+          <div class="code-block" onclick="copyCode(this)">
+            <span class="copy-hint">clique para copiar</span>
+            python3 scripts/verificar_legendas.py output_relatorio.md
+          </div>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:12px;">Etapa 3 — Extrair itens</p>
+          <div class="code-block" onclick="copyCode(this)">
+            <span class="copy-hint">clique para copiar</span>
+            python3 scripts/extrair_itens.py output_relatorio.md saida_itens.xlsx
+          </div>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:12px;">Etapa 4 — Gerar memorial + fix XML <span style="color:var(--verde);">▶ RESULTADO FINAL com dados auditados</span></p>
+          <div class="code-block" onclick="copyCode(this)">
+            <span class="copy-hint">clique para copiar</span>
+            python3 scripts/gerar_memorial.py output_relatorio.md Memorial_Final.docx
+python3 scripts/fix_xml.py Memorial_Final.docx
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <h4>🎨 Formatação Padrão do Memorial</h4>
+          <span>›</span>
+        </div>
+        <div class="acc-body">
+          <div class="format-grid">
+            <div class="format-card">
+              <h5>Fontes</h5>
+              <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;">
+                <li style="font-size:13px;">Tabelas de cálculo → <strong>Calibri 9pt</strong></li>
+                <li style="font-size:13px;">Tabela Itens → <strong>Aptos Narrow</strong></li>
+              </ul>
+            </div>
+            <div class="format-card">
+              <h5>Cores das Linhas</h5>
+              <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:6px;">
+                <li><span class="color-swatch"><span class="swatch-dot" style="background:#808080;"></span>#808080</span> — Título</li>
+                <li><span class="color-swatch"><span class="swatch-dot" style="background:#AEAAAA;"></span>#AEAAAA</span> — Subtotal/Total</li>
+                <li><span class="color-swatch"><span class="swatch-dot" style="background:#FFFFFF;border:1px solid #333;"></span>#FFFFFF</span> — Col. Desconto</li>
+              </ul>
+            </div>
+            <div class="format-card">
+              <h5>Tipos de Total</h5>
+              <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:5px;font-size:12px;">
+                <li><strong>Total</strong> — padrão</li>
+                <li><strong>Total (DIVIDIDO POR 10)</strong> — caçamba, remoção</li>
+                <li><strong>Total (X3)</strong> — 3 unidades idênticas</li>
+                <li><strong>Total (x6)</strong> — 6 unidades idênticas</li>
+              </ul>
+            </div>
+            <div class="format-card">
+              <h5>Larguras de Coluna</h5>
+              <table style="margin:0;font-size:11px;">
+                <tr><th>Tipo</th><th>Larguras (cm)</th></tr>
+                <tr><td>5 colunas (full)</td><td>7 | 2 | 2 | 2,5 | 2,5</td></tr>
+                <tr><td>4 colunas (nodiscount)</td><td>8,5 | 2,3 | 2,3 | 2,9</td></tr>
+                <tr><td>2 colunas (simple)</td><td>12,5 | 3,5</td></tr>
+                <tr><td>Tabela Itens</td><td>1,5 | 11 | 2 | 1,5</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <h4>🔑 Placeholders do Template Word</h4>
+          <span>›</span>
+        </div>
+        <div class="acc-body">
+          <div class="info-banner" style="margin-top:12px;">
+            <span class="ico">⚠️</span>
+            <div>Placeholders são <strong>case-sensitive</strong>. <code style="background:#ffffff11;padding:1px 4px;border-radius:3px;">{{ag_cod}}</code> ≠ <code style="background:#ffffff11;padding:1px 4px;border-radius:3px;">{{AG_COD}}</code>. Use exatamente como listado abaixo.</div>
+          </div>
+          <table style="margin-top:12px;">
+            <tr><th>Placeholder</th><th>Significado</th></tr>
+            <tr><td><code>{{nr_os}}</code></td><td>Número da Ordem de Serviço</td></tr>
+            <tr><td><code>{{dt_atend}}</code></td><td>Data do atendimento</td></tr>
+            <tr><td><code>{{ag_cod}}</code></td><td>Código da agência</td></tr>
+            <tr><td><code>{{ag_nome}}</code></td><td>Nome da agência</td></tr>
+            <tr><td><code>{{endereco}}</code></td><td>Endereço completo</td></tr>
+            <tr><td><code>{{responsavel_dependencia}}</code></td><td>Nome do gerente/responsável</td></tr>
+            <tr><td><code>{{dt_elab}}</code></td><td>Data de elaboração do relatório</td></tr>
+            <tr><td><code>{{start_here}}</code></td><td>Marcador de início do conteúdo gerado</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <div class="acc-header" onclick="toggleAcc(this)">
+          <h4>📐 Sort de Fotos — Ordem Obrigatória</h4>
+          <span>›</span>
+        </div>
+        <div class="acc-body">
+          <div class="info-banner" style="margin-top:12px;">
+            <span class="ico">🔒</span>
+            <div>Esta ordem <strong>nunca deve ser alterada</strong>. Está validada por todos os contratos.</div>
+          </div>
+          <div style="margin-top:12px;display:flex;flex-direction:column;gap:6px;">
+            <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--bg3);border-radius:8px;">
+              <span style="font-size:18px;">1️⃣</span>
+              <div><strong style="color:white;">"Vista ampla"</strong> <span style="color:var(--text-muted);">— sempre primeiro</span></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--bg3);border-radius:8px;">
+              <span style="font-size:18px;">2️⃣</span>
+              <div><strong style="color:white;">Numérico</strong> <span style="color:var(--text-muted);">— ordenação por número (1, 2, 3…)</span></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--bg3);border-radius:8px;">
+              <span style="font-size:18px;">3️⃣</span>
+              <div><strong style="color:white;">Alfabético</strong> <span style="color:var(--text-muted);">— demais nomes em ordem A-Z</span></div>
+            </div>
+            <div style="display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--bg3);border-radius:8px;">
+              <span style="font-size:18px;">4️⃣</span>
+              <div><strong style="color:white;">"Detalhes"</strong> <span style="color:var(--text-muted);">— sempre último</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SEÇÃO 5: REGRAS DE NEGÓCIO -->
+  <div class="section" id="sec-regras">
+    <div class="section-title">
+      <span class="icon">📐</span>
+      Regras de Negócio Críticas
+    </div>
+
+    <div class="rules-grid">
+      <div class="rule-card">
+        <div class="rule-id">RN-01</div>
+        <div class="rule-text">Contrato <strong>1565 = EXCLUSIVO SP2</strong>. Nunca tratar como Tradicional. São José do Rio Preto.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-id">RN-02</div>
+        <div class="rule-text">Sort das fotos: <strong>"vista ampla" → numérico → alfabético → "detalhes"</strong>. Nunca alterar essa ordem.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-id">RN-03</div>
+        <div class="rule-text">Altura padrão das imagens: <strong>10cm</strong> (Tradicional/SP). <strong>7cm</strong> = exclusivo SP2 (contrato 1565).</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-id">RN-04</div>
+        <div class="rule-text"><code>conteudo[]</code> = <strong>único contrato de dados</strong> entre scanner e word_builder. Não criar alternativas.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-id">RN-05</div>
+        <div class="rule-text">"<strong>Faces 2</strong>" no nome do arquivo = área × 2. Exclusivo SP2 (contrato 1565).</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-id">RN-06</div>
+        <div class="rule-text">Placeholders são <strong>case-sensitive</strong>: <code>{{ag_cod}}</code> ≠ <code>{{AG_COD}}</code>. Usar lista oficial.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-id">RN-07</div>
+        <div class="rule-text">Arquitetura: <strong>1 contrato = 1 módulo Python isolado</strong>. Nunca mudar o core por causa de 1 contrato.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-id">RN-08</div>
+        <div class="rule-text"><strong>Nunca inventar itens.</strong> Se código não existe no items.json, reportar ao operador.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-id">H01 — Heurística Validada</div>
+        <div class="rule-text">Nunca confiar no sort do SO. Windows e Python têm comportamentos diferentes — usar sort_key() customizado.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-id">H03 — Heurística Validada</div>
+        <div class="rule-text">Detectar orientação da foto (portrait/landscape) pelo <strong>tamanho real</strong>, não pelo nome do arquivo.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-id">H05 — Heurística Validada</div>
+        <div class="rule-text">Testar sempre com <strong>fixture mínima</strong> (2-3 fotos) antes de rodar com pasta de produção.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-id">D02 — Descoberta Técnica</div>
+        <div class="rule-text">Regra "Faces 2": arquivo com "Faces 2" no nome → área × 2. Ex: 5,00×2,00 + Faces 2 = 20m².</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEÇÃO 6: ERROS COMUNS -->
+  <div class="section" id="sec-erros">
+    <div class="section-title">
+      <span class="icon">🔧</span>
+      Erros Comuns e Como Resolver
+    </div>
+
+    <div class="errors-list">
+      <div class="error-card">
+        <h4>TS01 — .docx gerado com conteúdo só no cabeçalho</h4>
+        <div class="error-cause">Causa: <code>root_path</code> não está sendo passado corretamente ao scanner.</div>
+        <div class="error-fix">Solução: <strong>Verificar se <code>{{start_here}}</code> existe no template.</strong> Está relacionado ao Sprint 3 — endpoint de upload de fotos.</div>
+      </div>
+      <div class="error-card">
+        <h4>TS02 — Foto com orientação errada no Word</h4>
+        <div class="error-cause">Causa: Orientação detectada pelo tamanho nominal, mas EXIF pode ter rotação aplicada.</div>
+        <div class="error-fix">Solução: <strong>Usar Pillow <code>Image.open().rotate()</code> com <code>exif_transpose=True</code></strong> antes de inserir a foto no Word.</div>
+      </div>
+      <div class="error-card">
+        <h4>TS03 — Sort de fotos em ordem errada</h4>
+        <div class="error-cause">Causa: Sort usando <code>os.listdir()</code> que respeita case do Windows.</div>
+        <div class="error-fix">Solução: <strong>Usar a função <code>sort_key()</code></strong> documentada em PADROES_TECNICOS.md §1.4.</div>
+      </div>
+      <div class="error-card">
+        <h4>TS04 — Placeholder não substituído no Word</h4>
+        <div class="error-cause">Causa: Placeholder no template tem espaços ou quebra de linha interna no XML do .docx.</div>
+        <div class="error-fix">Solução: <strong>Rodar <code>fix_xml.py</code></strong> para normalizar o XML antes de processar. Sempre executar após gerar_memorial.py.</div>
+      </div>
+      <div class="error-card">
+        <h4>TS05 — Engine do contrato não encontrado</h4>
+        <div class="error-cause">Causa: Import no <code>registry.py</code> faltando ou com caminho errado.</div>
+        <div class="error-fix">Solução: <strong>Verificar <code>backend/core/registry.py</code></strong> — todos os 9 contratos devem estar registrados.</div>
+      </div>
+      <div class="error-card">
+        <h4>Divergência de total no memorial vs corpo</h4>
+        <div class="error-cause">Causa: Item aparece múltiplas vezes no corpo e a consolidação somou diferente.</div>
+        <div class="error-fix">Solução: <strong>Reportar ao Claude com o código e os valores divergentes.</strong> O script verificar_divergencias.py identifica automaticamente (tolerância: 0,01).</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEÇÃO 7: HISTÓRICO -->
+  <div class="section" id="sec-historico">
+    <div class="section-title">
+      <span class="icon">📅</span>
+      Histórico de Atualizações
+    </div>
+
+    <div class="update-log">
+      <div class="update-entry">
+        <div class="update-date">2026-05-27</div>
+        <div class="update-text"><strong>Criação inicial</strong> — Guia completo com passo a passo, referência técnica, contratos, regras e erros comuns. Formato HTML interativo.</div>
+      </div>
+      <div class="update-entry">
+        <div class="update-date">2026-05-26</div>
+        <div class="update-text"><strong>D02</strong> — Descoberta da regra "Faces 2" (área × 2 para contrato 1565).</div>
+      </div>
+      <div class="update-entry">
+        <div class="update-date">2026-05-21</div>
+        <div class="update-text"><strong>9 engines V5</strong> — Criação dos módulos isolados para todos os contratos no AutoRelatório V5.</div>
+      </div>
+      <div class="update-entry">
+        <div class="update-date">2026-05-20</div>
+        <div class="update-text"><strong>Arquitetura DA01</strong> — Decisão: 1 contrato = 1 módulo Python isolado.</div>
+      </div>
+    </div>
+
+    <br>
+    <p style="font-size:12px;color:var(--text-muted);">Para adicionar novas entradas, edite a seção de histórico deste arquivo ou atualize via <code>/turbo-checkpoint</code>.</p>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div id="footer">
+  <strong>TM Sempre Tecnologia</strong> · Relatório Preventivo · Skill Claude Code · Mai 2026
+  <br><br>
+  Workspace: <code>C:\Users\thiag\Desktop\tm-tecnologia\_workspace\</code>
+</div>
+
+<!-- TOAST -->
+<div class="copy-toast" id="copyToast">✓ Copiado!</div>
+
+<script>
+  // PARTICLES
+  (function() {
+    const canvas = document.getElementById('particles');
+    const header = document.getElementById('header');
+    canvas.width = header.offsetWidth;
+    canvas.height = header.offsetHeight;
+    const ctx = canvas.getContext('2d');
+
+    const particles = [];
+    for (let i = 0; i < 40; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 2 + 1,
+        speed: Math.random() * 0.4 + 0.1,
+        opacity: Math.random() * 0.6 + 0.1,
+        phase: Math.random() * Math.PI * 2
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.y -= p.speed;
+        p.phase += 0.02;
+        if (p.y < -10) { p.y = canvas.height + 10; p.x = Math.random() * canvas.width; }
+        const x = p.x + Math.sin(p.phase) * 15;
+        ctx.beginPath();
+        ctx.arc(x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 107, 0, ${p.opacity})`;
+        ctx.fill();
+      });
+      requestAnimationFrame(draw);
+    }
+    draw();
+
+    window.addEventListener('resize', () => {
+      canvas.width = header.offsetWidth;
+      canvas.height = header.offsetHeight;
+    });
+  })();
+
+  // SCROLL ANIMATIONS
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.05 });
+
+  document.querySelectorAll('.section').forEach(s => observer.observe(s));
+
+  // NAV ACTIVE
+  function scrollTo(id) {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    event.target.classList.add('active');
+  }
+
+  // PROGRESS STEPS
+  const stepStates = [false, false, false, false, false, false];
+  function toggleStep(i) {
+    stepStates[i] = !stepStates[i];
+    const circle = document.getElementById('sc' + i);
+    circle.classList.toggle('done', stepStates[i]);
+    if (i < 5) document.getElementById('conn' + i).classList.toggle('done', stepStates[i]);
+  }
+
+  // STEP CARDS
+  function toggleCard(card) {
+    card.classList.toggle('expanded');
+  }
+
+  // ACCORDION
+  function toggleAcc(header) {
+    header.parentElement.classList.toggle('open');
+  }
+
+  // CHECKLIST
+  function toggleCheck(event, item) {
+    event.stopPropagation();
+    item.classList.toggle('checked');
+    const box = item.querySelector('.check-box');
+    box.textContent = item.classList.contains('checked') ? '✓' : '';
+  }
+
+  // COPY CODE
+  function copyCode(block) {
+    const text = block.innerText.replace('clique para copiar', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      const toast = document.getElementById('copyToast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 1800);
+    });
+  }
+
+  // AUTO-OPEN FIRST STEP CARD
+  setTimeout(() => {
+    document.querySelector('.step-card')?.classList.add('expanded');
+  }, 800);
+</script>
+
+</body>
+</html>

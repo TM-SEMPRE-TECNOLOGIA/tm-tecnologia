@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>TM-Testes-Design — AutoRelatório V5</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+    :root {
+      --bg: #111110; --card: #1A1917; --border: #2A2825;
+      --text: #EFEDE8; --muted: #8C8A85; --subtle: #4A4845;
+      --orange: #C8541C; --green: #4F7A3A;
+      --sans: 'Inter', system-ui; --mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--text); padding: 32px; line-height: 1.5; }
+    h1 { font-size: 22px; color: var(--orange); margin-bottom: 4px; }
+    .ts { color: var(--subtle); font-family: var(--mono); font-size: 11px; margin-bottom: 24px; }
+    .summary { display: flex; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 18px 24px; }
+    .card .num { font-size: 2rem; font-weight: 700; font-family: var(--mono); }
+    .card .lbl { font-size: 11px; color: var(--muted); margin-top: 4px; }
+    .card.ok .num { color: #2ecc71; } .card.bad .num { color: #e74c3c; }
+    .card.warn .num { color: #e67e22; } .card.pct .num { color: var(--orange); }
+    .bar-wrap { flex: 1; min-width: 200px; }
+    .bar-label { font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+    .bar-bg { background: #2A2825; border-radius: 6px; height: 18px; overflow: hidden; }
+    .bar { height: 100%; background: #e67e22; width: 80%; }
+    .section { background: var(--card); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 20px; overflow: hidden; }
+    .section-header { padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; background: #161513; font-weight: 600; font-size: 14px; border-bottom: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; }
+    th { text-align: left; padding: 8px 14px; color: var(--subtle); font-size: 10px; text-transform: uppercase; letter-spacing: .1em; background: #161513; border-bottom: 1px solid var(--border); }
+    td { padding: 9px 14px; border-bottom: 1px solid var(--border); font-size: 13px; vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    code { background: #2A2825; padding: 1px 5px; border-radius: 3px; font-family: var(--mono); font-size: 11px; }
+    .footer { color: var(--subtle); font-size: 11px; font-family: var(--mono); margin-top: 30px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>🛡️ TM-Testes-Design — Guardião do Design System</h1>
+  <div class="ts">AutoRelatório V5 · 26/05/2026 17:56:10 · workframe TM Sempre Tecnologia</div>
+
+  <div class="summary">
+    <div class="card ok"><div class="num">55</div><div class="lbl">Aprovações</div></div>
+    <div class="card bad"><div class="num">13</div><div class="lbl">Falhas</div></div>
+    <div class="card pct"><div class="num">80%</div><div class="lbl">Score geral</div></div>
+    <div class="card bar-wrap">
+      <div class="bar-label">Saúde do design system</div>
+      <div class="bar-bg"><div class="bar"></div></div>
+    </div>
+  </div>
+
+  
+  
+        <div class="section">
+          <div class="section-header">
+            <span>📐 TOKENS</span>
+            <span style="color:#e67e22;font-family:var(--mono);font-size:13px">7/9 (77%)</span>
+          </div>
+          <table>
+            <thead><tr><th>Status</th><th>Verificação</th><th>Detalhe</th></tr></thead>
+            <tbody>
+            <tr style="background:rgba(230,126,34,.06)">
+              <td style="white-space:nowrap;font-weight:bold">⚠️ WARN</td>
+              <td>Token hardcoded detectado</td>
+              <td style="font-size:0.82em;color:#8C8A85">components\PreviewPanel.tsx:46 → return <span style={{ color: '#C8541C', fontStyle: 'italic' }}>{placeholder}</sp</td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Token --shell-bg definido em globals.css</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Token --orange definido em globals.css</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Token --sans definido em globals.css</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Token --mono definido em globals.css</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Token --serif definido em globals.css</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Token --r-sm definido em globals.css</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Token --error definido em globals.css</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="background:rgba(230,126,34,.06)">
+              <td style="white-space:nowrap;font-weight:bold">⚠️ WARN</td>
+              <td>Botões com style inline detectados</td>
+              <td style="font-size:0.82em;color:#8C8A85">Arquivos: components\EditorPanel.tsx</td>
+            </tr></tbody>
+          </table>
+        </div>
+        <div class="section">
+          <div class="section-header">
+            <span>🎨 CONTRASTE</span>
+            <span style="color:#e67e22;font-family:var(--mono);font-size:13px">12/16 (75%)</span>
+          </div>
+          <table>
+            <thead><tr><th>Status</th><th>Verificação</th><th>Detalhe</th></tr></thead>
+            <tbody>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Contraste: --shell-text sobre --shell-bg</td>
+              <td style="font-size:0.82em;color:#8C8A85">16.15:1  (mínimo 4.5:1 para texto normal)</td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Contraste: --shell-text sobre --shell-card</td>
+              <td style="font-size:0.82em;color:#8C8A85">15.02:1  (mínimo 4.5:1 para texto normal)</td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Contraste: --shell-text sobre --shell-panel</td>
+              <td style="font-size:0.82em;color:#8C8A85">15.60:1  (mínimo 4.5:1 para texto normal)</td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Contraste: --shell-muted sobre --shell-bg</td>
+              <td style="font-size:0.82em;color:#8C8A85">5.48:1  (mínimo 4.5:1 para texto normal)</td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Contraste: --shell-muted sobre --shell-card</td>
+              <td style="font-size:0.82em;color:#8C8A85">5.09:1  (mínimo 4.5:1 para texto normal)</td>
+            </tr>
+            <tr style="background:rgba(230,126,34,.06)">
+              <td style="white-space:nowrap;font-weight:bold">⚠️ WARN</td>
+              <td>Contraste: --shell-subtle sobre --shell-bg</td>
+              <td style="font-size:0.82em;color:#8C8A85">2.07:1  (mínimo 3.0:1 para texto large)</td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Contraste: --orange sobre --shell-bg</td>
+              <td style="font-size:0.82em;color:#8C8A85">4.27:1  (mínimo 3.0:1 para texto large)</td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Contraste: --orange sobre --shell-card</td>
+              <td style="font-size:0.82em;color:#8C8A85">3.97:1  (mínimo 3.0:1 para texto large)</td>
+            </tr>
+            <tr style="background:rgba(231,76,60,.06)">
+              <td style="white-space:nowrap;font-weight:bold">❌ FAIL</td>
+              <td>Contraste: texto branco sobre --orange (btn)</td>
+              <td style="font-size:0.82em;color:#8C8A85">3.79:1  (mínimo 4.5:1 para texto normal)</td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Contraste: verde sobre --shell-bg</td>
+              <td style="font-size:0.82em;color:#8C8A85">8.01:1  (mínimo 3.0:1 para texto large)</td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Contraste: azul sobre --shell-bg (SP2)</td>
+              <td style="font-size:0.82em;color:#8C8A85">6.93:1  (mínimo 3.0:1 para texto large)</td>
+            </tr>
+            <tr style="background:rgba(230,126,34,.06)">
+              <td style="white-space:nowrap;font-weight:bold">⚠️ WARN</td>
+              <td>Contraste: --shell-subtle sobre card</td>
+              <td style="font-size:0.82em;color:#8C8A85">1.93:1  (mínimo 3.0:1 para texto large)</td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Contraste: texto dark sobre light-bg</td>
+              <td style="font-size:0.82em;color:#8C8A85">13.04:1  (mínimo 4.5:1 para texto normal)</td>
+            </tr>
+            <tr style="background:rgba(231,76,60,.06)">
+              <td style="white-space:nowrap;font-weight:bold">❌ FAIL</td>
+              <td>Contraste: muted sobre light-bg</td>
+              <td style="font-size:0.82em;color:#8C8A85">4.01:1  (mínimo 4.5:1 para texto normal)</td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Contraste: --orange sobre light-bg</td>
+              <td style="font-size:0.82em;color:#8C8A85">4.13:1  (mínimo 3.0:1 para texto large)</td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Contraste: texto dark sobre white card</td>
+              <td style="font-size:0.82em;color:#8C8A85">13.97:1  (mínimo 4.5:1 para texto normal)</td>
+            </tr></tbody>
+          </table>
+        </div>
+        <div class="section">
+          <div class="section-header">
+            <span>✏️ TIPOGRAFIA</span>
+            <span style="color:#e67e22;font-family:var(--mono);font-size:13px">9/11 (81%)</span>
+          </div>
+          <table>
+            <thead><tr><th>Status</th><th>Verificação</th><th>Detalhe</th></tr></thead>
+            <tbody>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Fonte Roboto Slab importada</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Fonte Inter importada</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Fonte JetBrains Mono importada</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Fontes usam var(--sans/--mono/--serif)</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="background:rgba(231,76,60,.06)">
+              <td style="white-space:nowrap;font-weight:bold">❌ FAIL</td>
+              <td>TopBar.tsx — usa tokens tipográficos</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="background:rgba(231,76,60,.06)">
+              <td style="white-space:nowrap;font-weight:bold">❌ FAIL</td>
+              <td>Sidebar.tsx — usa tokens tipográficos</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>EditorPanel.tsx — usa tokens tipográficos</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Fonte 'Inter' carregada no browser</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Fonte 'Roboto Slab' carregada no browser</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Fonte 'JetBrains Mono' carregada no browser</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Elementos .mono usam JetBrains Mono</td>
+              <td style="font-size:0.82em;color:#8C8A85">fontFamily detectado: "JetBrains Mono", monospace</td>
+            </tr></tbody>
+          </table>
+        </div>
+        <div class="section">
+          <div class="section-header">
+            <span>🧩 COMPONENTES</span>
+            <span style="color:#e67e22;font-family:var(--mono);font-size:13px">11/13 (84%)</span>
+          </div>
+          <table>
+            <thead><tr><th>Status</th><th>Verificação</th><th>Detalhe</th></tr></thead>
+            <tbody>
+            <tr style="background:rgba(231,76,60,.06)">
+              <td style="white-space:nowrap;font-weight:bold">❌ FAIL</td>
+              <td>Imagens com alt text</td>
+              <td style="font-size:0.82em;color:#8C8A85">Sem alt: ['components\\PreviewPanel.tsx:189', 'components\\blocks\\BlockCard.tsx:44']</td>
+            </tr>
+            <tr style="background:rgba(230,126,34,.06)">
+              <td style="white-space:nowrap;font-weight:bold">⚠️ WARN</td>
+              <td>Botões com type definido</td>
+              <td style="font-size:0.82em;color:#8C8A85">Sem type: ['components\\PreviewPanel.tsx:75', 'components\\PreviewPanel.tsx:77', 'components\\Toast.tsx:57']</td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>.map() com key prop</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Componente TopBar.tsx existe</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Componente Sidebar.tsx existe</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Componente EditorPanel.tsx existe</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Componente PreviewPanel.tsx existe</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Componente Toast.tsx existe</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Componente ui/LoadingSpinner.tsx existe</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Componente ui/ErrorMessage.tsx existe</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Componente ui/EmptyState.tsx existe</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Componente blocks/BlockCard.tsx existe</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Componente blocks/BlockList.tsx existe</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr></tbody>
+          </table>
+        </div>
+        <div class="section">
+          <div class="section-header">
+            <span>📸 VISUAL</span>
+            <span style="color:#e67e22;font-family:var(--mono);font-size:13px">4/5 (80%)</span>
+          </div>
+          <table>
+            <thead><tr><th>Status</th><th>Verificação</th><th>Detalhe</th></tr></thead>
+            <tbody>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Screenshot baseline criado — Desktop 1440</td>
+              <td style="font-size:0.82em;color:#8C8A85">Baseline salvo para comparações futuras<br><img src="C:\Users\thiag\Desktop\tm-tecnologia\AutoRelatorio_V5\design_screenshots\current_Desktop_1440.png" style="max-width:500px;margin-top:6px;border:1px solid #2A2825;border-radius:4px;"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Screenshot baseline criado — Laptop 1280</td>
+              <td style="font-size:0.82em;color:#8C8A85">Baseline salvo para comparações futuras<br><img src="C:\Users\thiag\Desktop\tm-tecnologia\AutoRelatorio_V5\design_screenshots\current_Laptop_1280.png" style="max-width:500px;margin-top:6px;border:1px solid #2A2825;border-radius:4px;"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Screenshot baseline criado — Tablet 768</td>
+              <td style="font-size:0.82em;color:#8C8A85">Baseline salvo para comparações futuras<br><img src="C:\Users\thiag\Desktop\tm-tecnologia\AutoRelatorio_V5\design_screenshots\current_Tablet_768.png" style="max-width:500px;margin-top:6px;border:1px solid #2A2825;border-radius:4px;"></td>
+            </tr>
+            <tr style="background:rgba(231,76,60,.06)">
+              <td style="white-space:nowrap;font-weight:bold">❌ FAIL</td>
+              <td>SVGs sem quebra — 6 total, 1 quebrados</td>
+              <td style="font-size:0.82em;color:#8C8A85">1 SVG(s) com width=0</td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Z-index — sem valores suspeitos (>10000)</td>
+              <td style="font-size:0.82em;color:#8C8A85">Mais alto: nenhum</td>
+            </tr></tbody>
+          </table>
+        </div>
+        <div class="section">
+          <div class="section-header">
+            <span>📱 RESPONSIVIDADE</span>
+            <span style="color:#2ecc71;font-family:var(--mono);font-size:13px">6/6 (100%)</span>
+          </div>
+          <table>
+            <thead><tr><th>Status</th><th>Verificação</th><th>Detalhe</th></tr></thead>
+            <tbody>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Sem overflow horizontal — Desktop 1440</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>TopBar visível — Desktop 1440</td>
+              <td style="font-size:0.82em;color:#8C8A85">C:\Users\thiag\Desktop\tm-tecnologia\AutoRelatorio_V5\design_screenshots\resp_Desktop_1440.png</td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Sem overflow horizontal — Laptop 1280</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>TopBar visível — Laptop 1280</td>
+              <td style="font-size:0.82em;color:#8C8A85">C:\Users\thiag\Desktop\tm-tecnologia\AutoRelatorio_V5\design_screenshots\resp_Laptop_1280.png</td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Sem overflow horizontal — Tablet 768</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>TopBar visível — Tablet 768</td>
+              <td style="font-size:0.82em;color:#8C8A85">C:\Users\thiag\Desktop\tm-tecnologia\AutoRelatorio_V5\design_screenshots\resp_Tablet_768.png</td>
+            </tr></tbody>
+          </table>
+        </div>
+        <div class="section">
+          <div class="section-header">
+            <span>🌙 TEMA</span>
+            <span style="color:#e67e22;font-family:var(--mono);font-size:13px">3/4 (75%)</span>
+          </div>
+          <table>
+            <thead><tr><th>Status</th><th>Verificação</th><th>Detalhe</th></tr></thead>
+            <tbody>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Dark mode — --shell-bg é #111110</td>
+              <td style="font-size:0.82em;color:#8C8A85">Valor atual: '#111110'</td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Toggle tema aplica .light-mode no <html></td>
+              <td style="font-size:0.82em;color:#8C8A85">class atual: 'light-mode'</td>
+            </tr>
+            <tr style="background:rgba(231,76,60,.06)">
+              <td style="white-space:nowrap;font-weight:bold">❌ FAIL</td>
+              <td>Light mode — --shell-bg muda para #F8F7F4</td>
+              <td style="font-size:0.82em;color:#8C8A85">Valor: '#f8f7f4'</td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>Tema volta para dark mode</td>
+              <td style="font-size:0.82em;color:#8C8A85"></td>
+            </tr></tbody>
+          </table>
+        </div>
+        <div class="section">
+          <div class="section-header">
+            <span>⌨️ ACESSIBILIDADE</span>
+            <span style="color:#e74c3c;font-family:var(--mono);font-size:13px">0/1 (0%)</span>
+          </div>
+          <table>
+            <thead><tr><th>Status</th><th>Verificação</th><th>Detalhe</th></tr></thead>
+            <tbody>
+            <tr style="background:rgba(230,126,34,.06)">
+              <td style="white-space:nowrap;font-weight:bold">⚠️ WARN</td>
+              <td>Focus visível — 0/8 elementos</td>
+              <td style="font-size:0.82em;color:#8C8A85">0% dos elementos têm outline de foco visível</td>
+            </tr></tbody>
+          </table>
+        </div>
+        <div class="section">
+          <div class="section-header">
+            <span>⚡ PERFORMANCE</span>
+            <span style="color:#2ecc71;font-family:var(--mono);font-size:13px">3/3 (100%)</span>
+          </div>
+          <table>
+            <thead><tr><th>Status</th><th>Verificação</th><th>Detalhe</th></tr></thead>
+            <tbody>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>CLS — Cumulative Layout Shift (0.0158)</td>
+              <td style="font-size:0.82em;color:#8C8A85">Score: 0.0158 — Bom: <0.1 | Precisa melhorar: 0.1-0.25 | Ruim: >0.25</td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>FCP — First Contentful Paint (624ms)</td>
+              <td style="font-size:0.82em;color:#8C8A85">Bom: <1800ms | Atual: 624ms</td>
+            </tr>
+            <tr style="">
+              <td style="white-space:nowrap;font-weight:bold">✅ PASS</td>
+              <td>TTI aproximado (543ms)</td>
+              <td style="font-size:0.82em;color:#8C8A85">Bom: <3000ms | Atual: 543ms</td>
+            </tr></tbody>
+          </table>
+        </div>
+
+  <div class="footer">
+    🛡️ Guardião do Design System · skill tm-testes · TM Sempre Tecnologia<br>
+    Screenshots: <code>design_screenshots/</code> · Baseline: <code>design_baseline/</code>
+  </div>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html class="light" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=JetBrains+Mono:wght@500&amp;family=Roboto+Slab:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "border-base": "#DAD7D0",
+                    "surface-container-high": "#e9e8e5",
+                    "inverse-on-surface": "#f2f1ee",
+                    "tertiary-container": "#54803f",
+                    "surface-container-low": "#f4f3f0",
+                    "secondary-fixed": "#e6e2db",
+                    "tertiary-fixed-dim": "#a4d489",
+                    "on-surface-variant": "#584239",
+                    "surface-tint": "#a53c00",
+                    "surface-card": "#FFFFFF",
+                    "surface-container": "#efeeeb",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed": "#062100",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#e3e2df",
+                    "primary": "#a13a00",
+                    "ink-primary": "#1A1A1A",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#faf9f6",
+                    "inverse-primary": "#ffb598",
+                    "primary-fixed-dim": "#ffb598",
+                    "secondary-container": "#e6e2db",
+                    "on-secondary-fixed-variant": "#484742",
+                    "outline": "#8b7168",
+                    "tertiary": "#3c6629",
+                    "primary-fixed": "#ffdbce",
+                    "on-tertiary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "secondary": "#605e59",
+                    "on-tertiary-fixed-variant": "#285015",
+                    "ink-subtle": "#8C8A85",
+                    "surface-variant": "#e3e2df",
+                    "secondary-fixed-dim": "#cac6c0",
+                    "surface": "#faf9f6",
+                    "on-background": "#1b1c1a",
+                    "outline-variant": "#dfc0b5",
+                    "on-surface": "#1b1c1a",
+                    "on-secondary-container": "#66645f",
+                    "on-primary-container": "#fffbff",
+                    "surface-dim": "#dbdad7",
+                    "on-primary-fixed": "#370e00",
+                    "on-secondary": "#ffffff",
+                    "primary-container": "#c45119",
+                    "background": "#faf9f6",
+                    "inverse-surface": "#2f312f",
+                    "surface-container-lowest": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#7e2c00",
+                    "on-secondary-fixed": "#1c1c18",
+                    "tertiary-fixed": "#bff0a3",
+                    "on-tertiary-container": "#f8ffee",
+                    "bubble-sent": "#FBEDE3"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "stack-gap": "8px",
+                    "gutter": "12px",
+                    "container-margin": "16px",
+                    "card-padding": "16px",
+                    "baseline": "4px"
+            },
+            "fontFamily": {
+                    "button": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-sm": ["Roboto Slab"],
+                    "headline-lg": ["Roboto Slab"],
+                    "label-mono": ["JetBrains Mono"],
+                    "headline-md": ["Roboto Slab"],
+                    "body-sm": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .viewfinder-corner {
+            width: 24px;
+            height: 24px;
+            border: 2px solid white;
+            position: absolute;
+        }
+        .shutter-ring {
+            border: 4px solid #C8541C;
+        }
+        .camera-overlay-bg {
+            background-color: black;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-black text-white h-screen overflow-hidden flex flex-col font-body-md">
+<!-- Top Bar -->
+<header class="flex justify-center items-center h-16 px-container-margin z-10">
+<div class="flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">photo_camera</span>
+<span class="font-label-mono text-label-mono text-white">📷 Câmera traseira</span>
+</div>
+</header>
+<!-- Camera Viewfinder Section -->
+<main class="flex-1 flex items-center justify-center relative px-container-margin overflow-hidden">
+<!-- The actual 4:3 view container -->
+<div class="relative w-full aspect-[3/4] max-w-md bg-zinc-900 rounded-lg shadow-2xl overflow-hidden flex items-center justify-center border border-white/5">
+<!-- Mock Camera Feed Image -->
+<img alt="Camera feed showing a construction site structural column" class="w-full h-full object-cover opacity-80" data-alt="A cinematic, high-detail photograph of a concrete structural column at a construction site, captured during the golden hour. The lighting is warm and directional, highlighting the rough texture of the concrete and the steel rebar reinforcements. The scene is shot from a technical perspective, consistent with an architectural inspection. The overall color palette features warm creams, burnt oranges, and industrial greys, maintaining a modern tactile professional aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfnYGB5W_o4dicFWG09hRHMt5AS-0JxFTIXTWXUywxPL6wL0Jc6jJYmPfwKqaeGY7-MXFP6tRsRUo8gUF2JN14B08iAY3TRgBfdamjaMbN7nde8YVuySA8W3tUGlmVC0zlIt8sUiDDJ18xpUAIvocOiH1fL8PHsnd1EiwsPEFqMB0zHJFYSu2DAk3t9DTjnm0U4QH5ArO1tu78AuvDf3zHJQJFAhNFIZC1dNHtuZ6KLHAbBOchIVJRYLJG-TLdf6PCLzzlCG1-6cw"/>
+<!-- Viewfinder Corners -->
+<div class="viewfinder-corner top-4 left-4 border-r-0 border-b-0"></div>
+<div class="viewfinder-corner top-4 right-4 border-l-0 border-b-0"></div>
+<div class="viewfinder-corner bottom-4 left-4 border-r-0 border-t-0"></div>
+<div class="viewfinder-corner bottom-4 right-4 border-l-0 border-t-0"></div>
+<!-- Focus Square (Interaction Decorative) -->
+<div class="absolute w-20 h-20 border border-primary/60 rounded-sm flex items-center justify-center animate-pulse">
+<div class="w-1 h-1 bg-primary rounded-full"></div>
+</div>
+</div>
+</main>
+<!-- Controls Bar -->
+<footer class="h-40 px-container-margin flex items-center justify-between z-10">
+<!-- Cancel Button -->
+<button class="flex-1 flex justify-start items-center group transition-transform active:scale-95">
+<span class="font-button text-button text-white uppercase tracking-wider">Cancelar</span>
+</button>
+<!-- Shutter Button -->
+<div class="flex-none flex items-center justify-center px-8">
+<button class="relative flex items-center justify-center group active:scale-90 transition-transform duration-200">
+<!-- External Ring -->
+<div class="absolute w-20 h-20 rounded-full shutter-ring"></div>
+<!-- Shutter Circle -->
+<div class="w-14 h-14 bg-white rounded-full transition-all group-hover:scale-95"></div>
+</button>
+</div>
+<!-- Flip Camera Button -->
+<div class="flex-1 flex justify-end items-center">
+<button class="w-12 h-12 flex items-center justify-center bg-white/10 rounded-full hover:bg-white/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-white text-2xl">flip_camera_ios</span>
+</button>
+</div>
+</footer>
+<!-- Hidden Grid Overlay for visual density/precision feel -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] overflow-hidden">
+<div class="w-full h-full" style="background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 40px 40px;"></div>
+</div>
+<!-- UI Flash Interaction Script -->
+<script>
+        document.querySelector('.shutter-ring').parentElement.addEventListener('click', function() {
+            const flash = document.createElement('div');
+            flash.className = 'fixed inset-0 bg-white z-[100] pointer-events-none';
+            document.body.appendChild(flash);
+            
+            let opacity = 1;
+            const fade = setInterval(() => {
+                opacity -= 0.1;
+                if (opacity <= 0) {
+                    clearInterval(fade);
+                    flash.remove();
+                } else {
+                    flash.style.opacity = opacity;
+                }
+            }, 30);
+        });
+    </script>
+</body></html>

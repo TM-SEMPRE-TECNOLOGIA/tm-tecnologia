@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoRelatório V5 — Plano: Medidas de Imagens → Word</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-muted: #8b949e;
+    --orange: #f0883e;
+    --green: #3fb950;
+    --red: #f85149;
+    --yellow: #d2991d;
+    --blue: #58a6ff;
+    --purple: #bc8cff;
+    --font-mono: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', monospace;
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 2rem; color: var(--orange); margin-bottom: 0.5rem; }
+  h2 { font-size: 1.4rem; color: var(--blue); margin: 2rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+  h3 { font-size: 1.1rem; color: var(--purple); margin: 1.5rem 0 0.8rem; }
+  h4 { color: var(--text); margin: 1rem 0 0.5rem; }
+  .subtitle { color: var(--text-muted); margin-bottom: 2rem; font-size: 0.95rem; }
+  
+  /* Cards */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+  .card h3 { margin-top: 0; }
+  
+  /* Grid */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+  @media (max-width: 768px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    body { padding: 1rem; }
+  }
+  
+  /* Badges */
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; }
+  .badge-ok { background: #1a331e; color: var(--green); border: 1px solid #2a442e; }
+  .badge-warn { background: #332b1a; color: var(--yellow); border: 1px solid #4a3d1a; }
+  .badge-err { background: #331a1a; color: var(--red); border: 1px solid #4a1a1a; }
+  .badge-info { background: #1a2133; color: var(--blue); border: 1px solid #1a3355; }
+  
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+  th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+  th { color: var(--text-muted); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; }
+  tr:hover { background: rgba(255,255,255,0.02); }
+  
+  /* Code */
+  pre { background: #0a0a0a; border: 1px solid var(--border); border-radius: 6px; padding: 1rem; overflow-x: auto; font-size: 0.85rem; margin: 1rem 0; }
+  code { font-family: var(--font-mono); font-size: 0.85rem; }
+  .inline-code { background: rgba(240,136,62,0.1); color: var(--orange); padding: 1px 6px; border-radius: 4px; font-family: var(--font-mono); font-size: 0.85rem; }
+  
+  /* Flow */
+  .flow { display: flex; flex-direction: column; gap: 0.5rem; margin: 1rem 0; }
+  .flow-step { display: flex; align-items: center; gap: 1rem; padding: 0.8rem; background: var(--card); border-radius: 6px; border-left: 3px solid var(--orange); }
+  .flow-num { background: var(--orange); color: #000; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; flex-shrink: 0; }
+  
+  /* Sections */
+  .section-icon { font-size: 1.5rem; margin-right: 0.5rem; }
+  
+  /* Test results */
+  .test-pass { color: var(--green); }
+  .test-fail { color: var(--red); }
+  .test-skip { color: var(--yellow); }
+  
+  /* Tabs */
+  .tabs { display: flex; gap: 0; border-bottom: 2px solid var(--border); margin: 1rem 0; }
+  .tab-btn { padding: 8px 20px; background: none; border: none; color: var(--text-muted); cursor: pointer; font-family: var(--font-sans); font-size: 0.9rem; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: 0.2s; }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active { color: var(--orange); border-bottom-color: var(--orange); }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  
+  /* Print */
+  @media print {
+    body { background: white; color: black; }
+    .card { background: white; border: 1px solid #ccc; }
+  }
+</style>
+</head>
+<body>
+
+<h1>📐 AutoRelatório V5</h1>
+<p class="subtitle">
+  Plano de Implementação: Medidas de Imagens Escaneadas → Aprovação Visual → Inserção no Word (Caixas de Texto ou Texto Puro)<br>
+  <strong>Gerado:</strong> 26/06/2026 · <strong>Status atual:</strong> Parcialmente funcional — imagens entram no DOCX mas <span style="color:var(--red)">SEM medidas</span>
+</p>
+
+<!-- ============================================================ -->
+<!-- RESUMO EXECUTIVO                                              -->
+<!-- ============================================================ -->
+<h2>📋 Resumo Executivo</h2>
+
+<div class="card">
+  <h3>🔴 Problema</h3>
+  <p>O app escaneia fotos de pastas e gera relatórios Word (.docx), mas as <strong>medidas preenchidas no frontend NUNCA chegam ao documento final</strong>. As imagens são inseridas no Word sem qualquer legenda, texto de medida ou caixa informativa abaixo delas.</p>
+</div>
+
+<div class="card">
+  <h3>🟢 Solução Proposta (4 estágios)</h3>
+  <div class="flow">
+    <div class="flow-step">
+      <span class="flow-num">1</span>
+      <div><strong>Scan enriquecido</strong><br><small>Backend scaneia pastas E recebe medidas do frontend via multipart/form-data</small></div>
+    </div>
+    <div class="flow-step">
+      <span class="flow-num">2</span>
+      <div><strong>UI de aprovação</strong><br><small>Preview panel mostra tabela com foto + medidas calculadas + totais antes de gerar</small></div>
+    </div>
+    <div class="flow-step">
+      <span class="flow-num">3</span>
+      <div><strong>Conteudo[] enriquecido</strong><br><small>Cada item do array agora carrega <code class="inline-code">{"imagem": path, "medidas": {...}, "item": {...}}</code></small></div>
+    </div>
+    <div class="flow-step">
+      <span class="flow-num">4</span>
+      <div><strong>Word Builder V2</strong><br><small>python-docx insere parágrafo formatado com medidas abaixo de cada foto no DOCX</small></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- DIAGNÓSTICO DOS MODELOS LEGADOS                               -->
+<!-- ============================================================ -->
+<h2>🔍 Diagnóstico dos Modelos Legados</h2>
+
+<h3>Contratos — Estado Real (26/06/2026)</h3>
+<table>
+  <thead>
+    <tr><th>ID</th><th>Localidade</th><th>Modo</th><th>Engine</th><th>Scanner</th><th>Builder</th><th>Medidas?</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>0908</td><td>São José dos Campos</td><td>SP</td><td><span class="badge badge-err">ausente</span></td><td><span class="badge badge-err">ausente</span></td><td><span class="badge badge-err">ausente</span></td><td>—</td></tr>
+    <tr><td>1507</td><td>Cuiabá</td><td>TRAD</td><td><span class="badge badge-err">ausente</span></td><td><span class="badge badge-err">ausente</span></td><td><span class="badge badge-err">ausente</span></td><td>—</td></tr>
+    <tr><td>1565</td><td>SJRP/Ribeirão Preto</td><td>SP2</td><td><span class="badge badge-err">ausente</span></td><td><span class="badge badge-err">ausente</span></td><td><span class="badge badge-err">ausente</span></td><td>—</td></tr>
+    <tr><td>2056</td><td>Divinópolis</td><td>TRAD</td><td><span class="badge badge-err">ausente</span></td><td><span class="badge badge-err">ausente</span></td><td><span class="badge badge-err">ausente</span></td><td>—</td></tr>
+    <tr><td>2057</td><td>Varginha</td><td>TRAD</td><td><span class="badge badge-err">ausente</span></td><td><span class="badge badge-err">ausente</span></td><td><span class="badge badge-err">ausente</span></td><td>—</td></tr>
+    <tr style="background:rgba(63,185,80,0.05)"><td><strong>2626</strong></td><td><strong>Salinas</strong></td><td>TRAD</td><td><span class="badge badge-ok">OK</span></td><td><span class="badge badge-ok">OK</span></td><td><span class="badge badge-ok">OK</span></td><td><span class="badge badge-err">NÃO</span></td></tr>
+    <tr><td>2627</td><td>Gov. Valadares</td><td>TRAD</td><td><span class="badge badge-err">ausente</span></td><td><span class="badge badge-err">ausente</span></td><td><span class="badge badge-err">ausente</span></td><td>—</td></tr>
+    <tr><td>3575</td><td>Tangará da Serra</td><td>TRAD</td><td><span class="badge badge-err">ausente</span></td><td><span class="badge badge-err">ausente</span></td><td><span class="badge badge-err">ausente</span></td><td>—</td></tr>
+    <tr style="background:rgba(63,185,80,0.05)"><td><strong>6122</strong></td><td><strong>Mato Grosso do Sul</strong></td><td>TRAD</td><td><span class="badge badge-ok">OK</span></td><td><span class="badge badge-ok">OK</span></td><td><span class="badge badge-ok">OK</span></td><td><span class="badge badge-err">NÃO</span></td></tr>
+  </tbody>
+</table>
+
+<div class="grid-2">
+  <div class="card">
+    <h3>❌ O que está quebrado</h3>
+    <ul>
+      <li><strong>7 de 9 contratos</strong> sem módulo <code class="inline-code">engine/</code> → backend não sobe (<code class="inline-code">ModuleNotFoundError</code>)</li>
+      <li>Scanners produzem <code class="inline-code">{"imagem": path}</code> — sem medidas</li>
+      <li>Word builders inserem imagens mas <strong>nunca adicionam texto de medidas</strong></li>
+      <li><code class="inline-code">GenerateFlatRequest</code> não tem campo para blocos/medidas</li>
+      <li>Frontend <code class="inline-code">useBlocks</code> calcula medidas mas elas <strong>morrem no browser</strong></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3>✅ O que já funciona</h3>
+    <ul>
+      <li>Arquitetura Plugin/Registry (adicionar contrato = copiar pasta)</li>
+      <li>Interface <code class="inline-code">ContractEngine</code> (ABC) com <code class="inline-code">scan()</code> e <code class="inline-code">build_word()</code></li>
+      <li>Frontend 3-passos (Cabeçalho → Blocos → Gerar)</li>
+      <li><code class="inline-code">useBlocks.ts</code> — cálculos m²/m³/m/un funcionando</li>
+      <li><code class="inline-code">MeasureForm.tsx</code> — formulário adaptativo por unidade</li>
+      <li>Preview DOCX live com substituição de placeholders</li>
+      <li>Dark mode, responsividade, Toast notifications</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- PLANO DE AÇÃO                                                 -->
+<!-- ============================================================ -->
+<h2>🗺️ Plano de Ação (7 Fases, ~25 Tasks)</h2>
+
+<!-- Tabs -->
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab(event, 'tab-a')">Fase A: Reparo</button>
+  <button class="tab-btn" onclick="switchTab(event, 'tab-b')">Fase B: Backend</button>
+  <button class="tab-btn" onclick="switchTab(event, 'tab-c')">Fase C: Word</button>
+  <button class="tab-btn" onclick="switchTab(event, 'tab-d')">Fase D: Frontend</button>
+  <button class="tab-btn" onclick="switchTab(event, 'tab-e')">Fase E: Preview</button>
+  <button class="tab-btn" onclick="switchTab(event, 'tab-f')">Fase F: Testes</button>
+</div>
+
+<div id="tab-a" class="tab-content active">
+  <div class="card">
+    <h3>🔧 FASE A — Reparo dos Modelos Legados (pré-requisito)</h3>
+    <p><strong>Objetivo:</strong> Fazer o backend iniciar sem erros. Scaffold dos 7 contratos faltantes.</p>
+    <table>
+      <tr><th>Task</th><th>Arquivos</th><th>Duração</th></tr>
+      <tr><td>A1</td><td>Criar <code class="inline-code">engine/engine.py</code> + <code class="inline-code">scanner_XXXX.py</code> + <code class="inline-code">word_builder_XXXX.py</code> para c0908, c1507, c1565, c2056, c2057, c2627, c3575</td><td>~15 min</td></tr>
+      <tr><td>A2</td><td>Verificar imports, testar <code class="inline-code">curl :5000/health</code></td><td>~5 min</td></tr>
+    </table>
+    <p><strong>Estratégia:</strong> Clonar padrão de c2626 para contratos TRAD. Para c0908 (SP), usar <code class="inline-code">word_utils_sp</code>. Para c1565 (SP2), usar <code class="inline-code">word_utils_sp2</code>.</p>
+  </div>
+</div>
+
+<div id="tab-b" class="tab-content">
+  <div class="card">
+    <h3>🔧 FASE B — Novo Endpoint com Medidas</h3>
+    <p><strong>Objetivo:</strong> Criar <code class="inline-code">POST /generate-v2</code> que recebe JSON + imagens binárias (multipart).</p>
+    <table>
+      <tr><th>Task</th><th>Descrição</th><th>Arquivo</th></tr>
+      <tr><td>B1</td><td>Modelo Pydantic <code class="inline-code">BlocoMedida</code> + <code class="inline-code">GenerateV2Request</code></td><td><code class="inline-code">backend/core/server.py</code></td></tr>
+      <tr><td>B2</td><td>Endpoint <code class="inline-code">POST /generate-v2</code> (multipart: meta_json + imagens[])</td><td><code class="inline-code">backend/core/server.py</code></td></tr>
+      <tr><td>B3</td><td>Função <code class="inline-code">montar_conteudo_com_medidas()</code> — transforma blocos + paths em <code class="inline-code">conteudo[]</code> enriquecido</td><td><code class="inline-code">backend/core/conteudo_builder.py</code> (novo)</td></tr>
+    </table>
+  </div>
+</div>
+
+<div id="tab-c" class="tab-content">
+  <div class="card">
+    <h3>🔧 FASE C — Word Builder com Medidas (texto abaixo da imagem)</h3>
+    <p><strong>Objetivo:</strong> Modificar <code class="inline-code">inserir_conteudo()</code> para detectar <code class="inline-code">{"imagem": ..., "medidas": {...}}</code> e adicionar parágrafo de medidas abaixo de cada foto.</p>
+    
+    <h4>Opção A: Texto Puro (recomendado)</h4>
+    <pre><code>3,50 × 2,80 m | Faces: 2 | Total: 19,60 m²</code></pre>
+    <p style="color:var(--text-muted); font-size:0.85rem">Parágrafo centralizado, fonte Arial 9pt, cor cinza #555</p>
+    
+    <h4>Opção B: Caixa de Texto (tabela 1×1 com borda)</h4>
+    <pre><code>┌─────────────────────────────────┐
+│ 17.6 — Pintura acrílica        │
+│ 3,50 × 2,80 m | Faces: 2      │
+│ Total: 19,60 m²                │
+└─────────────────────────────────┘</code></pre>
+    
+    <table>
+      <tr><th>Task</th><th>Descrição</th><th>Arquivo</th></tr>
+      <tr><td>C1</td><td>Nova função <code class="inline-code">_inserir_paragrafo_medidas()</code></td><td><code class="inline-code">backend/core/word_utils.py</code></td></tr>
+      <tr><td>C2</td><td>Modificar <code class="inline-code">inserir_conteudo()</code> para chamar C1 após cada imagem com medidas</td><td><code class="inline-code">backend/core/word_utils.py</code></td></tr>
+      <tr><td>C3</td><td>Versão SP2: <code class="inline-code">_inserir_legenda_medidas_sp2()</code></td><td><code class="inline-code">backend/core/word_utils_sp2.py</code></td></tr>
+    </table>
+  </div>
+</div>
+
+<div id="tab-d" class="tab-content">
+  <div class="card">
+    <h3>🔧 FASE D — Frontend: Envio das Medidas ao Backend</h3>
+    <table>
+      <tr><th>Task</th><th>Descrição</th><th>Arquivo</th></tr>
+      <tr><td>D1</td><td>Novo método <code class="inline-code">generateReportV2()</code> — envia FormData com JSON + imagens binárias</td><td><code class="inline-code">frontend/lib/api.ts</code></td></tr>
+      <tr><td>D2</td><td>Conectar <code class="inline-code">handleGenerate()</code> do Step 3 ao novo endpoint V2</td><td><code class="inline-code">frontend/app/page.tsx</code></td></tr>
+    </table>
+    
+    <h4>Payload enviado:</h4>
+    <pre><code>POST /generate-v2
+Content-Type: multipart/form-data
+
+meta_json: {
+  "contrato_id": "2626",
+  "nr_os": "1753",
+  "blocos": [
+    {
+      "nome": "01 - 3,50 x 2,80",
+      "pasta": "Área externa / Pintura",
+      "item_codigo": "17.6",
+      "item_descricao": "Pintura acrílica...",
+      "unidade": "m²",
+      "medidas": {"largura": 3.5, "altura": 2.8, "faces": 2, "desconto": 0},
+      "total": 19.6
+    }
+  ]
+}
+
+imagens: [foto-01.jpg, foto-02.jpg, ...]</code></pre>
+  </div>
+</div>
+
+<div id="tab-e" class="tab-content">
+  <div class="card">
+    <h3>🔧 FASE E — UI de Aprovação de Medidas (Preview Panel)</h3>
+    <p><strong>Objetivo:</strong> O painel direito (PreviewPanel) deve mostrar tabela de medidas para revisão ANTES de gerar o DOCX.</p>
+    
+    <h4>Layout do Preview de Aprovação:</h4>
+    <pre><code>┌─────────────────────────────────────────────────┐
+│ 17.6 — Pintura acrílica sobre alvenaria         │
+│ Pasta: Área externa / 1 - Pintura               │
+│                                                 │
+│ ┌──────────┬───────────────────┬──────────────┐ │
+│ │ Foto     │ Medidas           │ Total        │ │
+│ ├──────────┼───────────────────┼──────────────┤ │
+│ │ [img] 01 │ 3,50 × 2,80 m     │ 9,80 m²      │ │
+│ │ [img] 02 │ 3,50 × 2,80 m     │ 9,80 m²      │ │
+│ │          │ Faces: 2          │              │ │
+│ ├──────────┴───────────────────┼──────────────┤ │
+│ │ Total do grupo               │ 19,60 m²     │ │
+│ └──────────────────────────────┴──────────────┘ │
+└─────────────────────────────────────────────────┘</code></pre>
+    
+    <table>
+      <tr><th>Task</th><th>Descrição</th><th>Arquivo</th></tr>
+      <tr><td>E1</td><td>Adicionar seção de tabela de medidas no preview usando <code class="inline-code">consolidado</code> do <code class="inline-code">useBlocks()</code></td><td><code class="inline-code">frontend/components/PreviewPanel.tsx</code></td></tr>
+    </table>
+  </div>
+</div>
+
+<div id="tab-f" class="tab-content">
+  <div class="card">
+    <h3>🔧 FASE F — Testes Automatizados com Playwright</h3>
+    <p><strong>Objetivo:</strong> 5 testes E2E cobrindo o fluxo completo.</p>
+    
+    <h4>Instalação:</h4>
+    <pre><code>cd frontend
+npm install -D @playwright/test
+npx playwright install chromium</code></pre>
+    
+    <h4>Plano de Testes:</h4>
+    <table>
+      <thead>
+        <tr><th>#</th><th>Teste</th><th>O que verifica</th><th>Arquivo</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="test-pass">T1</span></td>
+          <td><strong>Step 1 — Cabeçalho</strong></td>
+          <td>Preenche formulário → preview atualiza com placeholders substituídos</td>
+          <td rowspan="5"><code class="inline-code">frontend/e2e/fluxo-medidas.spec.ts</code></td>
+        </tr>
+        <tr>
+          <td><span class="test-pass">T2</span></td>
+          <td><strong>Step 2 — Blocos + Medidas</strong></td>
+          <td>Seleciona fotos → preenche medidas → total calculado visível (ex: 9,80 m²)</td>
+        </tr>
+        <tr>
+          <td><span class="test-pass">T3</span></td>
+          <td><strong>Step 3 — Aprovação</strong></td>
+          <td>Preview mostra tabela de medidas com totais antes de gerar</td>
+        </tr>
+        <tr>
+          <td><span class="test-pass">T4</span></td>
+          <td><strong>Geração + Download</strong></td>
+          <td>Clica Gerar → API mockada retorna blob → download inicia com nome correto</td>
+        </tr>
+        <tr>
+          <td><span class="test-pass">T5</span></td>
+          <td><strong>Validação</strong></td>
+          <td>Botão Gerar desabilitado se medidas não preenchidas → toast de erro</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <h4>Código de exemplo (Playwright):</h4>
+    <pre><code>// frontend/e2e/fluxo-medidas.spec.ts
+import { test, expect } from '@playwright/test';
+
+test('T2: Preenche medidas e vê total calculado', async ({ page }) => {
+  await page.goto('http://localhost:3000');
+  await page.click('text=2626');        // seleciona contrato
+  await page.click('button:has-text("Próximo")'); // Step 2
+  
+  // Seleciona fotos
+  const fc = await page.waitForEvent('filechooser');
+  await page.click('button:has-text("Selecionar Pasta")');
+  await fc.setFiles(['./e2e/fixtures/foto-01.jpg', './e2e/fixtures/foto-02.jpg']);
+  
+  await expect(page.locator('.block-card')).toHaveCount(2);
+  
+  // Seleciona item e preenche medidas
+  await page.locator('.block-card').first().locator('select').selectOption('17.6');
+  await page.locator('.mf-input').first().fill('3.50');  // largura
+  await page.locator('.mf-input').nth(1).fill('2.80');   // altura
+  
+  // Total: 3.50 × 2.80 × 1 face = 9.80 m²
+  await expect(page.locator('.block-total-pill').first()).toContainText('9,80');
+});
+
+test('T4: Geração com download', async ({ page }) => {
+  // Mock da API
+  await page.route('**/generate-v2', route => route.fulfill({
+    status: 200,
+    contentType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    body: Buffer.from('fake-docx'),
+  }));
+  
+  // ... setup ...
+  
+  const [download] = await Promise.all([
+    page.waitForEvent('download'),
+    page.click('button:has-text("Gerar .docx")'),
+  ]);
+  
+  expect(download.suggestedFilename()).toMatch(/Relatorio-OS1753.*\.docx/);
+});
+
+test('T5: Validação — bloqueia geração sem medidas', async ({ page }) => {
+  await page.goto('http://localhost:3000');
+  // ... vai para Step 3 sem preencher ...
+  
+  await expect(page.locator('button:has-text("Gerar .docx")')).toBeDisabled();
+  await expect(page.locator('.toast')).toContainText('Preencha as medidas');
+});</code></pre>
+    
+    <h4>Executar:</h4>
+    <pre><code>cd frontend
+npx playwright test e2e/fluxo-medidas.spec.ts --reporter=html
+# Abre relatório: npx playwright show-report</code></pre>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ARQUITETURA DO CONTEUDO[] ENRIQUECIDO                         -->
+<!-- ============================================================ -->
+<h2>🏗️ Arquitetura do <code class="inline-code">conteudo[]</code> Enriquecido</h2>
+
+<div class="grid-2">
+  <div class="card">
+    <h3>Antes (Legado — apenas imagens)</h3>
+    <pre><code>conteudo = [
+  "Área externa",
+  {"imagem": "C:/fotos/01.jpg"},
+  {"imagem": "C:/fotos/02.jpg"},
+  {"quebra_pagina": True},
+  "»1 - Pintura",
+  {"imagem": "C:/fotos/03.jpg"},
+]</code></pre>
+    <p style="color:var(--red); margin-top:0.5rem">❌ Nenhuma medida, legenda ou metadado</p>
+  </div>
+  <div class="card" style="border-color: var(--green)">
+    <h3>Depois (V2 — com medidas)</h3>
+    <pre><code>conteudo = [
+  "Área externa",
+  {
+    "imagem": "C:/fotos/01.jpg",
+    "medidas": {"largura": 3.5, "altura": 2.8,
+                "faces": 2, "desconto": 0},
+    "item": {"codigo": "17.6",
+             "descricao": "Pintura acrílica",
+             "unidade": "m²"},
+    "total": 19.6,
+    "nome_arquivo": "01 - 3,50 x 2,80"
+  },
+  {"quebra_pagina": True},
+]</code></pre>
+    <p style="color:var(--green); margin-top:0.5rem">✅ Backward-compatible: word builder antigo ignora campos novos</p>
+  </div>
+</div>
+
+<!-- ============================================================ -->
+<!-- ORDEM DE EXECUÇÃO                                             -->
+<!-- ============================================================ -->
+<h2>📊 Dependências e Ordem de Execução</h2>
+
+<pre><code style="font-size:0.9rem">
+A1 (scaffold 7 contratos faltantes)
+  └── A2 (backend sobe sem erros)
+        └── B1 → B2 → B3 (novo endpoint /generate-v2)
+              ├── C1 → C2 → C3 (word builder com medidas)    ← paralelo
+              └── D1 → D2 (frontend envia FormData)          ← paralelo
+                    └── E1 (preview de aprovação)
+                          └── F1 → F2 → F3 (testes Playwright)
+                                └── G1 → G2 (reparo final + INICIAR.bat)
+
+Tarefas paralelizáveis (3 subagentes simultâneos):
+  Agente 1: B1 + B2 + B3 (endpoint)
+  Agente 2: C1 + C2 + C3 (word builder)
+  Agente 3: D1 + D2 (frontend API)
+</code></pre>
+
+<!-- ============================================================ -->
+<!-- MÉTRICAS E ESTIMATIVAS                                        -->
+<!-- ============================================================ -->
+<h2>⏱️ Estimativas</h2>
+
+<div class="grid-3">
+  <div class="card" style="text-align:center">
+    <div style="font-size:2.5rem;color:var(--orange)">7</div>
+    <div style="color:var(--text-muted)">Fases</div>
+  </div>
+  <div class="card" style="text-align:center">
+    <div style="font-size:2.5rem;color:var(--blue)">~25</div>
+    <div style="color:var(--text-muted)">Tasks</div>
+  </div>
+  <div class="card" style="text-align:center">
+    <div style="font-size:2.5rem;color:var(--green)">~3h</div>
+    <div style="color:var(--text-muted)">Tempo estimado</div>
+  </div>
+</div>
+
+<table>
+  <tr><th>Fase</th><th>Tasks</th><th>Arquivos afetados</th><th>Tempo</th></tr>
+  <tr><td>A — Reparo</td><td>2</td><td>~21 novos arquivos</td><td>20 min</td></tr>
+  <tr><td>B — Backend V2</td><td>3</td><td><code class="inline-code">server.py</code> + novo <code class="inline-code">conteudo_builder.py</code></td><td>30 min</td></tr>
+  <tr><td>C — Word Builder</td><td>3</td><td><code class="inline-code">word_utils.py</code>, <code class="inline-code">word_utils_sp2.py</code></td><td>30 min</td></tr>
+  <tr><td>D — Frontend API</td><td>2</td><td><code class="inline-code">api.ts</code>, <code class="inline-code">page.tsx</code></td><td>20 min</td></tr>
+  <tr><td>E — Preview UI</td><td>1</td><td><code class="inline-code">PreviewPanel.tsx</code></td><td>20 min</td></tr>
+  <tr><td>F — Playwright</td><td>3</td><td>Novo <code class="inline-code">e2e/</code> + fixtures</td><td>30 min</td></tr>
+  <tr><td>G — Reparo final</td><td>2</td><td><code class="inline-code">package.json</code>, <code class="inline-code">INICIAR.bat</code></td><td>15 min</td></tr>
+</table>
+
+<!-- ============================================================ -->
+<!-- PLANO SALVO                                                    -->
+<!-- ============================================================ -->
+<h2>📁 Plano Salvo</h2>
+<div class="card">
+  <p>✅ Plano markdown completo salvo em:</p>
+  <code class="inline-code" style="word-break:break-all">.hermes/plans/2026-06-26_medidas-imagens-word.md</code>
+  <p style="margin-top:1rem;color:var(--text-muted)">
+    Pronto para execução via <strong>subagent-driven-development</strong> — 
+    um subagente por fase, com revisão de spec compliance + code quality entre tasks.
+  </p>
+</div>
+
+<script>
+function switchTab(evt, tabId) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  evt.currentTarget.classList.add('active');
+}
+</script>
+
+</body>
+</html>

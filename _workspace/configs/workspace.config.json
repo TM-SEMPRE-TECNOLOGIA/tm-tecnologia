@@ -1,0 +1,110 @@
+{
+  "workspace": {
+    "name": "TM Sempre Tecnologia — Hub Central do Ecossistema",
+    "version": "2.0.0",
+    "created": "2026-05-27",
+    "root": "c:\\Users\\thiag\\Desktop\\tm-tecnologia",
+    "description": "Hub central de controle do ecossistema profissional TM — governa três pilares: Produto (AutoRelatório V5), Ferramentas (TM-MEUS-APPS) e Operação (Minha Demanda)"
+  },
+  "ecossistema": {
+    "descricao": "Os três pilares do trabalho de vida de Thiago Nascimento — TM Sempre Tecnologia",
+    "roots": [
+      {
+        "id": "produto",
+        "nome": "tm-tecnologia",
+        "caminho": "c:\\Users\\thiag\\Desktop\\tm-tecnologia",
+        "papel": "Produto — AutoRelatório V5, desenvolvimento e manutenção",
+        "ativo": true
+      },
+      {
+        "id": "ferramentas",
+        "nome": "TM-MEUS-APPS",
+        "caminho": "c:\\Users\\thiag\\Desktop\\TM-MEUS-APPS",
+        "papel": "Ferramentas — Apps, Skills Claude Code, Design System TM",
+        "ativo": true,
+        "subpastas_criticas": [
+          "01_Golden_Apps_meu_uso",
+          "Meus Plugins e Skills",
+          "TM Design System - NOVO Laranjado"
+        ]
+      },
+      {
+        "id": "operacao",
+        "nome": "000 - Minha Demanda",
+        "caminho": "c:\\Users\\thiag\\Desktop\\000 - Minha Demanda",
+        "papel": "Operação — Controle de demandas reais de campo para o Banco do Brasil",
+        "ativo": true,
+        "subpastas_criticas": [
+          "0 - Sala de controle",
+          "1 - Preventivas 2026",
+          "2 - Em andamento",
+          "3 - Aguardando correção"
+        ]
+      }
+    ]
+  },
+  "projeto_principal": {
+    "nome": "AutoRelatório V5",
+    "localizacao": "AutoRelatorio_V5",
+    "referencia_canonica": "AutoRelatorio_V4/APP/backend",
+    "urls": {
+      "frontend": "http://localhost:3000",
+      "backend": "http://localhost:5000",
+      "docs_api": "http://localhost:5000/docs"
+    },
+    "iniciar": "AutoRelatorio_V5/run.bat"
+  },
+  "contratos": [
+    { "codigo": "0908", "regiao": "São Paulo / SJC", "modo": "SP" },
+    { "codigo": "1507", "regiao": "Cuiabá", "modo": "Tradicional" },
+    { "codigo": "1565", "regiao": "S.J.R.Preto / Ribeirão Preto", "modo": "SP2", "exclusivo": true },
+    { "codigo": "2056", "regiao": "Divinópolis", "modo": "Tradicional" },
+    { "codigo": "2057", "regiao": "Varginha", "modo": "Tradicional" },
+    { "codigo": "2626", "regiao": "Salinas", "modo": "Tradicional" },
+    { "codigo": "2627", "regiao": "Gov. Valadares", "modo": "Tradicional" },
+    { "codigo": "3575", "regiao": "Tangará da Serra", "modo": "Tradicional" },
+    { "codigo": "6122", "regiao": "Mato Grosso do Sul", "modo": "Tradicional" }
+  ],
+  "skills_path": "C:\\Users\\thiag\\Desktop\\TM-MEUS-APPS\\Meus Plugins e Skills",
+  "skills_disponiveis": [
+    "relatorio-preventivo.skill",
+    "relatorio-preventivo-v2.skill",
+    "tm-automatizando",
+    "tm-testes",
+    "tm-design-system-plugin",
+    "antigravity-awesome-skills",
+    "organizar-relatorio.skill",
+    "legenda-descricao-sp2.skill"
+  ],
+  "placeholders_word": [
+    "{{nr_os}}",
+    "{{dt_atend}}",
+    "{{ag_cod}}",
+    "{{ag_nome}}",
+    "{{endereco}}",
+    "{{responsavel_dependencia}}",
+    "{{dt_elab}}",
+    "{{start_here}}"
+  ],
+  "regras_negocio": {
+    "RN-01": "Contrato 1565 é o ÚNICO SP2",
+    "RN-02": "Sort: Vista ampla → Numérico → Alfabético → Detalhes",
+    "RN-03": "Altura padrão de imagem = 10cm (Tradicional e SP) | 7cm exclusivo c1565 (SP2)",
+    "RN-04": "conteudo[] é o único contrato de dados scanner↔builder",
+    "RN-05": "'Faces 2' no nome = área × 2 (SP2)",
+    "RN-06": "8 placeholders fixos no template Word",
+    "RN-07": "1 contrato = 1 módulo Python isolado",
+    "RN-08": "Nunca mudar core para acomodar contrato específico"
+  },
+  "sprint_atual": 3,
+  "status": {
+    "UI_Layout": 100,
+    "Step1_Formulario": 100,
+    "Step2_Blocos": 90,
+    "Step3_Resumo": 100,
+    "Preview": 100,
+    "Backend_9_contratos": 80,
+    "Bridge_API": 100,
+    "Upload_fotos": 0
+  }
+}

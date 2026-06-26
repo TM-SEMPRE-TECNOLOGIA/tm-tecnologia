@@ -1,0 +1,411 @@
+
+<h2 class="sr-only">Demonstrador interativo de animações de transição por seção para sites profissionais</h2>
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.demo-shell {
+  font-family: 'Georgia', serif;
+  background: #0a0a0a;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  height: 420px;
+  position: relative;
+  user-select: none;
+}
+
+.demo-nav {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.demo-nav span {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.demo-nav .logo {
+  font-family: 'Georgia', serif;
+  font-size: 14px;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: 0.05em;
+}
+
+.section-dots {
+  display: flex; gap: 8px; align-items: center;
+}
+
+.dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  background: #c8a96e;
+  transform: scale(1.4);
+}
+
+.sections-track {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+}
+
+.section {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px;
+  opacity: 0;
+  pointer-events: none;
+  transition: none;
+}
+
+.section.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.section.enter-left { animation: enterLeft 0.7s cubic-bezier(0.16,1,0.3,1) forwards; }
+.section.enter-right { animation: enterRight 0.7s cubic-bezier(0.16,1,0.3,1) forwards; }
+.section.enter-up { animation: enterUp 0.7s cubic-bezier(0.16,1,0.3,1) forwards; }
+.section.enter-zoom { animation: enterZoom 0.6s cubic-bezier(0.16,1,0.3,1) forwards; }
+.section.enter-split { animation: enterSplit 0.7s cubic-bezier(0.16,1,0.3,1) forwards; }
+
+.section.exit-left { animation: exitLeft 0.5s ease-in forwards; }
+.section.exit-right { animation: exitRight 0.5s ease-in forwards; }
+.section.exit-down { animation: exitDown 0.5s ease-in forwards; }
+.section.exit-zoom { animation: exitZoom 0.5s ease-in forwards; }
+.section.exit-split { animation: exitSplit 0.5s ease-in forwards; }
+
+@keyframes enterLeft { from { opacity:0; transform:translateX(-80px); } to { opacity:1; transform:translateX(0); } }
+@keyframes enterRight { from { opacity:0; transform:translateX(80px); } to { opacity:1; transform:translateX(0); } }
+@keyframes enterUp { from { opacity:0; transform:translateY(60px); } to { opacity:1; transform:translateY(0); } }
+@keyframes enterZoom { from { opacity:0; transform:scale(0.85); } to { opacity:1; transform:scale(1); } }
+@keyframes enterSplit {
+  from { opacity:0; clip-path: inset(45% 0 45% 0); }
+  to { opacity:1; clip-path: inset(0% 0 0% 0); }
+}
+
+@keyframes exitLeft { from { opacity:1; transform:translateX(0); } to { opacity:0; transform:translateX(-60px); } }
+@keyframes exitRight { from { opacity:1; transform:translateX(0); } to { opacity:0; transform:translateX(60px); } }
+@keyframes exitDown { from { opacity:1; transform:translateY(0); } to { opacity:0; transform:translateY(40px); } }
+@keyframes exitZoom { from { opacity:1; transform:scale(1); } to { opacity:0; transform:scale(1.1); } }
+@keyframes exitSplit {
+  from { opacity:1; clip-path: inset(0% 0 0% 0); }
+  to { opacity:0; clip-path: inset(48% 0 48% 0); }
+}
+
+.section-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c8a96e;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: clamp(22px, 4vw, 32px);
+  font-weight: 400;
+  color: rgba(255,255,255,0.95);
+  text-align: center;
+  line-height: 1.25;
+  margin-bottom: 14px;
+  letter-spacing: -0.02em;
+}
+
+.section-sub {
+  font-size: 13px;
+  color: rgba(255,255,255,0.38);
+  text-align: center;
+  max-width: 340px;
+  line-height: 1.6;
+  font-family: var(--font-sans);
+}
+
+.divider {
+  width: 40px; height: 1px;
+  background: #c8a96e;
+  margin: 16px auto;
+  opacity: 0.6;
+}
+
+.metrics-row {
+  display: flex; gap: 24px; margin-top: 20px;
+}
+
+.metric {
+  text-align: center;
+}
+
+.metric-num {
+  font-size: 28px;
+  font-weight: 400;
+  color: #c8a96e;
+  letter-spacing: -0.03em;
+}
+
+.metric-label {
+  font-size: 10px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.3);
+  margin-top: 4px;
+}
+
+.s1-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 30% 70%, rgba(200,169,110,0.06) 0%, transparent 60%);
+}
+
+.s2-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(30,30,30,1) 0%, rgba(10,10,10,1) 100%);
+}
+
+.s3-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 30%, rgba(80,100,160,0.08) 0%, transparent 55%);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 380px;
+}
+
+.card-mini {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 6px;
+  padding: 14px 12px;
+  text-align: center;
+}
+
+.card-mini-icon {
+  font-size: 18px;
+  margin-bottom: 8px;
+  opacity: 0.7;
+}
+
+.card-mini-label {
+  font-size: 10px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.4);
+}
+
+.controls {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  z-index: 20;
+}
+
+.btn-group { display: flex; gap: 6px; }
+
+.ctrl-btn {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.7);
+  font-size: 12px;
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.ctrl-btn:hover { background: rgba(255,255,255,0.12); color: white; }
+.ctrl-btn.active-style { background: rgba(200,169,110,0.15); border-color: rgba(200,169,110,0.4); color: #c8a96e; }
+
+.anim-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.nav-arrows {
+  display: flex; gap: 4px;
+}
+
+.arrow-btn {
+  width: 30px; height: 30px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.6);
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+
+.arrow-btn:hover { background: rgba(255,255,255,0.14); color: white; }
+</style>
+
+<div class="demo-shell">
+
+  <nav class="demo-nav">
+    <span class="logo">ENGENHARIA</span>
+    <div class="section-dots">
+      <div class="dot active" onclick="goTo(0)"></div>
+      <div class="dot" onclick="goTo(1)"></div>
+      <div class="dot" onclick="goTo(2)"></div>
+    </div>
+    <span>Demo de Scroll</span>
+  </nav>
+
+  <div class="sections-track">
+
+    <div class="section active" id="s0">
+      <div class="s1-bg"></div>
+      <div class="section-tag">Início</div>
+      <h1 class="section-title">Soluções em<br>Engenharia de Manutenção</h1>
+      <div class="divider"></div>
+      <p class="section-sub">Contratos de manutenção preventiva com relatórios técnicos estruturados e rastreabilidade completa.</p>
+      <div class="metrics-row">
+        <div class="metric"><div class="metric-num">12+</div><div class="metric-label">Anos</div></div>
+        <div class="metric"><div class="metric-num">340</div><div class="metric-label">Contratos</div></div>
+        <div class="metric"><div class="metric-num">98%</div><div class="metric-label">SLA</div></div>
+      </div>
+    </div>
+
+    <div class="section" id="s1">
+      <div class="s2-bg"></div>
+      <div class="section-tag">Serviços</div>
+      <h2 class="section-title">O que entregamos</h2>
+      <div class="divider"></div>
+      <div class="grid-3">
+        <div class="card-mini"><div class="card-mini-icon" aria-hidden="true">⚙</div><div class="card-mini-label">Preventiva</div></div>
+        <div class="card-mini"><div class="card-mini-icon" aria-hidden="true">📋</div><div class="card-mini-label">Relatórios</div></div>
+        <div class="card-mini"><div class="card-mini-icon" aria-hidden="true">🏗</div><div class="card-mini-label">Civil</div></div>
+      </div>
+      <p class="section-sub" style="margin-top:16px">Cada seção entra com a animação selecionada abaixo — experimente as opções.</p>
+    </div>
+
+    <div class="section" id="s2">
+      <div class="s3-bg"></div>
+      <div class="section-tag">Contato</div>
+      <h2 class="section-title">Pronto para iniciar<br>um projeto?</h2>
+      <div class="divider"></div>
+      <p class="section-sub">Esta é a seção 3. No site real, aqui entraria um formulário, telefone ou CTA com botão.</p>
+      <div style="margin-top:20px; display:flex; gap:10px;">
+        <div style="background:rgba(200,169,110,0.12); border:1px solid rgba(200,169,110,0.3); color:#c8a96e; font-size:12px; font-family:var(--font-mono); padding:8px 18px; border-radius:4px; letter-spacing:0.08em;">FALAR COM EQUIPE</div>
+        <div style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); color:rgba(255,255,255,0.5); font-size:12px; font-family:var(--font-mono); padding:8px 18px; border-radius:4px; letter-spacing:0.08em;">VER PORTFÓLIO</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="controls">
+    <div class="btn-group">
+      <button class="ctrl-btn active-style" onclick="setStyle('split')">Cortina</button>
+      <button class="ctrl-btn" onclick="setStyle('slide')">Slide</button>
+      <button class="ctrl-btn" onclick="setStyle('zoom')">Zoom</button>
+      <button class="ctrl-btn" onclick="setStyle('rise')">Subida</button>
+    </div>
+    <span class="anim-label" id="anim-label">cortina</span>
+    <div class="nav-arrows">
+      <button class="arrow-btn" onclick="prev()" aria-label="anterior">‹</button>
+      <button class="arrow-btn" onclick="next()" aria-label="próximo">›</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+let current = 0;
+let animStyle = 'split';
+const total = 3;
+
+const enterAnims = {
+  slide: ['enter-right', 'enter-left'],
+  zoom: ['enter-zoom', 'enter-zoom'],
+  rise: ['enter-up', 'enter-up'],
+  split: ['enter-split', 'enter-split']
+};
+
+const exitAnims = {
+  slide: ['exit-left', 'exit-right'],
+  zoom: ['exit-zoom', 'exit-zoom'],
+  rise: ['exit-down', 'exit-down'],
+  split: ['exit-split', 'exit-split']
+};
+
+const labels = { split:'cortina', slide:'slide', zoom:'zoom', rise:'subida' };
+
+function setStyle(s) {
+  animStyle = s;
+  document.getElementById('anim-label').textContent = labels[s];
+  document.querySelectorAll('.ctrl-btn').forEach(b => b.classList.remove('active-style'));
+  event.target.classList.add('active-style');
+}
+
+function goTo(idx) {
+  if (idx === current) return;
+  const dir = idx > current ? 0 : 1;
+  const fromEl = document.getElementById('s' + current);
+  const toEl = document.getElementById('s' + idx);
+
+  const exitClass = exitAnims[animStyle][dir];
+  const enterClass = enterAnims[animStyle][1 - dir];
+
+  fromEl.classList.add(exitClass);
+  fromEl.addEventListener('animationend', () => {
+    fromEl.classList.remove('active', exitClass);
+    fromEl.style.opacity = 0;
+  }, { once: true });
+
+  setTimeout(() => {
+    toEl.style.opacity = 0;
+    toEl.classList.add('active', enterClass);
+    toEl.addEventListener('animationend', () => {
+      toEl.classList.remove(enterClass);
+      toEl.style.opacity = 1;
+    }, { once: true });
+  }, 150);
+
+  current = idx;
+  document.querySelectorAll('.dot').forEach((d,i) => d.classList.toggle('active', i === current));
+}
+
+function next() { goTo((current + 1) % total); }
+function prev() { goTo((current - 1 + total) % total); }
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') next();
+  if (e.key === 'ArrowLeft') prev();
+});
+</script>

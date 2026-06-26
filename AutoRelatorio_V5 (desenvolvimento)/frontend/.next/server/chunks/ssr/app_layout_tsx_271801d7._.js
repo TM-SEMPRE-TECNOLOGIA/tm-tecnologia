@@ -1,0 +1,3 @@
+module.exports=[33290,a=>{"use strict";var b=a.i(7997);function c({children:a}){return(0,b.jsx)("html",{lang:"pt-BR",suppressHydrationWarning:!0,children:(0,b.jsx)("body",{suppressHydrationWarning:!0,style:{margin:0,padding:0,height:"100%"},children:a})})}a.s(["default",()=>c,"metadata",0,{title:"AutoRelatório V4 — TM Sempre Tecnologia",description:"Gerador de Relatório Fotográfico Inteligente — DS TM Laranjado v3"}])}];
+
+//# sourceMappingURL=app_layout_tsx_271801d7._.js.map
