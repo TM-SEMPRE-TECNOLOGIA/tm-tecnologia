@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Thiago Nascimento Barbosa - Operador Digital & Parceiro de Negócios</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f4f1; color: #1a1a1a; line-height: 1.6;
+    }
+
+    .a4-container {
+      width: 210mm; min-height: 297mm; margin: 10mm auto;
+      background: #fff; box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      display: grid; grid-template-columns: 80mm 1fr;
+    }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar {
+      background: #1a1a1a; color: #d4d2cb; padding: 28mm 10mm 10mm 12mm;
+    }
+
+    .avatar-area { margin-bottom: 30px; text-align: center; }
+    .avatar-img {
+      width: 120px; height: 120px; border-radius: 50%;
+      object-fit: cover; display: inline-block;
+      border: 3px solid #C8541C; margin-bottom: 14px;
+    }
+    .side-name {
+      font-weight: 700; font-size: 13px; letter-spacing: 1px;
+      text-transform: uppercase; color: #fff;
+    }
+    .side-tagline {
+      font-size: 11px; color: #C8541C; font-weight: 500;
+      margin-top: 4px;
+    }
+
+    .contact-block { margin-bottom: 30px; }
+    .contact-item {
+      font-size: 11px; color: #aaa69c; margin-bottom: 10px;
+      display: flex; align-items: center; gap: 8px;
+      word-break: break-all;
+    }
+    .contact-item svg { width: 14px; height: 14px; stroke: #C8541C; fill: none; stroke-width: 2; flex-shrink: 0; }
+    .contact-item a { color: #d4d2cb; text-decoration: none; }
+    .contact-item a:hover { color: #C8541C; }
+
+    .side-title {
+      font-size: 11px; font-weight: 700; color: #fff;
+      text-transform: uppercase; letter-spacing: 2px;
+      margin-bottom: 12px; margin-top: 25px;
+      border-bottom: 1px solid #333; padding-bottom: 6px;
+    }
+    
+    .skills-list { list-style: none; }
+    .skills-list li {
+      font-size: 11px; color: #d4d2cb; margin-bottom: 6px;
+      padding-left: 12px; position: relative;
+    }
+    .skills-list li::before {
+      content: ""; position: absolute; left: 0; top: 6px;
+      width: 4px; height: 4px; border-radius: 50%; background: #C8541C;
+    }
+
+    .tech-badges { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+    .badge {
+      font-family: 'JetBrains Mono', monospace; font-size: 9px;
+      background: #2a2a2a; border: 1px solid #444; padding: 2px 7px;
+      border-radius: 3px; color: #d4d2cb;
+    }
+
+    /* ===== MAIN ===== */
+    .main-content { padding: 28mm 14mm 10mm 14mm; }
+
+    .name {
+      font-weight: 800; font-size: 30px; color: #1a1a1a;
+      letter-spacing: -0.5px; line-height: 1.1;
+    }
+    .role {
+      font-size: 13px; font-weight: 600; color: #C8541C;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      margin-top: 6px; margin-bottom: 20px;
+    }
+
+    .summary {
+      font-size: 12px; color: #5C5A55; text-align: justify;
+      margin-bottom: 25px; line-height: 1.7;
+    }
+    .summary strong { color: #1a1a1a; }
+
+    .main-title {
+      font-size: 13px; font-weight: 700; color: #1a1a1a;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      border-bottom: 2px solid #e8e5de; padding-bottom: 6px;
+      margin-bottom: 14px; margin-top: 22px;
+    }
+
+    .exp-item { margin-bottom: 16px; }
+    .exp-header { display: flex; justify-content: space-between; align-items: baseline; }
+    .exp-company { font-weight: 700; font-size: 13px; color: #1a1a1a; }
+    .exp-date { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #8C8A85; }
+    .exp-role { font-weight: 500; font-size: 12px; color: #C8541C; margin-bottom: 4px; }
+    .exp-desc { font-size: 11px; color: #5C5A55; margin-left: 14px; }
+    .exp-desc li { margin-bottom: 3px; }
+
+    .highlight-box {
+      background: #f8f6f2; border-left: 3px solid #C8541C;
+      padding: 10px 12px; margin: 12px 0; font-size: 11px; color: #5C5A55;
+    }
+    .highlight-box strong { color: #1a1a1a; }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .skill-cat { font-weight: 600; font-size: 12px; color: #1a1a1a; margin-bottom: 6px; }
+    .skill-cat-list { list-style: none; font-size: 11px; color: #5C5A55; }
+    .skill-cat-list li { margin-bottom: 3px; padding-left: 12px; position: relative; }
+    .skill-cat-list li::before { content: "›"; position: absolute; left: 0; color: #C8541C; font-weight: 700; }
+
+    @media print {
+      body { background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .a4-container {
+        width: 100%; min-height: auto; margin: 0; box-shadow: none;
+        grid-template-columns: 80mm 1fr;
+      }
+      .sidebar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .highlight-box { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      @page { size: A4; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="a4-container">
+    
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <div class="avatar-area">
+        <img class="avatar-img" src="Foto perfil.jpeg" alt="Thiago N. Barbosa">
+        <div class="side-name">Thiago N. Barbosa</div>
+        <div class="side-tagline">Operador Digital</div>
+      </div>
+
+      <div class="contact-block">
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          <span>(62) 99604-6458</span>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>thiagonascimento.barbosapro@gmail.com</span>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Goiânia, GO</span>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/></svg>
+          <a href="https://thiagonascimentobarbosapro.com" target="_blank">thiagonascimentobarbosapro.com</a>
+        </div>
+      </div>
+
+      <div class="side-title">Competências-Chave</div>
+      <ul class="skills-list">
+        <li>Automação de Processos Digitais</li>
+        <li>Gestão de Múltiplas Operações</li>
+        <li>Criação de Conteúdo Estratégico</li>
+        <li>Design de Produtos Digitais</li>
+        <li>IA Aplicada a Negócios</li>
+        <li>Desenvolvimento Web (Next.js)</li>
+        <li>Agentes de IA Autônomos</li>
+        <li>Tráfego Pago & Marketing Digital</li>
+        <li>Gestão de SLAs e Prazos</li>
+        <li>Organização de Dados e Relatórios</li>
+      </ul>
+
+      <div class="side-title">Stack Tecnológica</div>
+      <div class="tech-badges">
+        <span class="badge">Python</span>
+        <span class="badge">FastAPI</span>
+        <span class="badge">Next.js</span>
+        <span class="badge">TypeScript</span>
+        <span class="badge">Tailwind CSS</span>
+        <span class="badge">SQLite / Supabase</span>
+        <span class="badge">Docker</span>
+        <span class="badge">Playwright</span>
+        <span class="badge">Claude AI</span>
+        <span class="badge">ChatGPT</span>
+        <span class="badge">Git / GitHub</span>
+        <span class="badge">Hermes Agent</span>
+        <span class="badge">Figma</span>
+        <span class="badge">Notion</span>
+        <span class="badge">Airtable</span>
+      </div>
+
+      <div class="side-title">Idiomas</div>
+      <ul class="skills-list">
+        <li>Português — Nativo</li>
+        <li>Inglês — Leitura Técnica</li>
+      </ul>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+      <div class="name">THIAGO NASCIMENTO<br>BARBOSA</div>
+      <div class="role">Operador Digital &bull; Parceiro de Negócios Digitais</div>
+
+      <div class="summary">
+        Profissional digital completo, com experiência real em <strong>operação, automação, tecnologia e criação de conteúdo</strong>. Na prática, construí do zero sistemas que automatizam fluxos inteiros de documentação técnica (reduzindo 85% do tempo de entrega), desenvolvi produtos web completos e opero agentes de IA autônomos para otimizar processos diários. Tenho visão de dono: entendo que toda ferramenta precisa <strong>servir ao negócio</strong> — seja para reduzir custos, acelerar entregas ou escalar presença digital. Opero com autonomia total, resolvo problemas complexos sem supervisão e me adapto rápido a qualquer stack ou plataforma.
+      </div>
+
+      <!-- ===== EXPERIÊNCIA ===== -->
+      <div class="main-title">Experiência Profissional</div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-company">Maffeng - Engenharia e Manutenção</div>
+          <div class="exp-date">2024 — Atual</div>
+        </div>
+        <div class="exp-role">Operador Digital & Arquiteto de Automação</div>
+        <ul class="exp-desc">
+          <li>Automatizei 85% do fluxo de documentação técnica de 9 contratos (BB, Correios, SEAD) com sistema próprio (Python/FastAPI/Next.js), eliminando retrabalho manual.</li>
+          <li>Opero agentes de IA autônomos que gerenciam pipelines de relatórios, orçamentos e validação de dados, garantindo entregas dentro de SLAs rigorosos.</li>
+          <li>Crio dashboards, relatórios executivos e projeções — transformo dados brutos em inteligência de negócio para tomada de decisão da diretoria.</li>
+          <li>Gerencio a comunicação entre equipe de campo (engenheiros) e clientes institucionais, traduzindo necessidades técnicas em documentos comerciais.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-company">TM Sempre Tecnologia (Negócio Próprio)</div>
+          <div class="exp-date">2024 — Atual</div>
+        </div>
+        <div class="exp-role">Founder & Operador Digital</div>
+        <ul class="exp-desc">
+          <li>Crio e opero sistemas web completos (Next.js, FastAPI, SQLite) — plataformas de orçamento, landing pages, portfólios com animação, dashboards.</li>
+          <li>Desenvolvi ecossistema de agentes de IA autônomos (8 perfis) para automatizar: prospecção de freelas, criação de conteúdo, gestão de redes, relatórios técnicos e operações de backoffice.</li>
+          <li>Produzo conteúdo estratégico para Instagram, LinkedIn e blog usando pipelines de IA; planejo e executo tráfego pago para Comunidade Sem Codar (25k alunos).</li>
+          <li>Crio landing pages e materiais de marketing que convertem, com foco em design consistente e copy persuasiva.</li>
+          <li>Administro portfólio de produtos digitais com monitoramento de cron jobs, gateways (Telegram/Discord) e deploys automatizados.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-company">Moto Brasil Peças e Acessórios Ltda</div>
+          <div class="exp-date">2023</div>
+        </div>
+        <div class="exp-role">Assistente Logístico</div>
+        <ul class="exp-desc">
+          <li>Gestão de inventário e fluxo logístico, organização de processos de separação e expedição.</li>
+          <li>Implementação de rotinas ágeis que mitigaram erros operacionais e aceleraram entregas.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-company">Brasil Telecom Call Center / Promed</div>
+          <div class="exp-date">2019 — 2022</div>
+        </div>
+        <div class="exp-role">Operações & Backoffice</div>
+        <ul class="exp-desc">
+          <li>Atendimento de alto volume sob pressão (call center), desenvolvendo resiliência e foco em metas.</li>
+          <li>Rotinas administrativas de backoffice, controle documental e organização de processos internos.</li>
+        </ul>
+      </div>
+
+      <div class="highlight-box">
+        <strong>Por que me destaco como Operador Digital:</strong> Tenho a combinação rara de <strong>experiência operacional de chão de fábrica</strong> (logística, backoffice, call center) com <strong>habilidades tecnológicas avançadas</strong> (desenvolvimento, automação multiagente, IA). Entendo a dor de quem está na operação porque já estive lá — e sei construir as ferramentas que resolvem. Não sou apenas um operador; sou um <strong>construtor de sistemas que operam sozinhos</strong>.
+      </div>
+
+      <!-- ===== HABILIDADES ===== -->
+      <div class="main-title">Habilidades & Competências</div>
+      <div class="grid-2">
+        <div>
+          <div class="skill-cat">🏗️ Operação Digital</div>
+          <ul class="skill-cat-list">
+            <li>Gestão de fluxos de trabalho e SLAs</li>
+            <li>Automação de tarefas repetitivas</li>
+            <li>Organização de dados e documentação</li>
+            <li>Monitoramento de KPIs e métricas</li>
+            <li>Comunicação entre equipes e clientes</li>
+          </ul>
+        </div>
+        <div>
+          <div class="skill-cat">🤖 Tecnologia & Automação</div>
+          <ul class="skill-cat-list">
+            <li>Desenvolvimento web (Next.js, Python, FastAPI)</li>
+            <li>Agentes de IA autônomos multi-perfil</li>
+            <li>Automação de conteúdo e marketing</li>
+            <li>Pipelines de dados e relatórios inteligentes</li>
+            <li>Engenharia de prompt e fine-tuning de IA</li>
+          </ul>
+        </div>
+        <div>
+          <div class="skill-cat">📢 Marketing & Conteúdo</div>
+          <ul class="skill-cat-list">
+            <li>Copywriting estratégico e persuasivo</li>
+            <li>Planejamento de tráfego pago (Meta Ads)</li>
+            <li>Criação de conteúdo para redes sociais</li>
+            <li>Landing pages e funis de conversão</li>
+            <li>Automação de conteúdo com IA</li>
+          </ul>
+        </div>
+        <div>
+          <div class="skill-cat">📊 Gestão & Estratégia</div>
+          <ul class="skill-cat-list">
+            <li>Foco em resultado e redução de custos</li>
+            <li>Autodidata — aprendo qualquer stack rápido</li>
+            <li>Resolução criativa de problemas</li>
+            <li>Organização de múltiplos projetos simultâneos</li>
+            <li>Tomada de decisão baseada em dados</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ===== FORMAÇÃO ===== -->
+      <div class="main-title">Formação</div>
+      <div class="exp-item">
+        <ul class="exp-desc">
+          <li><strong>Ensino Médio Completo</strong></li>
+          <li>Formação contínua e autodidata em: Desenvolvimento Web Full Stack, Automação de Processos com IA, Marketing Digital e Tráfego Pago, Design de Interfaces (UI/UX), Gestão de Operações.</li>
+          <li>Cursos práticos: Informática Avançada, Marketing Digital (SEO, Tráfego, Conteúdo), Desenvolvimento Web, Organização Efetiva de Processos.</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+</html>
